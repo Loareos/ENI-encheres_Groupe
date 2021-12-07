@@ -21,8 +21,8 @@
 	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte" class="formConnexion">
 	
 		<div class="formItemConnexion">
-			<label>Identifiant : </label>
-       		<input type="text" name="texteIdentifiant" value="<%=request.getParameter("texteIdentifiant")!=null?request.getParameter("texteIdentifiant"):""%>" required/>
+			<label>Pseudo : </label>
+       		<input type="text" name="textePseudo" value="<%=request.getParameter("textePseudo")!=null?request.getParameter("textePseudo"):""%>" required/>
        		
        		<label>Nom : </label>
        		<input type="text" name="texteNom" value="<%=request.getParameter("texteNom")!=null?request.getParameter("texteNom"):""%>" required/>
@@ -60,17 +60,13 @@
        		<input type="password" name="passwordConfirm" value="<%=request.getParameter("passwordConfirm")!=null?request.getParameter("passwordConfirm"):""%>" required/>
 		</div>
 		
-		<div>
-			<input type="submit" value="Connection" />
-			
-			
+		<div class="btnConnexion">
+			<input type="submit" value="Créer" />
+			<input type="button" name="Annuler" value="Annuler" onClick="window.location.href='<%=request.getContextPath()%>/index.html';"/>
 		</div>
 		
 	</form>
-	
-	<form action="<%=request.getContextPath()%>/index.html">
-			<button type="submit">Annuler</button>
-	</form>
+
 
 </body>
 
