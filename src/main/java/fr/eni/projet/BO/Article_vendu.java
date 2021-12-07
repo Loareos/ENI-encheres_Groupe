@@ -24,12 +24,11 @@ public class Article_vendu {
 
 	
 	/**
-	 * @param nomArticle
-	 * @param description
-	 * @param dateDebutEncheres
-	 * @param dateFinEnchere
-	 * @param noUtilisateur
-	 * @param noCategorie
+	 * 
+	 * Constructeur 
+	 * 
+	 * @param nomArticle description dateDebutEncheres 
+	 * 			dateFinEnchere noUtilisateur noCategorie
 	 */
 	public Article_vendu(String nomArticle, String description, int dateDebutEncheres,
 						int dateFinEnchere,int noUtilisateur, int noCategorie) {
@@ -42,25 +41,18 @@ public class Article_vendu {
 		this.noCategorie = noCategorie;
 	}
 	/**
-	 * @param noArticle
-	 * @param nomArticle
-	 * @param description
-	 * @param dateDebutEncheres
-	 * @param dateFinEnchere
-	 * @param noUtilisateur
-	 * @param noCategorie
+	 * Constructeur + noArticle
+	 * 
+	 * @param nomArticle description dateDebutEncheres 
+	 * 			dateFinEnchere noUtilisateur noCategorie
+	 * 
 	 */
 	public Article_vendu(int noArticle, String nomArticle, String description,
 						int dateDebutEncheres,int dateFinEnchere, int noUtilisateur,
 						int noCategorie) {
-		super();
+		this(nomArticle, description, dateDebutEncheres,
+				dateFinEnchere, noUtilisateur, noCategorie);
 		this.noArticle = noArticle;
-		this.nomArticle = nomArticle;
-		this.description = description;
-		this.dateDebutEncheres = dateDebutEncheres;
-		this.dateFinEnchere = dateFinEnchere;
-		this.noUtilisateur = noUtilisateur;
-		this.noCategorie = noCategorie;
 	}
 	
 	////////////////////////////////////////////////////////////////

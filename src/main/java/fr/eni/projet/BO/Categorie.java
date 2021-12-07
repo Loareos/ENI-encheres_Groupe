@@ -20,7 +20,6 @@ public class Categorie {
 	 * 
 	 */
 	public Categorie( String libelle) {
-		super();
 		this.libelle = libelle;
 	}
 	
@@ -29,9 +28,8 @@ public class Categorie {
 	 * @param libelle
 	 */
 	public Categorie(int no_categorie, String libelle) {
-		super();
+		this(libelle);
 		this.no_categorie = no_categorie;
-		this.libelle = libelle;
 	}
 
 ////////////////////////////////////////////////////////////////
