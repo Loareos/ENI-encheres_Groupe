@@ -133,9 +133,16 @@ public class Utilisateur {
 	}
 	/**
 	 * @param pseudo the pseudo to set
+	 * @throws BOException 
 	 */
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
+	public void setPseudo(String pseudo) throws BOException {
+		int maxCaractère = 30;
+		if (verifNombreLettre(pseudo, maxCaractère)) {
+			this.pseudo = pseudo;
+		}else {
+			throw new BOException(
+					"Le pseudo de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 	}
 	/**
 	 * @return the nom
@@ -145,8 +152,16 @@ public class Utilisateur {
 	}
 	/**
 	 * @param nom the nom to set
+	 * @throws BOException 
 	 */
-	public void setNom(String nom) {
+	public void setNom(String nom) throws BOException {
+		int maxCaractère = 30;
+		if (verifNombreLettre(nom, maxCaractère)) {
+			this.nom = nom;
+		}else {
+			throw new BOException(
+					"Le nom de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 		this.nom = nom;
 	}
 	/**
@@ -157,9 +172,16 @@ public class Utilisateur {
 	}
 	/**
 	 * @param prenom the prenom to set
+	 * @throws BOException 
 	 */
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public void setPrenom(String prenom) throws BOException {
+		int maxCaractère = 30;
+		if (verifNombreLettre(prenom, maxCaractère)) {
+			this.prenom = prenom;
+		}else {
+			throw new BOException(
+					"Le prénom de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 	}
 	/**
 	 * @return the email
@@ -169,9 +191,16 @@ public class Utilisateur {
 	}
 	/**
 	 * @param email the email to set
+	 * @throws BOException 
 	 */
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String email) throws BOException {
+		int maxCaractère = 20;
+		if (verifNombreLettre(email, maxCaractère)) {
+			this.email = email;
+		}else {
+			throw new BOException(
+					"L'email de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 	}
 	/**
 	 * @return the telephone
@@ -181,9 +210,16 @@ public class Utilisateur {
 	}
 	/**
 	 * @param telephone the telephone to set
+	 * @throws BOException 
 	 */
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setTelephone(String telephone) throws BOException {
+		int maxCaractère = 15;
+		if (verifNombreLettre(telephone, maxCaractère)) {
+			this.telephone = telephone;
+		}else {
+			throw new BOException(
+					"Le numéro de mobile de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 	}
 	/**
 	 * @return the rue
@@ -194,9 +230,16 @@ public class Utilisateur {
 
 	/**
 	 * @param rue the rue to set
+	 * @throws BOException 
 	 */
-	public void setRue(String rue) {
-		this.rue = rue;
+	public void setRue(String rue) throws BOException {
+		int maxCaractère = 30;
+		if (verifNombreLettre(rue, maxCaractère)) {
+			this.rue = rue;
+		}else {
+			throw new BOException(
+					"La description de la rue de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 	}
 
 	/**
@@ -207,9 +250,16 @@ public class Utilisateur {
 	}
 	/**
 	 * @param codePostal the codePostal to set
+	 * @throws BOException 
 	 */
-	public void setCodePostal(String codePostal) {
-		this.codePostal = codePostal;
+	public void setCodePostal(String codePostal) throws BOException {
+		int maxCaractère = 10;
+		if (verifNombreLettre(pseudo, maxCaractère)) {
+			this.codePostal = codePostal;
+		}else {
+			throw new BOException(
+					"Le code postal de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 	}
 	/**
 	 * @return the ville
@@ -219,9 +269,16 @@ public class Utilisateur {
 	}
 	/**
 	 * @param ville the ville to set
+	 * @throws BOException 
 	 */
-	public void setVille(String ville) {
-		this.ville = ville;
+	public void setVille(String ville) throws BOException {
+		int maxCaractère = 30;
+		if (verifNombreLettre(ville, maxCaractère)) {
+			this.ville = ville;
+		}else {
+			throw new BOException(
+					"La ville de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 	}
 	/**
 	 * @return the motDePasse
@@ -231,9 +288,16 @@ public class Utilisateur {
 	}
 	/**
 	 * @param motDePasse the motDePasse to set
+	 * @throws BOException 
 	 */
-	private void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+	private void setMotDePasse(String motDePasse) throws BOException {
+		int maxCaractère = 30;
+		if (verifNombreLettre(motDePasse, maxCaractère)) {
+			this.motDePasse = motDePasse;
+		}else {
+			throw new BOException(
+					"Le mot de passe de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
+		}
 	}
 	/**
 	 * @return the administrateur
@@ -241,7 +305,15 @@ public class Utilisateur {
 	public Boolean getAdministrateur() {
 		return administrateur;
 	}
-
+	
+	public boolean verifNombreLettre(String varchar, int nombreLettreMax){
+		if (varchar.length()<nombreLettreMax) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Utilisateur: no " + getNoUtilisateur() 

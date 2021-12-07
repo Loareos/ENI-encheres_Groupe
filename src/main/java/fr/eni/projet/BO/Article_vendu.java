@@ -3,40 +3,47 @@
  */
 package fr.eni.projet.BO;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+
 /**
  * @author junisaru69
  *
  */
 public class Article_vendu {
+
+	private int noUtilisateur;
 	private int noArticle;
 	private String nomArticle;
 	private String description;
-	private int dateDebutEncheres;
-	private int dateFinEnchere;
+	private Date dateDebutEncheres;
+	private Date dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
-	private int noUtilisateur;
 	private int noCategorie;
-	
+
 	////////////////////////////////////////////////////////////////
 	//											Construct
 	//______________________________________________________________
 
-	
+
 	/**
 	 * 
 	 * Constructeur 
 	 * 
 	 * @param nomArticle description dateDebutEncheres 
-	 * 			dateFinEnchere noUtilisateur noCategorie
+	 * 			dateFinEncheres noUtilisateur noCategorie
 	 */
-	public Article_vendu(String nomArticle, String description, int dateDebutEncheres,
-						int dateFinEnchere,int noUtilisateur, int noCategorie) {
+	public Article_vendu(String nomArticle, String description, Date dateDebutEncheres,
+			Date dateFinEncheres,int noUtilisateur, int noCategorie) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
-		this.dateFinEnchere = dateFinEnchere;
+		this.dateFinEncheres = dateFinEncheres;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
 	}
@@ -44,21 +51,21 @@ public class Article_vendu {
 	 * Constructeur + noArticle
 	 * 
 	 * @param nomArticle description dateDebutEncheres 
-	 * 			dateFinEnchere noUtilisateur noCategorie
+	 * 			dateFinEncheres noUtilisateur noCategorie
 	 * 
 	 */
 	public Article_vendu(int noArticle, String nomArticle, String description,
-						int dateDebutEncheres,int dateFinEnchere, int noUtilisateur,
-						int noCategorie) {
+			Date dateDebutEncheres,Date dateFinEncheres, int noUtilisateur,
+			int noCategorie) {
 		this(nomArticle, description, dateDebutEncheres,
-				dateFinEnchere, noUtilisateur, noCategorie);
+				dateFinEncheres, noUtilisateur, noCategorie);
 		this.noArticle = noArticle;
 	}
-	
+
 	////////////////////////////////////////////////////////////////
 	//											Get/Set
 	//______________________________________________________________
-	
+
 	/**
 	 * @return the noArticle
 	 */
@@ -79,10 +86,18 @@ public class Article_vendu {
 	}
 	/**
 	 * @param nomArticle the nomArticle to set
+	 * @throws BOException si il y a plus de 30 caractères.
 	 */
-	public void setNomArticle(String nomArticle) {
-		this.nomArticle = nomArticle;
+	public void setNomArticle(String nomArticle) throws BOException {
+		int maxCaractère = 30;
+		if (verifNombreLettre(nomArticle, maxCaractère)) {
+			this.nomArticle = nomArticle;
+		}else {
+			throw new BOException(
+					"Le nom de l'article dépasse le nombre de caractère autorisé :"+ maxCaractère);
+		}
 	}
+
 	/**
 	 * @return the description
 	 */
@@ -91,33 +106,57 @@ public class Article_vendu {
 	}
 	/**
 	 * @param description the description to set
+	 * @throws BOException si il y a plus de 300 caractères.
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescription(String description) throws BOException {
+		int maxCaractère = 300;
+		if (verifNombreLettre(description, maxCaractère)) {
+			this.description = description;
+		}else {
+			throw new BOException("La description dépasse le nombre de caractère utilisé"+ maxCaractère);
+		}
 	}
 	/**
 	 * @return the dateDebutEncheres
 	 */
-	public int getDateDebutEncheres() {
+	public Date getdateDebutEncheres() {
 		return dateDebutEncheres;
 	}
 	/**
 	 * @param dateDebutEncheres the dateDebutEncheres to set
+	 * @throws BOException verifi que la date soit postérieur à aujourd'hui
 	 */
-	public void setDateDebutEncheres(int dateDebutEncheres) {
-		this.dateDebutEncheres = dateDebutEncheres;
+	public void setdateDebutEncheres(String dateDebutEncheres) throws BOException {
+		
+		Calendar cal = Calendar.getInstance();
+		Date dateNow = (Date) cal.getTime();
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss"); 
+		
+		
+		try {
+			//On met la date en string entré par l'utilisateur en type date
+			Date dateUtilisateur = (Date) df.parse(dateDebutEncheres); 
+			// On verifie que a date soit postérieur à aujourd'hui
+			if(dateUtilisateur.after(dateNow)){
+				this.dateDebutEncheres = dateUtilisateur;
+			} 
+		} catch (ParseException e) {
+			throw new BOException("La date de debut d'enchère est antérieur"
+					+ " ou égale à la date d'aujourd'hui");
+		}
 	}
 	/**
-	 * @return the dateFinEnchere
+	 * @return the dateFinEncheres
 	 */
-	public int getDateFinEnchere() {
-		return dateFinEnchere;
+	public Date getdateFinEncheres() {
+		return dateFinEncheres;
 	}
 	/**
-	 * @param dateFinEnchere the dateFinEnchere to set
+	 * @param dateFinEncheres the dateFinEncheres to set
 	 */
-	public void setDateFinEnchere(int dateFinEnchere) {
-		this.dateFinEnchere = dateFinEnchere;
+	public void setdateFinEncheres(Date dateFinEncheres) {
+		this.dateFinEncheres = dateFinEncheres;
 	}
 	/**
 	 * @return the miseAPrix
@@ -127,9 +166,14 @@ public class Article_vendu {
 	}
 	/**
 	 * @param miseAPrix the miseAPrix to set
+	 * @throws BOException 
 	 */
-	public void setMiseAPrix(int miseAPrix) {
-		this.miseAPrix = miseAPrix;
+	public void setMiseAPrix(int miseAPrix) throws BOException {
+		if ( miseAPrix < 0 ) {
+			throw new BOException("Prix inférieur à zero-");
+		}else {
+			this.miseAPrix = miseAPrix;
+		}
 	}
 	/**
 	 * @return the prixVente
@@ -139,9 +183,16 @@ public class Article_vendu {
 	}
 	/**
 	 * @param prixVente the prixVente to set
+	 * @throws BOException 
 	 */
-	public void setPrixVente(int prixVente) {
-		this.prixVente = prixVente;
+	public void setPrixVente(int prixVente) throws BOException {
+
+		if ( prixVente < this.miseAPrix ) {
+			throw new BOException("Prix de vente incorrect");
+		}else {
+			this.prixVente = prixVente;
+		}
+
 	}
 	/**
 	 * @return the noUtilisateur
@@ -167,17 +218,26 @@ public class Article_vendu {
 	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
 	}
+	
+	public boolean verifNombreLettre(String varchar, int nombreLettreMax){
+		if (varchar.length()<nombreLettreMax) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Article vendu: No " + getNoArticle()
-				+ ", "+ (getNomArticle() != null ? getNomArticle() + ", " : "")
-				+ (getDescription() != null ? getDescription() + ", " : "")
-				+ "date enchere debut: " + getDateDebutEncheres() 
-				+ "/fin: " + getDateFinEnchere()
-				+ ", Prix debut: " +(getMiseAPrix() != 0 ? getMiseAPrix() + ", " : "")
-				+ "/fin: " + (getPrixVente() != 0 ? getMiseAPrix() + ", " : "")
-				+ ", No Util: "+ getNoUtilisateur()
-				+ ", Caté: " + getNoCategorie() + "-";
+		+ ", "+ getNomArticle()
+		+ ",desc: "+ getDescription()
+		+ ", debut enchère: " + getdateDebutEncheres() 
+		+ "/fin: " + getdateFinEncheres()
+		+ ", Prix départ: " +(getMiseAPrix() != 0 ? getMiseAPrix() + ", " : "")
+		+ "/Prix vente: " + (getPrixVente() != 0 ? getMiseAPrix() + ", " : "")
+		+ ", No Util: "+ getNoUtilisateur()
+		+ ", Caté: " + getNoCategorie() + "-";
 	}
-	
+
 }
