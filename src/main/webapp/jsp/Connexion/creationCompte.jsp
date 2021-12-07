@@ -26,7 +26,7 @@
        		
        		<label>Nom : </label>
        		<input type="text" name="texteNom" value="<%=request.getParameter("texteNom")!=null?request.getParameter("texteNom"):""%>" required/>
-		</div>
+		</div> 
 		
 		<div class="formItemConnexion">
 			<label>Prénom : </label>

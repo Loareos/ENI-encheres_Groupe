@@ -16,7 +16,7 @@
 
 	<nav>
 		<h4>ENI-Enchères</h4>
-	</nav>
+	</nav> 
 	
 	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte" class="formConnexion">
 	
