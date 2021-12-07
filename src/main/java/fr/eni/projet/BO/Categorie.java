@@ -67,8 +67,8 @@ public class Categorie {
 
 	@Override
 	public String toString() {
-		return "Categorie [no_categorie="+ getNo_categorie() 
-							+ ", libelle=" + getLibelle();
+		return "Categorie:"+ getNo_categorie() 
+							+ ", lib:" + getLibelle();
 	}
 	
 	
