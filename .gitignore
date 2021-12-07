@@ -2,3 +2,5 @@
 /.settings
 .classpath
 .project
+/main/webapp/WEB-INF/lib
+/main/webapp/META-INF/context.xml
