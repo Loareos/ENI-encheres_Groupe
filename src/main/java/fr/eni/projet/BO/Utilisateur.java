@@ -16,6 +16,7 @@ public class Utilisateur {
 	private String prenom;
 	private String email;
 	private String telephone;
+	private String rue;
 	private String codePostal;
 	private String ville;
 	private String motDePasse;
@@ -42,7 +43,7 @@ public class Utilisateur {
 	 * @param administrateur
 	 */
 	public Utilisateur(int credit, String pseudo, String nom,
-					String prenom, String email,String codePostal,
+					String prenom, String email,String rue, String codePostal,
 					String ville, String motDePasse,Boolean administrateur) {
 		super();
 		this.credit = credit;
@@ -50,6 +51,7 @@ public class Utilisateur {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
+		this.rue = rue;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.motDePasse = motDePasse;
@@ -74,7 +76,7 @@ public class Utilisateur {
 	 * @param administrateur
 	 */
 	public Utilisateur(int noUtilisateur, int credit, String pseudo,
-					String nom, String prenom, String email,
+					String nom, String prenom, String email, String rue,
 					String codePostal, String ville,String motDePasse,
 					Boolean administrateur) {
 		super();
@@ -84,6 +86,7 @@ public class Utilisateur {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
+		this.rue = rue;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.motDePasse = motDePasse;
@@ -176,6 +179,20 @@ public class Utilisateur {
 		this.telephone = telephone;
 	}
 	/**
+	 * @return the rue
+	 */
+	public String getRue() {
+		return rue;
+	}
+
+	/**
+	 * @param rue the rue to set
+	 */
+	public void setRue(String rue) {
+		this.rue = rue;
+	}
+
+	/**
 	 * @return the codePostal
 	 */
 	public String getCodePostal() {
@@ -208,7 +225,7 @@ public class Utilisateur {
 	/**
 	 * @param motDePasse the motDePasse to set
 	 */
-	public void setMotDePasse(String motDePasse) {
+	private void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
 	/**
@@ -228,8 +245,9 @@ public class Utilisateur {
 				+ " Email" + getEmail()
 				+ " Tel: " +(getTelephone() != null ? getTelephone() + ", " : "")
 				+ " Addr: "+ getCodePostal()
+				+ " "+ getCodePostal()
 				+ " " + getVille()
-				+ " MDP" + getMotDePasse()
+				+ ", MDP" + getMotDePasse()
 				+ " Admin: " + getAdministrateur() + "-";
 	}
 	
