@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body> 
 
 	<nav>
 		<h4>ENI-Enchères</h4>
