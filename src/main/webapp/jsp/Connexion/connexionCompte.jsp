@@ -18,14 +18,21 @@
 		<h4>ENI-Enchères</h4>
 	</nav>
 	
-	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte">
-		<label>Identifiant : </label>
-        <input type="text" name="texteIdentifiant" value="<%=request.getParameter("texteIdentifiant")!=null?request.getParameter("texteIdentifiant"):""%>" required/>
+	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte" class="formConnexion">
+	
+		<div class="formItemConnexion">
+			<label>Identifiant : </label>
+       		<input type="text" name="texteIdentifiant" value="<%=request.getParameter("texteIdentifiant")!=null?request.getParameter("texteIdentifiant"):""%>" required/>
+		</div>
+		
         <br>
         
-        <label>Mot de passe : </label>
-        <input type="password" name="password" value="<%=request.getParameter("password")!=null?request.getParameter("password"):""%>" required/>
-        <br>
+        <div class="formItemConnexion">
+       		<label>Mot de passe : </label>
+        	<input type="password" name="password" value="<%=request.getParameter("password")!=null?request.getParameter("password"):""%>" required/>
+        </div>
+        
+		<br>
 		
 		<div class="connexion">
 			<input type="submit" value="Connection" />

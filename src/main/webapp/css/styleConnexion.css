@@ -1,18 +1,16 @@
 @charset "UTF-8";
 
-h1{
-	color : #ff0080;
-}
 
 
-.connexion{
-	display: flex; 
-}
-
-.connexionOptions{
+.formConnexion{
 	display: flex;
-	flex-direction: column;
+	flex-direction : column;
+	justify-content : center;
+	align-items: center;
+
 }
 
+.formItemConnexion{
+}
 
 .h2{}
