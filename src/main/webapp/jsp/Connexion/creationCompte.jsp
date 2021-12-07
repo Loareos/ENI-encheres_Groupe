@@ -7,7 +7,7 @@
 <head> 
 
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/styleConnexion.css"/>
+	<link rel="stylesheet" href="../../css/styleConnexion.css"/>
 	<title>Créer un compte</title>
 
 </head>
@@ -18,9 +18,9 @@
 		<h4>ENI-Enchères</h4>
 	</nav>
 	
-	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte">
+	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte" class="formConnexion">
 	
-		<div>
+		<div class="formItemConnexion">
 			<label>Identifiant : </label>
        		<input type="text" name="texteIdentifiant" value="<%=request.getParameter("texteIdentifiant")!=null?request.getParameter("texteIdentifiant"):""%>" required/>
        		
@@ -28,7 +28,7 @@
        		<input type="text" name="texteNom" value="<%=request.getParameter("texteNom")!=null?request.getParameter("texteNom"):""%>" required/>
 		</div>
 		
-		<div>
+		<div class="formItemConnexion">
 			<label>Prénom : </label>
        		<input type="text" name="textePrénom" value="<%=request.getParameter("textePrénom")!=null?request.getParameter("textePrénom"):""%>" required/>
        		
@@ -36,23 +36,23 @@
        		<input type="email" name="email" value="<%=request.getParameter("email")!=null?request.getParameter("email"):""%>" required/>
 		</div>
 		
-		<div>
+		<div class="formItemConnexion">
 			<label>Téléphone : </label>
-       		<input type="number" name="numero" value="<%=request.getParameter("numero")!=null?request.getParameter("numero"):""%>" required/>
+       		<input type="text" name="numero" value="<%=request.getParameter("numero")!=null?request.getParameter("numero"):""%>" required/>
        		
        		<label>Rue : </label>
        		<input type="text" name="texteRue" value="<%=request.getParameter("texteRue")!=null?request.getParameter("texteRue"):""%>" required/>
 		</div>
 		
-		<div>
+		<div class="formItemConnexion">
 			<label>Code postal : </label>
-       		<input type="number" name="codePostal" value="<%=request.getParameter("codePostal")!=null?request.getParameter("codePostal"):""%>" required/>
+       		<input type="text" name="codePostal" value="<%=request.getParameter("codePostal")!=null?request.getParameter("codePostal"):""%>" required/>
        		
        		<label>Ville : </label>
        		<input type="text" name="texteVille" value="<%=request.getParameter("texteVille")!=null?request.getParameter("texteVille"):""%>" required/>
 		</div>
 		
-		<div>
+		<div class="formItemConnexion">
 			<label>Mot de passe : </label>
        		<input type="password" name="password" value="<%=request.getParameter("password")!=null?request.getParameter("password"):""%>" required/>
        		
@@ -63,11 +63,13 @@
 		<div>
 			<input type="submit" value="Connection" />
 			
-			<form action="<%=request.getContextPath()%>/jsp/Connexion/creationCompte.jsp">
-				<button type="submit">Annuler</button>
-			</form>
+			
 		</div>
 		
+	</form>
+	
+	<form action="<%=request.getContextPath()%>/index.html">
+			<button type="submit">Annuler</button>
 	</form>
 
 </body>
