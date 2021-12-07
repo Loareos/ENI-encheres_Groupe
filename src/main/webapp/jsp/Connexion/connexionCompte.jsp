@@ -16,7 +16,7 @@
 
 	<nav>
 		<h4>ENI-Enchères</h4>
-	</nav>
+	</nav> 
 	
 	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte" class="formConnexion">
 	
@@ -43,13 +43,13 @@
 					<label>Se souvenir de moi</label>
 				</div>
 				<br>
-				<a href="jsp/SERVLET">Mot de passe oublié</a>
+				<a href="jsp/SERVLET"> Mot de passe oublié</a>
 			</div>
 		</div>
 		
 	</form>
 	
-	<form action="<%=request.getContextPath()%>/jsp/Connexion/creationCompte.jsp">
+	<form action="<%=request.getContextPath()%>/jsp/Connexion/creationCompte.jsp" class="formConnexion">
 		<button type="submit">Créer un compte</button>
 	</form>
 

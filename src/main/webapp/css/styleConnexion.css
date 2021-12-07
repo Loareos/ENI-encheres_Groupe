@@ -1,17 +1,48 @@
 @charset "UTF-8";
 
-
+form{
+	margin-top : 60px;
+	margin-bottom : 40px;
+}
 
 .formConnexion{
 	display: flex;
 	flex-direction : column;
 	justify-content : center;
 	align-items: center;
+	gap : 10px 20px;
 
+}
+
+.connexion{
+	display: flex;
+	gap : 10px 20px;
+}
+
+.connexionOptions{
+	display: flex;
+	flex-direction : column;
+}
+
+.btnConnexion{
+	display: flex;
+	gap : 30px 20px;
+	margin-top : 40px;
+	 
 }
 
 .formItemConnexion{
+	padding-left : 40px;
+	padding-right : 60px;
+	display: flex;
+	
+	gap : 10px 50px;
+	flex-wrap : wrap;
+	justify-content : space-between ;
+	align-items : stretch;
+	align-content : center;
 	
 }
 
-.h2{}
+
+.n{}

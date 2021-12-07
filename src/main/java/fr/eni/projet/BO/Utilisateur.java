@@ -28,24 +28,17 @@ public class Utilisateur {
 	//											Construct
 	//______________________________________________________________
 
-	
-	
 	/**
-	 * @param credit
-	 * @param pseudo
-	 * @param nom
-	 * @param prenom
-	 * @param email
-	 * @param telephone
-	 * @param codePostal
-	 * @param ville
-	 * @param motDePasse
-	 * @param administrateur
+	 * 
+	 * Constructeur
+	 * 
+	 * @param noUtilisateur credit pseudo nom prenom email
+	 * codePostal ville motDePasse administrateur
 	 */
 	public Utilisateur(int credit, String pseudo, String nom,
-					String prenom, String email,String rue, String codePostal,
-					String ville, String motDePasse,Boolean administrateur) {
-		super();
+					String prenom, String email,String rue,
+					String codePostal,String ville, String motDePasse,
+					Boolean administrateur) {
 		this.credit = credit;
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -57,41 +50,55 @@ public class Utilisateur {
 		this.motDePasse = motDePasse;
 		this.administrateur = administrateur;
 	}
+	
+	/**
+	 * Constructeur + telephone
+	 * 
+	 * @param noUtilisateur credit pseudo nom prenom email telephone
+	 * codePostal ville motDePasse administrateur
+	 */
+	public Utilisateur(int credit, String pseudo,
+			String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville,String motDePasse,
+			Boolean administrateur) {
+		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse,administrateur);
+		this.telephone = telephone;
+	}
+	
+	/**
+	 * Constructeur no utilisateur
+	 * 
+	 * @param noUtilisateur credit pseudo nom prenom email telephone
+	 * codePostal ville motDePasse administrateur
+	 */
+	public Utilisateur(int noUtilisateur, int credit, String pseudo,
+			String nom, String prenom, String email, String rue,
+			String codePostal, String ville,String motDePasse,
+			Boolean administrateur) {
+		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse,administrateur);
+		this.noUtilisateur = noUtilisateur;
+	}
+	/**
+	 * Constructeur + no utilisateur + telephone
+	 * 
+	 * @param noUtilisateur credit pseudo nom prenom email telephone
+	 * codePostal ville motDePasse administrateur
+	 */
+	public Utilisateur(int noUtilisateur, int credit, String pseudo,
+			String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville,String motDePasse,
+			Boolean administrateur) {
+		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse,administrateur);
+		this.noUtilisateur = noUtilisateur;
+		this.telephone = telephone;
+	}
+	
+	
+	
 	
 	////////////////////////////////////////////////////////////////
 	//											Get/Set
 	//______________________________________________________________
-	
-	/**
-	 * @param noUtilisateur
-	 * @param credit
-	 * @param pseudo
-	 * @param nom
-	 * @param prenom
-	 * @param email
-	 * @param telephone
-	 * @param codePostal
-	 * @param ville
-	 * @param motDePasse
-	 * @param administrateur
-	 */
-	public Utilisateur(int noUtilisateur, int credit, String pseudo,
-					String nom, String prenom, String email, String rue,
-					String codePostal, String ville,String motDePasse,
-					Boolean administrateur) {
-		super();
-		this.noUtilisateur = noUtilisateur;
-		this.credit = credit;
-		this.pseudo = pseudo;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.rue = rue;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.motDePasse = motDePasse;
-		this.administrateur = administrateur;
-	}
 
 	/**
 	 * 

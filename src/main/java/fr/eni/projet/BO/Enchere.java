@@ -26,12 +26,10 @@ public class Enchere {
 	 * @param montant_enchere
 	 * @param date_enchere
 	 */
-	public Enchere(int no_utilisateur, int no_articles, int montant_enchere, LocalDateTime date_enchere) {
-		super();
+	public Enchere(int no_utilisateur, int no_articles, int montant_enchere,
+				LocalDateTime date_enchere) {
+		this(no_articles,montant_enchere,date_enchere);
 		this.noUtilisateur = no_utilisateur;
-		this.noArticles = no_articles;
-		this.montant_enchere = montant_enchere;
-		this.date_enchere = date_enchere;
 	}
 
 	/**
@@ -41,7 +39,6 @@ public class Enchere {
 	 * @param date_enchere
 	 */
 	public Enchere(int no_articles, int montant_enchere, LocalDateTime date_enchere) {
-		super();
 		this.noArticles = no_articles;
 		this.montant_enchere = montant_enchere;
 		this.date_enchere = date_enchere;

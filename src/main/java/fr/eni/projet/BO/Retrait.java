@@ -26,11 +26,8 @@ public class Retrait {
 	 * @param ville
 	 */
 	public Retrait(int no_article, String rue, String code_postal, String ville) {
-		super();
+		this(rue, code_postal, ville);
 		this.noArticle = no_article;
-		this.rue = rue;
-		this.code_postal = code_postal;
-		this.ville = ville;
 	}
 	/**
 	 * @param rue
@@ -38,7 +35,6 @@ public class Retrait {
 	 * @param ville
 	 */
 	public Retrait(String rue, String code_postal, String ville) {
-		super();
 		this.rue = rue;
 		this.code_postal = code_postal;
 		this.ville = ville;
