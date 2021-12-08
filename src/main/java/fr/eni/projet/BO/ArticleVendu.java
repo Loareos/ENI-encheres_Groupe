@@ -13,7 +13,7 @@ import java.util.Calendar;
  * @author junisaru69
  *
  */
-public class Article_vendu {
+public class ArticleVendu {
 
 	private int noUtilisateur;
 	private int noArticle;
@@ -37,7 +37,7 @@ public class Article_vendu {
 	 * @param nomArticle description dateDebutEncheres 
 	 * 			dateFinEncheres noUtilisateur noCategorie
 	 */
-	public Article_vendu(String nomArticle, String description, Date dateDebutEncheres,
+	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres,
 			Date dateFinEncheres,int noUtilisateur, int noCategorie) {
 		super();
 		this.nomArticle = nomArticle;
@@ -54,7 +54,7 @@ public class Article_vendu {
 	 * 			dateFinEncheres noUtilisateur noCategorie
 	 * 
 	 */
-	public Article_vendu(int noArticle, String nomArticle, String description,
+	public ArticleVendu(int noArticle, String nomArticle, String description,
 			Date dateDebutEncheres,Date dateFinEncheres, int noUtilisateur,
 			int noCategorie) {
 		this(nomArticle, description, dateDebutEncheres,

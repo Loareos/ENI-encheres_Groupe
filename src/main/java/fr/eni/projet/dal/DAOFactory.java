@@ -8,6 +8,7 @@ import fr.eni.projet.BO.Utilisateur;
 
 
 public class DAOFactory {
+	
 	public static DAO<Utilisateur> getUserDAO(){
 		return new UserDAOJdbcImpl();
 	}

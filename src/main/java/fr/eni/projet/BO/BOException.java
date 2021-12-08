@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  */
 public class BOException extends Exception {
-
+	
 	/**
 	 * constructor VIDE
 	 */
@@ -42,8 +42,8 @@ public class BOException extends Exception {
 	@Override
 	public String toString() {
 		return "BOException:" + (getMessage() != null ? " Message:" + getMessage() + ", " : "")
-				+ (getClass() != null ? "getClass()=" + getClass() + ", " : "") + "hashCode()=" + hashCode() + "]"
-				+ (getLocalizedMessage() != null ? "getLocalizedMessage()=" + getLocalizedMessage() + ", " : "")
+				+ (getClass() != null ? "Class -" + getClass() + ", " : "") + "hashCode: " + hashCode()
+				+ (getLocalizedMessage() != null ? "Message: " + getLocalizedMessage() + ", " : "")
 				+ (getCause() != null ? "getCause()=" + getCause() + ", " : "")
 				+ (getStackTrace() != null ? "getStackTrace()=" + Arrays.toString(getStackTrace()) + ", " : "");
 	}
