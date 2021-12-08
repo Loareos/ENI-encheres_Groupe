@@ -29,7 +29,7 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/Connexion/jsp/ConnexionCompte.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/ConnexionCompte.jsp");
 		rd.forward(request, response);
 	}
 
@@ -39,7 +39,6 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
 
 		String texteIdentifiant = request.getParameter("texteIdentifiant");
 		String password = request.getParameter("password");
