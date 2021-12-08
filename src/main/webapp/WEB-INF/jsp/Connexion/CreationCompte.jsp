@@ -23,15 +23,15 @@
 	
 		<div class="formItemConnexion">
 			<label>Pseudo : </label>
-       		<input type="text" name="textePseudoI" value="<%=request.getParameter("textePseudoI")!=null?request.getParameter("textePseudoI"):""%>" required/>
+       		<input type="text" name="PseudoI" value="<%=request.getParameter("PseudoI")!=null?request.getParameter("PseudoI"):""%>" required/>
        		
        		<label>Nom : </label>
-       		<input type="text" name="texteNomI" value="<%=request.getParameter("texteNomI")!=null?request.getParameter("texteNomI"):""%>" required/>
+       		<input type="text" name="NomI" value="<%=request.getParameter("NomI")!=null?request.getParameter("NomI"):""%>" required/>
 		</div> 
 		
 		<div class="formItemConnexion">
 			<label>Prénom : </label>
-       		<input type="text" name="textePrénomI" value="<%=request.getParameter("textePrénomI")!=null?request.getParameter("textePrénomI"):""%>" required/>
+       		<input type="text" name="PrénomI" value="<%=request.getParameter("PrénomI")!=null?request.getParameter("PrénomI"):""%>" required/>
        		
        		<label>Email : </label>
        		<input type="email" name="emailI" value="<%=request.getParameter("emailI")!=null?request.getParameter("emailI"):""%>" required/>
@@ -39,10 +39,10 @@
 		
 		<div class="formItemConnexion"> 
 			<label>Téléphone : </label>
-       		<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="numeroI" value="<%=request.getParameter("numeroI")!=null?request.getParameter("numeroI"):""%>" required/>
+       		<input type="tel" pattern="[0-9]{10}" placeholder="0612345678" name="telI" value="<%=request.getParameter("telI")!=null?request.getParameter("numeroI"):""%>" required/>
        		
        		<label>Rue : </label>
-       		<input type="text" name="texteRueI" value="<%=request.getParameter("texteRueI")!=null?request.getParameter("texteRueI"):""%>" required/>
+       		<input type="text" name="RueI" value="<%=request.getParameter("RueI")!=null?request.getParameter("RueI"):""%>" required/>
 		</div>
 		
 		<div class="formItemConnexion">
@@ -50,7 +50,7 @@
        		<input type="text" name="codePostalI" value="<%=request.getParameter("codePostalI")!=null?request.getParameter("codePostalI"):""%>" required/>
        		
        		<label>Ville : </label>
-       		<input type="text" name="texteVilleI" value="<%=request.getParameter("texteVilleI")!=null?request.getParameter("texteVilleI"):""%>" required/>
+       		<input type="text" name="VilleI" value="<%=request.getParameter("VilleI")!=null?request.getParameter("VilleI"):""%>" required/>
 		</div>
 		
 		<div class="formItemConnexion">
