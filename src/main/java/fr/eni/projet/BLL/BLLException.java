@@ -13,7 +13,7 @@ import java.util.List;
 public class BLLException extends Exception{
 	/**
 	 * 
-	 * @author Administrator
+	 * @author junisaru69
 	 *
 	 * Cette classe permet de recenser l'ensemble des erreurs (par leur code) pouvant survenir lors d'un traitement
 	 * quel que soit la couche à l'origine.
@@ -32,7 +32,6 @@ public class BLLException extends Exception{
 		 */
 		public BLLException(String message) {
 			super(message);
-			// TODO Auto-generated constructor stub
 		}
 
 		/**
@@ -41,7 +40,6 @@ public class BLLException extends Exception{
 		 */
 		public BLLException(String message, Throwable cause) {
 			super(message, cause);
-			// TODO Auto-generated constructor stub
 		}
 		
 		/**

@@ -21,8 +21,8 @@ public class ArticleVendu {
 	private int noArticle;
 	private String nomArticle;
 	private String description;
-	private Date dateDebutEncheres;
-	private Date dateFinEncheres;
+	private LocalDateTime dateDebutEncheres;
+	private LocalDateTime dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
 	private int noCategorie;
@@ -39,8 +39,8 @@ public class ArticleVendu {
 	 * @param nomArticle description dateDebutEncheres 
 	 * 			dateFinEncheres noUtilisateur noCategorie
 	 */
-	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres,
-			Date dateFinEncheres,int noUtilisateur, int noCategorie) {
+	public ArticleVendu(String nomArticle, String description, LocalDateTime dateDebutEncheres,
+			LocalDateTime dateFinEncheres,int noUtilisateur, int noCategorie) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -57,7 +57,7 @@ public class ArticleVendu {
 	 * 
 	 */
 	public ArticleVendu(int noArticle, String nomArticle, String description,
-			Date dateDebutEncheres,Date dateFinEncheres, int noUtilisateur,
+			LocalDateTime dateDebutEncheres,LocalDateTime dateFinEncheres, int noUtilisateur,
 			int noCategorie) {
 		this(nomArticle, description, dateDebutEncheres,
 				dateFinEncheres, noUtilisateur, noCategorie);
@@ -90,14 +90,8 @@ public class ArticleVendu {
 	 * @param nomArticle the nomArticle to set
 	 * @throws BOException si il y a plus de 30 caractères.
 	 */
-	public void setNomArticle(String nomArticle) throws BLLException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(nomArticle, maxCaractère)) {
-			this.nomArticle = nomArticle;
-		}else {
-			throw new BLLException(
-					"Le nom de l'article dépasse le nombre de caractère autorisé :"+ maxCaractère);
-		}
+	public void setNomArticle(String nomArticle) {
+		this.nomArticle = nomArticle;
 	}
 
 	/**
@@ -110,54 +104,32 @@ public class ArticleVendu {
 	 * @param description the description to set
 	 * @throws BOException si il y a plus de 300 caractères.
 	 */
-	public void setDescription(String description) throws BOException {
-		int maxCaractère = 300;
-		if (verifNombreLettre(description, maxCaractère)) {
-			this.description = description;
-		}else {
-			throw new BOException("La description dépasse le nombre de caractère utilisé"+ maxCaractère);
-		}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	/**
 	 * @return the dateDebutEncheres
 	 */
-	public Date getdateDebutEncheres() {
+	public LocalDateTime getdateDebutEncheres() {
 		return dateDebutEncheres;
 	}
 	/**
 	 * @param dateDebutEncheres the dateDebutEncheres to set
 	 * @throws BOException verifi que la date soit postérieur à aujourd'hui
 	 */
-	public void setdateDebutEncheres(String dateDebutEncheres) throws BOException {
-		
-		Calendar cal = Calendar.getInstance();
-		Date dateNow = (Date) cal.getTime();
-		
-		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss"); 
-		
-		
-		try {
-			//On met la date en string entré par l'utilisateur en type date
-			Date dateUtilisateur = (Date) df.parse(dateDebutEncheres); 
-			// On verifie que a date soit postérieur à aujourd'hui
-			if(dateUtilisateur.after(dateNow)){
-				this.dateDebutEncheres = dateUtilisateur;
-			} 
-		} catch (ParseException e) {
-			throw new BOException("La date de debut d'enchère est antérieur"
-					+ " ou égale à la date d'aujourd'hui");
-		}
+	public void setdateDebutEncheres(LocalDateTime dateDebutEncheres) {
+				this.dateDebutEncheres = dateDebutEncheres;
 	}
 	/**
 	 * @return the dateFinEncheres
 	 */
-	public Date getdateFinEncheres() {
+	public LocalDateTime getdateFinEncheres() {
 		return dateFinEncheres;
 	}
 	/**
 	 * @param dateFinEncheres the dateFinEncheres to set
 	 */
-	public void setdateFinEncheres(Date dateFinEncheres) {
+	public void setdateFinEncheres(LocalDateTime dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 	/**
@@ -170,12 +142,8 @@ public class ArticleVendu {
 	 * @param miseAPrix the miseAPrix to set
 	 * @throws BOException 
 	 */
-	public void setMiseAPrix(int miseAPrix) throws BOException {
-		if ( miseAPrix < 0 ) {
-			throw new BOException("Prix inférieur à zero-");
-		}else {
-			this.miseAPrix = miseAPrix;
-		}
+	public void setMiseAPrix(int miseAPrix){
+		this.miseAPrix = miseAPrix;
 	}
 	/**
 	 * @return the prixVente
@@ -187,14 +155,8 @@ public class ArticleVendu {
 	 * @param prixVente the prixVente to set
 	 * @throws BOException 
 	 */
-	public void setPrixVente(int prixVente) throws BOException {
-
-		if ( prixVente < this.miseAPrix ) {
-			throw new BOException("Prix de vente incorrect");
-		}else {
-			this.prixVente = prixVente;
-		}
-
+	public void setPrixVente(int prixVente){
+		this.prixVente = prixVente;
 	}
 	/**
 	 * @return the noUtilisateur
