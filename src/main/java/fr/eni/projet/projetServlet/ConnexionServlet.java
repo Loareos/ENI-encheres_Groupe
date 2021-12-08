@@ -86,7 +86,7 @@ public class ConnexionServlet extends HttpServlet {
 			rd = request.getRequestDispatcher("index.jsp");
 		} else {
 
-			rd = request.getRequestDispatcher("index.jsp");
+			rd = request.getRequestDispatcher("CreationCompte.jsp");
 		}
 
 		rd.forward(request, response);
