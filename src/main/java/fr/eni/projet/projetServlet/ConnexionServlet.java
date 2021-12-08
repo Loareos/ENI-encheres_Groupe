@@ -29,7 +29,7 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/Connexion/ConnexionCompte.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/Connexion/jsp/ConnexionCompte.jsp");
 		rd.forward(request, response);
 	}
 
