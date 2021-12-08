@@ -14,34 +14,37 @@ public class Enchere {
 	private int noUtilisateur;
 	private int noArticles;
 	private int montant_enchere;
-	private LocalDateTime date_enchere;
+	private LocalDateTime dateEnchere;
 
 	////////////////////////////////////////////////////////////////
 	//											Construct
 	//______________________________________________________________
 
 	/**
-	 * @param no_utilisateur
-	 * @param no_articles
+	 * 
+	 * Contruct + no
+	 * 
+	 * @param noUtilisateur
+	 * @param noArticles
 	 * @param montant_enchere
-	 * @param date_enchere
+	 * @param dateEnchere
 	 */
-	public Enchere(int no_utilisateur, int no_articles, int montant_enchere,
-				LocalDateTime date_enchere) {
-		this(no_articles,montant_enchere,date_enchere);
-		this.noUtilisateur = no_utilisateur;
+	public Enchere(int noUtilisateur, int noArticles, int montant_enchere,
+				LocalDateTime dateEnchere) {
+		this(noArticles,montant_enchere,dateEnchere);
+		this.noUtilisateur = noUtilisateur;
 	}
 
 	/**
-	 * @param no_utilisateur
-	 * @param no_articles
+	 * @param noUtilisateur
+	 * @param noArticles
 	 * @param montant_enchere
-	 * @param date_enchere
+	 * @param dateEnchere
 	 */
-	public Enchere(int no_articles, int montant_enchere, LocalDateTime date_enchere) {
-		this.noArticles = no_articles;
+	public Enchere(int noArticles, int montant_enchere, LocalDateTime dateEnchere) {
+		this.noArticles = noArticles;
 		this.montant_enchere = montant_enchere;
-		this.date_enchere = date_enchere;
+		this.dateEnchere = dateEnchere;
 	}
 	
 	////////////////////////////////////////////////////////////////
@@ -49,31 +52,31 @@ public class Enchere {
 	//______________________________________________________________
 
 	/**
-	 * @return the no_utilisateur
+	 * @return the noUtilisateur
 	 */
 	public int getNo_utilisateur() {
 		return noUtilisateur;
 	}
 
 	/**
-	 * @param no_utilisateur the no_utilisateur to set
+	 * @param noUtilisateur the noUtilisateur to set
 	 */
-	public void setNo_utilisateur(int no_utilisateur) {
-		this.noUtilisateur = no_utilisateur;
+	public void setNo_utilisateur(int noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
 	}
 
 	/**
-	 * @return the no_articles
+	 * @return the noArticles
 	 */
 	public int getNo_articles() {
 		return noArticles;
 	}
 
 	/**
-	 * @param no_articles the no_articles to set
+	 * @param noArticles the noArticles to set
 	 */
-	public void setNo_articles(int no_articles) {
-		this.noArticles = no_articles;
+	public void setNo_articles(int noArticles) {
+		this.noArticles = noArticles;
 	}
 
 	/**
@@ -91,17 +94,17 @@ public class Enchere {
 	}
 
 	/**
-	 * @return the date_enchere
+	 * @return the dateEnchere
 	 */
 	public LocalDateTime getDate_enchere() {
-		return date_enchere;
+		return dateEnchere;
 	}
 
 	/**
-	 * @param date_enchere the date_enchere to set
+	 * @param dateEnchere the dateEnchere to set
 	 */
-	public void setDate_enchere(LocalDateTime date_enchere) {
-		this.date_enchere = date_enchere;
+	public void setDate_enchere(LocalDateTime dateEnchere) {
+		this.dateEnchere = dateEnchere;
 	}
 
 	@Override
