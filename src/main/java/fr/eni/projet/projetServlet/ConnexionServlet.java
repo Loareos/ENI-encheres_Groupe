@@ -2,6 +2,7 @@ package fr.eni.projet.projetServlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +29,8 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/Connexion/ConnexionCompte.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -38,6 +40,9 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
+
+		String texteIdentifiant = request.getParameter("texteIdentifiant");
+		String password = request.getParameter("password");
 	}
 
 }
