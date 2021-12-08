@@ -26,7 +26,7 @@ public class UtilisateurManager {
 	 */
 	public Utilisateur ajouterUtilisateurStandard() throws BOException
 	{
-		BusinessException exception = new BusinessException();
+		BLLException exception = new BLLException();
 		
 		Utilisateur utilisateurStrd = new Utilisateur(noUtilisateur,credit,pseudo,nom,prenom,email,telephone,rue,codePostal,ville,motDePasse,administrateur);
 		
@@ -49,13 +49,13 @@ public class UtilisateurManager {
 	 * Cette méthode permet de vérifier les règles à respecter sur la variable membre note.
 	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet businessException.
 	 * @param utilisateurStrd
-	 * @param businessException 
+	 * @param bLLException 
 	 */
-	private void validerNote(Utilisateur utilisateurStrd, BusinessException businessException)
+	private void validerNote(Utilisateur utilisateurStrd, BLLException bLLException)
 	{
 		if(utilisateurStrd.getNote()<1 || utilisateurStrd.getNote()>5)
 		{
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_AVIS_NOTE_ERREUR);
+			bLLException.ajouterErreur(CodesResultatBLL.REGLE_AVIS_NOTE_ERREUR);
 		}
 	}
 	
@@ -63,13 +63,13 @@ public class UtilisateurManager {
 	 * Cette méthode permet de vérifier les règles à respecter sur la variable membre description.
 	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet businessException.
 	 * @param utilisateurStrd
-	 * @param businessException
+	 * @param bLLException
 	 */
-	private void validerDescription(Utilisateur utilisateurStrd, BusinessException businessException)
+	private void validerDescription(Utilisateur utilisateurStrd, BLLException bLLException)
 	{
 		if(utilisateurStrd.getDescription()==null  || utilisateurStrd.getDescription().equals("")|| utilisateurStrd.getDescription().length()>150)
 		{
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_AVIS_DESCRIPTION_ERREUR);
+			bLLException.ajouterErreur(CodesResultatBLL.REGLE_AVIS_DESCRIPTION_ERREUR);
 		}
 	}
 }

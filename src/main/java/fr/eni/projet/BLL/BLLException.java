@@ -10,7 +10,7 @@ import java.util.List;
  * @author junisaru69
  *
  */
-public class BusinessException extends Exception{
+public class BLLException extends Exception{
 	/**
 	 * 
 	 * @author Administrator
@@ -21,9 +21,27 @@ public class BusinessException extends Exception{
 		private static final long serialVersionUID = 1L;
 		private List<Integer> listeCodesErreur;
 		
-		public BusinessException() {
+		public BLLException() {
 			super();
 			this.listeCodesErreur=new ArrayList<>();
+		}
+		
+
+		/**
+		 * @param message
+		 */
+		public BLLException(String message) {
+			super(message);
+			// TODO Auto-generated constructor stub
+		}
+
+		/**
+		 * @param message
+		 * @param cause
+		 */
+		public BLLException(String message, Throwable cause) {
+			super(message, cause);
+			// TODO Auto-generated constructor stub
 		}
 		
 		/**

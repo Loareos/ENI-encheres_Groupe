@@ -9,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 
+import fr.eni.projet.BLL.BLLException;
+
 /**
  * @author junisaru69
  *
@@ -88,12 +90,12 @@ public class ArticleVendu {
 	 * @param nomArticle the nomArticle to set
 	 * @throws BOException si il y a plus de 30 caractères.
 	 */
-	public void setNomArticle(String nomArticle) throws BOException {
+	public void setNomArticle(String nomArticle) throws BLLException {
 		int maxCaractère = 30;
 		if (verifNombreLettre(nomArticle, maxCaractère)) {
 			this.nomArticle = nomArticle;
 		}else {
-			throw new BOException(
+			throw new BLLException(
 					"Le nom de l'article dépasse le nombre de caractère autorisé :"+ maxCaractère);
 		}
 	}
