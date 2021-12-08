@@ -27,9 +27,16 @@ public class Utilisateur {
 	////////////////////////////////////////////////////////////////
 	//											Construct
 	//______________________________________________________________
-
+	
+	
 	/**
-	 * 
+	 * Constructeur vide
+	 */
+	public Utilisateur() {
+		super();
+	}
+	
+	/**
 	 * Constructeur initial
 	 * 
 	 * @param noUtilisateur credit pseudo nom prenom email
@@ -50,6 +57,7 @@ public class Utilisateur {
 		this.administrateur = false;
 	}
 	
+
 	/**
 	 * 
 	 * Constructeur initial + telephone

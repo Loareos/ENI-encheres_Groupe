@@ -28,16 +28,14 @@ public class UtilisateurManager {
 	{
 		BusinessException exception = new BusinessException();
 		
-		Utilisateur utilisateurStrd = new Utilisateur(int noUtilisateur, int credit, String pseudo,
-				String nom, String prenom, String email, String telephone, String rue,
-				String codePostal, String ville,String motDePasse,Boolean administrateur);
+		Utilisateur utilisateurStrd = new Utilisateur(noUtilisateur,credit,pseudo,nom,prenom,email,telephone,rue,codePostal,ville,motDePasse,administrateur);
 		
 		this.validerNote(utilisateurStrd,exception);
 		this.validerDescription(utilisateurStrd,exception);
 
 		if(!exception.hasErreurs())
 		{
-			this.UtilisateurDAO.insert(utilisateurStrd);
+			this.UtilisateurDao.insert(utilisateurStrd);
 		}
 		
 		if(exception.hasErreurs())
