@@ -22,14 +22,14 @@
 	
 		<div class="formItemConnexion">
 			<label>Identifiant : </label>
-       		<input type="text" name="texteIdentifiant" value="<%=request.getParameter("texteIdentifiant")!=null?request.getParameter("texteIdentifiant"):""%>" required/>
+       		<input type="text" name="texteIdentifiantC" value="<%=request.getParameter("texteIdentifiantC")!=null?request.getParameter("texteIdentifiantC"):""%>" required/>
 		</div>
 		
         <br>
         
         <div class="formItemConnexion">
        		<label>Mot de passe : </label>
-        	<input type="password" name="password" value="<%=request.getParameter("password")!=null?request.getParameter("password"):""%>" required/>
+        	<input type="password" name="passwordC" value="<%=request.getParameter("passwordC")!=null?request.getParameter("passwordC"):""%>" required/>
         </div>
         
 		<br>

@@ -11,14 +11,14 @@
 	
 </head>
 
-<body>
+<header>
 
-	<nav>
+    <nav>
 		<h4>ENI-Enchères</h4>
 		
 		<c:if test="${empty utilisateur}">
             <p>Pas d'utilisateur connecté</p>
-		    <a href="SERVLET" class="lienConnection">S'inscrire - Se connecter</a>
+		    <a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
         </c:if>
         
         <c:if test="${!empty utilisateur}">
@@ -30,6 +30,17 @@
         </c:if>
 		
 	</nav>
+	
+</header>
+<body>
+
+	<h3 class="titreIndex">Liste des enchères</h3>
+	
+	<h4>Filtres : </h4>
+	
+	
+	
+	
 	
 </body>
 </html>

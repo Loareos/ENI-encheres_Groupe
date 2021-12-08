@@ -7,7 +7,7 @@
 <head> 
 
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../../css/styleConnexion.css"/>
+	<link rel="stylesheet" href="../../../css/styleConnexion.css"/>
 	<title>Créer un compte</title>
 
 </head>
@@ -22,42 +22,42 @@
 	
 		<div class="formItemConnexion">
 			<label>Pseudo : </label>
-       		<input type="text" name="textePseudo" value="<%=request.getParameter("textePseudo")!=null?request.getParameter("textePseudo"):""%>" required/>
+       		<input type="text" name="textePseudoI" value="<%=request.getParameter("textePseudoI")!=null?request.getParameter("textePseudoI"):""%>" required/>
        		
        		<label>Nom : </label>
-       		<input type="text" name="texteNom" value="<%=request.getParameter("texteNom")!=null?request.getParameter("texteNom"):""%>" required/>
+       		<input type="text" name="texteNomI" value="<%=request.getParameter("texteNomI")!=null?request.getParameter("texteNomI"):""%>" required/>
 		</div> 
 		
 		<div class="formItemConnexion">
 			<label>Prénom : </label>
-       		<input type="text" name="textePrénom" value="<%=request.getParameter("textePrénom")!=null?request.getParameter("textePrénom"):""%>" required/>
+       		<input type="text" name="textePrénomI" value="<%=request.getParameter("textePrénomI")!=null?request.getParameter("textePrénomI"):""%>" required/>
        		
        		<label>Email : </label>
-       		<input type="email" name="email" value="<%=request.getParameter("email")!=null?request.getParameter("email"):""%>" required/>
+       		<input type="email" name="emailI" value="<%=request.getParameter("emailI")!=null?request.getParameter("emailI"):""%>" required/>
 		</div>
 		
 		<div class="formItemConnexion"> 
 			<label>Téléphone : </label>
-       		<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="numero" value="<%=request.getParameter("numero")!=null?request.getParameter("numero"):""%>" required/>
+       		<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="numeroI" value="<%=request.getParameter("numeroI")!=null?request.getParameter("numeroI"):""%>" required/>
        		
        		<label>Rue : </label>
-       		<input type="text" name="texteRue" value="<%=request.getParameter("texteRue")!=null?request.getParameter("texteRue"):""%>" required/>
+       		<input type="text" name="texteRueI" value="<%=request.getParameter("texteRueI")!=null?request.getParameter("texteRueI"):""%>" required/>
 		</div>
 		
 		<div class="formItemConnexion">
 			<label>Code postal : </label>
-       		<input type="text" name="codePostal" value="<%=request.getParameter("codePostal")!=null?request.getParameter("codePostal"):""%>" required/>
+       		<input type="text" name="codePostalI" value="<%=request.getParameter("codePostalI")!=null?request.getParameter("codePostalI"):""%>" required/>
        		
        		<label>Ville : </label>
-       		<input type="text" name="texteVille" value="<%=request.getParameter("texteVille")!=null?request.getParameter("texteVille"):""%>" required/>
+       		<input type="text" name="texteVilleI" value="<%=request.getParameter("texteVilleI")!=null?request.getParameter("texteVilleI"):""%>" required/>
 		</div>
 		
 		<div class="formItemConnexion">
 			<label>Mot de passe : </label>
-       		<input type="password" name="password" value="<%=request.getParameter("password")!=null?request.getParameter("password"):""%>" required/>
+       		<input type="password" name="passwordI" value="<%=request.getParameter("passwordI")!=null?request.getParameter("passwordI"):""%>" required/>
        		
        		<label>Confirmation : </label>
-       		<input type="password" name="passwordConfirm" value="<%=request.getParameter("passwordConfirm")!=null?request.getParameter("passwordConfirm"):""%>" required/>
+       		<input type="password" name="passwordConfirmI" value="<%=request.getParameter("passwordConfirmI")!=null?request.getParameter("passwordConfirmI"):""%>" required/>
 		</div>
 		
 		<div class="btnConnexion">
