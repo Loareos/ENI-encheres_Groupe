@@ -62,7 +62,7 @@
 		
 		<div class="btnConnexion">
 			<input type="submit" value="Créer" />
-			<input type="button" name="Annuler" value="Annuler" onClick="window.location.href='<%=request.getContextPath()%>/index.html';"/>
+			<input type="button" name="Annuler" value="Annuler" onClick="window.location.href='<%=request.getContextPath()%>/index.jsp';"/>
 		</div>
 		
 	</form>
