@@ -19,7 +19,7 @@
 		<h4>ENI-Enchères</h4>
 	</nav> 
 	
-	<form method="post" action="<%=request.getContextPath()%>/jsp/Connexion/ConnexionServlet" class="formConnexion">
+	<form method="post" action="ConnexionServlet" class="formConnexion">
 	
 		<div class="formItemConnexion">
 			<label>Identifiant : </label>

@@ -25,14 +25,26 @@ h3{
 }
 
 .formConnexion{
-	display: flex;
-	flex-direction : column;
-	justify-content : center;
-	align-items: center;
-	gap : 10px 20px;
+    padding-left : 15px;
+    margin-left : auto;
+    margin-right : auto;
 
 }
  
+.formItemConnexion{
+	display: flex;
+	justify-content : space-between;
+	align-items: center;
+	margin-bottom : 10px;
+	
+	padding-left : 40px;
+	padding-right : 60px;
+	
+	gap : 10px 50px;
+	flex-wrap : wrap;
+    width : 500;
+	
+}
 .connexion{
 	display: flex;
 	gap : 10px 20px;
@@ -44,24 +56,13 @@ h3{
 }
 
 .btnConnexion{
-	display: flex;
-	gap : 30px 20px;
+    width : 115px;
+    margin-left : auto;
+    margin-right : auto;
 	margin-top : 40px;
 	 
 }
 
-.formItemConnexion{
-	padding-left : 40px;
-	padding-right : 60px;
-	display: flex;
-	
-	gap : 10px 50px;
-	flex-wrap : wrap;
-	justify-content : space-between ;
-	align-items : stretch;
-	align-content : center;
-	
-}
 
 
 .n{}
