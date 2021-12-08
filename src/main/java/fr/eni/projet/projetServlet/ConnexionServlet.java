@@ -56,7 +56,7 @@ public class ConnexionServlet extends HttpServlet {
 		if (cookiePresent) {
 			rd = request.getRequestDispatcher("index.jsp");
 		} else {
-			rd = request.getRequestDispatcher("CreationCompte.jsp");
+			rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp");
 		}
 		rd.forward(request, response);
 	}
@@ -86,7 +86,7 @@ public class ConnexionServlet extends HttpServlet {
 			rd = request.getRequestDispatcher("index.jsp");
 		} else {
 
-			rd = request.getRequestDispatcher("CreationCompte.jsp");
+			rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp");
 		}
 
 		rd.forward(request, response);
