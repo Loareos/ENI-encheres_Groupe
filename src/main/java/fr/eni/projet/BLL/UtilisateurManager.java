@@ -3,23 +3,33 @@
  */
 package fr.eni.projet.BLL;
 
-import fr.eni.projet.BO.BOException;
 import fr.eni.projet.BO.Utilisateur;
 import fr.eni.projet.dal.DAO;
 import fr.eni.projet.dal.DAOFactory;
 
 /**
  * @author junisaru69
- *
+ *	Modif by Etienne
  */
 public class UtilisateurManager {
 	
-	private DAO<Utilisateur> UtilisateurDao;
+	private static DAO<Utilisateur> UtilisateurDao;
+	private static UtilisateurManager instance;
 	
-	public UtilisateurManager() {
-		this.UtilisateurDao = DAOFactory.getUserDAO();
+	public static UtilisateurManager getInstance() throws BLLException{
+		if(instance == null) {
+			try {
+				instance = new UtilisateurManager();
+			} catch (Exception e) {
+				throw new BLLException(e);
+			}
+		}
+		return instance;
 	}
 	
+	private UtilisateurManager() throws BLLException{
+		UtilisateurDao = DAOFactory.getUserDAO();
+	}
 	/**
 	 * @return un objet Utilisateur en cas de succcès
 	 * @throws BoException 

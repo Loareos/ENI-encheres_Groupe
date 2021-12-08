@@ -6,6 +6,7 @@
 <head>
 
 	<meta charset="UTF-8">
+	<meta author="Clément"/>
 	<link rel="stylesheet" href="css/styleIndex.css"/>
 	<title>Accueil</title> 
 	
@@ -25,7 +26,7 @@
 		        <a href="SERVLET" class="lienConnection">Enchères</a>
 	    	    <a href="SERVLET" class="lienConnection">Vendre un article</a>
 		        <a href="SERVLET" class="lienConnection">Mon profil</a>
-		        <a href="SERVLET" class="lienConnection">Déconnexion</a>
+		        <a href="DeconnexionServlet" class="lienConnection">Déconnexion</a>
 		    </div>
         </c:if>
 		

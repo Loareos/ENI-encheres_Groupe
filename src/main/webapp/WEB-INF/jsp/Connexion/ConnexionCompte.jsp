@@ -7,6 +7,7 @@
 <head>
 
 	<meta charset="UTF-8">
+	<meta author="Clément"/>
 	<style type="text/css"><%@include file="../../../css/styleConnexion.css"%></style>
 	<title>Se connecter à un compte</title>
 
