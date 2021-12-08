@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
-.n{}
+h4{
+	padding-right : 50px;
+}
+
+
 
 nav{
 	display: flex;
@@ -12,10 +16,18 @@ nav{
 	flex-wrap : wrap;
 }
 
+.liens{
+	display: flex;
+	align-items: center;
+	justify-content : center;
+
+}
+
 .lienConnection{
-	
+	padding-right : 20px;
 }
 
 .titreIndex{
-	
+	display: flex; 
+	justify-content : center;
 }
