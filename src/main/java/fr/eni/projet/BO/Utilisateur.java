@@ -60,20 +60,12 @@ public class Utilisateur {
 	public Utilisateur(int credit, String pseudo, String nom,
 			String prenom, String email,String rue, String telephone,
 			String codePostal,String ville, String motDePasse, Boolean administrateur) {
-		this.credit = credit;
-		this.pseudo = pseudo;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
+		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse);
 		if (telephone.isEmpty()) {
 			this.telephone = "null";
 		}else {
 			this.telephone = telephone;
 		}
-		this.rue = rue;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.motDePasse = motDePasse;
 		this.administrateur = false;
 	}
 	
@@ -87,12 +79,15 @@ public class Utilisateur {
 			String nom, String prenom, String email, String telephone, String rue,
 			String codePostal, String ville,String motDePasse,Boolean administrateur) {
 		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse);
-		this.noUtilisateur = noUtilisateur;
+		
 		if (telephone.isEmpty()) {
 			this.telephone = "null";
 		}else {
 			this.telephone = telephone;
 		}
+		
+		this.noUtilisateur = noUtilisateur;
+		
 		this.administrateur = false;
 
 	}
