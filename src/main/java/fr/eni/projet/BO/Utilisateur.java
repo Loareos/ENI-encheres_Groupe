@@ -305,7 +305,7 @@ public class Utilisateur {
 	public Boolean getAdministrateur() {
 		return administrateur;
 	}
-	
+	//on simplifi le code en créant une methode de vérification du nombre de caractères
 	public boolean verifNombreLettre(String varchar, int nombreLettreMax){
 		if (varchar.length()<nombreLettreMax) {
 			return true;
