@@ -5,6 +5,25 @@ form{
 	margin-bottom : 40px;
 }
 
+h3{
+	display: flex;
+	justify-content : center;
+	margin-bottom : 30px;
+}
+
+.profil{
+	display: flex;
+	justify-content : space-between;
+	align-items: center;
+	margin-bottom : 10px;
+}
+
+.profilInfos{
+    width : 200px;
+    margin-left : auto;
+    margin-right : auto;
+}
+
 .formConnexion{
 	display: flex;
 	flex-direction : column;

@@ -17,7 +17,7 @@
     <nav>
 		<h4>ENI-Enchères</h4> 
 		
-		<c:if test="${!empty utilisateur}">
+		<c:if test="${empty utilisateur}">
 		    <a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
         </c:if>
         
@@ -25,7 +25,7 @@
             <div class="liens">
 		        <a href="SERVLET" class="lienConnection">Enchères</a>
 	    	    <a href="SERVLET" class="lienConnection">Vendre un article</a>
-		        <a href="SERVLET" class="lienConnection">Mon profil</a>
+		        <a href="ProfilServlet" class="lienConnection">Mon profil</a>
 		        <a href="DeconnexionServlet" class="lienConnection">Déconnexion</a>
 		    </div>
         </c:if>

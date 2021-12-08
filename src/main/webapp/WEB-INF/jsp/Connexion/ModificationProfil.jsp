@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta author="Clément"/>
 	<style type="text/css"><%@include file="../../../css/styleConnexion.css"%></style>
-	<title>Mon profil</title> 
+	<title>Modification Profil</title> 
 	
 </head>
 
@@ -30,6 +30,7 @@
         <label>Pseudo : </label>
         <label><%=request.getParameter("pseudo")%></label>
     </div>
+    <br>
     <div class="profil">
         <label>Nom : </label>
         <label><%=request.getParameter("Nom")%></label>
@@ -58,12 +59,24 @@
         <label>Ville : </label>
         <label><%=request.getParameter("Ville")%></label>
     </div>
+    <div class="profil">
+        <label>Mot de passe actuel : </label>
+        <label><%=request.getParameter("MdpActuel")%></label>
+    </div>
+    <div class="profil">
+        <label>Nouveau mot de passe : </label>
+        <label><%=request.getParameter("MdpNew")%></label>
+    </div>
+    <div class="profil">
+        <label>Confirmation : </label>
+        <label><%=request.getParameter("MdpNewConfirm")%></label>
+    </div>
 	</div>
 	
 	
 	
 	
-	 <c:if test="${ProfilAffiche != utilisateurActuel}">
+	 <c:if test="${!empty moi}">
          
      </c:if>
 	

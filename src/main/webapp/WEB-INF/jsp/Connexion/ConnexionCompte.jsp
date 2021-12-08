@@ -44,7 +44,7 @@
 					<label>Se souvenir de moi</label>
 				</div>
 				<br>
-				<a href="jsp/SERVLET"> Mot de passe oublié</a> 
+				<a href="MdpOublieServlet"> Mot de passe oublié</a> 
 			</div>
 		</div>
 		
