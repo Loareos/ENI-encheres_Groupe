@@ -18,7 +18,7 @@
 		<h4>ENI-Enchères</h4>
 	</nav>
 	
-	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte" class="formConnexion">
+	<form method="post" action="<%=request.getContextPath()%>/jsp/Connexion/InscriptionServlet" class="formConnexion">
 	
 		<div class="formItemConnexion">
 			<label>Pseudo : </label>
@@ -36,7 +36,7 @@
        		<input type="email" name="email" value="<%=request.getParameter("email")!=null?request.getParameter("email"):""%>" required/>
 		</div>
 		
-		<div class="formItemConnexion">
+		<div class="formItemConnexion"> 
 			<label>Téléphone : </label>
        		<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="numero" value="<%=request.getParameter("numero")!=null?request.getParameter("numero"):""%>" required/>
        		
