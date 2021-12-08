@@ -7,7 +7,7 @@
 <head>
 
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../../css/styleConnexion.css"/>
+	<style type="text/css"><%@include file="../../../css/styleConnexion.css"%></style>
 	<title>Se connecter à un compte</title>
 
 </head>
@@ -49,7 +49,7 @@
 		
 	</form>
 	
-	<form action="<%=request.getContextPath()%>/jsp/Connexion/CreationCompte.jsp" class="formConnexion">
+	<form action="InscriptionServlet" class="formConnexion">
 		<button type="submit">Créer un compte</button>
 	</form>
 

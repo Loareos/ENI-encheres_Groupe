@@ -7,7 +7,7 @@
 <head> 
 
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../../../css/styleConnexion.css"/>
+	<style type="text/css"><%@include file="../../../css/styleConnexion.css"%></style>
 	<title>Créer un compte</title>
 
 </head>

@@ -16,17 +16,17 @@
     <nav>
 		<h4>ENI-Enchères</h4>
 		
-		<c:if test="${empty utilisateur}">
-            <p>Pas d'utilisateur connecté</p>
+		<c:if test="${!empty utilisateur}">
 		    <a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
         </c:if>
         
-        <c:if test="${!empty utilisateur}">
-            <p>Utilisateur connecté</p>
-		    <a href="SERVLET" class="lienConnection">Enchères</a>
-	    	<a href="SERVLET" class="lienConnection">Vendre un article</a>
-		    <a href="SERVLET" class="lienConnection">Mon profil</a>
-		    <a href="SERVLET" class="lienConnection">Déconnexion</a>
+        <c:if test="${empty utilisateur}">
+            <div class="liens">
+		        <a href="SERVLET" class="lienConnection">Enchères</a>
+	    	    <a href="SERVLET" class="lienConnection">Vendre un article</a>
+		        <a href="SERVLET" class="lienConnection">Mon profil</a>
+		        <a href="SERVLET" class="lienConnection">Déconnexion</a>
+		    </div>
         </c:if>
 		
 	</nav>
