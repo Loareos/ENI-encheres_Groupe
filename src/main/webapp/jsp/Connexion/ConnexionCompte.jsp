@@ -18,7 +18,7 @@
 		<h4>ENI-Enchères</h4>
 	</nav> 
 	
-	<form method="post" action="<%=request.getContextPath()%>/jsp/AjoutCompte" class="formConnexion">
+	<form method="post" action="<%=request.getContextPath()%>/jsp/Connexion/ConnexionServlet" class="formConnexion">
 	
 		<div class="formItemConnexion">
 			<label>Identifiant : </label>
@@ -49,7 +49,7 @@
 		
 	</form>
 	
-	<form action="<%=request.getContextPath()%>/jsp/Connexion/creationCompte.jsp" class="formConnexion">
+	<form action="<%=request.getContextPath()%>/jsp/Connexion/CreationCompte.jsp" class="formConnexion">
 		<button type="submit">Créer un compte</button>
 	</form>
 
