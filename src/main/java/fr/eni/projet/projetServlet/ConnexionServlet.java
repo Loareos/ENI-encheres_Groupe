@@ -68,13 +68,14 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String texteIdentifiantC = request.getParameter("texteIdentifiant");
-		String passwordC = request.getParameter("password");
+		String texteIdentifiantC = request.getParameter("texteIdentifiantC");
+		String passwordC = request.getParameter("passwordC");
 
 		// Condition pour se connecter, renvoie à l'acceuil(index.jsp)
 
 		RequestDispatcher rd;
-		if (texteIdentifiantC.equals("") && passwordC.equals("")) {
+
+		if (texteIdentifiantC.equals(texteIdentifiantC) && passwordC.equals(passwordC)) {
 			if (request.getParameter("souv") != null) {
 				if (request.getParameter("souv").equals("ok")) {
 					Cookie cookie = new Cookie("connexion", "ok");
