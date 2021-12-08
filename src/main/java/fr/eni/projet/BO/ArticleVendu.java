@@ -183,14 +183,6 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 	}
 	
-	public boolean verifNombreLettre(String varchar, int nombreLettreMax){
-		if (varchar.length()<nombreLettreMax) {
-			return true;
-		}else {
-			return false;
-		}
-	}
-	
 	@Override
 	public String toString() {
 		return "Article vendu: No " + getNoArticle()
