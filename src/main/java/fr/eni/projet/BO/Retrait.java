@@ -15,7 +15,7 @@ public class Retrait {
 	private String ville;
 	
 	////////////////////////////////////////////////////////////////
-	//											Construct
+	//											Construct   
 	//______________________________________________________________
 
 
@@ -64,14 +64,8 @@ public class Retrait {
 	 * @param rue the rue to set
 	 * @throws BOException 
 	 */
-	public void setRue(String rue) throws BOException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(rue, maxCaractère)) {
-			this.rue = rue;
-		}else {
-			throw new BOException(
-					"La description de la rue de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
+	public void setRue(String rue){
+		this.rue = rue;
 	}
 	/**
 	 * @return the code_postal
@@ -83,14 +77,8 @@ public class Retrait {
 	 * @param code_postal the code_postal to set
 	 * @throws BOException 
 	 */
-	public void setCode_postal(String code_postal) throws BOException {
-		int maxCaractère = 15;
-		if (verifNombreLettre(code_postal, maxCaractère)) {
-			this.code_postal = code_postal;
-		}else {
-			throw new BOException(
-					"Le code postal de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
+	public void setCode_postal(String code_postal) {
+		this.code_postal = code_postal;
 	}
 	/**
 	 * @return the ville
@@ -102,22 +90,8 @@ public class Retrait {
 	 * @param ville the ville to set
 	 * @throws BOException 
 	 */
-	public void setVille(String ville) throws BOException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(ville, maxCaractère)) {
-			this.ville = ville;
-		}else {
-			throw new BOException(
-					"La ville de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-	
-	public boolean verifNombreLettre(String varchar, int nombreLettreMax){
-		if (varchar.length()<nombreLettreMax) {
-			return true;
-		}else {
-			return false;
-		}
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 	
 	@Override

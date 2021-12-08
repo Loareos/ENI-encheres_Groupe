@@ -1,15 +1,12 @@
-/**
- * 
- */
 package fr.eni.projet.BO;
 
 /**
  * @author junisaru69
- *
+ * Modif by Etienne
  */
 public class Utilisateur {
 
-	private int noUtilisateur;
+	private Integer noUtilisateur;
 	private int credit;
 	private String pseudo;
 	private String nom;
@@ -24,9 +21,9 @@ public class Utilisateur {
 
 
 
-	////////////////////////////////////////////////////////////////
-	//											Construct
-	//______________________________________________________________
+//=========================================================	
+//					CONSTRUCTEURS
+//=========================================================	
 	
 	
 	/**
@@ -37,295 +34,148 @@ public class Utilisateur {
 	}
 	
 	/**
-	 * Constructeur initial
-	 * 
-	 * @param noUtilisateur credit pseudo nom prenom email
-	 * codePostal ville motDePasse
+	 * Constructeur complet
 	 */
-	public Utilisateur(int credit, String pseudo, String nom,
-			String prenom, String email,String rue,
-			String codePostal,String ville, String motDePasse) {
-		this.credit = credit;
-		this.pseudo = pseudo;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.rue = rue;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.motDePasse = motDePasse;
-		this.administrateur = false;
-	}
-	
-
-	/**
-	 * 
-	 * Constructeur initial + telephone
-	 * 
-	 * @param noUtilisateur credit pseudo nom prenom email telephone rue
-	 * codePostal ville motDePasse administrateur
-	 */
-	public Utilisateur(int credit, String pseudo, String nom,
-			String prenom, String email,String rue, String telephone,
-			String codePostal,String ville, String motDePasse, Boolean administrateur) {
-		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse);
-		if (telephone.isEmpty()) {
-			this.telephone = "null";
-		}else {
-			this.telephone = telephone;
-		}
-		this.administrateur = false;
-	}
-	
-	/**
-	 * Constructeur + no utilisateur
-	 * 
-	 * @param noUtilisateur credit pseudo nom prenom email telephone
-	 * codePostal ville motDePasse administrateur
-	 */
-	public Utilisateur(int noUtilisateur, int credit, String pseudo,
-			String nom, String prenom, String email, String telephone, String rue,
-			String codePostal, String ville,String motDePasse,Boolean administrateur) {
-		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse);
-		
-		if (telephone.isEmpty()) {
-			this.telephone = "null";
-		}else {
-			this.telephone = telephone;
-		}
-		
-		this.noUtilisateur = noUtilisateur;
-		
-		this.administrateur = false;
-
-	}
-
-	////////////////////////////////////////////////////////////////
-	//											Get/Set
-	//______________________________________________________________
-
-	/**
-	 * 
-	 * @return the noUtilisateur
-	 */
-	public int getNoUtilisateur() {
-		return noUtilisateur;
-	}
-	/**
-	 * @param noUtilisateur the noUtilisateur to set
-	 */
-	public void setNoUtilisateur(int noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
-	}
-	/**
-	 * @return the credit
-	 */
-	public int getCredit() {
-		return credit;
-	}
-	/**
-	 * @param credit the credit to set
-	 */
-	public void setCredit(int credit) {
-		this.credit = credit;
-	}
-	/**
-	 * @return the pseudo
-	 */
-	public String getPseudo() {
-		return pseudo;
-	}
-	/**
-	 * @param pseudo the pseudo to set
-	 * @throws BOException 
-	 */
-	public void setPseudo(String pseudo) throws BOException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(pseudo, maxCaractère)) {
-			this.pseudo = pseudo;
-		}else {
-			throw new BOException(
-					"Le pseudo de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-	/**
-	 * @return the nom
-	 */
-	public String getNom() {
-		return nom;
-	}
-	/**
-	 * @param nom the nom to set
-	 * @throws BOException 
-	 */
-	public void setNom(String nom) throws BOException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(nom, maxCaractère)) {
-			this.nom = nom;
-		}else {
-			throw new BOException(
-					"Le nom de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-		this.nom = nom;
-	}
-	/**
-	 * @return the prenom
-	 */
-	public String getPrenom() {
-		return prenom;
-	}
-	/**
-	 * @param prenom the prenom to set
-	 * @throws BOException 
-	 */
-	public void setPrenom(String prenom) throws BOException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(prenom, maxCaractère)) {
-			this.prenom = prenom;
-		}else {
-			throw new BOException(
-					"Le prénom de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-	/**
-	 * @param email the email to set
-	 * @throws BOException 
-	 */
-	public void setEmail(String email) throws BOException {
-		int maxCaractère = 20;
-		if (verifNombreLettre(email, maxCaractère)) {
-			this.email = email;
-		}else {
-			throw new BOException(
-					"L'email de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-	/**
-	 * @return the telephone
-	 */
-	public String getTelephone() {
-		return telephone;
-	}
-	/**
-	 * @param telephone the telephone to set
-	 * @throws BOException 
-	 */
-	public void setTelephone(String telephone) throws BOException {
-		int maxCaractère = 15;
-		if (verifNombreLettre(telephone, maxCaractère)) {
-			this.telephone = telephone;
-		}else {
-			throw new BOException(
-					"Le numéro de mobile de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-	/**
-	 * @return the rue
-	 */
-	public String getRue() {
-		return rue;
-	}
-
-	/**
-	 * @param rue the rue to set
-	 * @throws BOException 
-	 */
-	public void setRue(String rue) throws BOException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(rue, maxCaractère)) {
-			this.rue = rue;
-		}else {
-			throw new BOException(
-					"La description de la rue de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-
-	/**
-	 * @return the codePostal
-	 */
-	public String getCodePostal() {
-		return codePostal;
-	}
-	/**
-	 * @param codePostal the codePostal to set
-	 * @throws BOException 
-	 */
-	public void setCodePostal(String codePostal) throws BOException {
-		int maxCaractère = 10;
-		if (verifNombreLettre(pseudo, maxCaractère)) {
-			this.codePostal = codePostal;
-		}else {
-			throw new BOException(
-					"Le code postal de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-	/**
-	 * @return the ville
-	 */
-	public String getVille() {
-		return ville;
-	}
-	/**
-	 * @param ville the ville to set
-	 * @throws BOException 
-	 */
-	public void setVille(String ville) throws BOException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(ville, maxCaractère)) {
-			this.ville = ville;
-		}else {
-			throw new BOException(
-					"La ville de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-	/**
-	 * @return the motDePasse
-	 */
-	public String getMotDePasse() {
-		return motDePasse;
-	}
-	/**
-	 * @param motDePasse the motDePasse to set
-	 * @throws BOException 
-	 */
-	private void setMotDePasse(String motDePasse) throws BOException {
-		int maxCaractère = 30;
-		if (verifNombreLettre(motDePasse, maxCaractère)) {
-			this.motDePasse = motDePasse;
-		}else {
-			throw new BOException(
-					"Le mot de passe de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
-		}
-	}
-	
-	/**
-	 * @param administrateur the administrateur to set
-	 */
-	public void setAdministrateur(Boolean administrateur) {
+	public Utilisateur(Integer noUtilisateur, int credit, String pseudo, String nom, String prenom, String email, String rue, String telephone, String codePostal, String ville, String motDePasse, boolean administrateur) {
+		this.noUtilisateur 	= noUtilisateur;
+		this.credit 		= credit;
+		this.pseudo 		= pseudo;
+		this.nom 			= nom;
+		this.prenom 		= prenom;
+		this.email 			= email;
+		this.rue 			= rue;
+		this.telephone 		= telephone;
+		this.codePostal 	= codePostal;
+		this.ville 			= ville;
+		this.motDePasse 	= motDePasse;
 		this.administrateur = administrateur;
 	}
 
 	/**
-	 * @return the administrateur
+	 * Constructeur sans numero d'identifiant
 	 */
+	public Utilisateur(int credit, String pseudo, String nom, String prenom, String email, String rue, String telephone, String codePostal, String ville, String motDePasse, boolean administrateur) {
+		this(null, credit, pseudo, nom, prenom, email, rue, telephone, codePostal, ville, motDePasse, administrateur);
+	}
+
+	/**
+	 * Constructeur sans telephone ni numero d'identifiant
+	 */
+	public Utilisateur(int credit, String pseudo, String nom, String prenom, String email, String rue, String codePostal, String ville, String motDePasse, boolean administrateur) {
+		this(null, credit, pseudo, nom, prenom, email, rue, null, codePostal, ville, motDePasse, administrateur);
+	}
+	
+	/**
+	 * Constructeur sans téléphone
+	 */
+	public Utilisateur(Integer noUtilisateur, int credit, String pseudo, String nom, String prenom, String email, String rue, String codePostal, String ville, String motDePasse, boolean administrateur) {
+		this(noUtilisateur, credit, pseudo, nom, prenom, email, rue, null, codePostal, ville, motDePasse, administrateur);
+	}
+
+//=========================================================	
+//					GETTERS - SETTERS
+//=========================================================	
+
+
+//=============== NoUtilisateur =====================
+	public Integer getNoUtilisateur() {
+		return noUtilisateur;
+	}
+	public void setNoUtilisateur(Integer noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
+	}
+
+//=============== Credit =====================	
+	public int getCredit() {
+		return credit;
+	}
+	public void setCredit(int credit) {
+		this.credit = credit;
+	}
+
+//=============== Pseudo =====================	
+	public String getPseudo() {
+		return pseudo;
+	}
+	public void setPseudo(String pseudo){
+		this.pseudo = pseudo;
+	}
+
+//=============== Nom =====================	
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+//=============== Prenom =====================	
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom){
+		this.prenom = prenom;
+	}
+	
+//=============== Email =====================	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email){
+		this.email = email;
+	}
+	
+//=============== Telephone =====================	
+	public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone){
+		this.telephone = telephone;
+	}
+	
+//=============== Rue =====================	
+	public String getRue() {
+		return rue;
+	}
+	public void setRue(String rue){
+		this.rue = rue;
+	}
+
+//=============== Code Postal =====================	
+	public String getCodePostal() {
+		return codePostal;
+	}
+	public void setCodePostal(String codePostal){
+		this.codePostal = codePostal;
+	}
+	
+//=============== Ville =====================	
+	public String getVille() {
+		return ville;
+	}
+	public void setVille(String ville){
+		this.ville = ville;
+	}
+	
+//=============== Mot de passe =====================	
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+	private void setMotDePasse(String motDePasse){
+		this.motDePasse = motDePasse;
+	}
+	
+//=============== Administrateur =====================	
+	public void setAdministrateur(Boolean administrateur) {
+		this.administrateur = administrateur;
+	}
 	public Boolean getAdministrateur() {
 		return administrateur;
 	}
-	//on simplifi le code en créant une methode de vérification du nombre de caractères
-	public boolean verifNombreLettre(String varchar, int nombreLettreMax){
-		if (varchar.length()<nombreLettreMax) {
-			return true;
-		}else {
-			return false;
-		}
-	}
 
+//=========================================================	
+//===================== TO STRING =========================
+//=========================================================
 	@Override
 	public String toString() {
 		return "Utilisateur: no " + getNoUtilisateur() 
@@ -341,6 +191,4 @@ public class Utilisateur {
 		+ ", MDP" + getMotDePasse()
 		+ " Admin: " + getAdministrateur() + "-";
 	}
-
-
 }

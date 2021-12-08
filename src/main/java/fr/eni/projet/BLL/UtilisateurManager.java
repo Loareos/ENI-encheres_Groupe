@@ -4,6 +4,7 @@
 package fr.eni.projet.BLL;
 
 import fr.eni.projet.BO.Utilisateur;
+import fr.eni.projet.dal.DALException;
 import fr.eni.projet.dal.DAO;
 import fr.eni.projet.dal.DAOFactory;
 
@@ -34,18 +35,21 @@ public class UtilisateurManager {
 	 * @return un objet Utilisateur en cas de succcès
 	 * @throws BoException 
 	 */
-	public Utilisateur ajouterUtilisateurStandard() throws BOException
+	public Utilisateur ajouterUtilisateurStandard(Utilisateur utilisateurStrd) throws BLLException
 	{
 		BLLException exception = new BLLException();
-		
-		Utilisateur utilisateurStrd = new Utilisateur(noUtilisateur,credit,pseudo,nom,prenom,email,telephone,rue,codePostal,ville,motDePasse,administrateur);
 		
 		this.validerNote(utilisateurStrd,exception);
 		this.validerDescription(utilisateurStrd,exception);
 
 		if(!exception.hasErreurs())
 		{
-			this.UtilisateurDao.insert(utilisateurStrd);
+			try {
+				this.UtilisateurDao.insert(utilisateurStrd);
+			} catch (DALException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		if(exception.hasErreurs())
