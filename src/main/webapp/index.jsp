@@ -14,7 +14,7 @@
 <header>
 
     <nav>
-		<h4>ENI-Enchères</h4>
+		<h4>ENI-Enchères</h4> 
 		
 		<c:if test="${!empty utilisateur}">
 		    <a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
