@@ -35,6 +35,15 @@ public class BLLException extends Exception{
 		}
 
 		/**
+		 * @param cause
+		 */
+		public BLLException(Throwable cause) {
+			super(cause);
+			// TODO Auto-generated constructor stub
+		}
+
+
+		/**
 		 * @param message
 		 * @param cause
 		 */
