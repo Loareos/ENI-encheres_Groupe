@@ -1,6 +1,9 @@
 /build/
+<<<<<<< HEAD
 /.settings
 .classpath
 .project
 /src/main/webapp/WEB-INF/lib/
 /src/main/webapp/META-INF/context.xml
+=======
+>>>>>>> branch 'master' of https://github.com/Loareos/ENI-encheres_Groupe.git
