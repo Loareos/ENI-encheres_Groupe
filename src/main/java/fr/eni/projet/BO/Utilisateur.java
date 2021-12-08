@@ -8,7 +8,7 @@ package fr.eni.projet.BO;
  *
  */
 public class Utilisateur {
-	
+
 	private int noUtilisateur;
 	private int credit;
 	private String pseudo;
@@ -21,24 +21,30 @@ public class Utilisateur {
 	private String ville;
 	private String motDePasse;
 	private Boolean administrateur;
-	
-	
-	
+
+
+
 	////////////////////////////////////////////////////////////////
 	//											Construct
 	//______________________________________________________________
-
+	
+	
 	/**
-	 * 
-	 * Constructeur
+	 * Constructeur vide
+	 */
+	public Utilisateur() {
+		super();
+	}
+	
+	/**
+	 * Constructeur initial
 	 * 
 	 * @param noUtilisateur credit pseudo nom prenom email
-	 * codePostal ville motDePasse administrateur
+	 * codePostal ville motDePasse
 	 */
 	public Utilisateur(int credit, String pseudo, String nom,
-					String prenom, String email,String rue,
-					String codePostal,String ville, String motDePasse,
-					Boolean administrateur) {
+			String prenom, String email,String rue,
+			String codePostal,String ville, String motDePasse) {
 		this.credit = credit;
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -48,54 +54,52 @@ public class Utilisateur {
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.motDePasse = motDePasse;
-		this.administrateur = administrateur;
+		this.administrateur = false;
+	}
+	
+
+	/**
+	 * 
+	 * Constructeur initial + telephone
+	 * 
+	 * @param noUtilisateur credit pseudo nom prenom email telephone rue
+	 * codePostal ville motDePasse administrateur
+	 */
+	public Utilisateur(int credit, String pseudo, String nom,
+			String prenom, String email,String rue, String telephone,
+			String codePostal,String ville, String motDePasse, Boolean administrateur) {
+		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse);
+		if (telephone.isEmpty()) {
+			this.telephone = "null";
+		}else {
+			this.telephone = telephone;
+		}
+		this.administrateur = false;
 	}
 	
 	/**
-	 * Constructeur + telephone
-	 * 
-	 * @param noUtilisateur credit pseudo nom prenom email telephone
-	 * codePostal ville motDePasse administrateur
-	 */
-	public Utilisateur(int credit, String pseudo,
-			String nom, String prenom, String email, String telephone, String rue,
-			String codePostal, String ville,String motDePasse,
-			Boolean administrateur) {
-		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse,administrateur);
-		this.telephone = telephone;
-	}
-	
-	/**
-	 * Constructeur no utilisateur
-	 * 
-	 * @param noUtilisateur credit pseudo nom prenom email telephone
-	 * codePostal ville motDePasse administrateur
-	 */
-	public Utilisateur(int noUtilisateur, int credit, String pseudo,
-			String nom, String prenom, String email, String rue,
-			String codePostal, String ville,String motDePasse,
-			Boolean administrateur) {
-		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse,administrateur);
-		this.noUtilisateur = noUtilisateur;
-	}
-	/**
-	 * Constructeur + no utilisateur + telephone
+	 * Constructeur + no utilisateur
 	 * 
 	 * @param noUtilisateur credit pseudo nom prenom email telephone
 	 * codePostal ville motDePasse administrateur
 	 */
 	public Utilisateur(int noUtilisateur, int credit, String pseudo,
 			String nom, String prenom, String email, String telephone, String rue,
-			String codePostal, String ville,String motDePasse,
-			Boolean administrateur) {
-		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse,administrateur);
+			String codePostal, String ville,String motDePasse,Boolean administrateur) {
+		this(credit,pseudo,nom,prenom,email,rue,codePostal,ville,motDePasse);
+		
+		if (telephone.isEmpty()) {
+			this.telephone = "null";
+		}else {
+			this.telephone = telephone;
+		}
+		
 		this.noUtilisateur = noUtilisateur;
-		this.telephone = telephone;
+		
+		this.administrateur = false;
+
 	}
-	
-	
-	
-	
+
 	////////////////////////////////////////////////////////////////
 	//											Get/Set
 	//______________________________________________________________
@@ -299,6 +303,14 @@ public class Utilisateur {
 					"Le mot de passe de l'utilisateur dépasse le nombre de caractère autorisé :"+maxCaractère);
 		}
 	}
+	
+	/**
+	 * @param administrateur the administrateur to set
+	 */
+	public void setAdministrateur(Boolean administrateur) {
+		this.administrateur = administrateur;
+	}
+
 	/**
 	 * @return the administrateur
 	 */
@@ -313,22 +325,22 @@ public class Utilisateur {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Utilisateur: no " + getNoUtilisateur() 
-				+ " Psd: " + getPseudo()
-				+ " Cdt: " + getCredit()
-				+ " " + getNom()
-				+ ", " + getPrenom()
-				+ " Email" + getEmail()
-				+ " Tel: " +(getTelephone() != null ? getTelephone() + ", " : "")
-				+ " Addr: "+ getCodePostal()
-				+ " "+ getCodePostal()
-				+ " " + getVille()
-				+ ", MDP" + getMotDePasse()
-				+ " Admin: " + getAdministrateur() + "-";
+		+ " Psd: " + getPseudo()
+		+ " Cdt: " + getCredit()
+		+ " " + getNom()
+		+ ", " + getPrenom()
+		+ " Email" + getEmail()
+		+ " Tel: " +(getTelephone() != null ? getTelephone() + ", " : "")
+		+ " Addr: "+ getCodePostal()
+		+ " "+ getCodePostal()
+		+ " " + getVille()
+		+ ", MDP" + getMotDePasse()
+		+ " Admin: " + getAdministrateur() + "-";
 	}
-	
-	
+
+
 }
