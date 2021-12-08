@@ -18,15 +18,15 @@
 		
 		<c:if test="${empty utilisateur}">
             <p>Pas d'utilisateur connecté</p>
-		    <a href="SERVLET" class="lienConnection" style="visibility: visible">S'inscrire - Se connecter</a>
+		    <a href="SERVLET" class="lienConnection">S'inscrire - Se connecter</a>
         </c:if>
         
         <c:if test="${!empty utilisateur}">
             <p>Utilisateur connecté</p>
-		    <a href="SERVLET" class="lienConnection" style="visibility: visible">Enchères</a>
-	    	<a href="SERVLET" class="lienConnection" style="visibility: visible">Vendre un article</a>
-		    <a href="SERVLET" class="lienConnection" style="visibility: visible">Mon profil</a>
-		    <a href="SERVLET" class="lienConnection" style="visibility: visible">Déconnexion</a>
+		    <a href="SERVLET" class="lienConnection">Enchères</a>
+	    	<a href="SERVLET" class="lienConnection">Vendre un article</a>
+		    <a href="SERVLET" class="lienConnection">Mon profil</a>
+		    <a href="SERVLET" class="lienConnection">Déconnexion</a>
         </c:if>
 		
 	</nav>
