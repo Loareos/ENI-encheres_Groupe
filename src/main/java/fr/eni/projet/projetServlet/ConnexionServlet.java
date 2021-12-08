@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 
- * @author  RobinFerre
+ * @author RobinFerre
  * 
  */
 
@@ -56,7 +56,7 @@ public class ConnexionServlet extends HttpServlet {
 		if (cookiePresent) {
 			rd = request.getRequestDispatcher("index.jsp");
 		} else {
-			rd = request.getRequestDispatcher("index.jsp");
+			rd = request.getRequestDispatcher("CreationCompte.jsp");
 		}
 		rd.forward(request, response);
 	}
@@ -86,7 +86,7 @@ public class ConnexionServlet extends HttpServlet {
 			rd = request.getRequestDispatcher("index.jsp");
 		} else {
 
-			rd = request.getRequestDispatcher("index.jsp");
+			rd = request.getRequestDispatcher("CreationCompte.jsp");
 		}
 
 		rd.forward(request, response);
