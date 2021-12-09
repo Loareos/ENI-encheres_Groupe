@@ -44,6 +44,8 @@ public class UtilisateurManager {
 		
 		test = utilisateurStrd.getPseudo();
 		this.verifStringNombreEtVide(test, 30,exception);
+		UtilisateurDao.pseudoExist(test);
+		
 		
 		test = utilisateurStrd.getNom();
 		this.verifStringNombreEtVide(test, 30,exception);
@@ -53,6 +55,7 @@ public class UtilisateurManager {
 		
 		test = utilisateurStrd.getEmail();
 		this.verifStringNombreEtVide(test, 20,exception);
+		UtilisateurDao.mailExist(test);
 		
 		test = utilisateurStrd.getTelephone();
 		this.verifStringNombreEtVide(test, 15,exception);
