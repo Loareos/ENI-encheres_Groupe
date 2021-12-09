@@ -55,6 +55,7 @@ public class ConnexionServlet extends HttpServlet {
 
 		if (cookiePresent) {
 			rd = request.getRequestDispatcher("index.jsp");
+
 		} else {
 			rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/ConnexionCompte.jsp");
 		}

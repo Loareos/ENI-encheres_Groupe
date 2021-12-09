@@ -45,35 +45,31 @@ public class DeconnexionServlet extends HttpServlet {
 
 		boolean cookiePresent = false;
 
-		// Cookie mot de passe souvenir, renvoie à l'acceuil(index.jsp) si condition
-		// pour se
-		// souvenir
+		// Cookie mot de passe souvenir, est enlever
 
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
 				if (cookie.getName().equals("connexion") && cookie.getValue().equals("ok")) {
-					cookie.setMaxAge(0);
+					cookie.setMaxAge(7 * 24 * 60 * 70);
 					response.addCookie(cookie);
 				}
 			}
 		}
 
-		rd = request.getRequestDispatcher("index.jsp");
+		// Cookie qui déconnecte et renvoie à l'accueil (logiquement) mais reste dans la
+		// servlet (url)
 
-		rd.forward(request, response);
-
-//		response.setContentType("");
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-//
+
 		request.getRequestDispatcher("index.jsp").include(request, response);
-//
-//		HttpSession session = request.getSession();
-//		session.invalidate();
+
+		Cookie ck = new Cookie("deconnexion", "");
+		ck.setMaxAge(0);
+		response.addCookie(ck);
 
 		out.print("Vous êtes déconnecté!");
-
-		out.close();
 
 	}
 
