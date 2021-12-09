@@ -31,7 +31,7 @@ public class ProfilServlet extends HttpServlet {
 			throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/Profil.jsp");
 		rd.forward(request, response);
-	}
+	} 
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

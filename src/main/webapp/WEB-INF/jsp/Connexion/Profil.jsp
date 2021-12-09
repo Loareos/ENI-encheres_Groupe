@@ -49,7 +49,7 @@
     </div>
     <div class="profil">
         <label>Téléphone : </label>
-        <label><%=request.getParameter("Telephone")%></label>
+        <label><%=request.getParameter("Telephone")%></label> 
     </div>
     <div class="profil">
         <label>Rue : </label>
