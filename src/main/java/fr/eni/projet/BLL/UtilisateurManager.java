@@ -43,20 +43,28 @@ public class UtilisateurManager {
 		
 		test = utilisateurStrd.getPseudo();
 		this.verifStringNombreEtVide(test, 30,exception);
+		
 		test = utilisateurStrd.getNom();
 		this.verifStringNombreEtVide(test, 30,exception);
+		
 		test = utilisateurStrd.getPrenom();
 		this.verifStringNombreEtVide(test, 30,exception);
+		
 		test = utilisateurStrd.getEmail();
 		this.verifStringNombreEtVide(test, 20,exception);
+		
 		test = utilisateurStrd.getTelephone();
 		this.verifStringNombreEtVide(test, 15,exception);
+		
 		test = utilisateurStrd.getRue();
 		this.verifStringNombreEtVide(test, 30,exception);
+		
 		test = utilisateurStrd.getCodePostal();
 		this.verifStringNombreEtVide(test, 10,exception);
+		
 		test = utilisateurStrd.getVille();
 		this.verifStringNombreEtVide(test, 30,exception);
+		
 		test = utilisateurStrd.getMotDePasse();
 		this.verifStringNombreEtVide(test, 30,exception);
 		
@@ -76,7 +84,7 @@ public class UtilisateurManager {
 	
 	/**
 	 * Cette méthode permet de vérifier 
-	 * les règles à respecter sur le nombre de caractère et su'il ne soit pas vide.
+	 * les règles à respecter sur le nombre de caractère et qu'il ne soit pas vide.
 	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
 	 * @param utilisateurStrd
 	 * @throws BLLException 
@@ -93,12 +101,12 @@ public class UtilisateurManager {
 		}
 	}
 	/**
-	 * Cette méthode permet de vérifier 
-	 * les règles à respecter sur le nombre de caractère et qu'il ne soit pas vide.
+	 * Cette méthode vérifie 
+	 * les règles à respecter sur le nombre de caractère du telephone.
 	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
-	 * @param utilisateurStrd
-	 * @throws BLLException 
+	 * @param test max
 	 * @param BLLException 
+	 * @throws BLLException 
 	 */
 	public void verifTelephone(String test, int max,BLLException exception)
 			throws BLLException {
@@ -110,11 +118,11 @@ public class UtilisateurManager {
 	
 	/**
 	 * Cette méthode permet de vérifier 
-	 * les règles à respecter sur le nombre de caractère et su'il ne soit pas vide.
+	 * les règles à respecter sur le crédit inferr à 0.
 	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
-	 * @param utilisateurStrd
-	 * @throws BLLException 
+	 * @param credit max
 	 * @param BLLException 
+	 * @throws BLLException 
 	 */
 	public void verifCredit(int credit, int max,BLLException exception)
 												throws BLLException {
