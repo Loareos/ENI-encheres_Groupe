@@ -68,7 +68,7 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String texteIdentifiantC = request.getParameter("texteIdentifiantC");
+		String texteIdentifiantC = request.getParameter("IdentifiantC");
 		String passwordC = request.getParameter("passwordC");
 
 		// Condition pour se connecter, renvoie à l'acceuil(index.jsp)
