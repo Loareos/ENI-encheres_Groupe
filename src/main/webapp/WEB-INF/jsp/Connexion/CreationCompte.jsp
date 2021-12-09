@@ -19,7 +19,7 @@
 		<h4>ENI-Enchères</h4>
 	</nav>
 	
-	<form method="post" action="<%=request.getContextPath()%>/jsp/Connexion/InscriptionServlet" class="formConnexionC">
+	<form method="post" action="InscriptionServlet" class="formConnexionC">
 	
 		<div class="formItemConnexionC">
 			<label class="label">Pseudo : </label>
