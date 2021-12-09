@@ -7,6 +7,7 @@ import fr.eni.projet.BO.Utilisateur;
 import fr.eni.projet.dal.DALException;
 import fr.eni.projet.dal.DAO;
 import fr.eni.projet.dal.DAOFactory;
+import fr.eni.projet.dal.UtilisateurDAO;
 
 /**
  * @author junisaru69
@@ -14,7 +15,7 @@ import fr.eni.projet.dal.DAOFactory;
  */
 public class UtilisateurManager {
 	
-	private DAO<Utilisateur> UtilisateurDao;
+	private UtilisateurDAO UtilisateurDao;
 	private static UtilisateurManager instance;
 	private BLLException exception = new BLLException();
 	

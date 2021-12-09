@@ -1,6 +1,7 @@
 package fr.eni.projet.dal;
 
 import fr.eni.projet.BO.Utilisateur;
+import fr.eni.projet.dal.jdbc.UserDAOJdbcImpl;
 /**
  * @author Loareos // Etienne
  *
@@ -9,7 +10,7 @@ import fr.eni.projet.BO.Utilisateur;
 
 public class DAOFactory {
 	
-	public static DAO<Utilisateur> getUserDAO(){
+	public static UtilisateurDAO getUserDAO(){
 		return new UserDAOJdbcImpl();
 	}
 }
