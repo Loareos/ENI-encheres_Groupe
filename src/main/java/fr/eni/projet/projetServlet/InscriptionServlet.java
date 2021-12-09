@@ -70,8 +70,7 @@ public class InscriptionServlet extends HttpServlet {
 			rd.forward(request, response);
 
 		} catch (Exception e) {
-			RequestDispatcher rd = request.getRequestDispatcher("InscriptionServlet");
-			rd.forward(request, response);
+
 			throw new NullPointerException();
 
 		}
