@@ -39,7 +39,7 @@
 			<input type="submit" value="Connexion" />
 			
 			<div class="connexionOptions">
-				<div>
+				<div> 
 					<input type="checkbox" id="checkSouvenir" name="checkSouvenir" value="ok"/>
 					<label>Se souvenir de moi</label>
 				</div>
