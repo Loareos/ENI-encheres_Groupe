@@ -98,10 +98,10 @@ public class UtilisateurManager {
 			throws BLLException {
 		
 		if (test.trim().length()>max ? false: true ) {
-			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_ECHEC_MAX);
+			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_ECHEC_MAX);
 		}
 		if (test.trim().length() == 0? false: true ) {
-			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_NULL);
+			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_NULL);
 		}
 	}
 	/**
@@ -116,7 +116,7 @@ public class UtilisateurManager {
 			throws BLLException {
 		
 		if (test.trim().length()>max ? false: true ) {
-			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_ECHEC_MAX);
+			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_ECHEC_MAX);
 		}
 	}
 	
@@ -132,7 +132,7 @@ public class UtilisateurManager {
 												throws BLLException {
 		
 		if (credit<0 ? false: true ) {
-			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_NULL);
+			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_NULL);
 		}
 		
 	}
