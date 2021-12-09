@@ -27,7 +27,7 @@ public class InscriptionServlet extends HttpServlet {
 	 */
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse 
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -41,8 +41,8 @@ public class DeconnexionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-        RequestDispatcher rd = null;
-		
+		RequestDispatcher rd = null;
+
 		boolean cookiePresent = false;
 
 		// Cookie mot de passe souvenir, renvoie à l'acceuil(index.jsp) si condition
@@ -60,11 +60,9 @@ public class DeconnexionServlet extends HttpServlet {
 		}
 
 		rd = request.getRequestDispatcher("index.jsp");
-		
+
 		rd.forward(request, response);
-		
-		
-		
+
 //		response.setContentType("");
 		PrintWriter out = response.getWriter();
 //
