@@ -40,48 +40,53 @@ public class UtilisateurManager {
 	 */
 	public void ajouterUtilisateurStandard(Utilisateur utilisateurStrd)
 												throws BLLException, BusinessException{
+		try {
+			UtilisateurDao.insert(utilisateurStrd);
+		} catch (Exception e) {
+			System.err.println("L'erreur est là !");
+		}
 		String test;
-		
-		test = utilisateurStrd.getPseudo();
-		this.verifStringNombreEtVide(test, 30,exception);
-		UtilisateurDao.pseudoExist(test);
-		
-		test = utilisateurStrd.getNom();
-		this.verifStringNombreEtVide(test, 30,exception);
-		
-		test = utilisateurStrd.getPrenom();
-		this.verifStringNombreEtVide(test, 30,exception);
-		
-		test = utilisateurStrd.getEmail();
-		this.verifStringNombreEtVide(test, 20,exception);
-		UtilisateurDao.mailExist(test);
-		
-		test = utilisateurStrd.getTelephone();
-		this.verifStringNombreEtVide(test, 15,exception);
-		
-		test = utilisateurStrd.getRue();
-		this.verifStringNombreEtVide(test, 30,exception);
-		
-		test = utilisateurStrd.getCodePostal();
-		this.verifStringNombreEtVide(test, 10,exception);
-		
-		test = utilisateurStrd.getVille();
-		this.verifStringNombreEtVide(test, 30,exception);
-		
-		test = utilisateurStrd.getMotDePasse();
-		this.verifStringNombreEtVide(test, 30,exception);
-		
-		
-		
-		if(!exception.hasErreurs())
-		{
-				this.UtilisateurDao.insert(utilisateurStrd);
-		}
-		
-		if(exception.hasErreurs())
-		{
-			throw exception;
-		}
+//		
+//		test = utilisateurStrd.getPseudo();
+//		this.verifStringNombreEtVide(test, 30,exception);
+//		UtilisateurDao.pseudoExist(test);
+//		
+//		test = utilisateurStrd.getNom();
+//		this.verifStringNombreEtVide(test, 30,exception);
+//		
+//		test = utilisateurStrd.getPrenom();
+//		this.verifStringNombreEtVide(test, 30,exception);
+//		
+//		test = utilisateurStrd.getEmail();
+//		this.verifStringNombreEtVide(test, 20,exception);
+//		UtilisateurDao.mailExist(test);
+//		
+//		test = utilisateurStrd.getTelephone();
+//		this.verifStringNombreEtVide(test, 15,exception);
+//		
+//		test = utilisateurStrd.getRue();
+//		this.verifStringNombreEtVide(test, 30,exception);
+//		
+//		test = utilisateurStrd.getCodePostal();
+//		this.verifStringNombreEtVide(test, 10,exception);
+//		
+//		test = utilisateurStrd.getVille();
+//		this.verifStringNombreEtVide(test, 30,exception);
+//		
+//		test = utilisateurStrd.getMotDePasse();
+//		this.verifStringNombreEtVide(test, 30,exception);
+//		
+//		
+//		
+//		if(!exception.hasErreurs())
+//		{
+//				this.UtilisateurDao.insert(utilisateurStrd);
+//		}
+//		
+//		if(exception.hasErreurs())
+//		{
+//			throw exception;
+//		}
 	}
 	
 	/**

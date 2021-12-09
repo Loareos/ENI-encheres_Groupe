@@ -31,7 +31,7 @@
 		
 		<div class="formItemConnexionC">
 			<label class="label">Prénom : </label>
-       		<input class="input" type="text" name="PrénomI" value="<%=request.getParameter("PrénomI")!=null?request.getParameter("PrénomI"):""%>" required/>
+       		<input class="input" type="text" name="PrenomI" value="<%=request.getParameter("PrenomI")!=null?request.getParameter("PrenomI"):""%>" required/>
        		
        		<label class="label">Email : </label>
        		<input class="input" type="email" name="emailI" value="<%=request.getParameter("emailI")!=null?request.getParameter("emailI"):""%>" required/>

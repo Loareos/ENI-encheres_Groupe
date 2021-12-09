@@ -178,17 +178,22 @@ public class Utilisateur {
 //=========================================================
 	@Override
 	public String toString() {
-		return "Utilisateur: no " + getNoUtilisateur() 
-		+ " Psd: " + getPseudo()
-		+ " Cdt: " + getCredit()
-		+ " " + getNom()
-		+ ", " + getPrenom()
-		+ " Email" + getEmail()
-		+ " Tel: " +(getTelephone() != null ? getTelephone() + ", " : "")
-		+ " Addr: "+ getCodePostal()
-		+ " "+ getCodePostal()
-		+ " " + getVille()
-		+ ", MDP" + getMotDePasse()
-		+ " Admin: " + getAdministrateur() + "-";
+		return "UTILISATEUR: no " + getNoUtilisateur() 
+		+ " / Pseudo: " + getPseudo()
+		+ " / Nom: " + getNom()
+		+ " / Prenom: " + getPrenom()
+		+ " / Email: " + getEmail()
+		+ " / Tel: " + getTelephone()
+		+ " / Rue: "+ getRue()
+		+ " / CodePostale: "+ getCodePostal()
+		+ " / Ville: " + getVille()
+		+ " / MDP: " + getMotDePasse()
+		+ " / Credit: " + getCredit()
+		+ " / Admin: " + getAdministrateur() + "-";
 	}
 }
+
+
+
+
+

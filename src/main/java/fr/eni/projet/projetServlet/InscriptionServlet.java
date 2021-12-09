@@ -62,9 +62,8 @@ public class InscriptionServlet extends HttpServlet {
 		try {
 			Utilisateur user = new Utilisateur(0, pseudoI, nomI, prenomI, emailI, rueI, telI, codePostalI, villeI,
 					passwordI, false);
-
+			System.out.println(user.toString());
 			UtilisateurManager um = UtilisateurManager.getInstance();
-
 			um.ajouterUtilisateurStandard(user);
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
