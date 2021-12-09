@@ -31,7 +31,7 @@ public class ProfilServlet extends HttpServlet {
 			throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/Profil.jsp");
 		rd.forward(request, response);
-	} 
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -39,7 +39,16 @@ public class ProfilServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+
+		String pseudo = request.getParameter("pseudo");
+		String Nom = request.getParameter("Nom");
+		String Prenom = request.getParameter("Prenom");
+		String Email = request.getParameter("Email");
+		String Telephone = request.getParameter("Telephone");
+		String Rue = request.getParameter("Rue");
+		String CodePostal = request.getParameter("CodePostal");
+		String Ville = request.getParameter("Ville");
+
 	}
 
 }

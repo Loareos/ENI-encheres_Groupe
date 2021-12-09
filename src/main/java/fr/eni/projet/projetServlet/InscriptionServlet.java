@@ -43,6 +43,7 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String PseudoI = request.getParameter("PseudoI");
 		String identifiantI = request.getParameter("identifiantI");
 		String NomI = request.getParameter("NomI");
 		String PrenomI = request.getParameter("PrenomI");
