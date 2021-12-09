@@ -19,49 +19,49 @@
 		<h4>ENI-Enchères</h4>
 	</nav>
 	
-	<form method="post" action="<%=request.getContextPath()%>/jsp/Connexion/InscriptionServlet" class="formConnexion">
+	<form method="post" action="<%=request.getContextPath()%>/jsp/Connexion/InscriptionServlet" class="formConnexionC">
 	
-		<div class="formItemConnexion">
-			<label>Pseudo : </label>
-       		<input type="text" name="PseudoI" value="<%=request.getParameter("PseudoI")!=null?request.getParameter("PseudoI"):""%>" required/>
+		<div class="formItemConnexionC">
+			<label class="label">Pseudo : </label>
+       		<input class="input" type="text" name="PseudoI" value="<%=request.getParameter("PseudoI")!=null?request.getParameter("PseudoI"):""%>" required/>
        		
-       		<label>Nom : </label>
-       		<input type="text" name="NomI" value="<%=request.getParameter("NomI")!=null?request.getParameter("NomI"):""%>" required/>
+       		<label class="label">Nom : </label>
+       		<input class="input" type="text" name="NomI" value="<%=request.getParameter("NomI")!=null?request.getParameter("NomI"):""%>" required/>
 		</div> 
 		
-		<div class="formItemConnexion">
-			<label>Prénom : </label>
-       		<input type="text" name="PrénomI" value="<%=request.getParameter("PrénomI")!=null?request.getParameter("PrénomI"):""%>" required/>
+		<div class="formItemConnexionC">
+			<label class="label">Prénom : </label>
+       		<input class="input" type="text" name="PrénomI" value="<%=request.getParameter("PrénomI")!=null?request.getParameter("PrénomI"):""%>" required/>
        		
-       		<label>Email : </label>
-       		<input type="email" name="emailI" value="<%=request.getParameter("emailI")!=null?request.getParameter("emailI"):""%>" required/>
+       		<label class="label">Email : </label>
+       		<input class="input" type="email" name="emailI" value="<%=request.getParameter("emailI")!=null?request.getParameter("emailI"):""%>" required/>
 		</div>
 		
-		<div class="formItemConnexion"> 
-			<label>Téléphone : </label>
-       		<input type="tel" pattern="[0-9]{10}" placeholder="0612345678" name="telI" value="<%=request.getParameter("telI")!=null?request.getParameter("numeroI"):""%>" required/>
+		<div class="formItemConnexionC"> 
+			<label class="label">Téléphone : </label>
+       		<input class="input" type="tel" pattern="[0-9]{10}" placeholder="0612345678" name="telI" value="<%=request.getParameter("telI")!=null?request.getParameter("numeroI"):""%>" required/>
        		
-       		<label>Rue : </label>
-       		<input type="text" name="RueI" value="<%=request.getParameter("RueI")!=null?request.getParameter("RueI"):""%>" required/>
+       		<label class="label">Rue : </label>
+       		<input class="input" type="text" name="RueI" value="<%=request.getParameter("RueI")!=null?request.getParameter("RueI"):""%>" required/>
 		</div>
 		
-		<div class="formItemConnexion">
-			<label>Code postal : </label>
-       		<input type="text" name="codePostalI" value="<%=request.getParameter("codePostalI")!=null?request.getParameter("codePostalI"):""%>" required/>
+		<div class="formItemConnexionC">
+			<label class="label">Code postal : </label>
+       		<input class="input" type="text" name="codePostalI" value="<%=request.getParameter("codePostalI")!=null?request.getParameter("codePostalI"):""%>" required/>
        		
-       		<label>Ville : </label>
-       		<input type="text" name="VilleI" value="<%=request.getParameter("VilleI")!=null?request.getParameter("VilleI"):""%>" required/>
+       		<label class="label">Ville : </label>
+       		<input class="input" type="text" name="VilleI" value="<%=request.getParameter("VilleI")!=null?request.getParameter("VilleI"):""%>" required/>
 		</div>
 		
-		<div class="formItemConnexion">
-			<label>Mot de passe : </label>
-       		<input type="password" name="passwordI" value="<%=request.getParameter("passwordI")!=null?request.getParameter("passwordI"):""%>" required/>
+		<div class="formItemConnexionC">
+			<label class="label">Mot de passe : </label>
+       		<input class="input" type="password" name="passwordI" value="<%=request.getParameter("passwordI")!=null?request.getParameter("passwordI"):""%>" required/>
        		
-       		<label>Confirmation : </label>
-       		<input type="password" name="passwordConfirmI" value="<%=request.getParameter("passwordConfirmI")!=null?request.getParameter("passwordConfirmI"):""%>" required/>
+       		<label class="label">Confirmation : </label>
+       		<input class="input" type="password" name="passwordConfirmI" value="<%=request.getParameter("passwordConfirmI")!=null?request.getParameter("passwordConfirmI"):""%>" required/>
 		</div>
 		
-		<div class="btnConnexion">
+		<div class="btn">
 			<input type="submit" value="Créer" />
 			<input type="button" name="Annuler" value="Annuler" onClick="window.location.href='<%=request.getContextPath()%>/index.jsp';"/>
 		</div>

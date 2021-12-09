@@ -5,11 +5,61 @@ form{
 	margin-bottom : 40px;
 }
 
+
+
 h3{
 	display: flex;
 	justify-content : center;
 	margin-bottom : 30px;
 }
+
+@media(max-width: 569px){
+	.formConnexionC{
+	display: flex;
+	flex-direction : column;
+    }
+    
+    .label{
+    width: 150px;
+    margin-left : 40px;
+    }
+
+    .input{
+    margin-bottom : 15px;
+    margin-right : 40px;
+    }
+
+    .formItemConnexionC{
+	display: flex;
+	justify-content : space-between;
+	flex-wrap : wrap;
+    }
+}
+
+@media(min-width: 570px){
+	.formConnexionC{
+	    display: flex;
+        justify-content: center;
+	    flex-direction : column;
+	    align-items: center;
+    }
+    
+    .label{
+    width: 100px;
+    margin-left : 15px;
+    margin-right : 10px;
+    }
+
+    .input{
+    margin-bottom : 15px;
+    margin-right : 15px;
+    }
+
+    .formItemConnexionC{
+	display: flex;
+    }
+}
+
 
 .profil{
 	display: flex;
