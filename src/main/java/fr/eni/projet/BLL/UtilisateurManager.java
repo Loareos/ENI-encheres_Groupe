@@ -93,8 +93,7 @@ public class UtilisateurManager {
 	 * @throws BLLException 
 	 * @param BLLException 
 	 */
-	public void verifStringNombreEtVide(String test, int max,BLLException exception)
-			throws BLLException {
+	public void verifStringNombreEtVide(String test, int max,BLLException exception){
 		
 		if (test.trim().length()>max ? false: true ) {
 			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_ECHEC_MAX);
@@ -111,8 +110,7 @@ public class UtilisateurManager {
 	 * @param BLLException 
 	 * @throws BLLException 
 	 */
-	public void verifTelephone(String test, int max,BLLException exception)
-			throws BLLException {
+	public void verifTelephone(String test, int max,BLLException exception){
 		
 		if (test.trim().length()>max ? false: true ) {
 			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_ECHEC_MAX);
@@ -127,8 +125,7 @@ public class UtilisateurManager {
 	 * @param BLLException 
 	 * @throws BLLException 
 	 */
-	public void verifCredit(int credit, int max,BLLException exception)
-												throws BLLException {
+	public void verifCredit(int credit, int max,BLLException exception){
 		
 		if (credit<0 ? false: true ) {
 			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_NULL);
