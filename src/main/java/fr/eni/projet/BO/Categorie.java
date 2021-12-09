@@ -9,7 +9,7 @@ package fr.eni.projet.BO;
  */
 public class Categorie {
 	
-	private int  no_categorie; 
+	private int  noCategorie; 
 	private String libelle; 
 
 ////////////////////////////////////////////////////////////////
@@ -24,29 +24,29 @@ public class Categorie {
 	}
 	
 /**
-	 * @param no_categorie
+	 * @param noCategorie
 	 * @param libelle
 	 */
-	public Categorie(int no_categorie, String libelle) {
+	public Categorie(int noCategorie, String libelle) {
 		this(libelle);
-		this.no_categorie = no_categorie;
+		this.noCategorie = noCategorie;
 	}
 
 ////////////////////////////////////////////////////////////////
 //												Get/Set
 //______________________________________________________________
 	/**
-	 * @return the no_categorie
+	 * @return the noCategorie
 	 */
-	public int getNo_categorie() {
-		return no_categorie;
+	public int getNoCategorie() {
+		return noCategorie;
 	}
 	
 	/**
-	 * @param no_categorie the no_categorie to set
+	 * @param noCategorie the noCategorie to set
 	 */
-	public void setNo_categorie(int no_categorie) {
-		this.no_categorie = no_categorie;
+	public void setNoCategorie(int noCategorie) {
+		this.noCategorie = noCategorie;
 	}
 	
 	/**
@@ -65,7 +65,7 @@ public class Categorie {
 
 	@Override
 	public String toString() {
-		return "Categorie:"+ getNo_categorie() 
+		return "Categorie:"+ getNoCategorie() 
 							+ ", libel:" + getLibelle()+ "-";
 	}
 	
