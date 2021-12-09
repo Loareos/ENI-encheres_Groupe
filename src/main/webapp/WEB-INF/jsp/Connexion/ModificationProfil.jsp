@@ -75,7 +75,7 @@
 		</div>
 		
 		<div class="btn">
-			<input type="submit" value="Modifier" style="margin-right : 20px" />
+			<input type="submit" value="Enregistrer" style="margin-right : 20px" />
 		    <button type="submit" onclick="history.back()" style="margin-left : 20px">Retour</button>
 		</div>
 
