@@ -94,7 +94,7 @@ public class UtilisateurManager {
 	}
 	/**
 	 * Cette méthode permet de vérifier 
-	 * les règles à respecter sur le nombre de caractère et su'il ne soit pas vide.
+	 * les règles à respecter sur le nombre de caractère et qu'il ne soit pas vide.
 	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
 	 * @param utilisateurStrd
 	 * @throws BLLException 
