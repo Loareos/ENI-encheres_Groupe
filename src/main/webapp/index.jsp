@@ -20,7 +20,7 @@
 		<c:if test="${empty utilisateur}">
 		    <a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
         </c:if>
-        
+         
         <c:if test="${empty utilisateur}">
             <div class="liens">
 		        <a href="SERVLET" class="lienConnection">Enchères</a>
