@@ -72,18 +72,13 @@ h3{
     margin-right : auto;
 }
 
-.formConnexion{
-    margin-left : auto;
-    margin-right : auto;
-
-}
- 
-.formItemConnexion{
+.formItemConnexionMDP{
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	gap : 10px 40px;
 	
 }
+
 .connexion{
 	display: flex;
 	justify-content : center;

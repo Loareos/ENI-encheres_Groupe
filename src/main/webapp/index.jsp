@@ -39,7 +39,10 @@
 	
 	<h4>Filtres : </h4>
 	
-	
+	<form method="post" action="RechercheServlet" ><!-- Servlet à mettre ?  -->
+	    <input type="text" placeholder="Le nom de l'article contient.." class="txtRecherche"/>
+	    <input type="submit" value="Rechercher" class="btnRecherche" />
+	</form>
 	
 	
 	
