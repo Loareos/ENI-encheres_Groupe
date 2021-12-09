@@ -14,8 +14,9 @@ import fr.eni.projet.dal.DAOFactory;
  */
 public class UtilisateurManager {
 	
-	private static DAO<Utilisateur> UtilisateurDao;
+	private DAO<Utilisateur> UtilisateurDao;
 	private static UtilisateurManager instance;
+	private BLLException exception = new BLLException();
 	
 	public static UtilisateurManager getInstance() throws BLLException{
 		if(instance == null) {
@@ -33,23 +34,37 @@ public class UtilisateurManager {
 	}
 	/**
 	 * @return un objet Utilisateur en cas de succcès
-	 * @throws BoException 
+	 * @throws BLLException 
+	 * @throws DALException 
 	 */
-	public Utilisateur ajouterUtilisateurStandard(Utilisateur utilisateurStrd) throws BLLException
-	{
-		BLLException exception = new BLLException();
+	public Utilisateur ajouterUtilisateurStandard(Utilisateur utilisateurStrd)
+												throws BLLException, DALException{
+		String test;
 		
-		this.validerNote(utilisateurStrd,exception);
-		this.validerDescription(utilisateurStrd,exception);
-
+		test = utilisateurStrd.getPseudo();
+		this.verifStringNombreEtVide(test, 30,exception);
+		test = utilisateurStrd.getNom();
+		this.verifStringNombreEtVide(test, 30,exception);
+		test = utilisateurStrd.getPrenom();
+		this.verifStringNombreEtVide(test, 30,exception);
+		test = utilisateurStrd.getEmail();
+		this.verifStringNombreEtVide(test, 20,exception);
+		test = utilisateurStrd.getTelephone();
+		this.verifStringNombreEtVide(test, 15,exception);
+		test = utilisateurStrd.getRue();
+		this.verifStringNombreEtVide(test, 20,exception);
+		test = utilisateurStrd.getCodePostal();
+		this.verifStringNombreEtVide(test, 20,exception);
+		test = utilisateurStrd.getVille();
+		this.verifStringNombreEtVide(test, 20,exception);
+		test = utilisateurStrd.getMotDePasse();
+		this.verifStringNombreEtVide(test, 20,exception);
+		
+		
+		
 		if(!exception.hasErreurs())
 		{
-			try {
 				this.UtilisateurDao.insert(utilisateurStrd);
-			} catch (DALException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		if(exception.hasErreurs())
@@ -60,30 +75,59 @@ public class UtilisateurManager {
 	}
 	
 	/**
-	 * Cette méthode permet de vérifier les règles à respecter sur la variable membre note.
-	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet businessException.
+	 * Cette méthode permet de vérifier 
+	 * les règles à respecter sur le nombre de caractère et su'il ne soit pas vide.
+	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
 	 * @param utilisateurStrd
-	 * @param bLLException 
+	 * @throws BLLException 
+	 * @param BLLException 
 	 */
-	private void validerNote(Utilisateur utilisateurStrd, BLLException bLLException)
-	{
-		if(utilisateurStrd.getNote()<1 || utilisateurStrd.getNote()>5)
-		{
-			bLLException.ajouterErreur(CodesResultatBLL.REGLE_AVIS_NOTE_ERREUR);
+	public void verifStringNombreEtVide(String test, int max,BLLException exception)
+			throws BLLException {
+		Boolean bool;
+		
+		if (bool = test.trim().length()>max ? false: true ) {
+			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_ECHEC_MAX);
+		}
+		if (bool = test.trim().length() == 0? false: true ) {
+			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_NULL);
+		}
+	}
+	/**
+	 * Cette méthode permet de vérifier 
+	 * les règles à respecter sur le nombre de caractère et su'il ne soit pas vide.
+	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
+	 * @param utilisateurStrd
+	 * @throws BLLException 
+	 * @param BLLException 
+	 */
+	public void verifTelephone(String test, int max,BLLException exception)
+			throws BLLException {
+		Boolean bool;
+		
+		if (bool = test.trim().length()>max ? false: true ) {
+			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_ECHEC_MAX);
 		}
 	}
 	
 	/**
-	 * Cette méthode permet de vérifier les règles à respecter sur la variable membre description.
-	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet businessException.
+	 * Cette méthode permet de vérifier 
+	 * les règles à respecter sur le nombre de caractère et su'il ne soit pas vide.
+	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
 	 * @param utilisateurStrd
-	 * @param bLLException
+	 * @throws BLLException 
+	 * @param BLLException 
 	 */
-	private void validerDescription(Utilisateur utilisateurStrd, BLLException bLLException)
-	{
-		if(utilisateurStrd.getDescription()==null  || utilisateurStrd.getDescription().equals("")|| utilisateurStrd.getDescription().length()>150)
-		{
-			bLLException.ajouterErreur(CodesResultatBLL.REGLE_AVIS_DESCRIPTION_ERREUR);
+	public void verifCredit(int credit, int max,BLLException exception)
+												throws BLLException {
+		Boolean bool;
+		
+		if (bool = credit<0 ? false: true ) {
+			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_NULL);
 		}
+		
 	}
+	
+	
+	
 }
