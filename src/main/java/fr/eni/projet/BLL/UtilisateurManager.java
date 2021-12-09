@@ -52,13 +52,13 @@ public class UtilisateurManager {
 		test = utilisateurStrd.getTelephone();
 		this.verifStringNombreEtVide(test, 15,exception);
 		test = utilisateurStrd.getRue();
-		this.verifStringNombreEtVide(test, 20,exception);
+		this.verifStringNombreEtVide(test, 30,exception);
 		test = utilisateurStrd.getCodePostal();
-		this.verifStringNombreEtVide(test, 20,exception);
+		this.verifStringNombreEtVide(test, 10,exception);
 		test = utilisateurStrd.getVille();
-		this.verifStringNombreEtVide(test, 20,exception);
+		this.verifStringNombreEtVide(test, 30,exception);
 		test = utilisateurStrd.getMotDePasse();
-		this.verifStringNombreEtVide(test, 20,exception);
+		this.verifStringNombreEtVide(test, 30,exception);
 		
 		
 		
