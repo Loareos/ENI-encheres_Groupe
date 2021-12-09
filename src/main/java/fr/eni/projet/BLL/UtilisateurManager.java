@@ -38,7 +38,7 @@ public class UtilisateurManager {
 	 * @throws BLLException 
 	 * @throws DALException 
 	 */
-	public Utilisateur ajouterUtilisateurStandard(Utilisateur utilisateurStrd)
+	public void ajouterUtilisateurStandard(Utilisateur utilisateurStrd)
 												throws BLLException, BusinessException{
 		String test;
 		
@@ -82,7 +82,6 @@ public class UtilisateurManager {
 		{
 			throw exception;
 		}
-		return utilisateurStrd;
 	}
 	
 	/**
