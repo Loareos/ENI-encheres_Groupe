@@ -18,15 +18,15 @@ import fr.eni.projet.dal.UtilisateurDAO;
 
 public class UserDAOJdbcImpl implements UtilisateurDAO {
 
-	String sqlInsert = "INSERT INTO UTILISATEUR (pseudo, nom, prenom, email, telephone, rue, code-postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,b?)";
-	String sqlUpdate = "UPDATE UTILISATEUR SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code-postal = ?, ville = ?, mot_de_passe = ?, credit = ?, administrateur = ?";
-	String sqlSelectById = "SELECT pseudo, nom, prenom, email, telephone, rue, code-postal, ville, mot_de_passe, credit, administrateur FROM UTILISATEUR WHERE no_utilisateur = ?";
-	String sqlDelete = "DELETE FROM UTILISATEUR WHERE no_utilisateur = ?";
+	String sqlInsert = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code-postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,b?)";
+	String sqlUpdate = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code-postal = ?, ville = ?, mot_de_passe = ?, credit = ?, administrateur = ?";
+	String sqlSelectById = "SELECT pseudo, nom, prenom, email, telephone, rue, code-postal, ville, mot_de_passe, credit, administrateur FROM UTILISATEURS WHERE no_utilisateur = ?";
+	String sqlDelete = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?";
 	
-	String sqlSelectByPseudo = "SELECT no_utilisateur, credit, nom, prenom, email, telephone, rue, code-postal, ville, mot_de_passe, administrateur FROM UTILISATEUR WHERE pseudo = ?";
-	String sqlSelectByMail = "SELECT no_utilisateur, credit, pseudo, nom, prenom, telephone, rue, code-postal, ville, mot_de_passe, administrateur FROM UTILISATEUR WHERE email = ?";
-	String sqlPseudoExiste = "SELECT COUNT (*) FROM UTILISATEUR WHERE pseudo = ?";
-	String sqlMailExiste = "SELECT COUNT (*) FROM UTILISATEUR WHERE email = ?";
+	String sqlSelectByPseudo = "SELECT no_utilisateur, credit, nom, prenom, email, telephone, rue, code-postal, ville, mot_de_passe, administrateur FROM UTILISATEURS WHERE pseudo = ?";
+	String sqlSelectByMail = "SELECT no_utilisateur, credit, pseudo, nom, prenom, telephone, rue, code-postal, ville, mot_de_passe, administrateur FROM UTILISATEURS WHERE email = ?";
+	String sqlPseudoExiste = "SELECT COUNT (*) FROM UTILISATEURS WHERE pseudo = ?";
+	String sqlMailExiste = "SELECT COUNT (*) FROM UTILISATEURS WHERE email = ?";
 	
 	
 	@Override
