@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.projet.BO.Utilisateur;
+
 /**
  * 
  * @author  RobinFerre
  * 
  */
-
+//	Corrections by Etienne
 /**
  * Servlet implementation class InscriptionServlet
  */
@@ -43,16 +45,15 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String PseudoI = request.getParameter("PseudoI");
-		String identifiantI = request.getParameter("identifiantI");
-		String NomI = request.getParameter("NomI");
-		String PrenomI = request.getParameter("PrenomI");
-		String telI = request.getParameter("telI");
+		String pseudoI = request.getParameter("PseudoI");
+		String nomI = request.getParameter("NomI");
+		String prenomI = request.getParameter("PrenomI");
 		String emailI = request.getParameter("emailI");
-		String passwordI = request.getParameter("passwordI");
-		String texteRueI = request.getParameter("RueI");
+		String rueI = request.getParameter("RueI");
+		String telI = request.getParameter("telI");
 		String codePostalI = request.getParameter("codePostalI");
-		String texteVilleI = request.getParameter("VilleI");
+		String villeI = request.getParameter("VilleI");
+		String passwordI = request.getParameter("passwordI");
 		String passwordConfirmI = request.getParameter("passwordConfirmI");
 	}
 }
