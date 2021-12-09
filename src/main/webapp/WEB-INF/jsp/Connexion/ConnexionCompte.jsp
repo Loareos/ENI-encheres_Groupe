@@ -40,7 +40,7 @@
 			
 			<div class="connexionOptions">
 				<div>
-					<input type="checkbox"/>
+					<input type="checkbox" id="checkSouvenir" name="checkSouvenir" value="ok"/>
 					<label>Se souvenir de moi</label>
 				</div>
 				<br>
