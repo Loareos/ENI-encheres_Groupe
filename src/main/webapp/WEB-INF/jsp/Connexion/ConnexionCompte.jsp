@@ -21,20 +21,21 @@
 	
 	<form method="post" action="ConnexionServlet" class="formConnexion">
 	
+	  <div class="formGroupeItemConnexion">
+	  
 		<div class="formItemConnexion">
 			<label>Identifiant : </label>
-       		<input type="text" name="IdentifiantC" value="<%=request.getParameter("IdentifiantC")!=null?request.getParameter("IdentifiantC"):""%>" required/>
+       		<input type="text" name="identifiantC" value="<%=request.getParameter("identifiantC")!=null?request.getParameter("identifiantC"):""%>" required/>
 		</div>
-		
-        <br>
-        
+		<br>
         <div class="formItemConnexion">
        		<label>Mot de passe : </label>
         	<input type="password" name="passwordC" value="<%=request.getParameter("passwordC")!=null?request.getParameter("passwordC"):""%>" required/>
         </div>
         
+      </div>
 		<br>
-		
+		<br> 
 		<div class="connexion">
 			<input type="submit" value="Connexion" />
 			
@@ -50,7 +51,7 @@
 		
 	</form>
 	
-	<form action="InscriptionServlet" class="btnConnexion">
+	<form action="InscriptionServlet" class="btn">
 		<button type="submit">Créer un compte</button>
 	</form>
 

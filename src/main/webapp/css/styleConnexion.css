@@ -19,14 +19,12 @@ h3{
 }
 
 .profilInfos{
-    width : 200px;
+    width : 260px;
     margin-left : auto;
     margin-right : auto;
 }
 
 .formConnexion{
-    width : 400px;
-    padding-left : 15px;
     margin-left : auto;
     margin-right : auto;
 
@@ -34,22 +32,14 @@ h3{
  
 .formItemConnexion{
 	display: flex;
-	justify-content : space-between;
 	align-items: center;
-	margin-bottom : 10px;
-	
-	padding-left : 40px;
-	padding-right : 60px;
-	
-	gap : 10px 50px;
-	flex-wrap : wrap;
-    width : 500;
+	gap : 10px 40px;
 	
 }
 .connexion{
-    padding-left : 75px;
 	display: flex;
-	gap : 10px 20px;
+	justify-content : center;
+	gap : 5px 10px;
 }
 
 .btnConnexion{
@@ -57,16 +47,24 @@ h3{
 	display: flex;
 	gap : 10px 20px;
 }
+
+.formGroupeItemConnexion{
+	display: flex;
+	flex-direction : column;
+	align-items : center;
+	gap : 10px 1px;
+}
+
 
 .connexionOptions{
 	display: flex;
 	flex-direction : column;
+	align-items : flex-end;
 }
 
-.btnConnexion{
-    width : 115px;
-    margin-left : auto;
-    margin-right : auto;
+.btn{
+	display: flex;
+	justify-content : center;
 	margin-top : 40px;
 	 
 }

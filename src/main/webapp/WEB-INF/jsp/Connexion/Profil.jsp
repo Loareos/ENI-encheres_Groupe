@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta author="Clément"/>
 	<style type="text/css"><%@include file="../../../css/styleConnexion.css"%></style>
-	<title>Mon profil</title> 
+	<title>Profil</title> 
 	
 </head>
 
@@ -22,11 +22,12 @@
 </header>
 <body>
 
+	<!-- Comparer les id -->
     <c:if test="${ProfilAffiche != utilisateurActuel}">   
 	   <h3><%=request.getParameter("pseudo")%></h3> 
     </c:if>
     
-    <c:if test="${ProfilAffiche != utilisateurActuel}">   
+    <c:if test="${ProfilAffiche == utilisateurActuel}">   
 	   <h3>Mon profil</h3> 
     </c:if>
 
@@ -35,7 +36,8 @@
         <label>Pseudo : </label>
         <label><%=request.getParameter("pseudo")%></label>
     </div>
-    <div class="profil">
+    <c:if test="${ProfilAffiche == utilisateurActuel}">   
+	    <div class="profil">
         <label>Nom : </label>
         <label><%=request.getParameter("Nom")%></label>
     </div>
@@ -55,6 +57,7 @@
         <label>Rue : </label>
         <label><%=request.getParameter("Rue")%></label>
     </div>
+    </c:if>
     <div class="profil">
         <label>Code postal : </label>
         <label><%=request.getParameter("CodePostal")%></label>
@@ -67,10 +70,10 @@
 	
 	
 	
-	
+	<!-- Comparer les id -->
 	 <c:if test="${ProfilAffiche == utilisateurActuel}">
-        <form action="InscriptionServlet" class="btnConnexion">
-		    <button type="submit">Créer un compte</button>
+        <form action="ModificationProfil" class="btn">
+		    <button type="submit">Modifier</button>
 	    </form>
      </c:if>
 	
