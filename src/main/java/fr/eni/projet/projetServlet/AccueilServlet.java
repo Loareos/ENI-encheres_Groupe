@@ -11,22 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 
- * @author RobinFerre
- * 
+ * Servlet implementation class AccueilServlet
  */
-
-/**
- * Servlet implementation class ConnexionServlet
- */
-@WebServlet("/ConnexionServlet")
-public class ConnexionServlet extends HttpServlet {
+@WebServlet("/AccueilServlet")
+public class AccueilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ConnexionServlet() {
+	public AccueilServlet() {
 		super();
 	}
 
@@ -36,6 +30,7 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doPost(request, response);
 		RequestDispatcher rd = null;
 
 		boolean cookiePresent = false;
@@ -48,17 +43,16 @@ public class ConnexionServlet extends HttpServlet {
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
 				if (cookie.getName().equals("connexion") && cookie.getValue().equals("ok")) {
-					cookiePresent = true;
+					cookie.setMaxAge(7 * 24 * 60 * 70);
+					response.addCookie(cookie);
 				}
 			}
 		}
 
-		if (cookiePresent) {
-			rd = request.getRequestDispatcher("index.jsp");
-		} else {
-			rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/ConnexionCompte.jsp");
-		}
+		rd = request.getRequestDispatcher("index.jsp");
+
 		rd.forward(request, response);
+
 	}
 
 	/**
@@ -67,33 +61,6 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String identifiantC = request.getParameter("identifiantC");
-		String passwordC = request.getParameter("passwordC");
-
-		// Condition pour se connecter, renvoie à l'acceuil(index.jsp)
-
-		RequestDispatcher rd;
-
-		// Solution que temporaire par la suite faire un select by ID avec SQL en
-		// appelant la BDD
-
-		if (identifiantC.equals(identifiantC) && passwordC.equals(passwordC)) {
-			if (request.getParameter("checkSouvenir") != null) {
-				if (request.getParameter("checkSouvenir").equals("ok")) {
-					Cookie cookie = new Cookie("connexion", "ok");
-					cookie.setMaxAge(7 * 24 * 60 * 70);
-					response.addCookie(cookie);
-				}
-			}
-
-			rd = request.getRequestDispatcher("index.jsp");
-		} else {
-
-			rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp");
-		}
-
-		rd.forward(request, response);
 
 	}
 
