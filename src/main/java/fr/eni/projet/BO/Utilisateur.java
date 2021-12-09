@@ -189,7 +189,7 @@ public class Utilisateur {
 		+ " / Ville: " + getVille()
 		+ " / MDP: " + getMotDePasse()
 		+ " / Credit: " + getCredit()
-		+ " / Admin: " + getAdministrateur() + "-";
+		+ " / Admin: " + getAdministrateur();
 	}
 }
 

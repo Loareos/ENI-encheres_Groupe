@@ -28,7 +28,7 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 	String sqlPseudoExiste = "SELECT COUNT * FROM UTILISATEURS WHERE pseudo = ?";
 	String sqlMailExiste = "SELECT COUNT * FROM UTILISATEURS WHERE email = ?";
 	
-	
+	// =============  PARTIE FONCTIONNELLE  =============================
 	@Override
 	public void insert(Utilisateur utilisateur) throws BusinessException {
 		checkNull(utilisateur);

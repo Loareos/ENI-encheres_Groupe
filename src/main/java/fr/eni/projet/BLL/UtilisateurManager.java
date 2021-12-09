@@ -1,11 +1,8 @@
-/**
- * 
- */
 package fr.eni.projet.BLL;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.Utilisateur;
-import fr.eni.projet.dal.DAO;
+import fr.eni.projet.dal.CodesResultatDAL;
 import fr.eni.projet.dal.DAOFactory;
 import fr.eni.projet.dal.UtilisateurDAO;
 
@@ -15,79 +12,69 @@ import fr.eni.projet.dal.UtilisateurDAO;
  */
 public class UtilisateurManager {
 	
-	private UtilisateurDAO UtilisateurDao;
+	private UtilisateurDAO utilisateurDao;
 	private static UtilisateurManager instance;
-	private BLLException exception = new BLLException();
 	
-	public static UtilisateurManager getInstance() throws BLLException{
+	public static UtilisateurManager getInstance() throws BusinessException{
 		if(instance == null) {
 			try {
 				instance = new UtilisateurManager();
 			} catch (Exception e) {
-				throw new BLLException(e);
+				e.printStackTrace();
+				BusinessException businessException = new BusinessException();
+				businessException.ajouterErreur(CodesResultatBLL.GET_INSTANCE);
+				throw businessException;
 			}
 		}
 		return instance;
 	}
 	
-	private UtilisateurManager() throws BLLException{
-		UtilisateurDao = DAOFactory.getUserDAO();
+	private UtilisateurManager() throws BusinessException{
+		utilisateurDao = DAOFactory.getUserDAO();
 	}
+	
+	
 	/**
 	 * @return un objet Utilisateur en cas de succcès
 	 * @throws BLLException 
 	 * @throws DALException 
 	 */
-	public void ajouterUtilisateurStandard(Utilisateur utilisateurStrd)
-												throws BLLException, BusinessException{
-		try {
-			UtilisateurDao.insert(utilisateurStrd);
-		} catch (Exception e) {
-			System.err.println("L'erreur est là !");
+	public void ajouterUtilisateurStandard(Utilisateur utilisateurStrd) throws BusinessException{
+		BusinessException exception = new BusinessException();
+		if(verifUser(utilisateurStrd, exception)) {		
+//			if(this.utilisateurDao.pseudoExist(utilisateurStrd.getPseudo()))
+//				exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
+//		
+//			if(this.utilisateurDao.mailExist(utilisateurStrd.getEmail()))
+//				exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
 		}
-		String test;
-//		
-//		test = utilisateurStrd.getPseudo();
-//		this.verifStringNombreEtVide(test, 30,exception);
-//		UtilisateurDao.pseudoExist(test);
-//		
-//		test = utilisateurStrd.getNom();
-//		this.verifStringNombreEtVide(test, 30,exception);
-//		
-//		test = utilisateurStrd.getPrenom();
-//		this.verifStringNombreEtVide(test, 30,exception);
-//		
-//		test = utilisateurStrd.getEmail();
-//		this.verifStringNombreEtVide(test, 20,exception);
-//		UtilisateurDao.mailExist(test);
-//		
-//		test = utilisateurStrd.getTelephone();
-//		this.verifStringNombreEtVide(test, 15,exception);
-//		
-//		test = utilisateurStrd.getRue();
-//		this.verifStringNombreEtVide(test, 30,exception);
-//		
-//		test = utilisateurStrd.getCodePostal();
-//		this.verifStringNombreEtVide(test, 10,exception);
-//		
-//		test = utilisateurStrd.getVille();
-//		this.verifStringNombreEtVide(test, 30,exception);
-//		
-//		test = utilisateurStrd.getMotDePasse();
-//		this.verifStringNombreEtVide(test, 30,exception);
-//		
-//		
-//		
-//		if(!exception.hasErreurs())
-//		{
-//				this.UtilisateurDao.insert(utilisateurStrd);
-//		}
-//		
-//		if(exception.hasErreurs())
-//		{
-//			throw exception;
-//		}
+		
+		if(!exception.hasErreurs())
+			this.utilisateurDao.insert(utilisateurStrd);
+		else
+			throw exception;
 	}
+	
+	private static boolean verifUser(Utilisateur user, BusinessException exception) {
+		verifStringNombreEtVide(user.getPseudo(), 30 ,exception);
+		verifStringNombreEtVide(user.getNom(), 30 ,exception);
+		verifStringNombreEtVide(user.getPrenom(), 30 ,exception);
+		verifStringNombreEtVide(user.getEmail(), 40 ,exception);
+		verifStringNombreEtVide(user.getRue(), 30 ,exception);
+		verifStringNombreEtVide(user.getCodePostal(), 10 ,exception);
+		verifStringNombreEtVide(user.getVille(), 30 ,exception);
+		verifStringNombreEtVide(user.getMotDePasse(), 30 ,exception);
+		if(user.getTelephone() != null && user.getTelephone().length() > 15)
+			exception.ajouterErreur(CodesResultatBLL.INSERT_PARAMETER_LENGTH_MAX);
+		if(user.getCredit() < 0)
+			exception.ajouterErreur(CodesResultatBLL.CREDIT_NEGATIF);
+		
+		if(!exception.hasErreurs())
+			return true;
+		else
+			return false;
+	}
+	
 	
 	/**
 	 * Cette méthode permet de vérifier 
@@ -97,46 +84,10 @@ public class UtilisateurManager {
 	 * @throws BLLException 
 	 * @param BLLException 
 	 */
-	public void verifStringNombreEtVide(String test, int max,BLLException exception){
-		
-		if (test.trim().length()>max ? false: true ) {
-			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_ECHEC_MAX);
-		}
-		if (test.trim().length() == 0? false: true ) {
-			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_NULL);
-		}
+	private static void verifStringNombreEtVide(String test, int max,BusinessException exception){
+		if(test == null || test.length() == 0)
+			exception.ajouterErreur(CodesResultatBLL.INSERT_PARAMETER_NULL);
+		if(test.length() > max)
+			exception.ajouterErreur(CodesResultatBLL.INSERT_PARAMETER_LENGTH_MAX);
 	}
-	/**
-	 * Cette méthode vérifie 
-	 * les règles à respecter sur le nombre de caractère du telephone.
-	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
-	 * @param test max
-	 * @param BLLException 
-	 * @throws BLLException 
-	 */
-	public void verifTelephone(String test, int max,BLLException exception){
-		
-		if (test.trim().length()>max ? false: true ) {
-			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_ECHEC_MAX);
-		}
-	}
-	
-	/**
-	 * Cette méthode permet de vérifier 
-	 * les règles à respecter sur le crédit inferr à 0.
-	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
-	 * @param credit max
-	 * @param BLLException 
-	 * @throws BLLException 
-	 */
-	public void verifCredit(int credit, int max,BLLException exception){
-		
-		if (credit<0 ? false: true ) {
-			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_NULL);
-		}
-		
-	}
-	
-	
-	
 }

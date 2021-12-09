@@ -45,23 +45,19 @@ public class InscriptionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		System.out.println("Coucou");
-
-		String pseudoI = request.getParameter("PseudoI");
-		String nomI = request.getParameter("NomI");
-		String prenomI = request.getParameter("PrenomI");
-		String emailI = request.getParameter("emailI");
-		String rueI = request.getParameter("RueI");
-		String telI = request.getParameter("telI");
-		String codePostalI = request.getParameter("codePostalI");
-		String villeI = request.getParameter("VilleI");
-		String passwordI = request.getParameter("passwordI");
-		String passwordConfirmI = request.getParameter("passwordConfirmI");
+		String pseudoI 			= request.getParameter("PseudoI").trim();
+		String nomI 			= request.getParameter("NomI").trim();
+		String prenomI 			= request.getParameter("PrenomI").trim();
+		String emailI 			= request.getParameter("emailI").trim();
+		String rueI 			= request.getParameter("RueI").trim();
+		String telI 			= request.getParameter("telI").trim();
+		String codePostalI 		= request.getParameter("codePostalI").trim();
+		String villeI 			= request.getParameter("VilleI").trim();
+		String passwordI 		= request.getParameter("passwordI"); // Refuser les espaces dans le mot de passe
+		String passwordConfirmI = request.getParameter("passwordConfirmI"); // Faire la verife du mot de passe
 
 		try {
-			Utilisateur user = new Utilisateur(0, pseudoI, nomI, prenomI, emailI, rueI, telI, codePostalI, villeI,
-					passwordI, false);
+			Utilisateur user = new Utilisateur(0, pseudoI, nomI, prenomI, emailI, rueI, telI, codePostalI, villeI,passwordI, false);
 			System.out.println(user.toString());
 			UtilisateurManager um = UtilisateurManager.getInstance();
 			um.ajouterUtilisateurStandard(user);
