@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.projet.BLL.UtilisateurManager;
 import fr.eni.projet.BO.Utilisateur;
 
 /**
@@ -46,7 +47,7 @@ public class InscriptionServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		System.out.println("Coucou");
-		
+
 		String pseudoI = request.getParameter("PseudoI");
 		String nomI = request.getParameter("NomI");
 		String prenomI = request.getParameter("PrenomI");
@@ -57,11 +58,23 @@ public class InscriptionServlet extends HttpServlet {
 		String villeI = request.getParameter("VilleI");
 		String passwordI = request.getParameter("passwordI");
 		String passwordConfirmI = request.getParameter("passwordConfirmI");
-		
-		Utilisateur user = new Utilisateur(0, pseudoI, nomI, prenomI, emailI,rueI,telI,codePostalI,villeI,passwordI,false);
-		System.out.println(user.toString());
-		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp");
-		rd.forward(request, response);
+
+		try {
+			Utilisateur user = new Utilisateur(0, pseudoI, nomI, prenomI, emailI, rueI, telI, codePostalI, villeI,
+					passwordI, false);
+
+			UtilisateurManager um = UtilisateurManager.getInstance();
+
+			um.ajouterUtilisateurStandard(user);
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
+
+		} catch (Exception e) {
+			RequestDispatcher rd = request.getRequestDispatcher("InscriptionServlet");
+			rd.forward(request, response);
+			throw new NullPointerException();
+
+		}
+
 	}
 }
