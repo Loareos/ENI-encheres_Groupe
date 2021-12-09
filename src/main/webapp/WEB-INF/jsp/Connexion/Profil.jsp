@@ -22,8 +22,13 @@
 </header>
 <body>
 
-
-	<h3>Mon profil</h3> 
+    <c:if test="${ProfilAffiche != utilisateurActuel}">   
+	   <h3><%=request.getParameter("pseudo")%></h3> 
+    </c:if>
+    
+    <c:if test="${ProfilAffiche != utilisateurActuel}">   
+	   <h3>Mon profil</h3> 
+    </c:if>
 
     <div class="profilInfos">
     <div class="profil">
@@ -44,7 +49,7 @@
     </div>
     <div class="profil">
         <label>Téléphone : </label>
-        <label><%=request.getParameter("Telephone")%></label>
+        <label><%=request.getParameter("Telephone")%></label> 
     </div>
     <div class="profil">
         <label>Rue : </label>
@@ -63,8 +68,10 @@
 	
 	
 	
-	 <c:if test="${ProfilAffiche != utilisateurActuel}">
-         
+	 <c:if test="${ProfilAffiche == utilisateurActuel}">
+        <form action="InscriptionServlet" class="btnConnexion">
+		    <button type="submit">Créer un compte</button>
+	    </form>
      </c:if>
 	
 </body>
