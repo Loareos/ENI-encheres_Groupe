@@ -76,8 +76,8 @@ public class ConnexionServlet extends HttpServlet {
 		RequestDispatcher rd;
 
 		if (texteIdentifiantC.equals(texteIdentifiantC) && passwordC.equals(passwordC)) {
-			if (request.getParameter("souv") != null) {
-				if (request.getParameter("souv").equals("ok")) {
+			if (request.getParameter("checkSouvenir") != null) {
+				if (request.getParameter("checkSouvenir").equals("ok")) {
 					Cookie cookie = new Cookie("connexion", "ok");
 					cookie.setMaxAge(7 * 24 * 60 * 70);
 					response.addCookie(cookie);
