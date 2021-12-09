@@ -23,7 +23,7 @@
 	
 		<div class="formItemConnexion">
 			<label>Identifiant : </label>
-       		<input type="text" name="texteIdentifiantC" value="<%=request.getParameter("texteIdentifiantC")!=null?request.getParameter("texteIdentifiantC"):""%>" required/>
+       		<input type="text" name="IdentifiantC" value="<%=request.getParameter("IdentifiantC")!=null?request.getParameter("IdentifiantC"):""%>" required/>
 		</div>
 		
         <br>
@@ -36,7 +36,7 @@
 		<br>
 		
 		<div class="connexion">
-			<input type="submit" value="Connection" />
+			<input type="submit" value="Connexion" />
 			
 			<div class="connexionOptions">
 				<div>
@@ -50,7 +50,7 @@
 		
 	</form>
 	
-	<form action="InscriptionServlet" class="formConnexion">
+	<form action="InscriptionServlet" class="btnConnexion">
 		<button type="submit">Créer un compte</button>
 	</form>
 

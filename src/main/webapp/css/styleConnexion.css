@@ -52,6 +52,12 @@ h3{
 	gap : 10px 20px;
 }
 
+.btnConnexion{
+    padding-left : 75px;
+	display: flex;
+	gap : 10px 20px;
+}
+
 .connexionOptions{
 	display: flex;
 	flex-direction : column;
