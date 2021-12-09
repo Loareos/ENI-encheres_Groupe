@@ -102,9 +102,8 @@ public class UtilisateurManager {
 	 */
 	public void verifTelephone(String test, int max,BLLException exception)
 			throws BLLException {
-		Boolean bool;
 		
-		if (bool = test.trim().length()>max ? false: true ) {
+		if (test.trim().length()>max ? false: true ) {
 			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_ECHEC_MAX);
 		}
 	}
@@ -119,9 +118,8 @@ public class UtilisateurManager {
 	 */
 	public void verifCredit(int credit, int max,BLLException exception)
 												throws BLLException {
-		Boolean bool;
 		
-		if (bool = credit<0 ? false: true ) {
+		if (credit<0 ? false: true ) {
 			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_NULL);
 		}
 		
