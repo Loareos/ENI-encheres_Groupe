@@ -72,10 +72,14 @@
 	
 	<!-- Comparer les id -->
 	 <c:if test="${ProfilAffiche == utilisateurActuel}">
-        <form action="ModificationProfil" class="btn">
+        <form action="ModificationProfil" class="btn"><!-- SERVLET a rajouter -->
 		    <button type="submit">Modifier</button>
 	    </form>
      </c:if>
+     
+     <form action="ModificationProfil" class="btnRetour">
+		    <button type="submit" onclick="history.back()">Retour</button>
+	 </form>
 	
 </body>
 </html>
