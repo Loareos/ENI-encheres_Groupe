@@ -5,11 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.naming.spi.DirStateFactory.Result;
-
+import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.Utilisateur;
+import fr.eni.projet.dal.CodesResultatDAL;
 import fr.eni.projet.dal.ConnectionProvider;
-import fr.eni.projet.dal.DALException;
 import fr.eni.projet.dal.UtilisateurDAO;
 
 /**
@@ -31,7 +30,8 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 	
 	
 	@Override
-	public void insert(Utilisateur utilisateur) throws DALException {
+	public void insert(Utilisateur utilisateur) throws BusinessException {
+		checkNull(utilisateur);
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlInsert, PreparedStatement.RETURN_GENERATED_KEYS);){
 			int i = 1;
@@ -54,13 +54,17 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 				rs.next();
 				utilisateur.setNoUtilisateur(rs.getInt(1));
 			}
-		}catch(SQLException e) {
-			throw new DALException();
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
+			throw businessException;
 		}
 	}
 
 	@Override
-	public void update(Utilisateur utilisateur) throws DALException {
+	public void update(Utilisateur utilisateur) throws BusinessException {
+		checkNull(utilisateur);
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlUpdate);){
 			int i = 1;
@@ -80,13 +84,25 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 				stmt.setString(i++, "0");
 			stmt.setInt(i++, utilisateur.getNoUtilisateur());
 			stmt.execute();
-		}catch(SQLException e) {
-			throw new DALException();
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.UPDATE_OBJET_ECHEC);
+			throw businessException;
 		}
 	}
 
+	public void checkNull(Utilisateur utilisateur) throws BusinessException {
+		if(utilisateur == null) {
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.OBJET_NULL);
+			throw businessException;
+		}		
+	}
+	
+	
 	@Override
-	public Utilisateur selectById(int idUtilisateur) throws DALException {
+	public Utilisateur selectById(int idUtilisateur) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
 			stmt.setInt(1, idUtilisateur);
@@ -106,24 +122,30 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 							rs.getString(11).equals("0") ? false : true); // ADMINISTRATEUR ===> PAS CERTAIN DE CE QUE JE VIENS DE FAIRE
 				return u;
 			}
-		}catch(SQLException e) {
-			throw new DALException();
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
+			throw businessException;
 		}
 	}
 
 	@Override
-	public void delete(int idUtilisateur) throws DALException {
+	public void delete(int idUtilisateur) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlDelete);){
 			stmt.setInt(1, idUtilisateur);
 			stmt.execute();
-		}catch(SQLException e) {
-			throw new DALException();
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.DELETE_OBJET_ECHEC);
+			throw businessException;
 		}
 	}
 
 	@Override
-	public Utilisateur selectByPseudo(String pseudo) throws DALException {
+	public Utilisateur selectByPseudo(String pseudo) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlSelectByPseudo);){
 			stmt.setString(1, pseudo);
@@ -143,13 +165,16 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 							rs.getString(11).equals("0") ? false : true); // ADMINISTRATEUR ===> PAS CERTAIN DE CE QUE JE VIENS DE FAIRE
 				return u;
 			}
-		}catch(SQLException e) {
-			throw new DALException();
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
+			throw businessException;
 		}
 	}
 
 	@Override
-	public Utilisateur selectByMail(String email) throws DALException {
+	public Utilisateur selectByMail(String email) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlSelectByMail);){
 			stmt.setString(1, email);
@@ -169,15 +194,18 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 							rs.getString(11).equals("0") ? false : true); // ADMINISTRATEUR ===> PAS CERTAIN DE CE QUE JE VIENS DE FAIRE
 				return u;
 			}
-		}catch(SQLException e) {
-			throw new DALException();
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
+			throw businessException;
 		}
 	}
 
 	
 // RENVOIE TRUE SI LE PSEUDO EXISTE DEJA	
 	@Override
-	public boolean pseudoExist(String pseudo) throws DALException {
+	public boolean pseudoExist(String pseudo) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlPseudoExiste);){
 			stmt.setString(1, pseudo);
@@ -188,14 +216,17 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 				else
 					return false;
 			}
-		}catch(SQLException e) {
-			throw new DALException();
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.IS_EXISTING_OBJET_ECHEC);
+			throw businessException;
 		}
 	}
 
 // RENVOIE TRUE SI LE MAIL EXISTE DEJA		
 	@Override
-	public boolean mailExist(String email) throws DALException {
+	public boolean mailExist(String email) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlMailExiste);){
 			stmt.setString(1, email);
@@ -206,8 +237,11 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 				else
 					return false;
 			}
-		}catch(SQLException e) {
-			throw new DALException();
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.IS_EXISTING_OBJET_ECHEC);
+			throw businessException;
 		}
 	}
 }

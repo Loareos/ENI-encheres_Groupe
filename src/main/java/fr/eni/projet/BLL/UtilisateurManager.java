@@ -3,8 +3,8 @@
  */
 package fr.eni.projet.BLL;
 
+import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.Utilisateur;
-import fr.eni.projet.dal.DALException;
 import fr.eni.projet.dal.DAO;
 import fr.eni.projet.dal.DAOFactory;
 import fr.eni.projet.dal.UtilisateurDAO;
@@ -39,7 +39,7 @@ public class UtilisateurManager {
 	 * @throws DALException 
 	 */
 	public Utilisateur ajouterUtilisateurStandard(Utilisateur utilisateurStrd)
-												throws BLLException, DALException{
+												throws BLLException, BusinessException{
 		String test;
 		
 		test = utilisateurStrd.getPseudo();

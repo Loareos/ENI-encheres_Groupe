@@ -45,6 +45,8 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println("Coucou");
+		
 		String pseudoI = request.getParameter("PseudoI");
 		String nomI = request.getParameter("NomI");
 		String prenomI = request.getParameter("PrenomI");
@@ -55,5 +57,11 @@ public class InscriptionServlet extends HttpServlet {
 		String villeI = request.getParameter("VilleI");
 		String passwordI = request.getParameter("passwordI");
 		String passwordConfirmI = request.getParameter("passwordConfirmI");
+		
+		Utilisateur user = new Utilisateur(0, pseudoI, nomI, prenomI, emailI,rueI,telI,codePostalI,villeI,passwordI,false);
+		System.out.println(user.toString());
+		
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp");
+		rd.forward(request, response);
 	}
 }
