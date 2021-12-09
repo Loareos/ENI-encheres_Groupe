@@ -18,7 +18,7 @@ import fr.eni.projet.dal.UtilisateurDAO;
 
 public class UserDAOJdbcImpl implements UtilisateurDAO {
 
-	String sqlInsert = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,0)";
+	String sqlInsert = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,b?)";
 	String sqlUpdate = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?, credit = ?, administrateur = ?";
 	String sqlSelectById = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur FROM UTILISATEURS WHERE no_utilisateur = ?";
 	String sqlDelete = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?";
@@ -45,10 +45,10 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 			stmt.setString(i++, utilisateur.getVille());
 			stmt.setString(i++, utilisateur.getMotDePasse());
 			stmt.setInt(i++, utilisateur.getCredit());
-//			if(utilisateur.getAdministrateur())
-//				stmt.setString(i++, "1");
-//			else
-//				stmt.setString(i++, "0");
+			if(utilisateur.getAdministrateur())
+				stmt.setString(i++, "1");
+			else
+				stmt.setString(i++, "0");
 			stmt.execute();
 			try(ResultSet rs = stmt.getGeneratedKeys()){
 				rs.next();
