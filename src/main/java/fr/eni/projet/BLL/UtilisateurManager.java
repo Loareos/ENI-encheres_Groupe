@@ -46,7 +46,6 @@ public class UtilisateurManager {
 		this.verifStringNombreEtVide(test, 30,exception);
 		UtilisateurDao.pseudoExist(test);
 		
-		
 		test = utilisateurStrd.getNom();
 		this.verifStringNombreEtVide(test, 30,exception);
 		
