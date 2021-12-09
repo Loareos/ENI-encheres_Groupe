@@ -43,14 +43,14 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String texteIdentifiantI = request.getParameter("IdentifiantI");
-		String texteNomI = request.getParameter("NomI");
-		String textePrénomI = request.getParameter("PrénomI");
-		int numeroI = Integer.parseInt(request.getParameter("numeroI"));
+		String identifiantI = request.getParameter("identifiantI");
+		String NomI = request.getParameter("NomI");
+		String PrenomI = request.getParameter("PrenomI");
+		String telI = request.getParameter("telI");
 		String emailI = request.getParameter("emailI");
 		String passwordI = request.getParameter("passwordI");
 		String texteRueI = request.getParameter("RueI");
-		int codePostalI = Integer.parseInt(request.getParameter("codePostalI"));
+		String codePostalI = request.getParameter("codePostalI");
 		String texteVilleI = request.getParameter("VilleI");
 		String passwordConfirmI = request.getParameter("passwordConfirmI");
 	}
