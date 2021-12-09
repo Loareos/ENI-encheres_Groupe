@@ -84,12 +84,11 @@ public class UtilisateurManager {
 	 */
 	public void verifStringNombreEtVide(String test, int max,BLLException exception)
 			throws BLLException {
-		Boolean bool;
 		
-		if (bool = test.trim().length()>max ? false: true ) {
+		if (test.trim().length()>max ? false: true ) {
 			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_ECHEC_MAX);
 		}
-		if (bool = test.trim().length() == 0? false: true ) {
+		if (test.trim().length() == 0? false: true ) {
 			exception.ajouterErreur(CodesResultatBLL.INSERT_UTILISATEUR_NULL);
 		}
 	}
