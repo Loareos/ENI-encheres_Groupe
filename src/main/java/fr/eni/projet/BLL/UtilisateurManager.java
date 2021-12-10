@@ -38,7 +38,7 @@ public class UtilisateurManager {
 	 * @return un objet Utilisateur en cas de succcès
 	 */
 	
-	public void ajouterUtilisateurStandard(String pseudo, String nom, String prenom, String email, String rue, String tel, String cp, String ville, String mdp, String verifMdp) throws BusinessException{
+	public Utilisateur ajouterUtilisateurStandard(String pseudo, String nom, String prenom, String email, String rue, String tel, String cp, String ville, String mdp, String verifMdp) throws BusinessException{
 		BusinessException exception = new BusinessException();
 		
 		//Verifie que le mot de passe et la confirmation sont les mêmes
@@ -55,9 +55,10 @@ public class UtilisateurManager {
 			exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
 
 		
-		if(!exception.hasErreurs())
+		if(!exception.hasErreurs()) {
 			this.utilisateurDao.insert(user);
-		else
+			return user;
+		}else
 			throw exception;
 	}
 	
