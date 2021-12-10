@@ -1,33 +1,101 @@
 @charset "UTF-8";
 
-h4{
-	padding-right : 50px;
+h4 {
+	padding-right: 20px;
+	padding-left: 10px;
 }
 
-
-
-nav{
+nav {
 	display: flex;
-	flex-direction : row;
+	flex-direction: row;
 	align-items: center;
-	justify-content : space-between;
-	padding-right : 20px;
-	padding-left : 10px;
-	flex-wrap : wrap;
+	justify-content: space-between;
+	padding-right: 20px;
+	flex-wrap: wrap;
 }
 
-.liens{
+@media (max-width : 610px) {
+	.txtRecherche {
+		height: 20px;
+		width: 300px;
+	}
+	.btnRecherche {
+		height: 100px;
+		width: 310px
+	}
+	.RechercheServlet {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.selectionneur{
+		padding-bottom : 20px;
+		display: flex;
+		justify-content: center;
+		align-items : center;
+		flex-direction : column;
+	}
+	
+	
+}
+.selectionCategorie{
+		height: 20px;
+		width: 180px;
+}
+
+.selectionneurSpe{
+    display : flex;
+    padding-bottom : 10px;
+}
+	
+.labCategorie{
+		padding-right : 30px;
+}
+	
+@media ( min-width : 611px) {
+	.txtRecherche {
+		height: 20px;
+		width: 270px;
+	}
+	.btnRecherche {
+		height: 60px;
+		width: 200px;
+		margin-left:60px;
+	}
+	.RechercheServlet {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding-left: 10px;
+		padding-right: 10px;
+		
+		margin-left:30px;
+	}
+	.selectionneur{
+		padding-bottom : 20px;
+		display: flex;
+		justify-content: center;
+		align-items : center;
+		flex-direction : column;
+	}
+}
+
+.liens {
 	display: flex;
 	align-items: center;
-	justify-content : center;
-
+	justify-content: center;
+	padding-left: 10px;
 }
 
-.lienConnection{
-	padding-right : 20px;
+.lienConnection {
+	padding-right: 20px;
 }
 
-.titreIndex{
-	display: flex; 
-	justify-content : center;
+.titreIndex {
+	display: flex;
+	justify-content: center;
 }
