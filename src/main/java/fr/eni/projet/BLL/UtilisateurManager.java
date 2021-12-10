@@ -36,8 +36,6 @@ public class UtilisateurManager {
 	
 	/**
 	 * @return un objet Utilisateur en cas de succcès
-	 * @throws BLLException 
-	 * @throws DALException 
 	 */
 	public void ajouterUtilisateurStandard(Utilisateur utilisateurStrd) throws BusinessException{
 		BusinessException exception = new BusinessException();
