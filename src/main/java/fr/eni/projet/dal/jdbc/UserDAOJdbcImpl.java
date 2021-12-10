@@ -25,8 +25,8 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 	
 	String sqlSelectByPseudo = "SELECT no_utilisateur, credit, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, administrateur FROM UTILISATEURS WHERE pseudo = ?";
 	String sqlSelectByMail = "SELECT no_utilisateur, credit, pseudo, nom, prenom, telephone, rue, code_postal, ville, mot_de_passe, administrateur FROM UTILISATEURS WHERE email = ?";
-	String sqlPseudoExiste = "SELECT COUNT * FROM UTILISATEURS WHERE pseudo = ?";
-	String sqlMailExiste = "SELECT COUNT * FROM UTILISATEURS WHERE email = ?";
+	String sqlPseudoExiste = "SELECT COUNT(*) FROM UTILISATEURS WHERE pseudo = ?";
+	String sqlMailExiste = "SELECT COUNT(*) FROM UTILISATEURS WHERE email = ?";
 	
 	// =============  PARTIE FONCTIONNELLE  =============================
 	@Override

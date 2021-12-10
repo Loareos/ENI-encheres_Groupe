@@ -40,13 +40,11 @@ public class UtilisateurManager {
 	public void ajouterUtilisateurStandard(Utilisateur utilisateurStrd) throws BusinessException{
 		BusinessException exception = new BusinessException();
 		if(verifUser(utilisateurStrd, exception)) {		
-//			if(this.utilisateurDao.pseudoExist(utilisateurStrd.getPseudo()))
-//				exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
-//		
-//			if(this.utilisateurDao.mailExist(utilisateurStrd.getEmail()))
-//				exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
+			if(this.utilisateurDao.pseudoExist(utilisateurStrd.getPseudo()))
+				exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
+			if(this.utilisateurDao.mailExist(utilisateurStrd.getEmail()))
+				exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
 		}
-		
 		if(!exception.hasErreurs())
 			this.utilisateurDao.insert(utilisateurStrd);
 		else
