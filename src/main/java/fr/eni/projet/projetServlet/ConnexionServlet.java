@@ -43,8 +43,6 @@ public class ConnexionServlet extends HttpServlet {
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
 
-		boolean cookiePresent = false;
-
 		// Cookie mot de passe souvenir, renvoie à l'acceuil(index.jsp) si condition
 		// pour se
 		// souvenir
@@ -56,16 +54,10 @@ public class ConnexionServlet extends HttpServlet {
 					request.setAttribute("cookieId", cookie.getValue());
 				if (cookie.getName().equals("mdp"))
 					request.setAttribute("cookieMdp", cookie.getValue());
-
 			}
 		}
-
-		if (cookiePresent) {
-			rd = request.getRequestDispatcher("index.jsp");
-
-		} else {
-			rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/ConnexionCompte.jsp");
-		}
+		
+		rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/ConnexionCompte.jsp");
 		rd.forward(request, response);
 	}
 
@@ -88,33 +80,28 @@ public class ConnexionServlet extends HttpServlet {
 
 		if (request.getParameter("checkSouvenir") != null) {
 			Cookie[] cookies = request.getCookies();
-			if (cookies != null) {
-				for (Cookie cookie : cookies) {
-					if (cookie.getName().equals("id"))
-						cookie.setValue(identifiantC);
-					if (cookie.getName().equals("mdp"))
-						cookie.setValue(passwordC);
+			int i = 0;
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("id")) {
+					cookie.setValue(identifiantC);
+					i++;
 				}
-
+				if (cookie.getName().equals("mdp")) {
+					cookie.setValue(passwordC);
+					i++;
+				}
 			}
-
-			else {
-
+			if(i != 2) {
 				Cookie cookie = new Cookie("id", identifiantC);
-				cookie.setMaxAge(7 * 5);
+				cookie.setMaxAge(60 * 60 * 24 * 30);
 				response.addCookie(cookie);
 
 				cookie = new Cookie("mdp", passwordC);
-				cookie.setMaxAge(7 * 5);
+				cookie.setMaxAge(60 * 60 * 24 * 30);
 				response.addCookie(cookie);
-
 			}
-
 		}
-
-		try
-
-		{
+		try{
 			UtilisateurManager um = UtilisateurManager.getInstance();
 			Utilisateur user = um.connexion(identifiantC, passwordC);
 
@@ -124,11 +111,7 @@ public class ConnexionServlet extends HttpServlet {
 			rd.forward(request, response);
 
 		} catch (BusinessException e) {
-
 			System.err.println(e.getListeCodesErreur());
-
 		}
-
 	}
-
 }
