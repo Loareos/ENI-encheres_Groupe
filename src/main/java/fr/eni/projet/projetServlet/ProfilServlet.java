@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import fr.eni.projet.BO.Utilisateur;
 
 /**
  * Servlet implementation class ProfilServlet
@@ -29,7 +32,17 @@ public class ProfilServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+        //On récupère les infos de l'user connecté
+		HttpSession sessionUser = request.getSession();
+		Utilisateur re = (Utilisateur) sessionUser.getAttribute("utilisateur");
+
+
+		
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/Profil.jsp");
+		
 		rd.forward(request, response);
 	}
 

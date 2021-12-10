@@ -34,37 +34,37 @@
     <div class="profilInfos">
     <div class="profil">
         <label>Pseudo : </label>
-        <label><%=request.getParameter("pseudo")%></label>
+        <label>${utilisateur.getPseudo()}</label>
     </div>
     <c:if test="${ProfilAffiche == utilisateurActuel}">   
 	    <div class="profil">
         <label>Nom : </label>
-        <label><%=request.getParameter("Nom")%></label>
+        <label>${utilisateur.getNom()}</label>
     </div>
     <div class="profil">
         <label>Prénom : </label>
-        <label><%=request.getParameter("Prenom")%></label>
+        <label>${utilisateur.getPrenom()}</label>
     </div>
     <div class="profil">
         <label>Email : </label>
-        <label><%=request.getParameter("Email")%></label>
+        <label>${utilisateur.getEmail()}</label>
     </div>
     <div class="profil">
         <label>Téléphone : </label>
-        <label><%=request.getParameter("Telephone")%></label> 
+        <label>${utilisateur.getTelephone()}</label> 
     </div>
     <div class="profil">
         <label>Rue : </label>
-        <label><%=request.getParameter("Rue")%></label>
+        <label>${utilisateur.getRue()}</label>
     </div>
     </c:if>
     <div class="profil">
         <label>Code postal : </label>
-        <label><%=request.getParameter("CodePostal")%></label>
+        <label>${utilisateur.getCodePostal()}</label>
     </div>
     <div class="profil">
         <label>Ville : </label>
-        <label><%=request.getParameter("Ville")%></label>
+        <label>${utilisateur.getVille()}</label>
     </div>
 	</div>
 	

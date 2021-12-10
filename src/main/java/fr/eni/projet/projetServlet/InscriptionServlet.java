@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.UtilisateurManager;
@@ -60,6 +61,11 @@ public class InscriptionServlet extends HttpServlet {
 		try {
 			UtilisateurManager um = UtilisateurManager.getInstance();
 			Utilisateur user = um.ajouterUtilisateurStandard(pseudoI,nomI,prenomI,emailI,rueI,telI,codePostalI,villeI,passwordI,passwordConfirmI);
+			
+			//On envoie à index qu'on est connecté
+			HttpSession sessionUser = request.getSession();
+			sessionUser.setAttribute("utilisateur", user);
+			
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 

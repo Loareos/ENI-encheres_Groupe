@@ -68,7 +68,8 @@ public class DeconnexionServlet extends HttpServlet {
 		Cookie ck = new Cookie("deconnexion", "");
 		ck.setMaxAge(0);
 		response.addCookie(ck);
-
+		//On envoie à index qu'on est déconnecté
+		request.setAttribute("utilisateur", null);
 		out.print("Vous êtes déconnecté!");
 
 	}
