@@ -40,4 +40,12 @@ public abstract class CodesResultatBLL {
 	 * Echec de l'insertion d'un avis à cause de la note
 	 */
 	public static final int MDP_VERIF_DIFFERENTS=20007;
+	/**
+	 * Echec de l'insertion d'un avis à cause de la note
+	 */
+	public static final int IDENTIFIANT_INCORRECT=20008;
+	/**
+	 * Echec de l'insertion d'un avis à cause de la note
+	 */
+	public static final int MOT_DE_PASSE_INCORRECT=20009;
 }

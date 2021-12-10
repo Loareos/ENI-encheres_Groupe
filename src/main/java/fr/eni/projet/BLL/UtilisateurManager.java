@@ -33,7 +33,26 @@ public class UtilisateurManager {
 		utilisateurDao = DAOFactory.getUserDAO();
 	}
 	
-	
+	public Utilisateur connexion( String identifiant, String mdp) throws BusinessException {
+		
+		BusinessException exception = new BusinessException();
+		
+		Utilisateur user = null;
+		
+		if (utilisateurDao.pseudoExist(identifiant))user = this.utilisateurDao.selectByPseudo(identifiant);
+
+		if (utilisateurDao.mailExist(identifiant))user = this.utilisateurDao.selectByMail(identifiant);
+		
+		if (user != null) {
+			if (mdp.equals(user.getMotDePasse())) {
+				return user;
+			}else {
+				exception.ajouterErreur(CodesResultatBLL.MOT_DE_PASSE_INCORRECT);
+			}
+			exception.ajouterErreur(CodesResultatBLL.IDENTIFIANT_INCORRECT);
+		}		
+		throw exception;
+	}
 	/**
 	 * @return un objet Utilisateur en cas de succcès
 	 */
