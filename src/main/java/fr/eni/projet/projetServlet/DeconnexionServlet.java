@@ -41,7 +41,7 @@ public class DeconnexionServlet extends HttpServlet {
 	 *      response)
 	 */
 
-	// tente de quitter en fermant et en renvoyant à l'accueil normalement
+// tente de quitter en fermant et en renvoyant à l'accueil normalement
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -51,36 +51,11 @@ public class DeconnexionServlet extends HttpServlet {
 		sessionUser.setAttribute("utilisateur", null);
 		
 		
-		RequestDispatcher rd = null;
-
-		boolean cookiePresent = false;
-
-		// Cookie mot de passe souvenir, est enlever
-
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("connexion") && cookie.getValue().equals("ok")) {
-					cookie.setMaxAge(7 * 24 * 60 * 70);
-					response.addCookie(cookie);
-				}
-			}
-		}
-
-		// Cookie qui déconnecte et renvoie à l'accueil (logiquement) mais reste dans la
-		// servlet (url)
-
+//		RequestDispatcher rd = null;
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
 		request.getRequestDispatcher("index.jsp").include(request, response);
-
-		Cookie ck = new Cookie("deconnexion", "");
-		ck.setMaxAge(0);
-		response.addCookie(ck);
-
 		out.print("Vous êtes déconnecté!");
-
 	}
 
 	/**
@@ -90,8 +65,5 @@ public class DeconnexionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
-
-		request.setCharacterEncoding("UTF-8");
 	}
-
 }

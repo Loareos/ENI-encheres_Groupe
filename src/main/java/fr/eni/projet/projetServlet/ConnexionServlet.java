@@ -43,10 +43,7 @@ public class ConnexionServlet extends HttpServlet {
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
 
-		// Cookie mot de passe souvenir, renvoie à l'acceuil(index.jsp) si condition
-		// pour se
-		// souvenir
-
+// RECUPERATION DES COOKIKES DE MDP ET D'ID
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
@@ -71,31 +68,29 @@ public class ConnexionServlet extends HttpServlet {
 		String identifiantC = request.getParameter("identifiantC");
 		String passwordC = request.getParameter("passwordC");
 
-		// Condition pour se connecter, renvoie à l'acceuil(index.jsp)
-
 		RequestDispatcher rd;
-
-		// Solution que temporaire par la suite faire un select by ID avec SQL en
-		// appelant la BDD
-
+		
 		if (request.getParameter("checkSouvenir") != null) {
 			Cookie[] cookies = request.getCookies();
 			int i = 0;
+			// 	cookies non remplacés par les nouveau si deja existants
 			for (Cookie cookie : cookies) {
 				if (cookie.getName().equals("id")) {
 					cookie.setValue(identifiantC);
+					response.addCookie(cookie);
 					i++;
 				}
 				if (cookie.getName().equals("mdp")) {
 					cookie.setValue(passwordC);
+					response.addCookie(cookie);
 					i++;
 				}
 			}
+			// 	CREATION DE COOKIES SI INEXISTANTS
 			if(i != 2) {
 				Cookie cookie = new Cookie("id", identifiantC);
 				cookie.setMaxAge(60 * 60 * 24 * 30);
 				response.addCookie(cookie);
-
 				cookie = new Cookie("mdp", passwordC);
 				cookie.setMaxAge(60 * 60 * 24 * 30);
 				response.addCookie(cookie);
@@ -115,3 +110,14 @@ public class ConnexionServlet extends HttpServlet {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
