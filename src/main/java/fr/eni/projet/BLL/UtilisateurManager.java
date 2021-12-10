@@ -39,18 +39,20 @@ public class UtilisateurManager {
 		
 		Utilisateur user = null;
 		
-		if (utilisateurDao.pseudoExist(identifiant))user = this.utilisateurDao.selectByPseudo(identifiant);
+		if (utilisateurDao.pseudoExist(identifiant))
+			user = this.utilisateurDao.selectByPseudo(identifiant);
 
-		if (utilisateurDao.mailExist(identifiant))user = this.utilisateurDao.selectByMail(identifiant);
+		if (utilisateurDao.mailExist(identifiant))
+			user = this.utilisateurDao.selectByMail(identifiant);
 		
-		if (user != null) {
-			if (mdp.equals(user.getMotDePasse())) {
+		if (user != null) 
+			if (mdp.equals(user.getMotDePasse())) 
 				return user;
-			}else {
+			else 
 				exception.ajouterErreur(CodesResultatBLL.MOT_DE_PASSE_INCORRECT);
-			}
+		else	
 			exception.ajouterErreur(CodesResultatBLL.IDENTIFIANT_INCORRECT);
-		}		
+				
 		throw exception;
 	}
 	/**
