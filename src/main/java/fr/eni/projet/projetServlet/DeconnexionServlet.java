@@ -10,6 +10,11 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.manager.util.SessionUtils;
+
+import fr.eni.projet.BO.Utilisateur;
 
 /**
  * 
@@ -41,6 +46,11 @@ public class DeconnexionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		//On envoie à index qu'on est déconnecté
+		HttpSession sessionUser = request.getSession();
+		sessionUser.setAttribute("utilisateur", null);
+		
+		
 		RequestDispatcher rd = null;
 
 		boolean cookiePresent = false;
@@ -68,8 +78,7 @@ public class DeconnexionServlet extends HttpServlet {
 		Cookie ck = new Cookie("deconnexion", "");
 		ck.setMaxAge(0);
 		response.addCookie(ck);
-		//On envoie à index qu'on est déconnecté
-		request.setAttribute("utilisateur", null);
+
 		out.print("Vous êtes déconnecté!");
 
 	}
