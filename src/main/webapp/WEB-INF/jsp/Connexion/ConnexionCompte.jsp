@@ -25,12 +25,12 @@
 	  
 		<div class="formItemConnexion">
 			<label>Identifiant : </label>
-       		<input type="text" name="identifiantC" value="<%=request.getParameter("identifiantC")!=null?request.getParameter("identifiantC"):""%>" required/>
+       		<input type="text" name="identifiantC" value="<%=request.getAttribute("cookieId")!=null?request.getAttribute("cookieId"):""%>" required/>
 		</div>
 		<br>
         <div class="formItemConnexion">
        		<label>Mot de passe : </label>
-        	<input type="password" name="passwordC" value="<%=request.getParameter("passwordC")!=null?request.getParameter("passwordC"):""%>" required/>
+        	<input type="password" name="passwordC" value="<%=request.getAttribute("cookieMdp")!=null?request.getAttribute("cookieMdp"):""%>" required/>
         </div>
         
       </div>

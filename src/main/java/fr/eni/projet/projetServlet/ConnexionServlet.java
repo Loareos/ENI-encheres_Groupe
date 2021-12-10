@@ -9,6 +9,11 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import fr.eni.projet.BusinessException;
+import fr.eni.projet.BLL.UtilisateurManager;
+import fr.eni.projet.BO.Utilisateur;
 
 /**
  * 
@@ -47,9 +52,11 @@ public class ConnexionServlet extends HttpServlet {
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("connexion") && cookie.getValue().equals("ok")) {
-					cookiePresent = true;
-				}
+				if (cookie.getName().equals("id"))
+					request.setAttribute("cookieId", cookie.getValue());
+				if (cookie.getName().equals("mdp"))
+					request.setAttribute("cookieMdp", cookie.getValue());
+
 			}
 		}
 
@@ -79,22 +86,48 @@ public class ConnexionServlet extends HttpServlet {
 		// Solution que temporaire par la suite faire un select by ID avec SQL en
 		// appelant la BDD
 
-		if (identifiantC.equals(identifiantC) && passwordC.equals(passwordC)) {
-			if (request.getParameter("checkSouvenir") != null) {
-				if (request.getParameter("checkSouvenir").equals("ok")) {
-					Cookie cookie = new Cookie("connexion", "ok");
-					cookie.setMaxAge(7 * 24 * 60 * 70);
-					response.addCookie(cookie);
+		if (request.getParameter("checkSouvenir") != null) {
+			Cookie[] cookies = request.getCookies();
+			if (cookies != null) {
+				for (Cookie cookie : cookies) {
+					if (cookie.getName().equals("id"))
+						cookie.setValue(identifiantC);
+					if (cookie.getName().equals("mdp"))
+						cookie.setValue(passwordC);
 				}
+
 			}
 
-			rd = request.getRequestDispatcher("index.jsp");
-		} else {
+			else {
 
-			rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp");
+				Cookie cookie = new Cookie("id", identifiantC);
+				cookie.setMaxAge(7 * 5);
+				response.addCookie(cookie);
+
+				cookie = new Cookie("mdp", passwordC);
+				cookie.setMaxAge(7 * 5);
+				response.addCookie(cookie);
+
+			}
+
 		}
 
-		rd.forward(request, response);
+		try
+
+		{
+			UtilisateurManager um = UtilisateurManager.getInstance();
+			Utilisateur user = um.connexion(identifiantC, passwordC);
+
+			HttpSession sessionUser = request.getSession();
+			sessionUser.setAttribute("utilisateur", user);
+			rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
+
+		} catch (BusinessException e) {
+
+			System.err.println(e.getListeCodesErreur());
+
+		}
 
 	}
 
