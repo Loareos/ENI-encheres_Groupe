@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.UtilisateurManager;
 import fr.eni.projet.BO.Utilisateur;
 
@@ -54,20 +55,19 @@ public class InscriptionServlet extends HttpServlet {
 		String codePostalI 		= request.getParameter("codePostalI").trim();
 		String villeI 			= request.getParameter("VilleI").trim();
 		String passwordI 		= request.getParameter("passwordI"); // Refuser les espaces dans le mot de passe
-		String passwordConfirmI = request.getParameter("passwordConfirmI"); // Faire la verife du mot de passe
+		String passwordConfirmI = request.getParameter("passwordConfirmI");
 
 		try {
-			Utilisateur user = new Utilisateur(0, pseudoI, nomI, prenomI, emailI, rueI, telI, codePostalI, villeI,passwordI, false);
-			System.out.println(user.toString());
 			UtilisateurManager um = UtilisateurManager.getInstance();
-			um.ajouterUtilisateurStandard(user);
+			um.ajouterUtilisateurStandard(pseudoI,nomI,prenomI,emailI,rueI,telI,codePostalI,villeI,passwordI,passwordConfirmI);
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 
-		} catch (Exception e) {
-
-			throw new NullPointerException();
-
+		} catch (BusinessException e) {
+			System.err.println(e.getListeCodesErreur());
+			if(e.getListeCodesErreur().size() == 0) {
+				System.err.println("Ca doit venir de votre base de donnée");
+			}
 		}
 
 	}

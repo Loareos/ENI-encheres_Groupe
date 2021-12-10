@@ -36,6 +36,8 @@ public abstract class CodesResultatBLL {
 	 * Echec de l'insertion d'un avis à cause de la note
 	 */
 	public static final int GET_INSTANCE=20006;
-	
-	
+	/**
+	 * Echec de l'insertion d'un avis à cause de la note
+	 */
+	public static final int MDP_VERIF_DIFFERENTS=20007;
 }

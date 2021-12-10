@@ -203,6 +203,7 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 	}
 
 	
+// =============  PARTIE FONCTIONNELLE  =============================	
 // RENVOIE TRUE SI LE PSEUDO EXISTE DEJA	
 	@Override
 	public boolean pseudoExist(String pseudo) throws BusinessException {
