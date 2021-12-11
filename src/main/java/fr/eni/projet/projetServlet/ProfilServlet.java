@@ -20,13 +20,6 @@ public class ProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ProfilServlet() {
-		super();
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -36,13 +29,8 @@ public class ProfilServlet extends HttpServlet {
         //On récupère les infos de l'user connecté
 		HttpSession sessionUser = request.getSession();
 		Utilisateur re = (Utilisateur) sessionUser.getAttribute("utilisateur");
-
-
-		
-		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/Profil.jsp");
-		
 		rd.forward(request, response);
 	}
 
@@ -52,16 +40,6 @@ public class ProfilServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String pseudo = request.getParameter("pseudo");
-		String Nom = request.getParameter("Nom");
-		String Prenom = request.getParameter("Prenom");
-		String Email = request.getParameter("Email");
-		String Telephone = request.getParameter("Telephone");
-		String Rue = request.getParameter("Rue");
-		String CodePostal = request.getParameter("CodePostal");
-		String Ville = request.getParameter("Ville");
-
+		doGet(request, response);
 	}
-
 }

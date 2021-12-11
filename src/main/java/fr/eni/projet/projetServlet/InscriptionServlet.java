@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.UtilisateurManager;
 import fr.eni.projet.BO.Utilisateur;
+import fr.eni.projet.messages.LecteurMessage;
 
 /**
  * 
@@ -70,11 +71,8 @@ public class InscriptionServlet extends HttpServlet {
 			rd.forward(request, response);
 
 		} catch (BusinessException e) {
-			System.err.println(e.getListeCodesErreur());
-			if(e.getListeCodesErreur().size() == 0) {
-				System.err.println("Ca doit venir de votre base de donnée");
-			}
+			for(int i : e.getListeCodesErreur())
+				System.err.println(LecteurMessage.getMessageErreur(i));
 		}
-
 	}
 }

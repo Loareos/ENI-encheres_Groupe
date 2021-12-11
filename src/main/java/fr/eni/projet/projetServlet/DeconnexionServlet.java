@@ -30,13 +30,6 @@ public class DeconnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public DeconnexionServlet() {
-		super();
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -50,8 +43,6 @@ public class DeconnexionServlet extends HttpServlet {
 		HttpSession sessionUser = request.getSession();
 		sessionUser.setAttribute("utilisateur", null);
 		
-		
-//		RequestDispatcher rd = null;
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		request.getRequestDispatcher("index.jsp").include(request, response);

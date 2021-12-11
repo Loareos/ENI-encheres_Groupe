@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.UtilisateurManager;
 import fr.eni.projet.BO.Utilisateur;
+import fr.eni.projet.messages.LecteurMessage;
 
 /**
  * 
@@ -29,19 +30,11 @@ public class ConnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ConnexionServlet() {
-		super();
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = null;
 
 // RECUPERATION DES COOKIKES DE MDP ET D'ID
 		Cookie[] cookies = request.getCookies();
@@ -54,6 +47,7 @@ public class ConnexionServlet extends HttpServlet {
 			}
 		}
 		
+		RequestDispatcher rd = null;		
 		rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/ConnexionCompte.jsp");
 		rd.forward(request, response);
 	}
@@ -106,7 +100,8 @@ public class ConnexionServlet extends HttpServlet {
 			rd.forward(request, response);
 
 		} catch (BusinessException e) {
-			System.err.println(e.getListeCodesErreur());
+			for(int i : e.getListeCodesErreur())
+				System.err.println(LecteurMessage.getMessageErreur(i));
 		}
 	}
 }
