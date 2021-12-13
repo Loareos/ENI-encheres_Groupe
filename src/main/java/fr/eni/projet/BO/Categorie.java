@@ -9,8 +9,8 @@ package fr.eni.projet.BO;
  */
 public class Categorie {
 	
-	private Integer  noCategorie; 
-	private String libelle; 
+	private Integer  	noCategorie; 
+	private String		libelle; 
 
 	
 	//======================================================================//
@@ -28,8 +28,8 @@ public class Categorie {
 	 *		Constructeur Complet
 	 */
 	public Categorie(Integer noCategorie, String libelle) {
-		this.noCategorie = noCategorie;
-		this.libelle = libelle;
+		this.noCategorie 	= noCategorie;
+		this.libelle 		= libelle;
 	}
 	/**
 	 *		Constructeur sans noCategorie
@@ -69,8 +69,10 @@ public class Categorie {
 	//======================toString Categorie======================//
 	@Override
 	public String toString() {
-		return "- Categorie: " + (getNoCategorie() != null ? "getNoCategorie()=" + getNoCategorie() + ", " : "")
-				+ (getLibelle() != null ? "getLibelle()=" + getLibelle() : "") + " -";
+		return "-Categorie: " 
+				+ " No: " 		+ getNoCategorie()
+				+ " Libelle: " 	+ getLibelle() 
+				+ " -";
 	}
 	
 }

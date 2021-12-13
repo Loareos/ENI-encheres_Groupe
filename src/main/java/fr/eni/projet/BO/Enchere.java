@@ -11,109 +11,101 @@ import java.time.LocalDateTime;
  */
 public class Enchere {
 
-	private int noUtilisateur;
-	private int noArticles;
-	private int montant_enchere;
-	private LocalDateTime dateEnchere;
-
-	////////////////////////////////////////////////////////////////
-	//											Construct
-	//______________________________________________________________
-
+	private Integer 			noUtilisateur;
+	private Integer 			noAcheteur;
+	private Integer 			noArticle;
+	private LocalDateTime 		dateEnchere;
+	private Integer 			montant_enchere;
+	
+	//======================================================================//
+	//								Constructeurs
+	//======================================================================//
+	
+	
 	/**
-	 * 
-	 * Contruct + no
-	 * 
-	 * @param noUtilisateur
-	 * @param noArticles
-	 * @param montant_enchere
-	 * @param dateEnchere
+	 *		Constructeur Vide
 	 */
-	public Enchere(int noUtilisateur, int noArticles, int montant_enchere,
-				LocalDateTime dateEnchere) {
-		this(noArticles,montant_enchere,dateEnchere);
-		this.noUtilisateur = noUtilisateur;
+	public Enchere() {
+		super();
 	}
 
 	/**
-	 * @param noUtilisateur
-	 * @param noArticles
-	 * @param montant_enchere
-	 * @param dateEnchere
+	 *		Constructeur Complet
 	 */
-	public Enchere(int noArticles, int montant_enchere, LocalDateTime dateEnchere) {
-		this.noArticles = noArticles;
-		this.montant_enchere = montant_enchere;
+	public Enchere(Integer noUtilisateur, Integer noAcheteur, Integer noArticle,
+					LocalDateTime dateEnchere, Integer montant_enchere) {
+		
+		this.noUtilisateur 		= noUtilisateur;
+		this.noAcheteur 		= noAcheteur;
+		this.noArticle 			= noArticle;
+		this.dateEnchere 		= dateEnchere;
+		this.montant_enchere 	= montant_enchere;
+	}
+	
+	/**
+	 *		Constructeur sans noAcheteur 
+	 */
+	
+	public Enchere(Integer noUtilisateur, Integer noArticle, LocalDateTime dateEnchere,
+					Integer montant_enchere) {
+		this(noUtilisateur,null,noArticle,dateEnchere,montant_enchere);
+	}
+	
+	/**
+	 *		Constructeur sans noUtilisateur noAcheteur
+	 */
+	public Enchere(Integer noArticle, LocalDateTime dateEnchere,Integer montant_enchere) {
+		this(null,null,noArticle, dateEnchere, montant_enchere);
+	}
+	
+	
+
+	//======================================================================//
+	//								Getters-Setters 
+	//======================================================================//
+
+	
+	//=================== noUtilisateur ===================
+	//getter
+	public Integer getNoUtilisateur() {
+		return noUtilisateur;
+	}
+	//Setter
+	public void setNoUtilisateur(Integer noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
+	}
+	
+	//=================== noArticle ===================
+	//getter
+	public Integer getnoArticle() {
+		return noArticle;
+	}
+	//Setter
+	public void setnoArticle(Integer noArticle) {
+		this.noArticle = noArticle;
+	}
+	
+	//=================== dateEnchere ===================
+	//getter
+	public LocalDateTime getDateEnchere() {
+		return dateEnchere;
+	}
+	//Setter
+	public void setDateEnchere(LocalDateTime dateEnchere) {
 		this.dateEnchere = dateEnchere;
 	}
 	
-	////////////////////////////////////////////////////////////////
-	//											Get/Set
-	//______________________________________________________________
-
-	/**
-	 * @return the noUtilisateur
-	 */
-	public int getNo_utilisateur() {
-		return noUtilisateur;
-	}
-
-	/**
-	 * @param noUtilisateur the noUtilisateur to set
-	 */
-	public void setNo_utilisateur(int noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
-	}
-
-	/**
-	 * @return the noArticles
-	 */
-	public int getNo_articles() {
-		return noArticles;
-	}
-
-	/**
-	 * @param noArticles the noArticles to set
-	 */
-	public void setNo_articles(int noArticles) {
-		this.noArticles = noArticles;
-	}
-
-	/**
-	 * @return the montant_enchere
-	 */
-	public int getMontant_enchere() {
+	//=================== montant_enchere ===================
+	//getter
+	public Integer getMontant_enchere() {
 		return montant_enchere;
 	}
-
-	/**
-	 * @param montant_enchere the montant_enchere to set
-	 */
-	public void setMontant_enchere(int montant_enchere) {
+	//Setter
+	public void setMontant_enchere(Integer montant_enchere) {
 		this.montant_enchere = montant_enchere;
 	}
-
-	/**
-	 * @return the dateEnchere
-	 */
-	public LocalDateTime getDate_enchere() {
-		return dateEnchere;
-	}
-
-	/**
-	 * @param dateEnchere the dateEnchere to set
-	 */
-	public void setDate_enchere(LocalDateTime dateEnchere) {
-		this.dateEnchere = dateEnchere;
-	}
-
-	@Override
-	public String toString() {
-		return ":Enchere: No Util:" + getNo_utilisateur()
-						+ ", Art:" + getNo_articles()
-						+ " à " + getMontant_enchere()
-						+" £ le " + getDate_enchere()+ "-";
-	}
+	
+	
 	
 	
 }

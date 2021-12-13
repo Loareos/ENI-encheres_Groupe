@@ -8,100 +8,96 @@ package fr.eni.projet.BO;
  *
  */
 public class Retrait {
-	
-	private int noArticle;
-	private String rue;
-	private String code_postal;
-	private String ville;
-	
-	////////////////////////////////////////////////////////////////
-	//											Construct   
-	//______________________________________________________________
 
-
+	private Integer 	noArticle;
+	private String 		rue;
+	private String 		code_postal;
+	private String 		ville;
+	
+	//======================================================================//
+	//								Constructeurs
+	//======================================================================//
+	
 	/**
-	 * @param no_article
-	 * @param rue
-	 * @param code_postal
-	 * @param ville
+	 *		Constructeur Vide
 	 */
-	public Retrait(int no_article, String rue, String code_postal, String ville) {
-		this(rue, code_postal, ville);
-		this.noArticle = no_article;
+	public Retrait() {
+		super();
 	}
+	
 	/**
-	 * @param rue
-	 * @param code_postal
-	 * @param ville
+	 *		Constructeur Complet
+	 */
+	public Retrait(Integer noArticle, String rue, String code_postal, String ville) {
+		this.noArticle 		= noArticle;
+		this.rue 			= rue;
+		this.code_postal 	= code_postal;
+		this.ville 			= ville;
+	}
+
+	/**
+	 *		Constructeur sans NoArticle
 	 */
 	public Retrait(String rue, String code_postal, String ville) {
-		this.rue = rue;
-		this.code_postal = code_postal;
-		this.ville = ville;
+		this(null,rue,code_postal,ville);
 	}
-	////////////////////////////////////////////////////////////////
-	//											Get/Set
-	//______________________________________________________________
-	/**
-	 * @return the no_article
-	 */
-	public int getNo_article() {
+
+	//======================================================================//
+	//								Getters-Setters 
+	//======================================================================//
+	
+	//=================== noArticle ===================
+	//getter
+	public Integer getNoArticle() {
 		return noArticle;
 	}
-	/**
-	 * @param no_article the no_article to set
-	 */
-	public void setNo_article(int no_article) {
-		this.noArticle = no_article;
+	//Setter
+	public void setNoArticle(Integer noArticle) {
+		this.noArticle = noArticle;
 	}
-	/**
-	 * @return the rue
-	 */
+	
+	//=================== rue ===================
+	//getter
 	public String getRue() {
 		return rue;
 	}
-	/**
-	 * @param rue the rue to set
-	 * @throws BOException 
-	 */
-	public void setRue(String rue){
+	//Setter
+	public void setRue(String rue) {
 		this.rue = rue;
 	}
-	/**
-	 * @return the code_postal
-	 */
+
+	//=================== code_postal ===================
+	//getter
 	public String getCode_postal() {
 		return code_postal;
 	}
-	/**
-	 * @param code_postal the code_postal to set
-	 * @throws BOException 
-	 */
+	//Setter
 	public void setCode_postal(String code_postal) {
 		this.code_postal = code_postal;
 	}
-	/**
-	 * @return the ville
-	 */
+
+	//=================== ville ===================
+	//getter
 	public String getVille() {
 		return ville;
 	}
-	/**
-	 * @param ville the ville to set
-	 * @throws BOException 
-	 */
+
+	//=================== ville ===================
+	//Setter
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	
+
+	//======================toString Retrait.java ======================//
 	@Override
 	public String toString() {
-		return "Retrait : no " + getNo_article()
-							+ ", " + getRue()
-							+ " "+ getCode_postal()
-							+ " " + getVille()+ "-";
+		return "Retrait: " 			+ getNoArticle() 
+				+ " Rue: " 			+ getRue()
+				+ " CdP: " 			+ getCode_postal()
+				+ " Ville: " 		+ getVille() 
+				+ "-";
 	}
-	
+
 	
 	
 }

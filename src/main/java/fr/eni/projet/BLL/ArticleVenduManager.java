@@ -18,10 +18,8 @@ public class ArticleVenduManager {
 	 * @param avisDAO
 	 */
 	public ArticleVenduManager(ArticleVendu avisDAO) {
-	}
-	
 		
-	
+	}
 	
 	
 }
