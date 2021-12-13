@@ -48,7 +48,7 @@
        		<input class="input" type="tel" pattern="[0-9]{10}" placeholder="0612345678" name="telI" value="${utilisateur.getTelephone()}"/>
        		
        		<label class="label">Rue : </label>
-       		<input class="input" type="text" name="RueI" value="getRue"/>
+       		<input class="input" type="text" name="RueI" value="${utilisateur.getRue()}"/>
 		</div>
 		
 		<div class="formItemConnexionC">
