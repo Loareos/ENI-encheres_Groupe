@@ -9,65 +9,68 @@ package fr.eni.projet.BO;
  */
 public class Categorie {
 	
-	private int  noCategorie; 
+	private Integer  noCategorie; 
 	private String libelle; 
 
-////////////////////////////////////////////////////////////////
-//												Construct
-//______________________________________________________________
+	
+	//======================================================================//
+	//								Constructeurs
+	//======================================================================//
 	
 	/**
-	 * 
+	 *		Constructeur Vide
 	 */
-	public Categorie( String libelle) {
-		this.libelle = libelle;
+	public Categorie() {
+		super();
 	}
 	
-/**
-	 * @param noCategorie
-	 * @param libelle
+	/**
+	 *		Constructeur Complet
 	 */
-	public Categorie(int noCategorie, String libelle) {
-		this(libelle);
+	public Categorie(Integer noCategorie, String libelle) {
+		this.noCategorie = noCategorie;
+		this.libelle = libelle;
+	}
+	/**
+	 *		Constructeur sans noCategorie
+	 */
+	public Categorie(String libelle) {
+		this(null,libelle);
+	}
+
+	
+
+
+	//======================================================================//
+	//								Getters-Setters 
+	//======================================================================/
+	
+	
+	//=================== noCategorie ===================
+	//getter
+	public Integer getNoCategorie() {
+		return noCategorie;
+	}
+	//Setter
+	public void setNoCategorie(Integer noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
-////////////////////////////////////////////////////////////////
-//												Get/Set
-//______________________________________________________________
-	/**
-	 * @return the noCategorie
-	 */
-	public int getNoCategorie() {
-		return noCategorie;
-	}
-	
-	/**
-	 * @param noCategorie the noCategorie to set
-	 */
-	public void setNoCategorie(int noCategorie) {
-		this.noCategorie = noCategorie;
-	}
-	
-	/**
-	 * @return the libelle
-	 */
+	//=================== libelle ===================
+	//getter
 	public String getLibelle() {
 		return libelle;
 	}
-	
-	/**
-	 * @param libelle the libelle to set
-	 */
+	//Setter
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
 
+	//======================toString Categorie======================//
 	@Override
 	public String toString() {
-		return "Categorie:"+ getNoCategorie() 
-							+ ", libel:" + getLibelle()+ "-";
+		return "- Categorie: " + (getNoCategorie() != null ? "getNoCategorie()=" + getNoCategorie() + ", " : "")
+				+ (getLibelle() != null ? "getLibelle()=" + getLibelle() : "") + " -";
 	}
-	
 	
 }

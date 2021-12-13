@@ -18,7 +18,8 @@ public class ArticleVendu {
 	private LocalDateTime dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
-	private Integer noUtilisateur;
+	private Integer noAcheteur;
+	private Integer noVendeur;
 	private int noCategorie;
 
 	//=========================================================//
@@ -31,11 +32,13 @@ public class ArticleVendu {
 	public ArticleVendu() {
 		super();
 	}
-
+	
 	/**
-	 * 	Cnonstructeur complet
+	 * 	Cnonstructeur Complet
 	 */
-	public ArticleVendu( Integer noArticle, String nomArticle, String description,LocalDateTime dateDebutEncheres, LocalDateTime dateFinEncheres, int miseAPrix, int prixVente,Integer noUtilisateur,int noCategorie) {
+	public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDateTime dateDebutEncheres,
+			LocalDateTime dateFinEncheres, int miseAPrix, int prixVente, Integer noAcheteur, Integer noVendeur,
+			int noCategorie) {
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -43,16 +46,17 @@ public class ArticleVendu {
 		this.dateFinEncheres = dateFinEncheres;
 		this.miseAPrix = miseAPrix;
 		this.prixVente = prixVente;
-		this.noUtilisateur = noUtilisateur;
+		this.noAcheteur = noAcheteur;
+		this.noVendeur = noVendeur;
 		this.noCategorie = noCategorie;
 	}
 
 	/**
 	 * Constructeur sans noArticle
 	 */
-	public ArticleVendu(String nomArticle, String description,LocalDateTime dateDebutEncheres, LocalDateTime dateFinEncheres, int miseAPrix, int prixVente,Integer noUtilisateur,int noCategorie) {
+	public ArticleVendu(String nomArticle, String description,LocalDateTime dateDebutEncheres, LocalDateTime dateFinEncheres, int miseAPrix, int prixVente,Integer noAcheteur,Integer noVendeur,int noCategorie) {
 		this( null, nomArticle, description, dateDebutEncheres,
-				dateFinEncheres,miseAPrix,prixVente, noUtilisateur, noCategorie);
+				dateFinEncheres,miseAPrix,prixVente,noAcheteur,noVendeur, noCategorie);
 	}
 
 	//=========================================================//
@@ -147,22 +151,28 @@ public class ArticleVendu {
 	public void setPrixVente(int prixVente) {
 		this.prixVente = prixVente;
 	}
-
 	
-	//=================== noUtilisateur ===================
-	
+	//=================== noAcheteur ===================
 	//getter
-	public Integer getNoUtilisateur() {
-		return noUtilisateur;
+	public Integer getNoAcheteur() {
+		return noAcheteur;
 	}
 	//Setter
-	public void setNoUtilisateur(Integer noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+	public void setNoAcheteur(Integer noAcheteur) {
+		this.noAcheteur = noAcheteur;
+	}
+	
+	//=================== noVendeur ===================
+	//getter
+	public Integer getNoVendeur() {
+		return noVendeur;
+	}
+	//Setter
+	public void setNoVendeur(Integer noVendeur) {
+		this.noVendeur = noVendeur;
 	}
 
-	
 	//=================== noCategorie ===================
-	
 	//getter
 	public int getNoCategorie() {
 		return noCategorie;
@@ -172,18 +182,22 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 	}
 
-	//======================toString ArticleVendu ======================
+	//======================toString ArticleVendu.java ======================//
 	@Override
 	public String toString() {
-		return "Article vendu: No " + getNoArticle()
-		+ ", "+ getNomArticle()
-		+ ",desc: "+ getDescription()
-		+ ", debut enchère: " + getDateDebutEncheres() 
-		+ "/fin: " + getDateFinEncheres()
-		+ ", Prix départ: " +(getMiseAPrix() != 0 ? getMiseAPrix() + ", " : "")
-		+ "/Prix vente: " + (getPrixVente() != 0 ? getMiseAPrix() + ", " : "")
-		+ ", No Util: "+ getNoUtilisateur()
-		+ ", Caté: " + getNoCategorie() + "-";
+		return "-ArticleVendu: " 
+				+ (getNoArticle() != null ? " No: " + getNoArticle() + ", " : "")
+				+ (getNomArticle() != null ? " Nom: " + getNomArticle() + ", " : "")
+				+ (getDescription() != null ? " Desc: " + getDescription() + ", " : "")
+				+ (getDateDebutEncheres() != null ? " DateDebut: " + getDateDebutEncheres() + ", " : "")
+				+ (getDateFinEncheres() != null ? " DateFin: " + getDateFinEncheres() + ", " : "")
+				+ " Prix Départ" + getMiseAPrix() 
+				+ " Prix Vente: " + getPrixVente() + ", "
+				+ (getNoAcheteur() != null ? " Acheteur: " + getNoAcheteur() + ", " : "")
+				+ (getNoVendeur() != null ? " Vendeur: " + getNoVendeur() + ", " : "")
+				+ " Categorie: "+ getNoCategorie() + "-";
 	}
+
+	
 
 }
