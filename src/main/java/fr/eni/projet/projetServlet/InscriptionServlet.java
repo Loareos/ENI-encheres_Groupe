@@ -1,6 +1,7 @@
 package fr.eni.projet.projetServlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -71,8 +72,16 @@ public class InscriptionServlet extends HttpServlet {
 			rd.forward(request, response);
 
 		} catch (BusinessException e) {
+			StringBuffer sb = new StringBuffer();
+			sb.append("Une ou plusieurs erreurs se sont produites :");
 			for(int i : e.getListeCodesErreur())
-				System.err.println(LecteurMessage.getMessageErreur(i));
+				sb.append("\n").append("CODE ").append(i).append(" - ").append(LecteurMessage.getMessageErreur(i));
+			
+			System.err.println(sb.toString());
+			
+			PrintWriter out = response.getWriter();
+			request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp").include(request, response);
+			out.print(sb.toString());
 		}
 	}
 }
