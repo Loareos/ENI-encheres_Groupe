@@ -2,7 +2,6 @@ package fr.eni.projet.BLL;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.Utilisateur;
-import fr.eni.projet.dal.CodesResultatDAL;
 import fr.eni.projet.dal.DAOFactory;
 import fr.eni.projet.dal.UtilisateurDAO;
 
@@ -32,7 +31,8 @@ public class UtilisateurManager {
 	private UtilisateurManager() throws BusinessException{
 		utilisateurDao = DAOFactory.getUserDAO();
 	}
-	
+
+//========  CONNEXION  ===========================================	
 	public Utilisateur connexion( String identifiant, String mdp) throws BusinessException {
 		
 		BusinessException exception = new BusinessException();
@@ -58,7 +58,9 @@ public class UtilisateurManager {
 	/**
 	 * @return un objet Utilisateur en cas de succcès
 	 */
+
 	
+//========  INSCRIPTION  ===========================================	
 	public Utilisateur ajouterUtilisateurStandard(String pseudo, String nom, String prenom, String email, String rue, String tel, String cp, String ville, String mdp, String verifMdp) throws BusinessException{
 		BusinessException exception = new BusinessException();
 		
@@ -82,6 +84,43 @@ public class UtilisateurManager {
 		}else
 			throw exception;
 	}
+	
+	
+//========  MODIFICATION  ===========================================	
+
+	public Utilisateur modifProfil(Utilisateur user, String pseudo, String nom, String prenom, String email, String rue, String tel, String cp, String ville, String mdp, String verifMdp) throws BusinessException{
+		BusinessException exception = new BusinessException();
+		
+		//Verifie que le mot de passe et la confirmation sont les mêmes
+		if(!mdp.equals(verifMdp))
+			exception.ajouterErreur(CodesResultatBLL.MDP_VERIF_DIFFERENTS);
+		
+		if(!user.getPseudo().equals(pseudo))
+			if(this.utilisateurDao.pseudoExist(user.getPseudo()))
+				exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
+			
+		if(!user.getEmail().equals(email))
+			if(this.utilisateurDao.mailExist(user.getEmail()))
+				exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
+
+		Utilisateur userModif = new Utilisateur(user.getNoUtilisateur(), user.getCredit(), pseudo, nom, prenom, email, rue, tel, cp, ville,mdp, user.getAdministrateur());
+		verifUser(userModif, exception);	
+
+		if(!exception.hasErreurs()) {
+			this.utilisateurDao.update(userModif);
+			return userModif;
+		}else
+			throw exception;
+	}
+	
+//========  SUPPRESSION  ===========================================	
+
+	public void suppressionUser(Utilisateur user) throws BusinessException {
+		this.utilisateurDao.delete(user.getNoUtilisateur());
+	}
+
+	
+//========  VERIFICATIONS  ===========================================	
 	
 	private static void verifUser(Utilisateur user, BusinessException exception) {
 		verifStringNombreEtVide(user.getPseudo(), 30 ,exception);
