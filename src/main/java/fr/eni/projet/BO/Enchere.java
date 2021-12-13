@@ -75,13 +75,35 @@ public class Enchere {
 		this.noUtilisateur = noUtilisateur;
 	}
 	
+	//=================== noAcheteur ===================
+	//getter
+	public Integer getNoAcheteur() {
+		return noAcheteur;
+	}
+	//Setter
+	public void setNoAcheteur(Integer noAcheteur) {
+		this.noAcheteur = noAcheteur;
+	}
+	
 	//=================== noArticle ===================
 	//getter
-	public Integer getnoArticle() {
+	public Integer getNoArticle() {
+		return noArticle;
+	}
+
+	//=================== noArticle ===================
+	//Setter
+	public void setNoArticle(Integer noArticle) {
+		this.noArticle = noArticle;
+	}
+
+	//=================== noArticle ===================
+	//getter
+	public Integer getNoArticle() {
 		return noArticle;
 	}
 	//Setter
-	public void setnoArticle(Integer noArticle) {
+	public void setNoArticle(Integer noArticle) {
 		this.noArticle = noArticle;
 	}
 	
@@ -103,6 +125,17 @@ public class Enchere {
 	//Setter
 	public void setMontant_enchere(Integer montant_enchere) {
 		this.montant_enchere = montant_enchere;
+	}
+
+	//======================toString Enchere.java ======================//
+	@Override
+	public String toString() {
+		return "-Enchere: NoUtil: " + getNoUtilisateur()
+				+ " /NoAcheteur: " 	+ getNoAcheteur()
+				+ " /NoArt: " 		+ getNoArticle()
+				+ " /DateEnch: " 	+ getDateEnchere()
+				+ " /$: " 			+ getMontant_enchere()
+				+ "-"; 
 	}
 	
 	

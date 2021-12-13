@@ -78,8 +78,6 @@ public class ArticleVendu {
 	//=========================================================//
 
 
-
-
 	//=================== noArticle ===================
 
 
@@ -192,17 +190,16 @@ public class ArticleVendu {
 	//======================toString ArticleVendu.java ======================//
 	@Override
 	public String toString() {
-		return "-ArticleVendu: " 
-				+ " No: " 			+ getNoArticle()
-				+ " Nom: " 			+ getNomArticle()
-				+ " Desc: "			+ getDescription()
-				+ " Date Enchère: " + getDateDebutEncheres()
-				+ "/ " 				+ getDateFinEncheres()+","
+		return "-ArticleVendu:  No: " 	+ getNoArticle()
+				+ " /Nom: " 			+ getNomArticle()
+				+ " /Desc: "			+ getDescription()
+				+ " /Date Enchère: " 	+ getDateDebutEncheres()
+				+ " : " 				+ getDateFinEncheres()+","
 				+ (getMiseAPrix() 	!= null ? " $Dép: " 		+ getMiseAPrix() + ", " : "")
 				+ (getPrixVente() 	!= null ? " $Fin: " 			+ getPrixVente() + ", " : "nul")
-				+ (getNoAcheteur() 	!= null ? " NoAcheteur: " 	+ getNoAcheteur() + ", " : "nul")
-				+ " NoUtil: " 		+ getNoUtilisateur()
-				+ " Catég: " 		+ getNoArticle()+ "-";
+				+ (getNoAcheteur() 	!= null ? " /NoAcheteur: " 	+ getNoAcheteur() + ", " : "nul")
+				+ " /NoUtil: " 			+ getNoUtilisateur()
+				+ " /Catég: " 			+ getNoCategorie()+ "-";
 	}
 
 }
