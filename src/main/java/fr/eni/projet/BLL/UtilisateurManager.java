@@ -113,6 +113,22 @@ public class UtilisateurManager {
 			throw exception;
 	}
 	
+//========  SELECT BY SEARCH  ===========================================	
+	
+	public Utilisateur rechercheUser(String id) throws BusinessException {
+		Utilisateur user = null;
+		BusinessException exception = new BusinessException();
+
+		if(this.utilisateurDao.pseudoExist(id))
+			return this.utilisateurDao.selectByPseudo(id);
+		else if (this.utilisateurDao.mailExist(id))
+			return this.utilisateurDao.selectByMail(id);
+		else
+			exception.ajouterErreur(CodesResultatBLL.UTILISATEUR_INCONNU);
+		throw exception;
+	}
+	
+	
 //========  SUPPRESSION  ===========================================	
 
 	public void suppressionUser(Utilisateur user) throws BusinessException {

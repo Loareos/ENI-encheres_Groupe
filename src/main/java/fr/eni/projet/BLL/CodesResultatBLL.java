@@ -48,4 +48,8 @@ public abstract class CodesResultatBLL {
 	 * Echec de l'insertion d'un avis à cause de la note
 	 */
 	public static final int MOT_DE_PASSE_INCORRECT=20009;
+	/**
+	 * Echec de l'insertion d'un avis à cause de la note
+	 */
+	public static final int UTILISATEUR_INCONNU=20010;
 }
