@@ -24,8 +24,8 @@
 
 		<c:if test="${!empty utilisateur}">
 			<div class="liens">
-				<a href="SERVLET" class="lienConnection">Enchères</a> 
-				<a href="SERVLET" class="lienConnection">Vendre un article</a> 
+				<a href="AccueilServlet" class="lienConnection">Enchères</a> 
+				<a href="VenteArticleServlet" class="lienConnection">Vendre un article</a> 
 				<form method="post" action="ProfilServlet">
 				    <!-- Mettre un hidden après les tests -->
 				    <input name="profilSelectionne" value="${utilisateur.getPseudo()}" ></input>
