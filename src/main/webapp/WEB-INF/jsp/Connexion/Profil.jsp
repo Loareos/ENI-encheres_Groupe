@@ -66,6 +66,13 @@
         <label>Ville : </label>
         <label>${utilisateur.getVille()}</label>
     </div>
+
+		<c:if test="${ProfilAffiche == utilisateurActuel}">
+			<div class="profil">
+				<label>Crédit : </label> <label>${utilisateur.getCredit()}</label>
+			</div>
+		</c:if>
+
 	</div>
 	
 	
