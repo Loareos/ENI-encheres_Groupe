@@ -114,8 +114,8 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 							rs.getString(2), // NOM
 							rs.getString(3), // PRENOM
 							rs.getString(4), // EMAIL
-							rs.getString(5), // TELEPHONE
-							rs.getString(6), // RUE
+							rs.getString(7), // RUE
+							rs.getString(6), // TELEPHONE
 							rs.getString(7), // CODE POSTAL
 							rs.getString(8), // VILLE
 							rs.getString(9), // MOT DE PASSE
@@ -157,8 +157,8 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 							rs.getString(3), // NOM
 							rs.getString(4), // PRENOM
 							rs.getString(5), // EMAIL
-							rs.getString(6), // TELEPHONE
 							rs.getString(7), // RUE
+							rs.getString(6), // TELEPHONE
 							rs.getString(8), // CODE POSTAL
 							rs.getString(9), // VILLE
 							rs.getString(10), // MOT DE PASSE
@@ -186,8 +186,8 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 							rs.getString(4), // NOM
 							rs.getString(5), // PRENOM
 							email, 			// EMAIL
-							rs.getString(6), // TELEPHONE
 							rs.getString(7), // RUE
+							rs.getString(6), // TELEPHONE
 							rs.getString(8), // CODE POSTAL
 							rs.getString(9), // VILLE
 							rs.getString(10), // MOT DE PASSE
