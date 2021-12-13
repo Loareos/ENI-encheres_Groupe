@@ -91,10 +91,10 @@ public class Retrait {
 	//======================toString Retrait.java ======================//
 	@Override
 	public String toString() {
-		return "Retrait: " 			+ getNoArticle() 
-				+ " Rue: " 			+ getRue()
-				+ " CdP: " 			+ getCode_postal()
-				+ " Ville: " 		+ getVille() 
+		return "Retrait No: " 			+ getNoArticle() 
+				+ " /Rue: " 			+ getRue()
+				+ " /CdP: " 			+ getCode_postal()
+				+ " /Ville: " 		+ getVille() 
 				+ "-";
 	}
 

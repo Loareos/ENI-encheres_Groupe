@@ -178,7 +178,7 @@ public class Utilisateur {
 //=========================================================
 	@Override
 	public String toString() {
-		return "UTILISATEUR: no " + getNoUtilisateur() 
+		return "UTILISATEUR No: " + getNoUtilisateur() 
 		+ " / Pseudo: " + getPseudo()
 		+ " / Nom: " + getNom()
 		+ " / Prenom: " + getPrenom()

@@ -79,7 +79,9 @@ public class ModifProfilServlet extends HttpServlet {
 		// Supprimer Profil
 		try {
 			UtilisateurManager um = UtilisateurManager.getInstance();
-			um.suppressionUser(null);
+			um.suppressionUser((Utilisateur) request.getSession());
+			HttpSession sessionUser = request.getSession();
+			sessionUser.setAttribute("utilisateur", null);
 
 			// Comme pour la déconnexion renvoie à l'accueil
 

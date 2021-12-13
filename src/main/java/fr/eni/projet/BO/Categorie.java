@@ -69,9 +69,8 @@ public class Categorie {
 	//======================toString Categorie======================//
 	@Override
 	public String toString() {
-		return "-Categorie: " 
-				+ " No: " 		+ getNoCategorie()
-				+ " Libelle: " 	+ getLibelle() 
+		return "-Categorie No: " 		+ getNoCategorie()
+				+ " /Libelle: " 	+ getLibelle() 
 				+ " -";
 	}
 	
