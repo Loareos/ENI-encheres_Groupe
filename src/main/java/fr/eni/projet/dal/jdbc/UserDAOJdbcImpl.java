@@ -3,7 +3,6 @@ package fr.eni.projet.dal.jdbc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.Utilisateur;
