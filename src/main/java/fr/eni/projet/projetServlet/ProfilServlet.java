@@ -39,13 +39,13 @@ public class ProfilServlet extends HttpServlet {
 
         //On récupère les infos de l'user connecté
 		HttpSession sessionUser = request.getSession();
-		Utilisateur re = (Utilisateur) sessionUser.getAttribute("utilisateur");
+		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
 		
 		//On récupère le nom du pseudo cliqué
 		String pseudoSelectionne = request.getParameter("profilSelectionne").trim();
 
 		//Profil de quelqu'un d'autre
-		if(pseudoSelectionne.contains(re.getPseudo()) == false) {
+		if(pseudoSelectionne.contains(user.getPseudo()) == false) {
 			sessionUser.setAttribute("MonProfil", null);
 			request.setAttribute("pseudo", "test");
 			
@@ -70,7 +70,7 @@ public class ProfilServlet extends HttpServlet {
 			}
 		}
 		//Mon pseudo
-		if(pseudoSelectionne.contains(re.getPseudo())) {
+		if(pseudoSelectionne.contains(user.getPseudo())) {
 			sessionUser.setAttribute("MonProfil", "moi");
 		}
 		
