@@ -27,7 +27,7 @@
 				<a href="SERVLET" class="lienConnection">Enchères</a> 
 				<a href="SERVLET" class="lienConnection">Vendre un article</a> 
 				<form method="post" action="ProfilServlet">
-				    <input name="test" value="${utilisateur.getPseudo()}" hidden="true"></input>
+				    <input name="profilSelectionne" value="${utilisateur.getPseudo()}" hidden="true"></input>
 					<input type="submit" value="Mon profil" class="lienConnection" />
 				</form>
 				<a href="DeconnexionServlet" class="lienConnection">Déconnexion</a>
