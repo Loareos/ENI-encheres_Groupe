@@ -90,18 +90,6 @@ public class Enchere {
 	public Integer getNoArticle() {
 		return noArticle;
 	}
-
-	//=================== noArticle ===================
-	//Setter
-	public void setNoArticle(Integer noArticle) {
-		this.noArticle = noArticle;
-	}
-
-	//=================== noArticle ===================
-	//getter
-	public Integer getNoArticle() {
-		return noArticle;
-	}
 	//Setter
 	public void setNoArticle(Integer noArticle) {
 		this.noArticle = noArticle;
