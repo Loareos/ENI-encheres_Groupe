@@ -23,7 +23,7 @@
 <body>
 
 	<!-- Comparer les id -->
-    <c:if test="${ProfilAffiche != utilisateurActuel}">   
+    <c:if test="${!empty MonProfil}">   
 	   <h3><%=request.getParameter("pseudo")%></h3> 
     </c:if>
     

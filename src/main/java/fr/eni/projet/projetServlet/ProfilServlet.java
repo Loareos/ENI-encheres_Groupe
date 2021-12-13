@@ -40,10 +40,14 @@ public class ProfilServlet extends HttpServlet {
 		Utilisateur re = (Utilisateur) sessionUser.getAttribute("utilisateur");
 		
 		//On récupère le nom du pseudo cliqué
-		String pseudo = request.getParameter("test").trim();
+		String pseudoSelectionne = request.getParameter("test").trim();
 
-		if(pseudo.contains(re.getPseudo())) {
-			
+		if(!pseudoSelectionne.contains(re.getPseudo())) {
+			sessionUser.setAttribute("MonProfil", null);
+			request.setAttribute("pseudo", "test");
+		}
+		if(pseudoSelectionne.contains(re.getPseudo())) {
+			sessionUser.setAttribute("MonProfil", "moi");
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/Profil.jsp");

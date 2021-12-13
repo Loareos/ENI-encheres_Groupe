@@ -19,7 +19,7 @@
 		<h4>ENI-Enchères</h4>
 
 		<c:if test="${empty utilisateur}">
-			<a href="ConnexionServlet/${utilisateur.getPseudo()}" class="lienConnection">S'inscrire - Se connecter</a>
+			<a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
 		</c:if>
 
 		<c:if test="${!empty utilisateur}">
