@@ -37,7 +37,7 @@
 		
 		<div class="formItemConnexionC">
 			<label class="label">Prénom : </label>
-       		<input class="input" type="text" name="PrénomI" value="${utilisateur.getPrenom()}"/>
+       		<input class="input" type="text" name="PrenomI" value="${utilisateur.getPrenom()}"/>
        		
        		<label class="label">Email : </label>
        		<input class="input" type="email" name="emailI" value="${utilisateur.getEmail()}"/>
@@ -47,7 +47,7 @@
 			<label class="label">Téléphone : </label>
        		<input class="input" type="tel" pattern="[0-9]{10}" placeholder="0612345678" name="telI" value="${utilisateur.getTelephone()}"/>
        		
-       		<label class="label">Rue : </label>
+       		<label class="label">Rue : </label> 
        		<input class="input" type="text" name="RueI" value="${utilisateur.getRue()}"/>
 		</div>
 		
@@ -59,11 +59,11 @@
        		<input class="input" type="text" name="VilleI" value="${utilisateur.getVille()}"/>
 		</div>
 		
-		<div class="formItemConnexionC">
-			<label class="label">Mot de passe : </label>
-       		<input class="input" type="password" name="passwordI" value=""/>
+		<div class="formItemConnexionC" hidden="true">
+			<label class="label"hidden="true">Mot de passe : </label>
+       		<input class="input" type="password" name="ancienPasswordI" value=""hidden="true"/>
        
-			<label class="label" style="width: 265px;"></label>
+			<label class="label" style="width: 265px;"hidden="true"></label>
         </div>
 		
 		<div class="formItemConnexionC">
