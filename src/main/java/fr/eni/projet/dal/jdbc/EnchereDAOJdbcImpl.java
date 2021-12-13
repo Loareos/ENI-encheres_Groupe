@@ -27,7 +27,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 				PreparedStatement stmt = cnx.prepareStatement(sqlInsert);){
 			int i = 1;
 			stmt.setInt(i++, enchere.getNoUtilisateur());
-			stmt.setInt(i++, enchere.getnoArticle());
+			stmt.setInt(i++, enchere.getNoArticle());
 			Date date = Date.valueOf(enchere.getDateEnchere().toLocalDate());
 			stmt.setDate(i++, date);
 			stmt.setInt(i++, enchere.getMontant_enchere());
@@ -50,7 +50,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			stmt.setDate(i++, date);
 			stmt.setInt(i++, enchere.getMontant_enchere());
 			stmt.setInt(i++, enchere.getNoUtilisateur());
-			stmt.setInt(i++, enchere.getnoArticle());
+			stmt.setInt(i++, enchere.getNoArticle());
 			stmt.execute();
 		}catch(Exception e) {
 			e.printStackTrace();

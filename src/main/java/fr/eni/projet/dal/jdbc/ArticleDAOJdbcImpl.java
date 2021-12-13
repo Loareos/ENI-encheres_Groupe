@@ -35,7 +35,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			Date dateEnd = Date.valueOf(art.getDateFinEncheres().toLocalDate()); //BESOIN D'UNE HEURE ?
 			stmt.setDate(i++, dateEnd);
 			stmt.setInt(i++, art.getMiseAPrix());
-			stmt.setInt(i++, art.getNoUtilisateur()); //CHANGER POUR NO_VENDEUR
+			stmt.setInt(i++, art.getNoVendeur());
 			stmt.setInt(i++, art.getNoCategorie());
 			stmt.execute();
 			try(ResultSet rs = stmt.getGeneratedKeys()){
@@ -64,7 +64,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			Date dateEnd = Date.valueOf(art.getDateFinEncheres().toLocalDate()); //BESOIN D'UNE HEURE ?
 			stmt.setDate(i++, dateEnd);
 			stmt.setInt(i++, art.getMiseAPrix());
-//			stmt.setInt(i++, art.()); //CHANGER POUR NO_ACHETEUR
+			stmt.setInt(i++, art.getNoAcheteur()); 
 			stmt.setInt(i++, art.getNoCategorie());
 			stmt.setInt(i++, art.getNoArticle());
 			stmt.execute();
@@ -94,7 +94,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 						rs.getInt(5),//mise a prix
 						rs.getInt(6),//prix de vente
 						(Integer)rs.getInt(7),//noVendeur
-						(Integer)rs.getInt(8),//noAcheteur // A AJOUTER
+						(Integer)rs.getInt(8),//noAcheteur
 						(Integer)rs.getInt(9)//noCategorie
 						);
 				return art;

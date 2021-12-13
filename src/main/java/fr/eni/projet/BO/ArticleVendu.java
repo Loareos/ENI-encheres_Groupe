@@ -18,8 +18,8 @@ public class ArticleVendu {
 	private LocalDateTime 	dateFinEncheres;
 	private Integer 		miseAPrix;
 	private Integer 		prixVente;
+	private Integer 		noVendeur;
 	private Integer 		noAcheteur;
-	private Integer 		noUtilisateur;
 	private Integer 		noCategorie;
 
 	//=========================================================//
@@ -36,9 +36,16 @@ public class ArticleVendu {
 	/**
 	 * 	Cnonstructeur Complet
 	 */
-	public ArticleVendu(Integer noArticle, String nomArticle, String description,
-			LocalDateTime dateDebutEncheres,LocalDateTime dateFinEncheres, Integer miseAPrix,
-			Integer prixVente,Integer noAcheteur, Integer noUtilisateur,Integer noCategorie) {
+	public ArticleVendu(Integer noArticle, 
+			String nomArticle, 
+			String description, 
+			LocalDateTime dateDebutEncheres,
+			LocalDateTime dateFinEncheres, 
+			Integer miseAPrix,
+			Integer prixVente,
+			Integer noVendeur,
+			Integer noAcheteur, 
+			Integer noCategorie){
 		this.noArticle 			= noArticle;
 		this.nomArticle 		= nomArticle;
 		this.description		= description;
@@ -46,31 +53,34 @@ public class ArticleVendu {
 		this.dateFinEncheres 	= dateFinEncheres;
 		this.miseAPrix 			= miseAPrix;
 		this.prixVente 			= prixVente;
+		this.noVendeur 			= noVendeur;
 		this.noAcheteur 		= noAcheteur;
-		this.noUtilisateur 		= noUtilisateur;
 		this.noCategorie 		= noCategorie;
 	}
 
 	/**
-	 * Constructeur sans noArticle
+	 * Constructeur sans noArticle prixVente noAcheteur
 	 */
-	public ArticleVendu(String nomArticle, String description,LocalDateTime dateDebutEncheres,
-						LocalDateTime dateFinEncheres, Integer miseAPrix, Integer prixVente,
-						Integer noAcheteur,Integer noUtilisateur,Integer noCategorie) {
-		
-		this( null, nomArticle, description, dateDebutEncheres,dateFinEncheres,
-				miseAPrix,prixVente,noAcheteur,noUtilisateur, noCategorie);
+	public ArticleVendu(String nomArticle, 
+			String description,
+			LocalDateTime dateDebutEncheres, 
+			LocalDateTime dateFinEncheres, 
+			Integer miseAPrix, 
+			Integer noVendeur,
+			Integer noCategorie) {		
+		this(null, nomArticle, description, dateDebutEncheres,dateFinEncheres,miseAPrix,null,noVendeur,null, noCategorie);
 	}
 	
 	/**
-	 *		Constructeur sans noArticle miseAPrix prixVente noUtilisateur
+	 *Constructeur sans noArticle miseAPrix prixVente noAcheteur
 	 */
-	
-	public ArticleVendu(String nomArticle, String description, LocalDateTime dateDebutEncheres,
-					LocalDateTime dateFinEncheres, Integer noUtilisateur,Integer noCategorie) {
-		
-		this(nomArticle,description,dateDebutEncheres,dateFinEncheres,
-				null,null,null,noUtilisateur, noCategorie);
+	public ArticleVendu(String nomArticle, 
+			String description, 
+			LocalDateTime dateDebutEncheres,
+			LocalDateTime dateFinEncheres, 
+			Integer noVendeur,
+			Integer noCategorie) {
+		this(null,nomArticle,description,dateDebutEncheres,dateFinEncheres,null,null,noVendeur,null, noCategorie);
 	}
 	
 	//=========================================================//
@@ -169,12 +179,12 @@ public class ArticleVendu {
 	
 	//=================== noUtilisateur ===================
 	//getter
-	public Integer getNoUtilisateur() {
-		return noUtilisateur;
+	public Integer getNoVendeur() {
+		return noVendeur;
 	}
 	//Setter
-	public void setNoUtilisateur(Integer noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+	public void setNoVendeur(Integer noVendeur) {
+		this.noVendeur = noVendeur;
 	}
 
 	//=================== noCategorie ===================
@@ -198,7 +208,7 @@ public class ArticleVendu {
 				+ (getMiseAPrix() 	!= null ? " $Dép: " 		+ getMiseAPrix() + ", " : "null")
 				+ (getPrixVente() 	!= null ? " $Fin: " 			+ getPrixVente() + ", " : "nul")
 				+ (getNoAcheteur() 	!= null ? " /NoAcheteur: " 	+ getNoAcheteur() + ", " : "nul")
-				+ " /NoUtil: " 			+ getNoUtilisateur()
+				+ " /NoUtil: " 			+ getNoVendeur()
 				+ " /Catég: " 			+ getNoCategorie()
 				+ "-";
 	}
