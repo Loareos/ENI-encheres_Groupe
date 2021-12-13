@@ -1,15 +1,12 @@
-/**
- * 
- */
 package fr.eni.projet.BLL;
 
-import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.Utilisateur;
 import fr.eni.projet.dal.DAOFactory;
+import fr.eni.projet.BusinessException;
 
 /**
- * @author junisaru69
- *
+ * @author /!\ /!\ /!\ /!\ /!\ /!\ auteur à mettre /!\ /!\ /!\ /!\ /!\ 
+ * 	Modif by
  */
 public class ArticleVenduManager {
 	

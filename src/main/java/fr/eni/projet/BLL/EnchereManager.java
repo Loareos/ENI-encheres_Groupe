@@ -4,8 +4,8 @@
 package fr.eni.projet.BLL;
 
 /**
- * @author junisaru69
- *
+ * @author /!\ /!\ /!\ /!\ /!\ /!\ auteur à mettre /!\ /!\ /!\ /!\ /!\ 
+ *	Modif by
  */
 public class EnchereManager {
 

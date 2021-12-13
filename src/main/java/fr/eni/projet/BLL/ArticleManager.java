@@ -5,6 +5,10 @@ import fr.eni.projet.BO.Categorie;
 import fr.eni.projet.dal.ArticleDAO;
 import fr.eni.projet.dal.DAOFactory;
 
+/*
+ * @author /!\ /!\ /!\ /!\ /!\ /!\ auteur à mettre /!\ /!\ /!\ /!\ /!\ (robin)
+ * 	Modif by
+ */
 public class ArticleManager {
 	private ArticleDAO articleDao;
 	private static ArticleManager instance;

@@ -9,8 +9,8 @@ package fr.eni.projet.BLL;
 //import fr.eni.projet.dal.CategorieDao;
 
 /**
- * @author junisaru69
- *
+ * @author /!\ /!\ /!\ /!\ /!\ /!\ auteur à mettre /!\ /!\ /!\ /!\ /!\ 
+ *	Modif by
  */
 public class CategorieManager {
 

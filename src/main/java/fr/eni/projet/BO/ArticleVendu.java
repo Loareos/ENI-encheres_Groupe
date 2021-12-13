@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author junisaru69
- *
+ *	Modif by
  */
 public class ArticleVendu {
 

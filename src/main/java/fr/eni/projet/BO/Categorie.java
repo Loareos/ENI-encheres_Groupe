@@ -5,7 +5,7 @@ package fr.eni.projet.BO;
 
 /**
  * @author junisaru69
- *
+ *	Modif by
  */
 public class Categorie {
 	
