@@ -19,7 +19,7 @@ import fr.eni.projet.dal.UtilisateurDAO;
 public class UserDAOJdbcImpl implements UtilisateurDAO {
 
 	String sqlInsert = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?)"; //RAJOUTER UN b AU DERNIER ? POUR MYSQL
-	String sqlUpdate = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?, credit = ?, administrateur = ?";
+	String sqlUpdate = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?, credit = ?, administrateur = ? WHERE no_utilisateur = ?";
 	String sqlSelectById = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur FROM UTILISATEURS WHERE no_utilisateur = ?";
 	String sqlDelete = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?";
 	
