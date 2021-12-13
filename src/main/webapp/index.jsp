@@ -19,14 +19,17 @@
 		<h4>ENI-Enchères</h4>
 
 		<c:if test="${empty utilisateur}">
-			<a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
+			<a href="ConnexionServlet/${utilisateur.getPseudo()}" class="lienConnection">S'inscrire - Se connecter</a>
 		</c:if>
 
 		<c:if test="${!empty utilisateur}">
 			<div class="liens">
 				<a href="SERVLET" class="lienConnection">Enchères</a> 
 				<a href="SERVLET" class="lienConnection">Vendre un article</a> 
-				<a href="ProfilServlet" class="lienConnection">Mon profil</a> 
+				<form method="post" action="ProfilServlet">
+				    <input name="test" value="${utilisateur.getPseudo()}" hidden="true"></input>
+					<input type="submit" value="Mon profil" class="lienConnection" />
+				</form>
 				<a href="DeconnexionServlet" class="lienConnection">Déconnexion</a>
 			</div>
 		</c:if>

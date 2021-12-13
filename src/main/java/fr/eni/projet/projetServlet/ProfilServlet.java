@@ -26,12 +26,6 @@ public class ProfilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-        //On récupère les infos de l'user connecté
-		HttpSession sessionUser = request.getSession();
-		Utilisateur re = (Utilisateur) sessionUser.getAttribute("utilisateur");
-		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/Profil.jsp");
-		rd.forward(request, response);
 	}
 
 	/**
@@ -40,6 +34,19 @@ public class ProfilServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+
+        //On récupère les infos de l'user connecté
+		HttpSession sessionUser = request.getSession();
+		Utilisateur re = (Utilisateur) sessionUser.getAttribute("utilisateur");
+		
+		//On récupère le nom du pseudo cliqué
+		String pseudo = request.getParameter("test").trim();
+
+		if(pseudo.contains(re.getPseudo())) {
+			
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/Profil.jsp");
+		rd.forward(request, response);
 	}
 }
