@@ -118,7 +118,7 @@ public class Enchere {
 	//======================toString Enchere.java ======================//
 	@Override
 	public String toString() {
-		return "-Enchere: NoUtil: " + getNoUtilisateur()
+		return "-Enchere NoUtil: " + getNoUtilisateur()
 				+ " /NoAcheteur: " 	+ getNoAcheteur()
 				+ " /NoArt: " 		+ getNoArticle()
 				+ " /DateEnch: " 	+ getDateEnchere()
