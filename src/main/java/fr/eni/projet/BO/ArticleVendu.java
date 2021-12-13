@@ -11,179 +11,175 @@ import java.time.LocalDateTime;
  */
 public class ArticleVendu {
 
-	private int noUtilisateur;
-	private int noArticle;
+	private Integer noArticle;
 	private String nomArticle;
 	private String description;
 	private LocalDateTime dateDebutEncheres;
 	private LocalDateTime dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
+	private Integer noUtilisateur;
 	private int noCategorie;
 
-	////////////////////////////////////////////////////////////////
-	//											Construct
-	//______________________________________________________________
-
+	//=========================================================//
+	//						CONSTRUCTEURS			
+	//=========================================================//	
 
 	/**
-	 * 
-	 * Constructeur 
-	 * 
-	 * @param nomArticle description dateDebutEncheres 
-	 * 			dateFinEncheres noUtilisateur noCategorie
+	 * 	Cnonstructeur vide
 	 */
-	public ArticleVendu(String nomArticle, String description, LocalDateTime dateDebutEncheres,
-			LocalDateTime dateFinEncheres,int noUtilisateur, int noCategorie) {
+	public ArticleVendu() {
 		super();
+	}
+
+	/**
+	 * 	Cnonstructeur complet
+	 */
+	public ArticleVendu( Integer noArticle, String nomArticle, String description,LocalDateTime dateDebutEncheres, LocalDateTime dateFinEncheres, int miseAPrix, int prixVente,Integer noUtilisateur,int noCategorie) {
+		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
 		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
 	}
+
 	/**
-	 * Constructeur + noArticle
-	 * 
-	 * @param nomArticle description dateDebutEncheres 
-	 * 			dateFinEncheres noUtilisateur noCategorie
-	 * 
+	 * Constructeur sans noArticle
 	 */
-	public ArticleVendu(int noArticle, String nomArticle, String description,
-			LocalDateTime dateDebutEncheres,LocalDateTime dateFinEncheres, int noUtilisateur,
-			int noCategorie) {
-		this(nomArticle, description, dateDebutEncheres,
-				dateFinEncheres, noUtilisateur, noCategorie);
-		this.noArticle = noArticle;
+	public ArticleVendu(String nomArticle, String description,LocalDateTime dateDebutEncheres, LocalDateTime dateFinEncheres, int miseAPrix, int prixVente,Integer noUtilisateur,int noCategorie) {
+		this( null, nomArticle, description, dateDebutEncheres,
+				dateFinEncheres,miseAPrix,prixVente, noUtilisateur, noCategorie);
 	}
 
-	////////////////////////////////////////////////////////////////
-	//											Get/Set
-	//______________________________________________________________
+	//=========================================================//
+	//					GETTERS - SETTERS
+	//=========================================================//
 
-	/**
-	 * @return the noArticle
-	 */
-	public int getNoArticle() {
+
+
+
+	//=================== noArticle ===================
+
+	//getter
+	public Integer getNoArticle() {
 		return noArticle;
 	}
-	/**
-	 * @param noArticle the noArticle to set
-	 */
-	public void setNoArticle(int noArticle) {
+
+	//Setter
+	public void setNoArticle(Integer noArticle) {
 		this.noArticle = noArticle;
 	}
-	/**
-	 * @return the nomArticle
-	 */
+
+	
+
+	
+	//=================== nomArticle ===================
+	
+	//getter
 	public String getNomArticle() {
 		return nomArticle;
 	}
-	/**
-	 * @param nomArticle the nomArticle to set
-	 * @throws BOException si il y a plus de 30 caractères.
-	 */
+	//Setter
 	public void setNomArticle(String nomArticle) {
 		this.nomArticle = nomArticle;
 	}
 
-	/**
-	 * @return the description
-	 */
+	
+	//=================== description ===================
+	
+	//getter
 	public String getDescription() {
 		return description;
 	}
-	/**
-	 * @param description the description to set
-	 * @throws BOException si il y a plus de 300 caractères.
-	 */
+	//Setter
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	/**
-	 * @return the dateDebutEncheres
-	 */
-	public LocalDateTime getdateDebutEncheres() {
+
+	
+	//=================== dateDebutEncheres ===================
+	
+	//getter
+	public LocalDateTime getDateDebutEncheres() {
 		return dateDebutEncheres;
 	}
-	/**
-	 * @param dateDebutEncheres the dateDebutEncheres to set
-	 * @throws BOException verifi que la date soit postérieur à aujourd'hui
-	 */
-	public void setdateDebutEncheres(LocalDateTime dateDebutEncheres) {
-				this.dateDebutEncheres = dateDebutEncheres;
+	//Setter
+	public void setDateDebutEncheres(LocalDateTime dateDebutEncheres) {
+		this.dateDebutEncheres = dateDebutEncheres;
 	}
-	/**
-	 * @return the dateFinEncheres
-	 */
-	public LocalDateTime getdateFinEncheres() {
+
+	
+	//=================== dateFinEncheres ===================
+	
+	//getter
+	public LocalDateTime getDateFinEncheres() {
 		return dateFinEncheres;
 	}
-	/**
-	 * @param dateFinEncheres the dateFinEncheres to set
-	 */
-	public void setdateFinEncheres(LocalDateTime dateFinEncheres) {
+	//Setter
+	public void setDateFinEncheres(LocalDateTime dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
-	/**
-	 * @return the miseAPrix
-	 */
+
+	
+	//=================== miseAPrix ===================
+	
+	//getter
 	public int getMiseAPrix() {
 		return miseAPrix;
 	}
-	/**
-	 * @param miseAPrix the miseAPrix to set
-	 * @throws BOException 
-	 */
-	public void setMiseAPrix(int miseAPrix){
+	//Setter
+	public void setMiseAPrix(int miseAPrix) {
 		this.miseAPrix = miseAPrix;
 	}
-	/**
-	 * @return the prixVente
-	 */
+
+	
+	//=================== prixVente ===================
+	
+	//getter
 	public int getPrixVente() {
 		return prixVente;
 	}
-	/**
-	 * @param prixVente the prixVente to set
-	 * @throws BOException 
-	 */
-	public void setPrixVente(int prixVente){
+	//Setter
+	public void setPrixVente(int prixVente) {
 		this.prixVente = prixVente;
 	}
-	/**
-	 * @return the noUtilisateur
-	 */
-	public int getNoUtilisateur() {
+
+	
+	//=================== noUtilisateur ===================
+	
+	//getter
+	public Integer getNoUtilisateur() {
 		return noUtilisateur;
 	}
-	/**
-	 * @param noUtilisateur the noUtilisateur to set
-	 */
-	public void setNoUtilisateur(int noUtilisateur) {
+	//Setter
+	public void setNoUtilisateur(Integer noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
-	/**
-	 * @return the noCategorie
-	 */
+
+	
+	//=================== noCategorie ===================
+	
+	//getter
 	public int getNoCategorie() {
 		return noCategorie;
 	}
-	/**
-	 * @param noCategorie the noCategorie to set
-	 */
+	//Setter
 	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
 	}
-	
+
+	//======================toString ArticleVendu ======================
 	@Override
 	public String toString() {
 		return "Article vendu: No " + getNoArticle()
 		+ ", "+ getNomArticle()
 		+ ",desc: "+ getDescription()
-		+ ", debut enchère: " + getdateDebutEncheres() 
-		+ "/fin: " + getdateFinEncheres()
+		+ ", debut enchère: " + getDateDebutEncheres() 
+		+ "/fin: " + getDateFinEncheres()
 		+ ", Prix départ: " +(getMiseAPrix() != 0 ? getMiseAPrix() + ", " : "")
 		+ "/Prix vente: " + (getPrixVente() != 0 ? getMiseAPrix() + ", " : "")
 		+ ", No Util: "+ getNoUtilisateur()
