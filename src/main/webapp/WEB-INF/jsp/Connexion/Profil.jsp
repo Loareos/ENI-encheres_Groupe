@@ -23,62 +23,77 @@
 <body>
 
 	<!-- Comparer les id -->
-    <c:if test="${!empty MonProfil}">   
-	   <h3><%=request.getParameter("pseudo")%></h3> 
+    <c:if test="${empty MonProfil}">   
+	   <h3>${profilSelectionneUser.getPseudo()}</h3> 
     </c:if>
     
-    <c:if test="${ProfilAffiche == utilisateurActuel}">   
+    <c:if test="${!empty MonProfil}">   
 	   <h3>Mon profil</h3> 
     </c:if>
 
-    <div class="profilInfos">
-    <div class="profil">
-        <label>Pseudo : </label>
-        <label>${utilisateur.getPseudo()}</label>
-    </div>
-    <c:if test="${ProfilAffiche == utilisateurActuel}">   
-	    <div class="profil">
-        <label>Nom : </label>
-        <label>${utilisateur.getNom()}</label>
-    </div>
-    <div class="profil">
-        <label>Prénom : </label>
-        <label>${utilisateur.getPrenom()}</label>
-    </div>
-    <div class="profil">
-        <label>Email : </label>
-        <label>${utilisateur.getEmail()}</label>
-    </div>
-    <div class="profil">
-        <label>Téléphone : </label>
-        <label>${utilisateur.getTelephone()}</label> 
-    </div>
-    <div class="profil">
-        <label>Rue : </label>
-        <label>${utilisateur.getRue()}</label>
-    </div>
-    </c:if>
-    <div class="profil">
-        <label>Code postal : </label>
-        <label>${utilisateur.getCodePostal()}</label>
-    </div>
-    <div class="profil">
-        <label>Ville : </label>
-        <label>${utilisateur.getVille()}</label>
-    </div>
-
-		<c:if test="${ProfilAffiche == utilisateurActuel}">
+	<div class="profilInfos">
+	   <!-- Mon profil personnel -->
+		<c:if test="${!empty MonProfil}">
+		    <div class="profil">
+		    	<label>Pseudo : </label> 
+		    	<label>${utilisateur.getPseudo()}</label>
+		    </div>
 			<div class="profil">
-				<label>Crédit : </label> <label>${utilisateur.getCredit()}</label>
+				<label>Nom : </label> 
+				<label>${utilisateur.getNom()}</label>
+			</div>
+			<div class="profil">
+				<label>Prénom : </label> 
+				<label>${utilisateur.getPrenom()}</label>
+			</div>
+			<div class="profil">
+				<label>Email : </label> 
+				<label>${utilisateur.getEmail()}</label>
+			</div>
+			<div class="profil">
+				<label>Téléphone : </label> 
+				<label>${utilisateur.getTelephone()}</label>
+			</div>
+			<div class="profil">
+				<label>Rue : </label> 
+				<label>${utilisateur.getRue()}</label>
+			</div>
+			<div class="profil">
+				<label>Code postal : </label> 
+				<label>${utilisateur.getCodePostal()}</label>
+			</div>
+			<div class="profil">
+				<label>Ville : </label> 
+				<label>${utilisateur.getVille()}</label>
+			</div>
+			<div class="profil">
+				<label>Crédit : </label> 
+				<label>${utilisateur.getCredit()}</label>
 			</div>
 		</c:if>
-
+		
+		<!-- Profil public d'un user -->
+		<c:if test="${empty MonProfil}">
+		    <div class="profil">
+		    	<label>Pseudo : </label> 
+		    	<label>${profilSelectionneUser.getPseudo()}</label>
+		    </div>
+			<div class="profil">
+				<label>Code postal : </label> 
+				<label>${profilSelectionneUser.getCodePostal()}</label>
+			</div>
+			<div class="profil">
+				<label>Ville : </label> 
+				<label>${profilSelectionneUser.getVille()}</label>
+			</div>
+		</c:if>
+		
 	</div>
-	
-	
-	
+
+
+
 	<!-- Comparer les id -->
-	 <c:if test="${ProfilAffiche == utilisateurActuel}">
+	 <c:if test="${!empty MonProfil}">
         <form action="ModifProfilServlet" class="btn"><!-- SERVLET a rajouter -->
 		    <button type="submit">Modifier</button>
 	    </form>

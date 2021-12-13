@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.projet.BusinessException;
+import fr.eni.projet.BLL.UtilisateurManager;
 import fr.eni.projet.BO.Utilisateur;
 
 /**
@@ -40,12 +42,34 @@ public class ProfilServlet extends HttpServlet {
 		Utilisateur re = (Utilisateur) sessionUser.getAttribute("utilisateur");
 		
 		//On récupère le nom du pseudo cliqué
-		String pseudoSelectionne = request.getParameter("test").trim();
+		String pseudoSelectionne = request.getParameter("profilSelectionne").trim();
 
-		if(!pseudoSelectionne.contains(re.getPseudo())) {
+		//Profil de quelqu'un d'autre
+		if(pseudoSelectionne.contains(re.getPseudo()) == false) {
 			sessionUser.setAttribute("MonProfil", null);
 			request.setAttribute("pseudo", "test");
+			
+			UtilisateurManager um;
+
+			System.out.println("dans le if");
+			
+			try {
+				System.out.println("dans try");
+				um = UtilisateurManager.getInstance();
+				Utilisateur users = um.rechercheUser(pseudoSelectionne); 
+				
+				Utilisateur profilSelectionneUser = new Utilisateur(users.getCredit(), users.getPseudo(),users.getNom(),users.getPrenom(),users.getEmail(),users.getRue(),users.getTelephone(),users.getCodePostal(),users.getVille(),users.getMotDePasse(),users.getAdministrateur());
+				sessionUser.setAttribute("profilSelectionneUser", profilSelectionneUser);
+				
+				
+				
+				System.out.println(profilSelectionneUser.getEmail());
+				
+			} catch (BusinessException e) {
+				e.printStackTrace();
+			}
 		}
+		//Mon pseudo
 		if(pseudoSelectionne.contains(re.getPseudo())) {
 			sessionUser.setAttribute("MonProfil", "moi");
 		}
