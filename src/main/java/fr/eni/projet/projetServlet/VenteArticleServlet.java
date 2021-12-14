@@ -43,7 +43,6 @@ public class VenteArticleServlet extends HttpServlet {
 
 		 //On récupère les infos de l'user connecté
 		HttpSession sessionUser = request.getSession();
-		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
 		
 		//Récupérer les infos de l'annonce : 
 		String titre = request.getParameter("titre");
