@@ -96,7 +96,10 @@
 		<input type="submit" value="Rechercher" class="btnRecherche"/>
 	</form>
 
-
+	<div class="Articles">
+		
+		<%@include file="/WEB-INF/jsp/Vente/ApercuArticle.jsp" %>	
+	</div>
 
 </body>
 </html>

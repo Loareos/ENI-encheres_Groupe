@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.case{
+	flex : 1;
+	flex-direction: column;
+	border:  medium;
+	border-style: solid;
+}
+
+img{
+	height: 100px;
+	width: 100px;
+}
