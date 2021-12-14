@@ -45,7 +45,7 @@ public class DeconnexionServlet extends HttpServlet {
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("index.jsp").include(request, response);
+		request.getRequestDispatcher("AccueilServlet").include(request, response);
 		out.print("Vous êtes déconnecté!");
 	}
 

@@ -68,7 +68,7 @@ public class InscriptionServlet extends HttpServlet {
 			HttpSession sessionUser = request.getSession();
 			sessionUser.setAttribute("utilisateur", user);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("AccueilServlet");
 			rd.forward(request, response);
 
 		} catch (BusinessException e) {

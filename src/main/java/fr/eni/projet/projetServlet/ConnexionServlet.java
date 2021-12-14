@@ -97,7 +97,7 @@ public class ConnexionServlet extends HttpServlet {
 
 			HttpSession sessionUser = request.getSession();
 			sessionUser.setAttribute("utilisateur", user);
-			rd = request.getRequestDispatcher("index.jsp");
+			rd = request.getRequestDispatcher("AccueilServlet");
 			rd.forward(request, response);
 
 		} catch (BusinessException e) {
