@@ -1,6 +1,7 @@
 package fr.eni.projet.projetServlet;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +29,15 @@ public class AccueilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
+
+		//Récupérer les infos de l'annonce : 
+		String titre = request.getParameter("titreAfficher");
+		String photo = request.getParameter("photoAfficher");
+		Integer meilleurOffre = Integer.parseInt(request.getParameter("meilleurOffreAfficher"));
+		LocalDateTime FinEnchere = LocalDateTime.parse(request.getParameter("FinEnchereAfficher"));
+		String codePostal = request.getParameter("codePostalAfficher");
+		String ville = request.getParameter("villeAfficher");
+		String vendeur = request.getParameter("vendeurAfficher");
 		
 		
 		
