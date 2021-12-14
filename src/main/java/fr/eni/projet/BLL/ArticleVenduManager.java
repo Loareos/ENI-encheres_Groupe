@@ -10,26 +10,26 @@ import fr.eni.projet.BusinessException;
  */
 public class ArticleVenduManager {
 	
-//	private ArticleVenduDAO ArticleVenduDao;
-//	private static ArticleVenduManager instance;
-//	
-//	public static UtilisateurManager getInstance() throws BusinessException{
-//		if(instance == null) {
-//			try {
-//				instance = new UtilisateurManager();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//				BusinessException businessException = new BusinessException();
-//				businessException.ajouterErreur(CodesResultatBLL.GET_INSTANCE);
-//				throw businessException;
-//			}
-//		}
-//		return instance;
-//	}
-//	
-//	private UtilisateurManager() throws BusinessException{
-//		utilisateurDao = DAOFactory.getUserDAO();
-//	}
+	private ArticleVenduDAO ArticleVenduDao;
+	private static ArticleVenduManager instance;
+	
+	public static UtilisateurManager getInstance() throws BusinessException{
+		if(instance == null) {
+			try {
+				instance = new UtilisateurManager();
+			} catch (Exception e) {
+				e.printStackTrace();
+				BusinessException businessException = new BusinessException();
+				businessException.ajouterErreur(CodesResultatBLL.GET_INSTANCE);
+				throw businessException;
+			}
+		}
+		return instance;
+	}
+	
+	private UtilisateurManager() throws BusinessException{
+		utilisateurDao = DAOFactory.getUserDAO();
+	}
 //
 ////========  CONNEXION  ===========================================	
 //	public Utilisateur connexion( String identifiant, String mdp) throws BusinessException {
