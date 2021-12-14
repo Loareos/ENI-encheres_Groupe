@@ -1,10 +1,18 @@
 @charset "UTF-8";
 
 .case{
-	flex : 1;
-	flex-direction: column;
+	display: flex;
+	flex-direction: row;
 	border:  medium;
 	border-style: solid;
+	justify-content: space-around;
+	align-items: center;
+	padding: 10px;
+	max-width: 400px
+}
+
+h4{
+	text-decoration: underline;
 }
 
 img{

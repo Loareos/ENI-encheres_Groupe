@@ -10,15 +10,15 @@
 <body>
 
 	<div class="case">
-		<div>
+		<div class="caseImg">
 			<img src="">
 		</div>
 		
 		<div class="caseTxt">
-			<h4>Titre Article</h4>
-			<p>Prix: XXX points</p>
-			<p>Fin de l'enchère: XX/XX/XXXX</p>
-			<p>Vendeur: <a href="" name="" value="">vendeur</a></p>
+			<h4>${ArticleVendu.getNomArticle()}</h4>
+			<p>Prix: ${Enchere.getMontant_enchere()} points</p>
+			<p>Fin de l'enchère: ${ArticleVendu.getDateFinEncheres}</p>
+			<p>Vendeur: <a href="" name="" value="">${Vendeur.getPseudo()}</a></p>
 		</div>
 	</div>
 
