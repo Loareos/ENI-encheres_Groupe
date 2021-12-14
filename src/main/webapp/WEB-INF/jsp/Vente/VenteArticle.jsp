@@ -13,7 +13,6 @@
 
 </head>
 
-<header>
 	<body>
 
 		<h3>Nouvelle vente :</h3>
