@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.projet.BusinessException;
+import fr.eni.projet.BLL.ArticleVenduManager;
+import fr.eni.projet.BLL.UtilisateurManager;
+import fr.eni.projet.BO.ArticleVendu;
+import fr.eni.projet.BO.Utilisateur;
 import fr.eni.projet.messages.LecteurMessage;
 /**
  * 
@@ -57,6 +61,9 @@ public class VenteArticleServlet extends HttpServlet {
 		String rueRetrait = request.getParameter("rueRetrait");
 		String codePostal = request.getParameter("codePostal");
 		String ville = request.getParameter("ville");
+		
+		ArticleVenduManager avm = ArticleVenduManager.getInstance();
+		ArticleVendu articleVendu = avm.ajouterArticleVendu(pseudoI,nomI,prenomI,emailI,rueI,telI,codePostalI,villeI,passwordI,passwordConfirmI);
 		
 
 		//On récupère les infos de l'user connecté
