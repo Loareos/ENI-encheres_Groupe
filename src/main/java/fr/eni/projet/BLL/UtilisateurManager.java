@@ -9,7 +9,7 @@ import fr.eni.projet.dal.UtilisateurDAO;
  * @author junisaru69
  *	Modif by Etienne
  */
-public class UtilisateurManager {
+public class UtilisateurManager extends Manager {
 	
 	private UtilisateurDAO utilisateurDao;
 	private static UtilisateurManager instance;
@@ -151,21 +151,5 @@ public class UtilisateurManager {
 			exception.ajouterErreur(CodesResultatBLL.INSERT_PARAMETER_LENGTH_MAX);
 		if(user.getCredit() < 0)
 			exception.ajouterErreur(CodesResultatBLL.CREDIT_NEGATIF);
-	}
-	
-	
-	/**
-	 * Cette méthode permet de vérifier 
-	 * les règles à respecter sur le nombre de caractère et qu'il ne soit pas vide.
-	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
-	 * @param utilisateurStrd
-	 * @throws BusinessException 
-	 * @param BusinessException 
-	 */
-	private static void verifStringNombreEtVide(String test, int max,BusinessException exception){
-		if(test == null || test.length() == 0)
-			exception.ajouterErreur(CodesResultatBLL.INSERT_PARAMETER_NULL);
-		if(test.length() > max)
-			exception.ajouterErreur(CodesResultatBLL.INSERT_PARAMETER_LENGTH_MAX);
 	}
 }
