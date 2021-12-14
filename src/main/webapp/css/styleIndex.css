@@ -101,7 +101,10 @@ nav {
 }
 }
 
-
+.achat, .vente{
+	flex: 1;
+	flex-direction: row;
+}
 
 .lienConnection {
 	margin-right: 20px;

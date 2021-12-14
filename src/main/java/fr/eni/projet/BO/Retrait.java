@@ -35,13 +35,6 @@ public class Retrait {
 		this.ville 			= ville;
 	}
 
-	/**
-	 *		Constructeur sans noRetrait
-	 */
-	public Retrait(String rue, String code_postal, String ville) {
-		this(null,rue,code_postal,ville);
-	}
-
 	//======================================================================//
 	//								Getters-Setters 
 	//======================================================================//
