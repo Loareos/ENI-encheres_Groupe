@@ -13,7 +13,12 @@ import javax.servlet.http.HttpSession;
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.UtilisateurManager;
 import fr.eni.projet.BO.Utilisateur;
-
+/**
+ * 
+ * @author RobinFerre
+ * Edit Clément
+ * 
+ */
 /**
  * Servlet implementation class ProfilServlet
  */
@@ -51,10 +56,8 @@ public class ProfilServlet extends HttpServlet {
 			
 			UtilisateurManager um;
 
-			System.out.println("dans le if");
 			
 			try {
-				System.out.println("dans try");
 				um = UtilisateurManager.getInstance();
 				Utilisateur users = um.rechercheUser(pseudoSelectionne); 
 				

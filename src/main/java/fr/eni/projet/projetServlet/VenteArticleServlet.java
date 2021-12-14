@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.projet.BO.Utilisateur;
-
+/**
+ * 
+ * @author Clément
+ * 
+ */
 /**
  * Servlet implementation class VenteArticleServlet
  */
