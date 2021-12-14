@@ -1,6 +1,7 @@
 package fr.eni.projet.projetServlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.eni.projet.BO.Utilisateur;
+import fr.eni.projet.BusinessException;
+import fr.eni.projet.messages.LecteurMessage;
 /**
  * 
  * @author Clément
@@ -43,10 +45,6 @@ public class VenteArticleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-
-		 //On récupère les infos de l'user connecté
-		HttpSession sessionUser = request.getSession();
 		
 		//Récupérer les infos de l'annonce : 
 		String titre = request.getParameter("titre");
@@ -61,10 +59,11 @@ public class VenteArticleServlet extends HttpServlet {
 		String ville = request.getParameter("ville");
 		
 
-		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("AccueilServlet");
-		rd.forward(request, response);
+		//On récupère les infos de l'user connecté
+		HttpSession sessionUser = request.getSession();
 		
+		RequestDispatcher rd = request.getRequestDispatcher("AccueilServlet");
+		rd.forward(request, response);
 		
 	}
 
