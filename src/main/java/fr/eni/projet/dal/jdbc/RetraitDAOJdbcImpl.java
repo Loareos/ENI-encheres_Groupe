@@ -15,16 +15,16 @@ import fr.eni.projet.dal.RetraitDAO;
 
 public class RetraitDAOJdbcImpl implements RetraitDAO {
 
-	String sqlInsert = "INSERT INTO RETRAITS (no_article,rue,code_postal,ville) "
-						+ "VALUES (?,?,?,?)";
+	String sqlInsert = "INSERT INTO RETRAITS (rue,code_postal,ville) "
+						+ "VALUES (?,?,?)";
 	
-	String sqlUpdate = "UPDATE RETRAITS SET no_article = ?, rue = ?, code_postal = ?, ville = ? "
-						+ "WHERE no_retrait = ?";
+	String sqlUpdate = "UPDATE RETRAITS SET rue = ?, code_postal = ?, ville = ? "
+						+ "WHERE no_article = ?";
 	
-	String sqlSelectById = "SELECT no_article,rue,code_postal,ville "
-						+ "FROM RETRAITS WHERE no_retrait = ?";
+	String sqlSelectById = "SELECT rue,code_postal,ville "
+						+ "FROM RETRAITS WHERE no_article = ?";
 	
-	String sqlDelete = "DELETE FROM RETRAITS WHERE no_retrait = ?";
+	String sqlDelete = "DELETE FROM RETRAITS WHERE no_article = ?";
 	
 	String sqlRetraitExiste = "SELECT COUNT(*) FROM RETRAITS WHERE no_article = ?";
 	
@@ -44,7 +44,6 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 				PreparedStatement stmt = con.prepareStatement(sqlInsert);){
 
 			int i = 1;
-			stmt.setInt		(i++, ret.getNoArticle());
 			stmt.setString	(i++, ret.getRue());
 			stmt.setString	(i++, ret.getCode_postal());
 			stmt.setString	(i++, ret.getVille());
@@ -52,7 +51,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 
 			try(ResultSet rs = stmt.getGeneratedKeys()){
 				rs.next();
-				ret.setNoRetrait(rs.getInt(1));
+				ret.setNoArticle(rs.getInt(1));
 			}
 
 		} catch (Exception e) {
@@ -78,11 +77,10 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 				PreparedStatement stmt = cnx.prepareStatement(sqlUpdate);){
 
 			int i = 1;
-			stmt.setInt		(i++, ret.getNoArticle());
 			stmt.setString	(i++, ret.getRue());
 			stmt.setString	(i++, ret.getCode_postal());
 			stmt.setString	(i++, ret.getVille());
-			stmt.setInt		(i++, ret.getNoRetrait());
+			stmt.setInt		(i++, ret.getNoArticle());
 			stmt.execute();
 
 		}catch(Exception e) {
@@ -100,17 +98,16 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 	//=======================================================================//
 
 	@Override
-	public Retrait selectById(int noRetrait) throws BusinessException {
+	public Retrait selectById(int noArticle) throws BusinessException {
 
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
 
-			stmt.setInt(1, noRetrait);
+			stmt.setInt(1, noArticle);
 
 			try (ResultSet rs = stmt.executeQuery()){
 
-				Retrait retrait = new Retrait(noRetrait,
-						rs.getInt("no_article"),
+				Retrait retrait = new Retrait(noArticle,
 						rs.getString("rue"),
 						rs.getString("code_postal"),
 						rs.getString("ville")
@@ -132,12 +129,12 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 	//=======================================================================//
 
 	@Override
-	public void delete(int noRetrait) throws BusinessException {
+	public void delete(int noArticle) throws BusinessException {
 
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlDelete);){
 
-			stmt.setInt(1, noRetrait);
+			stmt.setInt(1, noArticle);
 			stmt.execute();
 
 		}catch(Exception e) {
