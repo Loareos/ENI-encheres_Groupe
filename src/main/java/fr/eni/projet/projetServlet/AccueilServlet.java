@@ -31,13 +31,16 @@ public class AccueilServlet extends HttpServlet {
 		
 
 		//Récupérer les infos de l'annonce : 
-		//String titre = request.getParameter("titreAfficher");
-		//String photo = request.getParameter("photoAfficher");
-		//Integer meilleurOffre = Integer.parseInt(request.getParameter("meilleurOffreAfficher"));
-		//LocalDateTime FinEnchere = LocalDateTime.parse(request.getParameter("FinEnchereAfficher"));
-		//String codePostal = request.getParameter("codePostalAfficher");
-		//String ville = request.getParameter("villeAfficher");
-		//String vendeur = request.getParameter("vendeurAfficher");
+		if(request.getParameter("titreAfficher") != null) {
+			String titre = request.getParameter("titreAfficher");
+			String photo = request.getParameter("photoAfficher");
+			Integer meilleurOffre = Integer.parseInt(request.getParameter("meilleurOffreAfficher"));
+			LocalDateTime FinEnchere = LocalDateTime.parse(request.getParameter("FinEnchereAfficher"));
+			String codePostal = request.getParameter("codePostalAfficher");
+			String ville = request.getParameter("villeAfficher");
+			String vendeur = request.getParameter("vendeurAfficher");
+		}
+		
 		
 		
 		
