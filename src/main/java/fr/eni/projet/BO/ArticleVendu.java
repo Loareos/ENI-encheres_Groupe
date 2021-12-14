@@ -3,214 +3,201 @@
  */
 package fr.eni.projet.BO;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
- * @author junisaru69
- *	Modif by
+ * @author junisaru69 Modif by
  */
 public class ArticleVendu {
 
-	private Integer 		noArticle;
-	private String 			nomArticle;
-	private String 			description;
-	private LocalDateTime 	dateDebutEncheres;
-	private LocalDateTime 	dateFinEncheres;
-	private Integer 		miseAPrix;
-	private Integer 		prixVente;
-	private Integer 		noVendeur;
-	private Integer 		noAcheteur;
-	private Integer 		noCategorie;
+	private Integer noArticle;
+	private String nomArticle;
+	private String description;
+	private LocalDate dateDebutEncheres;
+	private LocalDate dateFinEncheres;
+	private Integer miseAPrix;
+	private Integer prixVente;
+	private Integer noVendeur;
+	private Integer noAcheteur;
+	private Integer noCategorie;
 
-	//=========================================================//
-	//						CONSTRUCTEURS			
-	//=========================================================//	
+	// =========================================================//
+	// CONSTRUCTEURS
+	// =========================================================//
 
 	/**
-	 * 	Cnonstructeur vide
+	 * Cnonstructeur vide
 	 */
 	public ArticleVendu() {
 		super();
 	}
-	
+
 	/**
-	 * 	Cnonstructeur Complet
+	 * Cnonstructeur Complet
 	 */
-	public ArticleVendu(Integer noArticle, 
-			String nomArticle, 
-			String description, 
-			LocalDateTime dateDebutEncheres,
-			LocalDateTime dateFinEncheres, 
-			Integer miseAPrix,
-			Integer prixVente,
-			Integer noVendeur,
-			Integer noAcheteur, 
-			Integer noCategorie){
-		this.noArticle 			= noArticle;
-		this.nomArticle 		= nomArticle;
-		this.description		= description;
-		this.dateDebutEncheres 	= dateDebutEncheres;
-		this.dateFinEncheres 	= dateFinEncheres;
-		this.miseAPrix 			= miseAPrix;
-		this.prixVente 			= prixVente;
-		this.noVendeur 			= noVendeur;
-		this.noAcheteur 		= noAcheteur;
-		this.noCategorie 		= noCategorie;
+	public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
+			LocalDate dateFinEncheres, Integer miseAPrix, Integer prixVente, Integer noVendeur, Integer noAcheteur,
+			Integer noCategorie) {
+		this.noArticle = noArticle;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.noVendeur = noVendeur;
+		this.noAcheteur = noAcheteur;
+		this.noCategorie = noCategorie;
 	}
 
 	/**
 	 * Constructeur sans noArticle prixVente noAcheteur
 	 */
-	public ArticleVendu(String nomArticle, 
-			String description,
-			LocalDateTime dateDebutEncheres, 
-			LocalDateTime dateFinEncheres, 
-			Integer miseAPrix, 
-			Integer noVendeur,
-			Integer noCategorie) {		
-		this(null, nomArticle, description, dateDebutEncheres,dateFinEncheres,miseAPrix,null,noVendeur,null, noCategorie);
+	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			Integer miseAPrix, Integer noVendeur, Integer noCategorie) {
+		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, null, noVendeur, null,
+				noCategorie);
 	}
-	
+
 	/**
-	 *Constructeur sans noArticle miseAPrix prixVente noAcheteur
+	 * Constructeur sans noArticle miseAPrix prixVente noAcheteur
 	 */
-	public ArticleVendu(String nomArticle, 
-			String description, 
-			LocalDateTime dateDebutEncheres,
-			LocalDateTime dateFinEncheres, 
-			Integer noVendeur,
-			Integer noCategorie) {
-		this(null,nomArticle,description,dateDebutEncheres,dateFinEncheres,null,null,noVendeur,null, noCategorie);
+	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			Integer noVendeur, Integer noCategorie) {
+		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, null, null, noVendeur, null,
+				noCategorie);
 	}
-	
-	//=========================================================//
-	//					GETTERS - SETTERS
-	//=========================================================//
 
+	// =========================================================//
+	// GETTERS - SETTERS
+	// =========================================================//
 
-	//=================== noArticle ===================
+	// =================== noArticle ===================
 
-
-	//getter
+	// getter
 	public Integer getNoArticle() {
 		return noArticle;
 	}
 
-	//Setter
+	// Setter
 	public void setNoArticle(Integer noArticle) {
 		this.noArticle = noArticle;
 	}
-	
-	//=================== nomArticle ===================
-	
-	//getter
+
+	// =================== nomArticle ===================
+
+	// getter
 	public String getNomArticle() {
 		return nomArticle;
 	}
-	//Setter
+
+	// Setter
 	public void setNomArticle(String nomArticle) {
 		this.nomArticle = nomArticle;
 	}
-	
-	//=================== description ===================
-	
-	//getter
+
+	// =================== description ===================
+
+	// getter
 	public String getDescription() {
 		return description;
 	}
-	//Setter
+
+	// Setter
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	//=================== dateDebutEncheres ===================
-	
-	//getter
-	public LocalDateTime getDateDebutEncheres() {
+
+	// =================== dateDebutEncheres ===================
+
+	// getter
+	public LocalDate getDateDebutEncheres() {
 		return dateDebutEncheres;
 	}
-	//Setter
-	public void setDateDebutEncheres(LocalDateTime dateDebutEncheres) {
+
+	// Setter
+	public void setDateDebutEncheres(LocalDate dateDebutEncheres) {
 		this.dateDebutEncheres = dateDebutEncheres;
 	}
-	
-	//=================== dateFinEncheres ===================
-	
-	//getter
-	public LocalDateTime getDateFinEncheres() {
+
+	// =================== dateFinEncheres ===================
+
+	// getter
+	public LocalDate getDateFinEncheres() {
 		return dateFinEncheres;
 	}
-	//Setter
-	public void setDateFinEncheres(LocalDateTime dateFinEncheres) {
+
+	// Setter
+	public void setDateFinEncheres(LocalDate dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
-	
-	//=================== miseAPrix ===================
-	
-	//getter
+
+	// =================== miseAPrix ===================
+
+	// getter
 	public Integer getMiseAPrix() {
 		return miseAPrix;
 	}
-	//Setter
+
+	// Setter
 	public void setMiseAPrix(Integer miseAPrix) {
 		this.miseAPrix = miseAPrix;
 	}
-	
-	//=================== prixVente ===================
-	
-	//getter
+
+	// =================== prixVente ===================
+
+	// getter
 	public Integer getPrixVente() {
 		return prixVente;
 	}
-	//Setter
+
+	// Setter
 	public void setPrixVente(Integer prixVente) {
 		this.prixVente = prixVente;
 	}
-	
-	//=================== noAcheteur ===================
-	//getter
+
+	// =================== noAcheteur ===================
+	// getter
 	public Integer getNoAcheteur() {
 		return noAcheteur;
 	}
-	//Setter
+
+	// Setter
 	public void setNoAcheteur(Integer noAcheteur) {
 		this.noAcheteur = noAcheteur;
 	}
-	
-	//=================== noUtilisateur ===================
-	//getter
+
+	// =================== noUtilisateur ===================
+	// getter
 	public Integer getNoVendeur() {
 		return noVendeur;
 	}
-	//Setter
+
+	// Setter
 	public void setNoVendeur(Integer noVendeur) {
 		this.noVendeur = noVendeur;
 	}
 
-	//=================== noCategorie ===================
-	//getter
+	// =================== noCategorie ===================
+	// getter
 	public Integer getNoCategorie() {
 		return noCategorie;
 	}
-	//Setter
+
+	// Setter
 	public void setNoCategorie(Integer noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
-	//======================toString ArticleVendu.java ======================//
+	// ======================toString ArticleVendu.java ======================//
 	@Override
 	public String toString() {
-		return "-ArticleVendu No: " 	+ getNoArticle()
-				+ " /Nom: " 			+ getNomArticle()
-				+ " /Desc: "			+ getDescription()
-				+ " /Date Enchère: " 	+ getDateDebutEncheres()
-				+ ":" 				+ getDateFinEncheres()+","
-				+ (getMiseAPrix() 	!= null ? " $Dép: " 		+ getMiseAPrix() + ", " : "null")
-				+ (getPrixVente() 	!= null ? " $Fin: " 			+ getPrixVente() + ", " : "nul")
-				+ (getNoAcheteur() 	!= null ? " /NoAcheteur: " 	+ getNoAcheteur() + ", " : "nul")
-				+ " /NoUtil: " 			+ getNoVendeur()
-				+ " /Catég: " 			+ getNoCategorie()
-				+ "-";
+		return "-ArticleVendu No: " + getNoArticle() + " /Nom: " + getNomArticle() + " /Desc: " + getDescription()
+				+ " /Date Enchère: " + getDateDebutEncheres() + ":" + getDateFinEncheres() + ","
+				+ (getMiseAPrix() != null ? " $Dép: " + getMiseAPrix() + ", " : "null")
+				+ (getPrixVente() != null ? " $Fin: " + getPrixVente() + ", " : "nul")
+				+ (getNoAcheteur() != null ? " /NoAcheteur: " + getNoAcheteur() + ", " : "nul") + " /NoUtil: "
+				+ getNoVendeur() + " /Catég: " + getNoCategorie() + "-";
 	}
 
 }
