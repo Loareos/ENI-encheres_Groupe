@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -57,17 +58,29 @@ public class VenteArticleServlet extends HttpServlet {
 		String description = request.getParameter("description");
 		Integer categorie = Integer.parseInt(request.getParameter("categorie"));
 		Integer miseAPrix = Integer.parseInt(request.getParameter("miseAPrix"));
-		LocalDateTime DebutEnchere = LocalDateTime.parse(request.getParameter("DebutEnchere"));
-		LocalDateTime FinEnchere = LocalDateTime.parse(request.getParameter("FinEnchere"));
+		LocalDate DebutEnchere = LocalDate.parse(request.getParameter("DebutEnchere"));
+		LocalDate FinEnchere = LocalDate.parse(request.getParameter("FinEnchere"));
 		String rueRetrait = request.getParameter("rueRetrait");
 		String codePostal = request.getParameter("codePostal");
 		String ville = request.getParameter("ville");
 		
+		//On récupère les infos de l'user connecté
+		HttpSession sessionUser = request.getSession();
+		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
+		
+		
+		
+		Integer id = Integer.parseInt(sessionUser.getId());
+		String pseudo = user.getPseudo();
+		
 		try {
+			//Ajouter l'article à la BDD
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
-			ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,
-					LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie)
-			ArticleVendu articleVendu = avm.ajouterArticle(titre, );
+			ArticleVendu article = avm.ajouterArticle(titre, description, DebutEnchere, FinEnchere, miseAPrix, id, categorie, photo);
+			
+			//Récupérer tous mes articles
+			ArrayList<ArticleVendu> listeArticleVendu = avm.rechercheArticlesByPseudo(pseudo);
+			sessionUser.setAttribute("MesArticles", listeArticleVendu);
 			
 		} catch (BusinessException e) {
 			StringBuffer sb = new StringBuffer();
@@ -82,8 +95,6 @@ public class VenteArticleServlet extends HttpServlet {
 			out.print(sb.toString());
 		}
 
-		//On récupère les infos de l'user connecté
-		HttpSession sessionUser = request.getSession();
 		
 		RequestDispatcher rd = request.getRequestDispatcher("AccueilServlet");
 		rd.forward(request, response);
