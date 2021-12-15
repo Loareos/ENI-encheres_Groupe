@@ -57,8 +57,10 @@
 
 		<input type="submit" value="Rechercher" class="btnRecherche" />
 	</form>
-
-
-		<%@include file="/WEB-INF/jsp/Vente/ApercuArticle.jsp"%>
-
+		<div class="annonces">
+			<c:forEach items="${listeArticles}" var="art">
+				<%@include file="/WEB-INF/jsp/Vente/ApercuArticle.jsp"%>
+			</c:forEach>
+		</div>
+		
 </section>

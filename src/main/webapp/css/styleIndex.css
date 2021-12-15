@@ -57,6 +57,12 @@ footer .Cookies {
 /* ==========================================================*/
 /* 						Apercu Article								 */
 /* ==========================================================*/
+.annonces{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
 article {
   display: flex;
   flex-direction: row;

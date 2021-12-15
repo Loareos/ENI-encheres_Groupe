@@ -9,11 +9,11 @@
 		</div>
 	
 		<div class="caseTxt">
-			<h4>${ArticleVendu.getNomArticle()}</h4>
-			<p>Prix: ${Enchere.getMontant_enchere()} points</p>
-			<p>Fin de l'enchère: ${ArticleVendu.getDateFinEncheres}</p>
+			<h4>${art.getNomArticle()}</h4>
+			<p>Prix: ${art.getMiseAPrix()} points</p>
+			<p>Fin de l'enchère: ${art.getDateFinEncheres()}</p>
 			<p>
-				Vendeur: <a href="" name="" value="">${Vendeur.getPseudo()}</a>
+				Vendeur: <a href="" name="" value="">${art.getVendeur().getPseudo()}</a>
 			</p>
 		</div>
 	

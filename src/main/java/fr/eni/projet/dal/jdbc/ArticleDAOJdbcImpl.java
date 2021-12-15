@@ -25,8 +25,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			+ "pseudo,email,code_postal,ville,"
 			+ "libelle "
 			+ "FROM ARTICLES_VENDUS a "
-			+ "INNER JOIN UTILISATEURS u ON a.no_utilisateur = u.no_utilisateur"
-			+ "INNER JOIN CATEGORIES c ON a.no_categorie = c.no_categorie"
+			+ "INNER JOIN UTILISATEURS u ON a.no_utilisateur = u.no_utilisateur "
+			+ "INNER JOIN CATEGORIES c ON a.no_categorie = c.no_categorie "
 			+ "WHERE no_article = ?";
 	
 	String sqlDelete = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
@@ -35,8 +35,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			+ "pseudo,email,code_postal,ville,"
 			+ "libelle "
 			+ "FROM ARTICLES_VENDUS a "
-			+ "INNER JOIN UTILISATEURS u ON a.no_utilisateur = u.no_utilisateur"
-			+ "INNER JOIN CATEGORIES c ON a.no_categorie = c.no_categorie";
+			+ "INNER JOIN UTILISATEURS u ON a.no_utilisateur = u.no_utilisateur "
+			+ "INNER JOIN CATEGORIES c ON a.no_categorie = c.no_categorie ";
 	
 
 	//=======================================================================//
