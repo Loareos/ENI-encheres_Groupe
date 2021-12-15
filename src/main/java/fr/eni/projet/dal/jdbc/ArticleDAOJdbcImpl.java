@@ -12,7 +12,7 @@ import fr.eni.projet.BO.ArticleVendu;
 import fr.eni.projet.dal.ArticleDAO;
 import fr.eni.projet.dal.CodesResultatDAL;
 import fr.eni.projet.dal.ConnectionProvider;
-
+//Edit by Clément
 public class ArticleDAOJdbcImpl implements ArticleDAO {
 
 	String sqlInsert = "INSERT INTO ARTICLES_VENDUS (nom_article,img_article,description,date_debut_encheres,date_fin_encheres,prix_initial,no_vendeur,no_categorie) VALUES (?,?,?,?,?,?,?,?)"; //RAJOUTER L'ACHETEUR DANS LA BDD
