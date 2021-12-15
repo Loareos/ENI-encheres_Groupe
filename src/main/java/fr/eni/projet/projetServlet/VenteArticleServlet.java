@@ -62,8 +62,8 @@ public class VenteArticleServlet extends HttpServlet {
 		String codePostal = request.getParameter("codePostal");
 		String ville = request.getParameter("ville");
 		
-		ArticleVenduManager avm = ArticleVenduManager.getInstance();
-		ArticleVendu articleVendu = avm.ajouterArticleVendu(pseudoI,nomI,prenomI,emailI,rueI,telI,codePostalI,villeI,passwordI,passwordConfirmI);
+		//ArticleVenduManager avm = ArticleVenduManager.getInstance();
+		//ArticleVendu articleVendu = avm.insert(pseudoI,nomI,prenomI,emailI,rueI,telI,codePostalI,villeI,passwordI,passwordConfirmI);
 		
 
 		//On récupère les infos de l'user connecté
