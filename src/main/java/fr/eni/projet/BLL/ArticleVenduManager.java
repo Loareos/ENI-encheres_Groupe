@@ -48,7 +48,7 @@ public class ArticleVenduManager extends Manager {
 			throws BusinessException {
 		BusinessException exception = new BusinessException();
 
-		ArticleVendu art = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, vendeur, Categorie, imgArticle);
+		ArticleVendu art = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, vendeur, Categorie);
 
 		verif(art, exception);
 		if (!this.userDao.idExist(vendeur.getNoUtilisateur()))
@@ -70,7 +70,7 @@ public class ArticleVenduManager extends Manager {
 		BusinessException exception = new BusinessException();
 
 		ArticleVendu artModif = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix,
-				vendeur, Categorie, imgArticle);
+				vendeur, Categorie);
 
 		verif(artModif, exception);
 

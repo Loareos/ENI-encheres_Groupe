@@ -3,8 +3,6 @@ package fr.eni.projet.projetServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,14 +14,12 @@ import javax.servlet.http.HttpSession;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.ArticleVenduManager;
-import fr.eni.projet.BLL.UtilisateurManager;
-import fr.eni.projet.BO.ArticleVendu;
 import fr.eni.projet.BO.Categorie;
 import fr.eni.projet.BO.Utilisateur;
 import fr.eni.projet.messages.LecteurMessage;
 /**
  * 
- * @author Clément
+ * @author Clément Modif by Etienne
  * 
  */
 /**
@@ -53,33 +49,40 @@ public class VenteArticleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Categorie categorie = null;
+		switch (request.getParameter("Categorie")) {
+		case "1": categorie = new Categorie(1,"Informatique"); break;
+		case "2": categorie = new Categorie(2,"Ameublement"); break;
+		case "3": categorie = new Categorie(3,"Vêtement"); break;
+		case "4": categorie = new Categorie(4,"Sport&Loisirs"); break;
+		default: categorie = new Categorie(4,"Sport&Loisirs"); break;
+		}
+		
 		//Récupérer les infos de l'annonce : 
-		String titre = request.getParameter("Article");
-		Byte photo = Byte.parseByte(request.getParameter("Photo"));
-		String description = request.getParameter("Description");
-		Integer categorie = Integer.parseInt(request.getParameter("Categorie"));
-		Integer miseAPrix = Integer.parseInt(request.getParameter("MiseAPrix"));
-		LocalDate DebutEnchere = LocalDate.parse(request.getParameter("DateDebut"));
-		LocalDate FinEnchere = LocalDate.parse(request.getParameter("DateFin"));
-		String rueRetrait = request.getParameter("RueRetrait");
-		String codePostal = request.getParameter("CodePostalRetrait");
-		String ville = request.getParameter("VilleRetrait");
+		String nom = 				request.getParameter("Nom");
+		String description = 		request.getParameter("Description");
+		LocalDate DebutEnchere = 	LocalDate.parse(request.getParameter("DateDebut"));
+		LocalDate FinEnchere = 		LocalDate.parse(request.getParameter("DateFin"));
+		Integer miseAPrix = 		Integer.parseInt(request.getParameter("MiseAPrix"));
+		Byte photo = 				null;//Byte.parseByte(request.getParameter("Photo"));
+		
+		// INFO RETRAIT
+//		String rueRetrait = 		request.getParameter("RueRetrait");
+//		String codePostal = 		request.getParameter("CodePostalRetrait");
+//		String ville = 				request.getParameter("VilleRetrait");
+
 		
 		//On récupère les infos de l'user connecté
 		HttpSession sessionUser = request.getSession();
 		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
-		
-		Integer id = Integer.parseInt(sessionUser.getId());
-		String pseudo = user.getPseudo();
-		
+				
 		try {
 			//Ajouter l'article à la BDD
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
-			ArticleVendu article = avm.ajouterArticle(titre, description, DebutEnchere, FinEnchere, miseAPrix, user, categorie, photo);
+			avm.ajouterArticle(nom, description, DebutEnchere, FinEnchere, miseAPrix, user, categorie, photo);
 			
-			//Récupérer tous mes articles
-			ArrayList<ArticleVendu> listeArticleVendu = avm.rechercheArticlesByPseudo(pseudo);
-			sessionUser.setAttribute("MesArticles", listeArticleVendu);
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
 			
 		} catch (BusinessException e) {
 			StringBuffer sb = new StringBuffer();
@@ -90,14 +93,8 @@ public class VenteArticleServlet extends HttpServlet {
 			System.err.println(sb.toString());
 			
 			PrintWriter out = response.getWriter();
-			request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp").include(request, response);
+			request.getRequestDispatcher("WEB-INF/jsp/Vente/VenteArticle.jsp").include(request, response);
 			out.print(sb.toString());
-		}
-
-		
-		RequestDispatcher rd = request.getRequestDispatcher("AccueilServlet");
-		rd.forward(request, response);
-		
+		}		
 	}
-
 }

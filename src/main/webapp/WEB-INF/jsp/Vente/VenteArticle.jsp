@@ -23,37 +23,44 @@
 		
 		    <div>
 			    <label class="label">Article : </label>
-       		    <input class="input" type="text" name="Article" />
+       		    <input class="input" type="text" name="Nom" />
 		    </div> 
+		    
 		    <div>
 			    <label class="label">Description : </label>
        		    <input class="input" type="text" name="Description" />
-		    </div> 
-			<div class="selectionneur">
-				<label class="labCategorie">Catégorie : </label> 
-				<select name="selectionCategorieVente"  size="1">
-					<option>Ameublement</option>
-					<option>Informatique</option>
-					<option>Sport & Loisirs</option>
-					<option>Vetement</option>
-				</select>
-			</div>
-			<div>
-			    <label class="label">Photo de l'article : </label>
-			    <button>Uploader</button>
-		    </div> 
+		    </div>
+		     
+            <div>
+		        <label class="label">Début de l'enchère : </label>
+       		    <input class="input" type="date" name="DateDebut" />
+		    </div>
+		   <div>
+		        <label class="label">Fin de l'enchère : </label>
+       		    <input class="input" type="date" name="DateFin" />
+		    </div>		
+
 		    <div>
 		        <label class="label">Mise à prix : </label>
        		    <input class="input" type="number" name="MiseAPrix" />
 		    </div>
-            <div>
-		        <label class="label">Début de l'enchère : </label>
-       		    <input class="input" type="datetime" name="DateDebut" />
-		    </div>
-		   <div>
-		        <label class="label">Fin de l'enchère : </label>
-       		    <input class="input" type="datetime" name="DateFin" />
-		    </div>
+		        
+			<div class="selectionneur">
+				<label class="labCategorie">Catégorie : </label> 
+				<select name="Categorie">
+					<option value="1">Informatique</option>
+					<option value="2">Ameublement</option>
+					<option value="3">Vetement</option>
+					<option value="4">Sport&Loisirs</option>
+				</select>
+			</div>
+			
+			<!-- 
+			<div>
+			    <label class="label">Photo de l'article : </label>
+			    <button>Uploader</button>
+		    </div> 
+			 -->
 		    
 		    <fieldset>
 		        <legend>Retrait</legend>

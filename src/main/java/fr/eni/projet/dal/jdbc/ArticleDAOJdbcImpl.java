@@ -19,9 +19,9 @@ import fr.eni.projet.dal.ConnectionProvider;
 
 public class ArticleDAOJdbcImpl implements ArticleDAO {
 
-	String sqlInsert = "INSERT INTO ARTICLES_VENDUS (nom_article,description,date_debut_encheres,date_fin_encheres,prix_initial,no_vendeur,no_categorie,img_article) VALUES (?,?,?,?,?,?,?,?)";	
-	String sqlUpdate = "UPDATE ARTICLES_VENDUS SET nom_article = ?, description = ?, date_debut_encheres = ?, date_fin_encheres = ?, prix_initial = ?, prix_vente = ?, no_categorie = ?, img_article = ? WHERE no_article = ?";
-	String sqlSelectById = "SELECT nom_article, description,date_debut_encheres,date_fin_encheres,prix_initial,prix_vente,a.no_utilisateur,a.no_categorie,img_article,"
+	String sqlInsert = "INSERT INTO ARTICLES_VENDUS (nom_article,description,date_debut_encheres,date_fin_encheres,prix_initial,no_utilisateur,no_categorie) VALUES (?,?,?,?,?,?,?)";	
+	String sqlUpdate = "UPDATE ARTICLES_VENDUS SET nom_article = ?, description = ?, date_debut_encheres = ?, date_fin_encheres = ?, prix_initial = ?, prix_vente = ?, no_categorie = ? WHERE no_article = ?";
+	String sqlSelectById = "SELECT nom_article, description,date_debut_encheres,date_fin_encheres,prix_initial,prix_vente,a.no_utilisateur,a.no_categorie,"
 			+ "pseudo,email,code_postal,ville,"
 			+ "libelle "
 			+ "FROM ARTICLES_VENDUS a "
@@ -31,7 +31,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	
 	String sqlDelete = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
 
-	String sqlSelectAll = "SELECT no_article,nom_article, description,date_debut_encheres,date_fin_encheres,prix_initial,prix_vente,a.no_utilisateur,a.no_categorie,img_article,"
+	String sqlSelectAll = "SELECT no_article,nom_article, description,date_debut_encheres,date_fin_encheres,prix_initial,prix_vente,a.no_utilisateur,a.no_categorie,"
 			+ "pseudo,email,code_postal,ville,"
 			+ "libelle "
 			+ "FROM ARTICLES_VENDUS a "
@@ -58,7 +58,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			stmt.setInt(i++, art.getMiseAPrix());						// MISE A PRIX
 			stmt.setInt(i++, art.getVendeur().getNoUtilisateur());		// VENDEUR
 			stmt.setInt(i++, art.getCategorie().getNoCategorie());		// CATEGORIE
-			stmt.setByte(i++, Byte.valueOf(art.getimgArticle()));		// IMAGE
+//			stmt.setByte(i++, Byte.valueOf(art.getimgArticle()));		// IMAGE
 			stmt.execute();
 			try(ResultSet rs = stmt.getGeneratedKeys()){
 				rs.next();
@@ -90,7 +90,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			stmt.setDate(i++, Date.valueOf(art.getDateFinEncheres()));	// DATE FIN
 			stmt.setInt(i++, art.getMiseAPrix());						// MISE A PRIX
 			stmt.setInt(i++, art.getCategorie().getNoCategorie());		// CATEGORIE
-			stmt.setByte(i++, Byte.valueOf(art.getimgArticle()));		// IMAGE
+//			stmt.setByte(i++, Byte.valueOf(art.getimgArticle()));		// IMAGE
 			stmt.setInt(i++, art.getNoArticle());						// NO ARTICLE (POUR LE WHERE)
 			stmt.execute();
 		}catch(Exception e) {
@@ -114,7 +114,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			try(ResultSet rs = stmt.executeQuery();){
 				rs.next();
 													//	NO_USER			PSEUDO			MAIL			VILLE			CODE POSTAL	
-				Utilisateur vendeur = userConstructore(rs.getInt(7),rs.getString(10),rs.getString(11),rs.getString(13),rs.getString(12));
+				Utilisateur vendeur = userConstructore(rs.getInt(7),rs.getString(9),rs.getString(10),rs.getString(12),rs.getString(11));
 													//		NO_CAT			LIBELLE
 				Categorie categorie = categorieConstructor(rs.getInt(8),rs.getString(14));
 						
@@ -127,8 +127,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 						rs.getInt(5),				//mise a prix
 						rs.getInt(6),				//prix de vente
 						vendeur,					//vendeur
-						categorie,					//categorie
-						rs.getByte(9)				//image
+						categorie					//categorie
+//						rs.getByte(9)				//image
 						);
 				return art;
 			}
@@ -173,9 +173,9 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 				ResultSet rs = stmt.executeQuery();){
 			while(rs.next()) {
 													//	NO_USER			PSEUDO			MAIL			VILLE			CODE POSTAL	
-				Utilisateur vendeur = userConstructore(rs.getInt(8),rs.getString(11),rs.getString(12),rs.getString(14),rs.getString(13));
+				Utilisateur vendeur = userConstructore(rs.getInt(8),rs.getString(10),rs.getString(11),rs.getString(13),rs.getString(12));
 													//		NO_CAT			LIBELLE
-				Categorie categorie = categorieConstructor(rs.getInt(9),rs.getString(15));
+				Categorie categorie = categorieConstructor(rs.getInt(9),rs.getString(14));
 						
 				ArticleVendu art = new ArticleVendu(
 						rs.getInt(1), 						//noArticle
@@ -186,8 +186,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 						rs.getInt(6),				//mise a prix
 						rs.getInt(7),				//prix de vente
 						vendeur,					//vendeur
-						categorie,					//categorie
-						rs.getByte(10)				//image
+						categorie					//categorie
+//						rs.getByte(10)				//image
 						);
 				lstArticles.add(art);
 			}
