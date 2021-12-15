@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
  */
 public class Enchere {
 
-	private Utilisateur 		vendeur;
 	private Utilisateur 		acheteur;
 	private ArticleVendu 		article;
 	private LocalDateTime 		dateEnchere;
@@ -32,49 +31,20 @@ public class Enchere {
 	/**
 	 *		Constructeur Complet
 	 */
-	public Enchere(Utilisateur vendeur, Utilisateur acheteur, ArticleVendu article,
+	public Enchere(Utilisateur acheteur, ArticleVendu article,
 					LocalDateTime dateEnchere, Integer montant_enchere) {
 		
-		this.vendeur 			= vendeur;
 		this.acheteur 			= acheteur;
 		this.article 			= article;
 		this.dateEnchere 		= dateEnchere;
 		this.montant_enchere 	= montant_enchere;
-	}
-	
-	/**
-	 *		Constructeur sans noAcheteur 
-	 */
-	
-	public Enchere(Utilisateur vendeur, ArticleVendu article, LocalDateTime dateEnchere,
-					Integer montant_enchere) {
-		this(vendeur,null,article,dateEnchere,montant_enchere);
-	}
-	
-	/**
-	 *		Constructeur sans noUtilisateur noAcheteur
-	 */
-	public Enchere(ArticleVendu article, LocalDateTime dateEnchere,Integer montant_enchere) {
-		this(null,null,article, dateEnchere, montant_enchere);
-	}
-	
+	}	
 	
 
 	//======================================================================//
 	//								Getters-Setters 
 	//======================================================================//
 
-	
-	//=================== noUtilisateur ===================
-	//getter
-	public Utilisateur getVendeur() {
-		return vendeur;
-	}
-	//Setter
-	public void setVendeur(Utilisateur vendeur) {
-		this.vendeur = vendeur;
-	}
-	
 	//=================== noAcheteur ===================
 	//getter
 	public Utilisateur getAcheteur() {
@@ -118,8 +88,7 @@ public class Enchere {
 	//======================toString Enchere.java ======================//
 	@Override
 	public String toString() {
-		return "-Enchere NoUtil: " 	+ getVendeur()
-				+ " /NoAcheteur: " 	+ getAcheteur()
+		return "-Enchere Acheteur: "+ getAcheteur()
 				+ " /NoArt: " 		+ getArticle()
 				+ " /DateEnch: " 	+ getDateEnchere()
 				+ " /$: " 			+ getMontant_enchere()

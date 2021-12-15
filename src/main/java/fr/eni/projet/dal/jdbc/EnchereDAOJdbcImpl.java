@@ -17,7 +17,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	String sqlInsert = "INSERT INTO ENCHERES (no_utilisateur,no_article,date_enchere, montant_enchere) VALUES (?,?,?,?)";
 	String sqlUpdate = "UPDATE ENCHERES SET date_enchere = ?, montant_enchere = ? WHERE no_utilisateur = ? AND no_article = ?";
-	String sqlSelectById = "SELECT date_enchere, montant_enchere, no_vendeur FROM ENCHERES WHERE no_utilisateur = ? AND no_article = ?";
+	String sqlSelectById = "SELECT date_enchere, montant_enchere FROM ENCHERES WHERE no_utilisateur = ? AND no_article = ?";
 	String sqlDelete = "DELETE FROM ENCHERES WHERE no_utilisateur = ? AND no_article = ?";
 	
 	@Override
@@ -26,7 +26,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlInsert);){
 			int i = 1;
-			stmt.setInt(i++, enchere.getVendeur().getNoUtilisateur());
+			stmt.setInt(i++, enchere.getAcheteur().getNoUtilisateur());
 			stmt.setInt(i++, enchere.getArticle().getNoArticle());
 			Date date = Date.valueOf(enchere.getDateEnchere().toLocalDate());
 			stmt.setDate(i++, date);
@@ -49,7 +49,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			Date date = Date.valueOf(enchere.getDateEnchere().toLocalDate());
 			stmt.setDate(i++, date);
 			stmt.setInt(i++, enchere.getMontant_enchere());
-			stmt.setInt(i++, enchere.getVendeur().getNoUtilisateur());
+			stmt.setInt(i++, enchere.getAcheteur().getNoUtilisateur());
 			stmt.setInt(i++, enchere.getArticle().getNoArticle());
 			stmt.execute();
 		}catch(Exception e) {
