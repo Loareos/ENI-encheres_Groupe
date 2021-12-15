@@ -39,6 +39,8 @@ public class ModifProfilServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
 		String pseudoI = request.getParameter("PseudoI").trim();
 		String nomI = request.getParameter("NomI").trim();
 		String prenomI = request.getParameter("PrenomI").trim();
@@ -50,17 +52,37 @@ public class ModifProfilServlet extends HttpServlet {
 		String passwordI = request.getParameter("passwordI"); // Refuser les espaces dans le mot de passe
 		String passwordConfirmI = request.getParameter("passwordConfirmI");
 
+
+        //On récupère les infos de l'user connecté
+		HttpSession sessionUser = request.getSession();
+		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
+		String ancienMdp = user.getMotDePasse();
+		
+		System.out.println("le pseudo : ");
+		System.out.println(pseudoI);
+		
 		// Modification Profil
 		try {
+			//Si le mot de passe ne change pas, on renvoie le meme.
+			System.out.println("avant if : ");
+			System.out.println(passwordI);
+			if (passwordI == null) {
+				passwordI = ancienMdp;
+				passwordConfirmI = passwordI;
+				System.out.println("pas de mdp");
+			}
+			System.out.println("mdp : ");
+			System.out.println(passwordI);
+			
 			UtilisateurManager um = UtilisateurManager.getInstance();
-			Utilisateur user = um.modifProfil(null, pseudoI, nomI, prenomI, emailI, rueI, telI, codePostalI, villeI,
+			Utilisateur userModifie = um.modifProfil(user, pseudoI, nomI, prenomI, emailI, rueI, telI, codePostalI, villeI,
 					passwordI, passwordConfirmI);
 
-			// On valide comme pour se connecter
-			HttpSession sessionUser = request.getSession();
-			sessionUser.setAttribute("utilisateur", user);
+			System.out.println("modif faite");
 
-			RequestDispatcher rd = request.getRequestDispatcher("Profil.jsp");
+			sessionUser.setAttribute("utilisateur", userModifie);
+
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Connexion/Profil.jsp");
 			rd.forward(request, response);
 
 		} catch (BusinessException e) {
@@ -76,34 +98,6 @@ public class ModifProfilServlet extends HttpServlet {
 			out.print(sb.toString());
 		}
 
-		// Supprimer Profil
-		try {
-			UtilisateurManager um = UtilisateurManager.getInstance();
-			um.suppressionUser((Utilisateur) request.getSession());
-			HttpSession sessionUser = request.getSession();
-			sessionUser.setAttribute("utilisateur", null);
-
-			// Comme pour la déconnexion renvoie à l'accueil
-
-			response.setContentType("text/html");
-			PrintWriter out = response.getWriter();
-			request.getRequestDispatcher("AccueilServlet").include(request, response);
-			out.print("Votre compte est supprimé");
-
-		} catch (BusinessException e) {
-
-			StringBuffer sb = new StringBuffer();
-			sb.append("Une ou plusieurs erreurs se sont produites :");
-			for (int i : e.getListeCodesErreur())
-				sb.append("\n").append("CODE ").append(i).append(" - ").append(LecteurMessage.getMessageErreur(i));
-
-			System.err.println(sb.toString());
-
-			PrintWriter out = response.getWriter();
-			request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp").include(request, response);
-			out.print(sb.toString());
-
-		}
 
 	}
 }

@@ -92,12 +92,18 @@ public class UtilisateurManager extends Manager {
 		BusinessException exception = new BusinessException();
 		
 		//Verifie que le mot de passe et la confirmation sont les mêmes
-		if(!mdp.equals(verifMdp))
+		if(!mdp.equals(verifMdp)) {
+			System.out.println("mdp diff");
 			exception.ajouterErreur(CodesResultatBLL.MDP_VERIF_DIFFERENTS);
+		}
 		
-		if(!user.getPseudo().equals(pseudo))
-			if(this.utilisateurDao.pseudoExist(user.getPseudo()))
+		if(!user.getPseudo().equals(pseudo)) {
+			System.out.println(pseudo);
+			System.out.println(user.getPseudo().equals(pseudo));
+			if(this.utilisateurDao.pseudoExist(user.getPseudo())) {
 				exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
+		    }
+		}
 			
 		if(!user.getEmail().equals(email))
 			if(this.utilisateurDao.mailExist(user.getEmail()))

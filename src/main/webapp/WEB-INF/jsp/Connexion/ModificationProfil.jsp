@@ -68,20 +68,24 @@
 		
 		<div class="formItemConnexionC">
 			<label class="label">Nouveau mdp : </label>
-       		<input class="input" type="password" name="PasswordI" value=""/>
+       		<input class="input" type="password" name="PasswordI"/>
        		
        		<label class="label">Confirmation : </label>
-       		<input class="input" type="password" name="PasswordConfirmI" value=""/>
+       		<input class="input" type="password" name="PasswordConfirmI"/>
 		</div>
 		
 		<div class="btn">
 			<input type="submit" name="enregistrer" value="Enregistrer" style="margin-right : 20px" />
-			<input type="submit" name="supprimer" value="Supprimer mon compte" style="margin-right : 20px;margin-left : 20px" />
-		    <button type="submit" onclick="history.back()" style="margin-left : 20px">Retour</button>
+		    <button onclick="history.back()" style="margin-left : 20px">Retour</button>
 		</div>
 
 	</form>
 	
+	<form method="post" action="SupprProfilServlet" class="btn">
+		<input type="submit" name="supprimer" value="Supprimer mon compte" style="margin-right : 20px;margin-left : 20px" />
+	</form>
+	
+			
 	
 </body>
 </html>
