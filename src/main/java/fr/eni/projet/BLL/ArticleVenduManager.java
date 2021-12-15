@@ -35,13 +35,13 @@ public class ArticleVenduManager extends Manager {
 
 //
 ////=======================  CREATION ARTICLE  ===========================================	
-	public void ajouterArticle(String nomArticle, String description, Byte imgArticle, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie)
+	public void ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,
+			LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie, Byte imgArticle)
 			throws BusinessException {
 		BusinessException exception = new BusinessException();
 
-		ArticleVendu art = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix,
-				noVendeur, noCategorie);
+		ArticleVendu art = new ArticleVendu(nomArticle, description, dateDebutEncheres ,dateFinEncheres, miseAPrix,
+				noVendeur, noCategorie, imgArticle);
 
 		verif(art, exception);
 
