@@ -86,28 +86,27 @@ public class ArticleVenduManager extends Manager {
 
 	// ======== SELECT BY SEARCH ===========================================
 
-//	public ArticleVendu rechercheArticle(String id) throws BusinessException {
-//		ArticleVendu art = null;
-//		BusinessException exception = new BusinessException();
-//
-//		if (this.articleDao.vendeurExiste(id))
-//			return this.articleDao.selectByVendeur(id);
-//		else if (this.articleDao.categorieExiste(id))
-//			return this.articleDao.selectByCategorie(id);
-//		else
-//			exception.ajouterErreur(CodesResultatBLL.VENDEUR_INCONNU);
-//		throw exception;
-//		exception.ajouterErreur(CodesResultatBLL.CATEGORIE_INCONNU);
-//		throw exception;
-//	}
+	public ArticleVendu rechercheArticle(Utilisateur id1, Categorie id2) throws BusinessException {
+		ArticleVendu art = null;
+		BusinessException exception = new BusinessException();
+
+		if (this.articleDao.vendeurExiste(id1))
+			return this.articleDao.selectByVendeur(id1);
+		else if (this.articleDao.categorieExiste(id2))
+			return this.articleDao.selectByCategorie(id2);
+		else
+			exception.ajouterErreur(CodesResultatBLL.VENDEUR_INCONNU);
+		exception.ajouterErreur(CodesResultatBLL.CATEGORIE_INCONNU);
+		throw exception;
+
+	}
 
 ////==========================  SUPPRESSION  ===========================================	
 
-//	public void suppressionArticle(ArticleVendu art) throws BusinessException {
-//		this.articleDao.delete(art.getNoArticle());
-//	}
-//
-//	
+	public void suppressionArticle(ArticleVendu art) throws BusinessException {
+		this.articleDao.delete(art.getNoArticle());
+	}
+
 ////==========================  VERIFICATIONS  ===========================================	
 //	
 	private static void verif(ArticleVendu art, BusinessException exception) {
