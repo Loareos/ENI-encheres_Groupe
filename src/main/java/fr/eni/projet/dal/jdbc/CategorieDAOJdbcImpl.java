@@ -17,6 +17,8 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 	String sqlSelectById = "SELECT nom_article FROM CATEGORIES WHERE no_categorie = ?";
 	String sqlDelete = "DELETE FROM CATEGORIES WHERE no_categorie = ?";
 	
+	String sqlIdExiste = "SELECT COUNT(*) FROM CATEGORIES WHERE no_categorie = ?";
+	
 	@Override
 	public void insert(Categorie cat) throws BusinessException {
 		checkNull(cat);
@@ -88,6 +90,26 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 			businessException.ajouterErreur(CodesResultatDAL.OBJET_NULL);
 			throw businessException;
 		}		
+	}
+
+	@Override
+	public boolean idExist(Integer id) throws BusinessException {
+		try(Connection cnx = ConnectionProvider.getConnection();
+				PreparedStatement stmt = cnx.prepareStatement(sqlIdExiste);){
+			stmt.setInt(1, id);
+			try(ResultSet rs = stmt.executeQuery();){
+				rs.next();
+				if(rs.getInt(1) > 0)
+					return true;
+				else
+					return false;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.IS_EXISTING_OBJET_ECHEC);
+			throw businessException;
+		}
 	}
 
 }

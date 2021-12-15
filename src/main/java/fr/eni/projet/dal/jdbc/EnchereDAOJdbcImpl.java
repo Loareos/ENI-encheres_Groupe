@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.Enchere;
@@ -81,26 +79,27 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	@Override
 	public Enchere selectById(int idUser, int idArticle) throws BusinessException {
-		try(Connection cnx = ConnectionProvider.getConnection();
-				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
-			stmt.setInt(1, idUser);
-			stmt.setInt(2, idArticle);
-			try(ResultSet rs = stmt.executeQuery();){
-				rs.next();
-				LocalDateTime date = LocalDateTime.of(rs.getDate(1).toLocalDate(), LocalTime.of(0, 0));
-				Enchere enchere = new Enchere(idUser,
-												rs.getInt(3),
-												idArticle,
-												date,
-												rs.getInt(2));
-				 return enchere;
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-			BusinessException businessException = new BusinessException();
-			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
-			throw businessException;
-		}
+//		try(Connection cnx = ConnectionProvider.getConnection();
+//				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
+//			stmt.setInt(1, idUser);
+//			stmt.setInt(2, idArticle);
+//			try(ResultSet rs = stmt.executeQuery();){
+//				rs.next();
+//				LocalDateTime date = LocalDateTime.of(rs.getDate(1).toLocalDate(), LocalTime.of(0, 0));
+//				Enchere enchere = new Enchere(idUser,
+//												rs.getInt(3),
+//												idArticle,
+//												date,
+//												rs.getInt(2));
+//				 return enchere;
+//			}
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//			BusinessException businessException = new BusinessException();
+//			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
+//			throw businessException;
+//		}
+		return null;
 	}
 
 	@Override

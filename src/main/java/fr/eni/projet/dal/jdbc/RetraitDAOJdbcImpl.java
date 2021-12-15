@@ -16,11 +16,8 @@ import fr.eni.projet.dal.RetraitDAO;
 public class RetraitDAOJdbcImpl implements RetraitDAO {
 
 	String sqlInsert = "INSERT INTO RETRAITS (no_article,rue,code_postal,ville) VALUES (?,?,?,?)";
-	
 	String sqlUpdate = "UPDATE RETRAITS SET rue = ?, code_postal = ?, ville = ? WHERE no_article = ?";
-	
 	String sqlSelectById = "SELECT rue,code_postal,ville FROM RETRAITS WHERE no_article = ?";
-	
 	String sqlDelete = "DELETE FROM RETRAITS WHERE no_article = ?";
 	
 	String sqlRetraitExiste = "SELECT COUNT(*) FROM RETRAITS WHERE no_article = ?";
@@ -91,27 +88,27 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 
 	@Override
 	public Retrait selectById(int noArticle) throws BusinessException {
-
-		try(Connection cnx = ConnectionProvider.getConnection();
-				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
-
-			stmt.setInt(1, noArticle);
-
-			try (ResultSet rs = stmt.executeQuery()){
-
-				Retrait retrait = new Retrait(noArticle,
-						rs.getString("rue"),
-						rs.getString("code_postal"),
-						rs.getString("ville")
-						);
-				return retrait;
-			} 
-		}catch(Exception e) {
-			e.printStackTrace();
-			BusinessException businessException = new BusinessException();
-			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
-			throw businessException;
-		}
+//		try(Connection cnx = ConnectionProvider.getConnection();
+//				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
+//
+//			stmt.setInt(1, noArticle);
+//
+//			try (ResultSet rs = stmt.executeQuery()){
+//
+//				Retrait retrait = new Retrait(noArticle,
+//						rs.getString("rue"),
+//						rs.getString("code_postal"),
+//						rs.getString("ville")
+//						);
+//				return retrait;
+//			} 
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//			BusinessException businessException = new BusinessException();
+//			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
+//			throw businessException;
+//		}
+		return null;
 	}
 
 	//=======================================================================//

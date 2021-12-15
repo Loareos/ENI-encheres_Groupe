@@ -15,7 +15,8 @@ import fr.eni.projet.dal.ArticleDAO;
 import fr.eni.projet.dal.CodesResultatDAL;
 import fr.eni.projet.dal.ConnectionProvider;
 
-//Edit by Clément
+//Edit by Clément modifs by Etienne
+
 public class ArticleDAOJdbcImpl implements ArticleDAO {
 
 	String sqlInsert = "INSERT INTO ARTICLES_VENDUS (nom_article,description,date_debut_encheres,date_fin_encheres,prix_initial,no_vendeur,no_categorie,img_article) VALUES (?,?,?,?,?,?,?,?)";	
@@ -199,6 +200,12 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 		}
 	}
 	
+	//=======================================================================//
+	//
+	//									CHECK NULL
+	//
+	//=======================================================================//
+	
 	public void checkNull(ArticleVendu art) throws BusinessException {
 		if(art == null) {
 			BusinessException businessException = new BusinessException();
@@ -206,27 +213,23 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			throw businessException;
 		}		
 	}
-
+	//=======================================================================//
+	//
+	//									SELECT BY VENDEUR (WIP)
+	//
+	//=======================================================================//
 	@Override
-	public boolean vendeurExiste(Utilisateur Vendeur) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean categorieExiste(Categorie Categorie) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public ArticleVendu selectByVendeur(Utilisateur vendeur) throws BusinessException {
+	public ArticleVendu selectByVendeur(Integer idVendeur) throws BusinessException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	//=======================================================================//
+	//
+	//									SELECT BY CATEGORIE (WIP)
+	//
+	//=======================================================================//
 	@Override
-	public ArticleVendu selectByCategorie(Categorie Categorie) throws BusinessException {
+	public ArticleVendu selectByCategorie(Integer idCategorie) throws BusinessException {
 		// TODO Auto-generated method stub
 		return null;
 	}

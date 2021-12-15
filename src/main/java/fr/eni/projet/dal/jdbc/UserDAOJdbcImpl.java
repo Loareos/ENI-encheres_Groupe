@@ -26,6 +26,7 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 	String sqlSelectByMail = "SELECT no_utilisateur, credit, pseudo, nom, prenom, telephone, rue, code_postal, ville, mot_de_passe, administrateur FROM UTILISATEURS WHERE email = ?";
 	String sqlPseudoExiste = "SELECT COUNT(*) FROM UTILISATEURS WHERE pseudo = ?";
 	String sqlMailExiste = "SELECT COUNT(*) FROM UTILISATEURS WHERE email = ?";
+	String sqlIdExiste = "SELECT COUNT(*) FROM UTILISATEURS WHERE no_utilisateur = ?";
 	
 	// =============  PARTIE FONCTIONNELLE  =============================
 	@Override
@@ -230,6 +231,26 @@ public class UserDAOJdbcImpl implements UtilisateurDAO {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlMailExiste);){
 			stmt.setString(1, email);
+			try(ResultSet rs = stmt.executeQuery();){
+				rs.next();
+				if(rs.getInt(1) > 0)
+					return true;
+				else
+					return false;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.IS_EXISTING_OBJET_ECHEC);
+			throw businessException;
+		}
+	}
+
+	@Override
+	public boolean idExist(Integer id) throws BusinessException {
+		try(Connection cnx = ConnectionProvider.getConnection();
+				PreparedStatement stmt = cnx.prepareStatement(sqlIdExiste);){
+			stmt.setInt(1, id);
 			try(ResultSet rs = stmt.executeQuery();){
 				rs.next();
 				if(rs.getInt(1) > 0)

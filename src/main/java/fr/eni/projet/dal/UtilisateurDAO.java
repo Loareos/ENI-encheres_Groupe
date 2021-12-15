@@ -9,5 +9,5 @@ public interface UtilisateurDAO extends DAO<Utilisateur> {
 	public Utilisateur selectByMail(String email) throws BusinessException;
 	public boolean pseudoExist(String pseudo) throws BusinessException;
 	public boolean mailExist(String email) throws BusinessException;
-	
+	public boolean idExist(Integer id) throws BusinessException;	
 }
