@@ -53,7 +53,7 @@ public class VenteArticleServlet extends HttpServlet {
 		
 		//Récupérer les infos de l'annonce : 
 		String titre = request.getParameter("titre");
-		String photo = request.getParameter("photo");
+		Byte photo = Byte.parseByte(titre).getParameter("photo"));
 		String description = request.getParameter("description");
 		Integer categorie = Integer.parseInt(request.getParameter("categorie"));
 		Integer miseAPrix = Integer.parseInt(request.getParameter("miseAPrix"));
@@ -67,7 +67,7 @@ public class VenteArticleServlet extends HttpServlet {
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
 			ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,
 					LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie)
-			ArticleVendu articleVendu = avm.ajouterArticle();
+			ArticleVendu articleVendu = avm.ajouterArticle(titre, );
 			
 		} catch (BusinessException e) {
 			StringBuffer sb = new StringBuffer();
