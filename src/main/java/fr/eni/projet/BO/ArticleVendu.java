@@ -18,7 +18,6 @@ public class ArticleVendu {
 	private Integer miseAPrix;
 	private Integer prixVente;
 	private Utilisateur vendeur;
-	private Utilisateur acheteur;
 	private Categorie categorie;
 	private Byte imgArticle;
 
@@ -37,7 +36,7 @@ public class ArticleVendu {
 	 * Cnonstructeur Complet
 	 */
 	public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, Integer miseAPrix, Integer prixVente, Utilisateur vendeur, Utilisateur acheteur,
+			LocalDate dateFinEncheres, Integer miseAPrix, Integer prixVente, Utilisateur vendeur,
 			Categorie categorie, Byte imgArticle) {
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
@@ -47,7 +46,6 @@ public class ArticleVendu {
 		this.miseAPrix = miseAPrix;
 		this.prixVente = prixVente;
 		this.vendeur = vendeur;
-		this.acheteur = acheteur;
 		this.categorie = categorie;
 		this.imgArticle = imgArticle;
 	}
@@ -57,7 +55,7 @@ public class ArticleVendu {
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			Integer miseAPrix, Utilisateur vendeur, Categorie categorie, Byte imgArticle) {
-		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, null, vendeur, null,
+		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, null, vendeur,
 				categorie, imgArticle);
 	}
 
@@ -66,7 +64,7 @@ public class ArticleVendu {
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			Utilisateur vendeur, Categorie categorie) {
-		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, null, null, vendeur, null,
+		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, null, null, vendeur,
 				categorie, null);
 	}
 
@@ -158,17 +156,6 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 	}
 
-	// =================== noAcheteur ===================
-	// getter
-	public Utilisateur getAcheteur() {
-		return acheteur;
-	}
-
-	// Setter
-	public void setAcheteur(Utilisateur acheteur) {
-		this.acheteur = acheteur;
-	}
-
 	// =================== noVendeur ===================
 	// getter
 	public Utilisateur getVendeur() {
@@ -210,8 +197,7 @@ public class ArticleVendu {
 				+ " /Date Enchère: " + getDateDebutEncheres() + ":" + getDateFinEncheres() + ","
 				+ (getMiseAPrix() != null ? " $Dép: " + getMiseAPrix() + ", " : "null")
 				+ (getPrixVente() != null ? " $Fin: " + getPrixVente() + ", " : "nul")
-				+ (getAcheteur() != null ? " /Acheteur: " + getAcheteur() + ", " : "nul") + " /Vendeur: "
-				+ getVendeur() + " /Catég: " + getCategorie() + " /imgArticle: "
+				+ " /Vendeur: " + getVendeur() + " /Catég: " + getCategorie() + " /imgArticle: "
 				+ (getimgArticle() != null ? "1" : "0") + "-";
 	}
 

@@ -37,16 +37,13 @@ public class ArticleVenduManager extends Manager {
 
 //
 ////=======================  CREATION ARTICLE  ===========================================	
-	public void ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie, Byte imgArticle)
+	public void ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie, Byte imgArticle)
 			throws BusinessException {
 		BusinessException exception = new BusinessException();
 
-		ArticleVendu art = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix,
-				vendeur, Categorie, imgArticle);
+		ArticleVendu art = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, vendeur, Categorie, imgArticle);
 
 		verif(art, exception);
-
 		if (articleDao.vendeurExiste(vendeur))
 			exception.ajouterErreur(CodesResultatBLL.VENDEUR_INCONNU);
 		if (articleDao.categorieExiste(Categorie))
@@ -56,7 +53,6 @@ public class ArticleVenduManager extends Manager {
 			this.articleDao.insert(art);
 		else
 			throw exception;
-
 	}
 
 //	

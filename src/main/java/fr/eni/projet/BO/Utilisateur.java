@@ -71,6 +71,13 @@ public class Utilisateur {
 	public Utilisateur(Integer noUtilisateur, int credit, String pseudo, String nom, String prenom, String email, String rue, String codePostal, String ville, String motDePasse, boolean administrateur) {
 		this(noUtilisateur, credit, pseudo, nom, prenom, email, rue, null, codePostal, ville, motDePasse, administrateur);
 	}
+	
+	/**
+	 * Constructeur simple
+	 */
+	public Utilisateur(Integer noUtilisateur,String pseudo,String email,String codePostal, String ville) {
+		this(noUtilisateur, 0, pseudo, null, null, email, null, null, codePostal, ville, null, false);
+	}
 
 //=========================================================	
 //					GETTERS - SETTERS
