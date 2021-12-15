@@ -211,7 +211,8 @@ public class ArticleVendu {
 				+ (getMiseAPrix() != null ? " $Dép: " + getMiseAPrix() + ", " : "null")
 				+ (getPrixVente() != null ? " $Fin: " + getPrixVente() + ", " : "nul")
 				+ (getNoAcheteur() != null ? " /NoAcheteur: " + getNoAcheteur() + ", " : "nul") + " /NoUtil: "
-				+ getNoVendeur() + " /Catég: " + getNoCategorie() + (getimgArticle() != null ? "1" : "0") + "-";
+				+ getNoVendeur() + " /Catég: " + getNoCategorie() + " /imgArticle: "
+				+ (getimgArticle() != null ? "1" : "0") + "-";
 	}
 
 }
