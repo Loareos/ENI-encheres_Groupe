@@ -1,3 +1,81 @@
+/* ======================variable============================*/
+/* ==========================================================*/
+/* 						body								 */
+/* ==========================================================*/
+body {
+  border: 5px solid black;
+  height: 100%;
+}
+
+/* ==========================================================*/
+/* 						header								 */
+/* ==========================================================*/
+header {
+  border: 2px solid black;
+  background-image: url("css/img/cielBleu.png");
+  padding: 0.3em;
+  margin-bottom: 0.3em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+  flex-wrap: wrap;
+}
+header .lienConnection {
+  margin-right: 20px;
+}
+
+/* ==========================================================*/
+/* 						footer								 */
+/* ==========================================================*/
+footer {
+  border: 2px solid black;
+  background-image: url("css/img/HerbeFooter.png");
+  background-repeat: no-repeat;
+  background-size: 100% 4em;
+  padding: 0.3em;
+  margin-top: 0.3em;
+  display: flex;
+  justify-content: space-evenly;
+}
+footer .copyright {
+  display: block;
+}
+footer .MentionsLegals {
+  display: block;
+}
+footer .ContactezNous {
+  display: block;
+}
+footer .Cookies {
+  display: block;
+}
+
+/* ==========================================================*/
+/* 						Apercu Article								 */
+/* ==========================================================*/
+article {
+  display: flex;
+  flex-direction: row;
+  border: medium;
+  border-style: solid;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0.3em;
+  padding: 0.3em;
+  max-width: 400px;
+}
+article .divImg {
+  background-color: aqua;
+  max-width: 100px;
+}
+article .imgArticle {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+}
+
 form {
   margin-top: 60px;
   margin-bottom: 40px;
@@ -15,15 +93,6 @@ h4 {
   text-decoration: underline;
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 20px;
-  flex-wrap: wrap;
-}
-
 .case {
   display: flex;
   flex-direction: row;
@@ -35,19 +104,9 @@ nav {
   max-width: 400px;
 }
 
-.imgArticle {
-  border: 1px solid black;
-  height: 100px;
-  width: 100px;
-}
-
 .achat .vente {
   flex: 1;
   flex-direction: row;
-}
-
-.lienConnection {
-  margin-right: 20px;
 }
 
 .titreIndex {
