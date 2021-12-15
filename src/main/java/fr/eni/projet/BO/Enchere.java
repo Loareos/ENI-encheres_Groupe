@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
  */
 public class Enchere {
 
-	private Integer 			noUtilisateur;
-	private Integer 			noAcheteur;
-	private Integer 			noArticle;
+	private Utilisateur 		vendeur;
+	private Utilisateur 		acheteur;
+	private ArticleVendu 		article;
 	private LocalDateTime 		dateEnchere;
 	private Integer 			montant_enchere;
 	
@@ -32,12 +32,12 @@ public class Enchere {
 	/**
 	 *		Constructeur Complet
 	 */
-	public Enchere(Integer noUtilisateur, Integer noAcheteur, Integer noArticle,
+	public Enchere(Utilisateur vendeur, Utilisateur acheteur, ArticleVendu article,
 					LocalDateTime dateEnchere, Integer montant_enchere) {
 		
-		this.noUtilisateur 		= noUtilisateur;
-		this.noAcheteur 		= noAcheteur;
-		this.noArticle 			= noArticle;
+		this.vendeur 			= vendeur;
+		this.acheteur 			= acheteur;
+		this.article 			= article;
 		this.dateEnchere 		= dateEnchere;
 		this.montant_enchere 	= montant_enchere;
 	}
@@ -46,16 +46,16 @@ public class Enchere {
 	 *		Constructeur sans noAcheteur 
 	 */
 	
-	public Enchere(Integer noUtilisateur, Integer noArticle, LocalDateTime dateEnchere,
+	public Enchere(Utilisateur vendeur, ArticleVendu article, LocalDateTime dateEnchere,
 					Integer montant_enchere) {
-		this(noUtilisateur,null,noArticle,dateEnchere,montant_enchere);
+		this(vendeur,null,article,dateEnchere,montant_enchere);
 	}
 	
 	/**
 	 *		Constructeur sans noUtilisateur noAcheteur
 	 */
-	public Enchere(Integer noArticle, LocalDateTime dateEnchere,Integer montant_enchere) {
-		this(null,null,noArticle, dateEnchere, montant_enchere);
+	public Enchere(ArticleVendu article, LocalDateTime dateEnchere,Integer montant_enchere) {
+		this(null,null,article, dateEnchere, montant_enchere);
 	}
 	
 	
@@ -67,32 +67,32 @@ public class Enchere {
 	
 	//=================== noUtilisateur ===================
 	//getter
-	public Integer getNoUtilisateur() {
-		return noUtilisateur;
+	public Utilisateur getVendeur() {
+		return vendeur;
 	}
 	//Setter
-	public void setNoUtilisateur(Integer noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+	public void setVendeur(Utilisateur vendeur) {
+		this.vendeur = vendeur;
 	}
 	
 	//=================== noAcheteur ===================
 	//getter
-	public Integer getNoAcheteur() {
-		return noAcheteur;
+	public Utilisateur getAcheteur() {
+		return acheteur;
 	}
 	//Setter
-	public void setNoAcheteur(Integer noAcheteur) {
-		this.noAcheteur = noAcheteur;
+	public void setAcheteur(Utilisateur acheteur) {
+		this.acheteur = acheteur;
 	}
 	
 	//=================== noArticle ===================
 	//getter
-	public Integer getNoArticle() {
-		return noArticle;
+	public ArticleVendu getArticle() {
+		return article;
 	}
 	//Setter
-	public void setNoArticle(Integer noArticle) {
-		this.noArticle = noArticle;
+	public void setArticle(ArticleVendu article) {
+		this.article = article;
 	}
 	
 	//=================== dateEnchere ===================
@@ -118,9 +118,9 @@ public class Enchere {
 	//======================toString Enchere.java ======================//
 	@Override
 	public String toString() {
-		return "-Enchere NoUtil: " + getNoUtilisateur()
-				+ " /NoAcheteur: " 	+ getNoAcheteur()
-				+ " /NoArt: " 		+ getNoArticle()
+		return "-Enchere NoUtil: " 	+ getVendeur()
+				+ " /NoAcheteur: " 	+ getAcheteur()
+				+ " /NoArt: " 		+ getArticle()
 				+ " /DateEnch: " 	+ getDateEnchere()
 				+ " /$: " 			+ getMontant_enchere()
 				+ "-"; 

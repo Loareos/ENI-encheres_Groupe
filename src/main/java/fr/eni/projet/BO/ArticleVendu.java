@@ -17,9 +17,9 @@ public class ArticleVendu {
 	private LocalDate dateFinEncheres;
 	private Integer miseAPrix;
 	private Integer prixVente;
-	private Integer noVendeur;
-	private Integer noAcheteur;
-	private Integer noCategorie;
+	private Utilisateur vendeur;
+	private Utilisateur acheteur;
+	private Categorie categorie;
 	private Byte imgArticle;
 
 	// =========================================================//
@@ -37,8 +37,8 @@ public class ArticleVendu {
 	 * Cnonstructeur Complet
 	 */
 	public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, Integer miseAPrix, Integer prixVente, Integer noVendeur, Integer noAcheteur,
-			Integer noCategorie, Byte imgArticle) {
+			LocalDate dateFinEncheres, Integer miseAPrix, Integer prixVente, Utilisateur vendeur, Utilisateur acheteur,
+			Categorie categorie, Byte imgArticle) {
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -46,9 +46,9 @@ public class ArticleVendu {
 		this.dateFinEncheres = dateFinEncheres;
 		this.miseAPrix = miseAPrix;
 		this.prixVente = prixVente;
-		this.noVendeur = noVendeur;
-		this.noAcheteur = noAcheteur;
-		this.noCategorie = noCategorie;
+		this.vendeur = vendeur;
+		this.acheteur = acheteur;
+		this.categorie = categorie;
 		this.imgArticle = imgArticle;
 	}
 
@@ -56,18 +56,18 @@ public class ArticleVendu {
 	 * Constructeur sans noArticle prixVente noAcheteur imgArticle
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			Integer miseAPrix, Integer noVendeur, Integer noCategorie, Byte imgArticle) {
-		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, null, noVendeur, null,
-				noCategorie, imgArticle);
+			Integer miseAPrix, Utilisateur vendeur, Categorie categorie, Byte imgArticle) {
+		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, null, vendeur, null,
+				categorie, imgArticle);
 	}
 
 	/**
 	 * Constructeur sans noArticle miseAPrix prixVente noAcheteur imgArticle
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			Integer noVendeur, Integer noCategorie) {
-		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, null, null, noVendeur, null,
-				noCategorie, null);
+			Utilisateur vendeur, Categorie categorie) {
+		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, null, null, vendeur, null,
+				categorie, null);
 	}
 
 	// =========================================================//
@@ -160,35 +160,35 @@ public class ArticleVendu {
 
 	// =================== noAcheteur ===================
 	// getter
-	public Integer getNoAcheteur() {
-		return noAcheteur;
+	public Utilisateur getAcheteur() {
+		return acheteur;
 	}
 
 	// Setter
-	public void setNoAcheteur(Integer noAcheteur) {
-		this.noAcheteur = noAcheteur;
+	public void setAcheteur(Utilisateur acheteur) {
+		this.acheteur = acheteur;
 	}
 
-	// =================== noUtilisateur ===================
+	// =================== noVendeur ===================
 	// getter
-	public Integer getNoVendeur() {
-		return noVendeur;
+	public Utilisateur getVendeur() {
+		return vendeur;
 	}
 
 	// Setter
-	public void setNoVendeur(Integer noVendeur) {
-		this.noVendeur = noVendeur;
+	public void setVendeur(Utilisateur vendeur) {
+		this.vendeur = vendeur;
 	}
 
 	// =================== noCategorie ===================
 	// getter
-	public Integer getNoCategorie() {
-		return noCategorie;
+	public Categorie getCategorie() {
+		return categorie;
 	}
 
 	// Setter
-	public void setNoCategorie(Integer noCategorie) {
-		this.noCategorie = noCategorie;
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
 	}
 
 	// =================== imgArticle ===================
@@ -210,8 +210,8 @@ public class ArticleVendu {
 				+ " /Date Enchère: " + getDateDebutEncheres() + ":" + getDateFinEncheres() + ","
 				+ (getMiseAPrix() != null ? " $Dép: " + getMiseAPrix() + ", " : "null")
 				+ (getPrixVente() != null ? " $Fin: " + getPrixVente() + ", " : "nul")
-				+ (getNoAcheteur() != null ? " /NoAcheteur: " + getNoAcheteur() + ", " : "nul") + " /NoUtil: "
-				+ getNoVendeur() + " /Catég: " + getNoCategorie() + " /imgArticle: "
+				+ (getAcheteur() != null ? " /Acheteur: " + getAcheteur() + ", " : "nul") + " /Vendeur: "
+				+ getVendeur() + " /Catég: " + getCategorie() + " /imgArticle: "
 				+ (getimgArticle() != null ? "1" : "0") + "-";
 	}
 
