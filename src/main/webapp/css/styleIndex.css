@@ -13,7 +13,7 @@ body {
 /* 						header								 */
 /* ==========================================================*/
 header {
-  background-color: rgba(102, 179, 255, 0.3);
+  background-color: rgba(102, 179, 255, 0.5);
   padding: 0.3em;
   margin-bottom: 0.3em;
   display: flex;
@@ -29,6 +29,11 @@ header .lienConnection {
 /* ==========================================================*/
 /* 						Section Liste Enchere				 */
 /* ==========================================================*/
+section .achat .vente {
+  flex: 1;
+  flex-direction: row;
+}
+
 /* ==========================================================*/
 /* 						footer								 */
 /* ==========================================================*/
@@ -44,6 +49,10 @@ footer {
 footer .copyright {
   display: block;
 }
+footer .copyright p {
+  border: 5px solid black;
+  font-size: large;
+}
 footer .MentionsLegals {
   display: block;
 }
@@ -57,12 +66,6 @@ footer .Cookies {
 /* ==========================================================*/
 /* 						Apercu Article								 */
 /* ==========================================================*/
-.annonces{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-
 article {
   display: flex;
   flex-direction: row;
@@ -99,22 +102,6 @@ h4 {
   padding-right: 20px;
   padding-left: 10px;
   text-decoration: underline;
-}
-
-.case {
-  display: flex;
-  flex-direction: row;
-  border: medium;
-  border-style: solid;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
-  max-width: 400px;
-}
-
-.achat .vente {
-  flex: 1;
-  flex-direction: row;
 }
 
 .titreIndex {

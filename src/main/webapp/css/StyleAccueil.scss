@@ -20,7 +20,7 @@ body{
 /* ==========================================================*/
 header{
 
-	background-color: rgba(102, 179, 255, 0.3);
+	background-color: rgba(102, 179, 255, 0.5);
 
 
 	padding: $margPadSection;
@@ -50,7 +50,17 @@ header{
 /* ==========================================================*/
 /* 						Section Liste Enchere				 */
 /* ==========================================================*/
+section{
+	.achat {
 
+
+		.vente{
+			flex: 1;
+			flex-direction: row;
+		}
+	}
+
+}
 
 
 /* ==========================================================*/
@@ -70,9 +80,12 @@ footer{
 	justify-content: space-evenly;
 
 	.copyright{
-
 		display: block;
+		p{
+			border: 5px solid black;
+			font-size: large;
 
+		}
 	}
 	.MentionsLegals{
 		display: block;
@@ -136,24 +149,6 @@ h4 {
 	text-decoration: underline;
 
 }
-
-.case{
-	display: flex;
-	flex-direction: row;
-	border:  medium;
-	border-style: solid;
-	justify-content: space-around;
-	align-items: center;
-	padding: 10px;
-	max-width: 400px
-}
-
-.achat .vente{
-	flex: 1;
-	flex-direction: row;
-}
-
-
 
 .titreIndex {
 	display: flex;

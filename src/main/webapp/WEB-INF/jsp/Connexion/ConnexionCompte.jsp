@@ -15,9 +15,7 @@
 
 <body> 
 
-	<nav>
-		<h4>ENI-Enchères</h4>
-	</nav> 
+	<nav><h4>ENI-Enchères</h4></nav> 
 	
 	<form method="post" action="ConnexionServlet" class="formConnexion">
 	

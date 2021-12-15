@@ -1,3 +1,7 @@
+<!-- 
+@author Clément
+Modif by LCB 
+-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -12,8 +16,7 @@
 	</div>
 
 	<c:if test="${empty utilisateur}">
-		<a href="ConnexionServlet" class="lienConnection">S'inscrire - Se
-			connecter</a>
+		<a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
 	</c:if>
 
 	<c:if test="${!empty utilisateur}">
