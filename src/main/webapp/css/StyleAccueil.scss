@@ -3,17 +3,16 @@
 	$margPadSection: 0.3em;
 
 /* ==========================================================*/
-/* 						body								 */
+/* 						body & html							 */
 /* ==========================================================*/
+html{
 
+}
 body{
-
-
-	border: 5px solid black;
-
-
-	height: 100%;
-
+	height: auto;
+	background-image: url("css/img/cielBleu.png");
+	background-repeat: no-repeat;
+	background-size: 100% 17em;
 }
 
 /* ==========================================================*/
@@ -21,9 +20,7 @@ body{
 /* ==========================================================*/
 header{
 
-	border: 2px solid black;
-	// background-color: dodgerblue;
-	background-image: url("css/img/cielBleu.png");
+	background-color: rgba(102, 179, 255, 0.3);
 
 
 	padding: $margPadSection;
@@ -39,7 +36,22 @@ header{
 	.lienConnection {
 		margin-right: 20px;
 	}
+	.logoEnchere{
+
+		.logoENI{
+
+		}
+		h4{
+
+		}
+	}
 }
+
+/* ==========================================================*/
+/* 						Section Liste Enchere				 */
+/* ==========================================================*/
+
+
 
 /* ==========================================================*/
 /* 						footer								 */
@@ -47,7 +59,6 @@ header{
 
 footer{
 
-	border: 2px solid black;
 	background-image: url("css/img/HerbeFooter.png");
 	background-repeat: no-repeat;
 	background-size: 100% 4em;
