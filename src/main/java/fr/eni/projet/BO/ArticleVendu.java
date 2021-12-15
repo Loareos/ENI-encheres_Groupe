@@ -20,6 +20,7 @@ public class ArticleVendu {
 	private Integer noVendeur;
 	private Integer noAcheteur;
 	private Integer noCategorie;
+	private Byte imgArticle;
 
 	// =========================================================//
 	// CONSTRUCTEURS
@@ -37,7 +38,7 @@ public class ArticleVendu {
 	 */
 	public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
 			LocalDate dateFinEncheres, Integer miseAPrix, Integer prixVente, Integer noVendeur, Integer noAcheteur,
-			Integer noCategorie) {
+			Integer noCategorie, Byte imgArticle) {
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -48,24 +49,25 @@ public class ArticleVendu {
 		this.noVendeur = noVendeur;
 		this.noAcheteur = noAcheteur;
 		this.noCategorie = noCategorie;
+		this.imgArticle = imgArticle;
 	}
 
 	/**
-	 * Constructeur sans noArticle prixVente noAcheteur
+	 * Constructeur sans noArticle prixVente noAcheteur imgArticle
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			Integer miseAPrix, Integer noVendeur, Integer noCategorie) {
 		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, null, noVendeur, null,
-				noCategorie);
+				noCategorie, null);
 	}
 
 	/**
-	 * Constructeur sans noArticle miseAPrix prixVente noAcheteur
+	 * Constructeur sans noArticle miseAPrix prixVente noAcheteur imgArticle
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			Integer noVendeur, Integer noCategorie) {
 		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, null, null, noVendeur, null,
-				noCategorie);
+				noCategorie, null);
 	}
 
 	// =========================================================//
@@ -189,6 +191,18 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 	}
 
+	// =================== imgArticle ===================
+
+	// getter
+	public Byte getimgArticle() {
+		return imgArticle;
+	}
+
+	// Setter
+	public void setimgArticle(Byte imgArticle) {
+		this.imgArticle = imgArticle;
+	}
+
 	// ======================toString ArticleVendu.java ======================//
 	@Override
 	public String toString() {
@@ -197,7 +211,7 @@ public class ArticleVendu {
 				+ (getMiseAPrix() != null ? " $Dép: " + getMiseAPrix() + ", " : "null")
 				+ (getPrixVente() != null ? " $Fin: " + getPrixVente() + ", " : "nul")
 				+ (getNoAcheteur() != null ? " /NoAcheteur: " + getNoAcheteur() + ", " : "nul") + " /NoUtil: "
-				+ getNoVendeur() + " /Catég: " + getNoCategorie() + "-";
+				+ getNoVendeur() + " /Catég: " + getNoCategorie() + (getimgArticle() != null ? "1" : "0") + "-";
 	}
 
 }

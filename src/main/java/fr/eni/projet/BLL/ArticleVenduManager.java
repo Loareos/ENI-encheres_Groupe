@@ -35,7 +35,7 @@ public class ArticleVenduManager extends Manager {
 
 //
 ////=======================  CREATION ARTICLE  ===========================================	
-	public void ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,
+	public void ajouterArticle(String nomArticle, String description, Byte imgArticle, LocalDate dateDebutEncheres,
 			LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie)
 			throws BusinessException {
 		BusinessException exception = new BusinessException();
@@ -59,35 +59,27 @@ public class ArticleVenduManager extends Manager {
 
 //	
 ////==========================  MODIFICATION ARTICLE  ===========================================	
-//
-//	public  ArticleVendu modifArticle(Integer noArticle, String nomArticle, String description,
-//			LocalDateTime dateDebutEncheres, LocalDateTime dateFinEncheres, Integer miseAPrix, Integer prixVente,
-//			Integer noVendeur, Integer noAcheteur, Integer noCategorie) throws BusinessException {
-//		BusinessException exception = new BusinessException();
-//		return null;
+	public void modifArticle(ArticleVendu art, String nomArticle, String description, LocalDate dateDebutEncheres,
+			LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie)
+			throws BusinessException {
 
-	// Verifie que le mot de passe et la confirmation sont les mêmes
-//		if(!mdp.equals(verifMdp))
-//			exception.ajouterErreur(CodesResultatBLL.MDP_VERIF_DIFFERENTS);
-//		
-//		if(!art.getPseudo().equals(pseudo))
-//			if(this.articleDao.pseudoExist(user.getPseudo()))
-//				exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
-//			
-//		if(!art.getEmail().equals(email))
-//			if(this.articleDao.mailExist(user.getEmail()))
-//				exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
-//
-//		ArticleVendu modifArticle = new Utilisateur(Integer noArticle, String nomArticle, String description,
-//		LocalDateTime dateDebutEncheres, LocalDateTime dateFinEncheres, Integer miseAPrix, Integer prixVente,
-//		Integer noVendeur, Integer noAcheteur, Integer noCategorie));
-//		verifArticleVendu(modifArticle, exception);	
-//
-//		if(!exception.hasErreurs()) {
-//			this.articleDao.update(userModif);
-//			return userModif;
-//		}else
-//			throw exception;
+		BusinessException exception = new BusinessException();
+
+		ArticleVendu artModif = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix,
+				noVendeur, noCategorie);
+
+		verif(artModif, exception);
+
+		if (articleDao.vendeurExiste(noVendeur))
+			exception.ajouterErreur(CodesResultatBLL.VENDEUR_INCONNU);
+		if (articleDao.categorieExiste(noCategorie))
+			exception.ajouterErreur(CodesResultatBLL.CATEGORIE_INCONNU);
+
+		if (!exception.hasErreurs())
+			this.articleDao.insert(artModif);
+		else
+			throw exception;
+	}
 //	}
 
 	// ======== SELECT BY SEARCH ===========================================
