@@ -1,17 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<style type="text/css"><%@include file="../../../css/styleApercuArticle.css"%></style>
-<title>Apercu d'un article</title>
-</head>
-<body>
 
 	<div class="case">
 		<div class="caseImg">
-			<img src="">
+			<img class="imgArticle" alt="" src="/imageBase.png">
+<%-- 			<%@include file="img/imageBase.png" %> --%>
 		</div>
 		
 		<div class="caseTxt">
@@ -21,6 +14,3 @@
 			<p>Vendeur: <a href="" name="" value="">${Vendeur.getPseudo()}</a></p>
 		</div>
 	</div>
-
-</body>
-</html>

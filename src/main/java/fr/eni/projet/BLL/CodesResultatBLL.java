@@ -59,4 +59,8 @@ public abstract class CodesResultatBLL {
 	public static final int CATEGORIE_INCONNU = 20013;
 
 	public static final int DATE_FIN_ENCHERE_INVALIDE = 20014;
+	
+	public static final int RETRAIT_EXIST = 20015;
+	
+	
 }

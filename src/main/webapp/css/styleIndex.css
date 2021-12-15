@@ -3,6 +3,7 @@
 h4 {
 	padding-right: 20px;
 	padding-left: 10px;
+	text-decoration: underline;
 }
 
 nav {
@@ -14,7 +15,29 @@ nav {
 	flex-wrap: wrap;
 }
 
-@media (max-width : 610px) {
+.case{
+	display: flex;
+	flex-direction: row;
+	border:  medium;
+	border-style: solid;
+	justify-content: space-around;
+	align-items: center;
+	padding: 10px;
+	max-width: 400px
+}
+
+.caseImg{
+	
+}
+
+.imgArticle{
+	
+	border: 1px solid black;
+	height: 100px;
+	width: 100px;
+}
+
+@media (max-width : 609px) {
 	
 	.liens {
 	width : 600px;
@@ -65,7 +88,7 @@ nav {
 		padding-right : 30px;
 }
 	
-@media ( min-width : 611px) {
+@media ( min-width : 610px) {
 	.txtRecherche {
 		height: 20px;
 		width: 270px;
