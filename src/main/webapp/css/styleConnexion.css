@@ -10,18 +10,6 @@ h3 {
 	justify-content: center;
 	margin-bottom: 30px;
 }
-.case{
-	flex : 1;
-	flex-direction: column;
-	border:  medium;
-	border-style: solid;
-}
-
-img{
-	border: 20px solid black; 
-	height: 100px;
-	width: 100px;
-}
 
 @media ( max-width : 569px) {
 	.formConnexionC {

@@ -12,7 +12,7 @@
 <title>Accueil</title>
 
 </head>
-
+<body>
 <header>
 
 	<nav>
@@ -38,7 +38,6 @@
 	</nav>
 
 </header>
-<body>
 
 	<h3 class="titreIndex">Liste des enchères</h3>
 

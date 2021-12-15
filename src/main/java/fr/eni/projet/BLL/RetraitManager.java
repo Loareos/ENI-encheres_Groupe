@@ -60,13 +60,10 @@ public class RetraitManager {
 		BusinessException exception = new BusinessException();
 		Retrait retrait=null;
 		//Verifie que le retrait
-		try {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
 		if (this.retraitDAO.retraitExiste(noArticle)) {
 			retrait = retraitDAO.selectById(noArticle);
+		}else {
+			exception.ajouterErreur(CodesResultatBLL.RETRAIT_EXIST);
 		}
 		if(!exception.hasErreurs()) {
 			this.retraitDAO.insert(retrait);
@@ -75,7 +72,6 @@ public class RetraitManager {
 //		//Verifie les autres critères
 //		verifUser(user, exception);	
 //		if(this.utilisateurDao.pseudoExist(user.getPseudo()))
-//			exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
 //		if(this.utilisateurDao.mailExist(user.getEmail()))
 //			exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
 //
