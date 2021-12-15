@@ -1,6 +1,8 @@
 package fr.eni.projet.BLL;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.ArticleVendu;
@@ -98,7 +100,24 @@ public class ArticleVenduManager extends Manager {
 
 		throw exception;
 	}
+	
+	// ======== SELECT ARTICLE EN VENTE ===========================================
 
+	public List<ArticleVendu> getArticlesEnVente() throws BusinessException{
+		BusinessException exception = new BusinessException();
+		List<ArticleVendu> lstAll = this.articleDao.selectAll();
+		
+		List<ArticleVendu> lstVenteEnCours = new ArrayList<ArticleVendu>();
+		for(ArticleVendu a : lstAll) 
+			if((a.getDateDebutEncheres().isBefore(LocalDate.now()) || a.getDateDebutEncheres().isEqual(LocalDate.now())) && a.getDateFinEncheres().isAfter(LocalDate.now()) && a.getMiseAPrix() != null)
+				lstVenteEnCours.add(a);
+		if(lstVenteEnCours.size() != 0)
+			return lstVenteEnCours;
+		else
+			exception.ajouterErreur(CodesResultatBLL.AUCUN_ARTICLE_EN_VENTE);
+		throw exception;
+	}
+	
 ////==========================  SUPPRESSION  ===========================================	
 
 	public void suppressionArticle(ArticleVendu art) throws BusinessException {

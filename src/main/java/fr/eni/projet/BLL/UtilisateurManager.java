@@ -116,7 +116,6 @@ public class UtilisateurManager extends Manager {
 //========  SELECT BY SEARCH  ===========================================	
 	
 	public Utilisateur rechercheUser(String id) throws BusinessException {
-		Utilisateur user = null;
 		BusinessException exception = new BusinessException();
 
 		if(this.utilisateurDao.pseudoExist(id))

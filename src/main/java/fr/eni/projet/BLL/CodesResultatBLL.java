@@ -62,5 +62,6 @@ public abstract class CodesResultatBLL {
 	
 	public static final int RETRAIT_EXIST = 20015;
 	
+	public static final int AUCUN_ARTICLE_EN_VENTE = 20016;
 	
 }
