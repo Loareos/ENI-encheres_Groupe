@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.ArticleVendu;
+import fr.eni.projet.BO.Categorie;
+import fr.eni.projet.BO.Utilisateur;
 import fr.eni.projet.dal.ArticleDAO;
 import fr.eni.projet.dal.DAOFactory;
 
@@ -36,18 +38,18 @@ public class ArticleVenduManager extends Manager {
 //
 ////=======================  CREATION ARTICLE  ===========================================	
 	public void ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie, Byte imgArticle)
+			LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie, Byte imgArticle)
 			throws BusinessException {
 		BusinessException exception = new BusinessException();
 
-		ArticleVendu art = new ArticleVendu(nomArticle, description, dateDebutEncheres ,dateFinEncheres, miseAPrix,
-				noVendeur, noCategorie, imgArticle);
+		ArticleVendu art = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix,
+				vendeur, Categorie, imgArticle);
 
 		verif(art, exception);
 
-		if (articleDao.vendeurExiste(noVendeur))
+		if (articleDao.vendeurExiste(vendeur))
 			exception.ajouterErreur(CodesResultatBLL.VENDEUR_INCONNU);
-		if (articleDao.categorieExiste(noCategorie))
+		if (articleDao.categorieExiste(Categorie))
 			exception.ajouterErreur(CodesResultatBLL.CATEGORIE_INCONNU);
 
 		if (!exception.hasErreurs())
@@ -60,19 +62,19 @@ public class ArticleVenduManager extends Manager {
 //	
 ////==========================  MODIFICATION ARTICLE  ===========================================	
 	public void modifArticle(ArticleVendu art, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie)
+			LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie, Byte imgArticle)
 			throws BusinessException {
 
 		BusinessException exception = new BusinessException();
 
 		ArticleVendu artModif = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix,
-				noVendeur, noCategorie);
+				vendeur, Categorie, imgArticle);
 
 		verif(artModif, exception);
 
-		if (articleDao.vendeurExiste(noVendeur))
+		if (articleDao.vendeurExiste(vendeur))
 			exception.ajouterErreur(CodesResultatBLL.VENDEUR_INCONNU);
-		if (articleDao.categorieExiste(noCategorie))
+		if (articleDao.categorieExiste(Categorie))
 			exception.ajouterErreur(CodesResultatBLL.CATEGORIE_INCONNU);
 
 		if (!exception.hasErreurs())
@@ -84,18 +86,20 @@ public class ArticleVenduManager extends Manager {
 
 	// ======== SELECT BY SEARCH ===========================================
 
-//		public ArtivcleVendu rechercheArticle(String id) throws BusinessException {
-//			ArtivcleVendu art = null;
-//			BusinessException exception = new BusinessException();
+//	public ArticleVendu rechercheArticle(String id) throws BusinessException {
+//		ArticleVendu art = null;
+//		BusinessException exception = new BusinessException();
 //
-//			if(this.articleDao.pseudoExist(id))
-//				return this.articleDao.selectByPseudo(id);
-//			else if (this.articleDao.mailExist(id))
-//				return this.articleDao.selectByMail(id);
-//			else
-//				exception.ajouterErreur(CodesResultatBLL.UTILISATEUR_INCONNU);
-//			throw exception;
-//		}
+//		if (this.articleDao.vendeurExiste(id))
+//			return this.articleDao.selectByVendeur(id);
+//		else if (this.articleDao.categorieExiste(id))
+//			return this.articleDao.selectByCategorie(id);
+//		else
+//			exception.ajouterErreur(CodesResultatBLL.VENDEUR_INCONNU);
+//		throw exception;
+//		exception.ajouterErreur(CodesResultatBLL.CATEGORIE_INCONNU);
+//		throw exception;
+//	}
 
 ////==========================  SUPPRESSION  ===========================================	
 

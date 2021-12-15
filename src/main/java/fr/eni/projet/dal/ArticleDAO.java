@@ -1,11 +1,18 @@
 package fr.eni.projet.dal;
 
+import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.ArticleVendu;
+import fr.eni.projet.BO.Categorie;
+import fr.eni.projet.BO.Utilisateur;
 
 public interface ArticleDAO extends DAO<ArticleVendu> {
 
-	boolean vendeurExiste(Integer noVendeur);
+	boolean vendeurExiste(Utilisateur Vendeur);
 
-	boolean categorieExiste(Integer noCategorie);
+	boolean categorieExiste(Categorie Categorie);
+
+	public ArticleVendu selectByVendeur(Utilisateur vendeur) throws BusinessException;
+
+	public ArticleVendu selectByCategorie(Categorie Categorie) throws BusinessException;
 
 }
