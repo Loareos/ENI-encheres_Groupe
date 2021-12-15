@@ -18,6 +18,7 @@ import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.ArticleVenduManager;
 import fr.eni.projet.BLL.UtilisateurManager;
 import fr.eni.projet.BO.ArticleVendu;
+import fr.eni.projet.BO.Categorie;
 import fr.eni.projet.BO.Utilisateur;
 import fr.eni.projet.messages.LecteurMessage;
 /**
@@ -53,22 +54,20 @@ public class VenteArticleServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		//Récupérer les infos de l'annonce : 
-		String titre = request.getParameter("titre");
-		Byte photo = Byte.parseByte(request.getParameter("photo"));
-		String description = request.getParameter("description");
-		Integer categorie = Integer.parseInt(request.getParameter("categorie"));
-		Integer miseAPrix = Integer.parseInt(request.getParameter("miseAPrix"));
-		LocalDate DebutEnchere = LocalDate.parse(request.getParameter("DebutEnchere"));
-		LocalDate FinEnchere = LocalDate.parse(request.getParameter("FinEnchere"));
-		String rueRetrait = request.getParameter("rueRetrait");
-		String codePostal = request.getParameter("codePostal");
-		String ville = request.getParameter("ville");
+		String titre = request.getParameter("Article");
+		Byte photo = Byte.parseByte(request.getParameter("Photo"));
+		String description = request.getParameter("Description");
+		Integer categorie = Integer.parseInt(request.getParameter("Categorie"));
+		Integer miseAPrix = Integer.parseInt(request.getParameter("MiseAPrix"));
+		LocalDate DebutEnchere = LocalDate.parse(request.getParameter("DateDebut"));
+		LocalDate FinEnchere = LocalDate.parse(request.getParameter("DateFin"));
+		String rueRetrait = request.getParameter("RueRetrait");
+		String codePostal = request.getParameter("CodePostalRetrait");
+		String ville = request.getParameter("VilleRetrait");
 		
 		//On récupère les infos de l'user connecté
 		HttpSession sessionUser = request.getSession();
 		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
-		
-		
 		
 		Integer id = Integer.parseInt(sessionUser.getId());
 		String pseudo = user.getPseudo();
@@ -76,7 +75,7 @@ public class VenteArticleServlet extends HttpServlet {
 		try {
 			//Ajouter l'article à la BDD
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
-			ArticleVendu article = avm.ajouterArticle(titre, description, DebutEnchere, FinEnchere, miseAPrix, id, categorie, photo);
+			ArticleVendu article = avm.ajouterArticle(titre, description, DebutEnchere, FinEnchere, miseAPrix, user, categorie, photo);
 			
 			//Récupérer tous mes articles
 			ArrayList<ArticleVendu> listeArticleVendu = avm.rechercheArticlesByPseudo(pseudo);
