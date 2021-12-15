@@ -15,7 +15,7 @@ import fr.eni.projet.dal.ConnectionProvider;
 
 public class ArticleDAOJdbcImpl implements ArticleDAO {
 
-	String sqlInsert = "INSERT INTO ARTICLES_VENDUS (nom_article,description,date_debut_encheres,date_fin_encheres,prix_initial,no_vendeur,no_categorie) VALUES (?,?,?,?,?,?,?)"; //RAJOUTER L'ACHETEUR DANS LA BDD
+	String sqlInsert = "INSERT INTO ARTICLES_VENDUS (nom_article,img_article,description,date_debut_encheres,date_fin_encheres,prix_initial,no_vendeur,no_categorie) VALUES (?,?,?,?,?,?,?,?)"; //RAJOUTER L'ACHETEUR DANS LA BDD
 	String sqlUpdate = "UPDATE ARTICLES_VENDUS SET nom_article = ?, description = ?, date_debut_encheres = ?, date_fin_encheres = ?, prix_initial = ?, prix_vente = ?, no_acheteur = ?, no_categorie = ? WHERE no_article = ?";
 	String sqlSelectById = "SELECT nom_article,description,date_debut_encheres,date_fin_encheres,prix_initial,prix_vente,no_vendeur,no_acheteur,no_categorie FROM ARTICLES_VENDUS WHERE no_article = ?";
 	String sqlDelete = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
@@ -29,6 +29,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			int i = 1;
 			
 			stmt.setString(i++, art.getNomArticle());
+			stmt.setString(i++, art.getimgArticle());
 			stmt.setString(i++, art.getDescription());
 			Date dateStart = Date.valueOf(art.getDateDebutEncheres().toLocalDate()); // BESOIN D'UNE HEURE ?
 			stmt.setDate(i++,dateStart);

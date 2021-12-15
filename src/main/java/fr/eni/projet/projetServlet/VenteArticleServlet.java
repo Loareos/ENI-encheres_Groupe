@@ -2,6 +2,7 @@ package fr.eni.projet.projetServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
@@ -62,9 +63,24 @@ public class VenteArticleServlet extends HttpServlet {
 		String codePostal = request.getParameter("codePostal");
 		String ville = request.getParameter("ville");
 		
-		//ArticleVenduManager avm = ArticleVenduManager.getInstance();
-		//ArticleVendu articleVendu = avm.insert(pseudoI,nomI,prenomI,emailI,rueI,telI,codePostalI,villeI,passwordI,passwordConfirmI);
-		
+		try {
+			ArticleVenduManager avm = ArticleVenduManager.getInstance();
+			ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,
+					LocalDate dateFinEncheres, Integer miseAPrix, Integer noVendeur, Integer noCategorie)
+			ArticleVendu articleVendu = avm.ajouterArticle();
+			
+		} catch (BusinessException e) {
+			StringBuffer sb = new StringBuffer();
+			sb.append("Une ou plusieurs erreurs se sont produites :");
+			for(int i : e.getListeCodesErreur())
+				sb.append("\n").append("CODE ").append(i).append(" - ").append(LecteurMessage.getMessageErreur(i));
+			
+			System.err.println(sb.toString());
+			
+			PrintWriter out = response.getWriter();
+			request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp").include(request, response);
+			out.print(sb.toString());
+		}
 
 		//On récupère les infos de l'user connecté
 		HttpSession sessionUser = request.getSession();
