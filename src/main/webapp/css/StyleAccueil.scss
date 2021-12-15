@@ -1,0 +1,272 @@
+@charset "UTF-8";
+
+form {
+	margin-top: 60px;
+	margin-bottom: 40px;
+}
+
+h3 {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+
+h4 {
+	padding-right: 20px;
+	padding-left: 10px;
+	text-decoration: underline;
+
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 20px;
+	flex-wrap: wrap;
+}
+
+.case{
+	display: flex;
+	flex-direction: row;
+	border:  medium;
+	border-style: solid;
+	justify-content: space-around;
+	align-items: center;
+	padding: 10px;
+	max-width: 400px
+}
+
+.caseImg{
+
+}
+
+.imgArticle{
+
+	border: 1px solid black;
+	height: 100px;
+	width: 100px;
+}
+
+
+.achat .vente{
+	flex: 1;
+	flex-direction: row;
+}
+
+.lienConnection {
+	margin-right: 20px;
+}
+
+.titreIndex {
+	display: flex;
+	justify-content: center;
+}
+
+.formConnexionC {
+		display: flex;
+		flex-direction: column;
+	}
+.label {
+    width: 150px;
+    margin-left: 40px;
+}
+.input {
+    margin-bottom: 15px;
+    margin-right: 40px;
+}
+.formItemConnexionC {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.profil {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.profilInfos {
+	width: 260px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.formItemConnexionMDP {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px 40px;
+}
+
+.connexion {
+	display: flex;
+	justify-content: center;
+	gap: 5px 10px;
+}
+
+.btnConnexion {
+	padding-left: 75px;
+	display: flex;
+	gap: 10px 20px;
+}
+
+.formGroupeItemConnexion {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px 1px;
+}
+
+.connexionOptions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.btn {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.btnRetour {
+	display: flex;
+	justify-content: center;
+	margin-top: 5px;
+}
+
+.selectionCategorie{
+        height: 20px;
+        width: 180px;
+}
+
+.selectionneurSpe{
+    display : flex;
+    padding-bottom : 10px;
+}
+
+.labCategorie{
+        padding-right : 30px;
+}
+
+/* ===========================en dessous de 609px===============================*/
+
+
+@media (max-width : 609px) {
+
+	.liens {
+	width : 600px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content : center;
+	padding-left: 10px;
+    }
+
+	.txtRecherche {
+		height: 20px;
+		width: 300px;
+	}
+	.btnRecherche {
+		height: 100px;
+		width: 310px
+	}
+	.RechercheServlet {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.selectionneur{
+		padding-bottom : 20px;
+		display: flex;
+		justify-content: center;
+		align-items : center;
+		flex-direction : column;
+	}
+
+    .formConnexionC {
+		display: flex;
+		flex-direction: column;
+	}
+	.label {
+		width: 150px;
+		margin-left: 40px;
+	}
+	.input {
+		margin-bottom: 15px;
+		margin-right: 40px;
+	}
+	.formItemConnexionC {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+}
+
+/* ===========================au dessus de 700 px===============================*/
+
+@media ( min-width : 610px) {
+	.txtRecherche {
+		height: 20px;
+		width: 270px;
+	}
+	.btnRecherche {
+		height: 60px;
+		width: 200px;
+		margin-left:60px;
+	}
+	.RechercheServlet {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding-left: 10px;
+		padding-right: 10px;
+
+		margin-left:30px;
+	}
+	.selectionneur{
+		padding-bottom : 20px;
+		display: flex;
+		justify-content: center;
+		align-items : center;
+		flex-direction : column;
+	}
+
+	.liens {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 10px;
+    }
+
+    .formConnexionC {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+	}
+	.label {
+		width: 100px;
+		margin-left: 15px;
+		margin-right: 10px;
+	}
+	.input {
+		margin-bottom: 15px;
+		margin-right: 15px;
+	}
+	.formItemConnexionC {
+		display: flex;
+	}
+
+}
+
+

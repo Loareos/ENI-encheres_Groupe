@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-	<style type="text/css"><%@include file="../../../../css/styleConnexion.css"%></style>
+	<style type="text/css"><%@include file="../../../../css/styleIndex.css"%></style>
     <title>Mot de passe oublié</title>
 </head>
 
