@@ -109,7 +109,7 @@ public class ConnexionServlet extends HttpServlet {
 			System.err.println(sb.toString());
 			
 			PrintWriter out = response.getWriter();
-			request.getRequestDispatcher("WEB-INF/jsp/Connexion/CreationCompte.jsp").include(request, response);
+			request.getRequestDispatcher("WEB-INF/jsp/Connexion/ConnexionCompte.jsp").include(request, response);
 			out.print(sb.toString());
 		}
 	}
