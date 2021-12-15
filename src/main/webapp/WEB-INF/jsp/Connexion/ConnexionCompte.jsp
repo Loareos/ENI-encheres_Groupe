@@ -8,7 +8,7 @@
 
 	<meta charset="UTF-8">
 	<meta author="Clément"/>
-	<style type="text/css"><%@include file="../../../css/styleConnexion.css"%></style>
+	<style type="text/css"><%@include file="../../../css/styleIndex.css"%></style>
 	<title>Se connecter à un compte</title>
 
 </head>
