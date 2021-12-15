@@ -15,14 +15,11 @@ import fr.eni.projet.dal.RetraitDAO;
 
 public class RetraitDAOJdbcImpl implements RetraitDAO {
 
-	String sqlInsert = "INSERT INTO RETRAITS (no_article,rue,code_postal,ville) "
-						+ "VALUES (?,?,?,?)";
+	String sqlInsert = "INSERT INTO RETRAITS (no_article,rue,code_postal,ville) VALUES (?,?,?,?)";
 	
-	String sqlUpdate = "UPDATE RETRAITS SET rue = ?, code_postal = ?, ville = ? "
-						+ "WHERE no_article = ?";
+	String sqlUpdate = "UPDATE RETRAITS SET rue = ?, code_postal = ?, ville = ? WHERE no_article = ?";
 	
-	String sqlSelectById = "SELECT rue,code_postal,ville "
-						+ "FROM RETRAITS WHERE no_article = ?";
+	String sqlSelectById = "SELECT rue,code_postal,ville FROM RETRAITS WHERE no_article = ?";
 	
 	String sqlDelete = "DELETE FROM RETRAITS WHERE no_article = ?";
 	
@@ -44,7 +41,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 				PreparedStatement stmt = con.prepareStatement(sqlInsert);){
 
 			int i = 1;
-			stmt.setInt 	(i++, ret.getNoArticle());
+			stmt.setInt 	(i++, ret.getArticle().getNoArticle());
 			stmt.setString	(i++, ret.getRue());
 			stmt.setString	(i++, ret.getCode_postal());
 			stmt.setString	(i++, ret.getVille());
@@ -75,7 +72,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 			stmt.setString	(i++, ret.getRue());
 			stmt.setString	(i++, ret.getCode_postal());
 			stmt.setString	(i++, ret.getVille());
-			stmt.setInt		(i++, ret.getNoArticle());
+			stmt.setInt		(i++, ret.getArticle().getNoArticle());
 			stmt.execute();
 
 		}catch(Exception e) {

@@ -12,6 +12,7 @@ import fr.eni.projet.BO.ArticleVendu;
 import fr.eni.projet.dal.ArticleDAO;
 import fr.eni.projet.dal.CodesResultatDAL;
 import fr.eni.projet.dal.ConnectionProvider;
+
 //Edit by Clément
 public class ArticleDAOJdbcImpl implements ArticleDAO {
 
@@ -36,13 +37,13 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			stmt.setString(i++, art.getNomArticle());
 			stmt.setByte(i++, Byte.valueOf(art.getimgArticle()));
 			stmt.setString(i++, art.getDescription());
-			Date dateStart = Date.valueOf(art.getDateDebutEncheres().toLocalDate()); // BESOIN D'UNE HEURE ?
+			Date dateStart = Date.valueOf(art.getDateDebutEncheres());
 			stmt.setDate(i++,dateStart);
-			Date dateEnd = Date.valueOf(art.getDateFinEncheres().toLocalDate()); //BESOIN D'UNE HEURE ?
+			Date dateEnd = Date.valueOf(art.getDateFinEncheres());
 			stmt.setDate(i++, dateEnd);
 			stmt.setInt(i++, art.getMiseAPrix());
-			stmt.setInt(i++, art.getNoVendeur());
-			stmt.setInt(i++, art.getNoCategorie());
+			stmt.setInt(i++, art.getVendeur().getNoUtilisateur());
+			stmt.setInt(i++, art.getCategorie().getNoCategorie());
 			stmt.execute();
 			try(ResultSet rs = stmt.getGeneratedKeys()){
 				rs.next();
@@ -71,13 +72,13 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			stmt.setString(i++, art.getNomArticle());
 			stmt.setByte(i++, Byte.valueOf(art.getimgArticle()));
 			stmt.setString(i++, art.getDescription());
-			Date dateStart = Date.valueOf(art.getDateDebutEncheres().toLocalDate()); // BESOIN D'UNE HEURE ?
+			Date dateStart = Date.valueOf(art.getDateDebutEncheres());
 			stmt.setDate(i++,dateStart);
-			Date dateEnd = Date.valueOf(art.getDateFinEncheres().toLocalDate()); //BESOIN D'UNE HEURE ?
+			Date dateEnd = Date.valueOf(art.getDateFinEncheres());
 			stmt.setDate(i++, dateEnd);
 			stmt.setInt(i++, art.getMiseAPrix());
-			stmt.setInt(i++, art.getNoAcheteur()); 
-			stmt.setInt(i++, art.getNoCategorie());
+			stmt.setInt(i++, art.getAcheteur().getNoUtilisateur()); 
+			stmt.setInt(i++, art.getCategorie().getNoCategorie());
 			stmt.setInt(i++, art.getNoArticle());
 			stmt.execute();
 		}catch(Exception e) {
@@ -150,6 +151,18 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			businessException.ajouterErreur(CodesResultatDAL.OBJET_NULL);
 			throw businessException;
 		}		
+	}
+
+	@Override
+	public boolean vendeurExiste(Integer noVendeur) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean categorieExiste(Integer noCategorie) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }
