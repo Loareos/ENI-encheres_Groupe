@@ -56,9 +56,9 @@ public class ArticleVendu {
 	 * Constructeur sans noArticle prixVente noAcheteur imgArticle
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			Integer miseAPrix, Integer noVendeur, Integer noCategorie) {
+			Integer miseAPrix, Integer noVendeur, Integer noCategorie, Byte imgArticle) {
 		this(null, nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, null, noVendeur, null,
-				noCategorie, null);
+				noCategorie, imgArticle);
 	}
 
 	/**

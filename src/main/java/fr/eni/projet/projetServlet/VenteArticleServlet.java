@@ -53,7 +53,7 @@ public class VenteArticleServlet extends HttpServlet {
 		
 		//Récupérer les infos de l'annonce : 
 		String titre = request.getParameter("titre");
-		Byte photo = Byte.parseByte(titre).getParameter("photo"));
+		Byte photo = Byte.parseByte(request.getParameter("photo"));
 		String description = request.getParameter("description");
 		Integer categorie = Integer.parseInt(request.getParameter("categorie"));
 		Integer miseAPrix = Integer.parseInt(request.getParameter("miseAPrix"));
