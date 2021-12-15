@@ -49,8 +49,8 @@ public class ModifProfilServlet extends HttpServlet {
 		String telI = request.getParameter("telI").trim();
 		String codePostalI = request.getParameter("codePostalI").trim();
 		String villeI = request.getParameter("VilleI").trim();
-		String passwordI = request.getParameter("passwordI"); // Refuser les espaces dans le mot de passe
-		String passwordConfirmI = request.getParameter("passwordConfirmI");
+		String passwordI = request.getParameter("PasswordI"); // Refuser les espaces dans le mot de passe
+		String passwordConfirmI = request.getParameter("PasswordConfirmI");
 
 
         //On récupère les infos de l'user connecté
@@ -58,27 +58,18 @@ public class ModifProfilServlet extends HttpServlet {
 		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
 		String ancienMdp = user.getMotDePasse();
 		
-		System.out.println("le pseudo : ");
-		System.out.println(pseudoI);
 		
 		// Modification Profil
 		try {
 			//Si le mot de passe ne change pas, on renvoie le meme.
-			System.out.println("avant if : ");
-			System.out.println(passwordI);
-			if (passwordI == null) {
+			if (passwordI.isEmpty()) {
 				passwordI = ancienMdp;
 				passwordConfirmI = passwordI;
-				System.out.println("pas de mdp");
 			}
-			System.out.println("mdp : ");
-			System.out.println(passwordI);
 			
 			UtilisateurManager um = UtilisateurManager.getInstance();
 			Utilisateur userModifie = um.modifProfil(user, pseudoI, nomI, prenomI, emailI, rueI, telI, codePostalI, villeI,
 					passwordI, passwordConfirmI);
-
-			System.out.println("modif faite");
 
 			sessionUser.setAttribute("utilisateur", userModifie);
 
