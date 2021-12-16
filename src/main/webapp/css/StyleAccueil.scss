@@ -100,6 +100,10 @@ header{
 			justify-content: center;
 			align-items : center;
 			padding: 1em;
+			.btnRechercher{
+				font-size: large;
+				padding: $btnForm;
+			}
 		}
 		.selectionneurSpe{
 			// border: $testpx solid rgb(0, 190, 79);
@@ -338,10 +342,10 @@ h3 {
 		height: 20px;
 		width: 300px;
 	}
-	.btnRecherche {
-		height: 100px;
-		width: 310px
-	}
+	// .btnRecherche {
+	// 	height: 100px;
+	// 	width: 310px
+	// }
 	// .RechercheServlet {
 	// 	display: flex;
 	// 	flex-wrap: wrap;
