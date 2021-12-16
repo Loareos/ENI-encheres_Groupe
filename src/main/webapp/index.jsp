@@ -14,7 +14,7 @@
 </head>
 <body>
 <!--===========================Header==================================-->
-	<%@include file="/WEB-INF/jsp/header.jsp" %>
+		<%@include file="/WEB-INF/jsp/header.jsp" %>
 <!--===========================Section==================================-->
 		<%@include file="/WEB-INF/jsp/SectionListeEnchere.jsp" %>
 	<!--===========================footer==================================-->
