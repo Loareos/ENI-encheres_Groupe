@@ -3,18 +3,22 @@
 /* 						body & html							 */
 /* ==========================================================*/
 body {
-  height: auto;
-  background-repeat: no-repeat;
-  background-size: 100% 17em;
+  display: flexbox;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* ==========================================================*/
 /* 						header								 */
 /* ==========================================================*/
 header {
-  background-color: rgba(102, 179, 255, 0.5);
-  padding: 0.3em;
-  margin-bottom: 0.3em;
+  background-color: #19dcf5;
+  background: linear-gradient(to top, rgba(25, 219, 245, 0.781), 20%, rgba(255, 255, 255, 0.829));
+  background: linear-gradient(to bottom, rgba(25, 219, 245, 0.781), 20%, rgba(255, 255, 255, 0.829));
+  border-radius: 1em;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  height: 20%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -26,7 +30,7 @@ header .lienConnection {
   margin-right: 20px;
 }
 header .logoEnchere {
-  background-color: rgba(102, 179, 255, 0.5);
+  background-color: rgba(25, 219, 245, 0.781);
   border-radius: 1em;
 }
 header .logoEnchere a {
@@ -44,11 +48,17 @@ header .logoEnchere:hover {
 /* ==========================================================*/
 /* 						Section Liste Enchere				 */
 /* ==========================================================*/
+.SectionListeEnchere {
+  border-radius: 1em;
+}
 .SectionListeEnchere h3 {
-  border: 3px solid black;
+  background: linear-gradient(to bottom, rgba(102, 255, 230, 0.801), rgba(255, 255, 255, 0.829));
+  border-radius: 1em;
+  padding: 2%;
+  font-size: x-large;
 }
 .SectionListeEnchere h4 {
-  padding: 0.3em;
+  padding: 0.5em;
   text-decoration: underline;
 }
 .SectionListeEnchere form {
@@ -56,7 +66,7 @@ header .logoEnchere:hover {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 0.3em;
+  padding: 0.5em;
 }
 .SectionListeEnchere form .selectionneur {
   display: flex;
@@ -69,17 +79,33 @@ header .logoEnchere:hover {
   align-items: center;
   padding: 1em;
 }
+.SectionListeEnchere form .divBtRechercher .btnRechercher {
+  font-size: large;
+  padding: 1em;
+}
 .SectionListeEnchere .achatVente {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  padding: 1em;
 }
 .SectionListeEnchere .achatVente .achat {
   display: flex;
   flex-direction: column;
 }
-.SectionListeEnchere .achatVente .achat .achats {
-  display: block;
+.SectionListeEnchere .achatVente .achat .labelAchat {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: auto;
+  margin: 0.5em;
+}
+.SectionListeEnchere .achatVente .achat .labelAchat label {
+  display: inline-block;
+  padding-right: 1em;
+}
+.SectionListeEnchere .achatVente .achat .labelAchat input {
+  display: inline-block;
 }
 .SectionListeEnchere .achatVente .vente {
   display: flex;
@@ -88,19 +114,29 @@ header .logoEnchere:hover {
 .SectionListeEnchere .achatVente .vente .ventes {
   display: block;
 }
+.SectionListeEnchere .achatVente .vente .labelVente {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin: 0.5em;
+}
+.SectionListeEnchere .achatVente .vente .labelVente label {
+  display: inline-block;
+  padding-right: 1em;
+}
+.SectionListeEnchere .achatVente .vente .labelVente input {
+  justify-content: center;
+}
 
 /* ==========================================================*/
 /* 						footer								 */
 /* ==========================================================*/
 footer {
-  background-color: rgba(102, 179, 255, 0.5);
+  background-color: rgba(25, 219, 245, 0.781);
   background-repeat: no-repeat;
   background-size: 100% 4em;
-  position: absolute;
-  bottom: 0;
-  margin-right: 0.3em;
-  padding: 0.3em;
-  margin-top: 0.3em;
+  border-radius: 1em;
+  margin-top: 0.5em;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -122,25 +158,34 @@ footer .Cookies {
 /* ==========================================================*/
 /* 						Apercu Article						 */
 /* ==========================================================*/
-article {
+.annonces {
   display: flex;
-  flex-direction: row;
-  border: medium;
-  border-style: solid;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0.3em;
-  padding: 0.3em;
-  max-width: 400px;
+  background-color: rgba(102, 179, 255, 0.616);
+  border: 3px solid black;
+  border-radius: 1em;
 }
-article .divImg {
+.annonces article {
+  display: block;
+  background-color: rgba(102, 179, 255, 0.616);
+  border-radius: 1em;
+  margin: 0.5em;
+  padding: 0.5em;
+  max-width: 15em;
+}
+.annonces article .divImg {
   background-color: aqua;
-  max-width: 100px;
+  border-radius: 1em;
+  height: 10em;
+  padding: 0.5em;
+  margin: 0.5em;
 }
-article .imgArticle {
-  border: 1px solid black;
+.annonces article .imgArticle {
   height: 100px;
   width: 100px;
+}
+.annonces article .caseTxt {
+  padding: 0.5em;
+  margin: 0.5em;
 }
 
 h3 {
@@ -254,11 +299,6 @@ h3 {
   .txtRecherche {
     height: 20px;
     width: 300px;
-  }
-
-  .btnRecherche {
-    height: 100px;
-    width: 310px;
   }
 
   .formConnexionC {

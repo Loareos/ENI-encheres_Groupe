@@ -31,25 +31,42 @@ Modif by LCB
 			<c:if test="${!empty utilisateur}">
 					<div class="achatVente">
 						<div class="achat">
-							<input type="radio" id="achat" name="achatVente" class="btnMesAchat" value="achat" checked>
-								<label for="achat">Achats</label>
-							<input type="checkbox" id="encheresOuvertes" name="encheres" value="encheresOuvertes" checked class="achats">
-								<label for="encheresOuvertes">Enchères ouvertes</label>
-							<input type="checkbox" id="encheresEnCours" name="encheres" value="encheresEnCours" class="achats">
-								<label for="encheresEnCours">Enchères en cours</label>
-							<input type="checkbox" id="encheresRemportees" name="encheres" value="encheresRemportees" class="achats">
-								<label for="encheresRemportees">Enchères remportées</label>
+							<div class="labelAchat">
+									<label for="achat">Achats</label>
+								<input type="radio" id="achat" name="achatVente" class="btnMesAchat" value="achat" checked>
+							</div>
+							<div class="labelAchat">
+									<label for="encheresOuvertes">Enchères ouvertes</label>
+								<input type="checkbox" id="encheresOuvertes" name="encheres" value="encheresOuvertes" checked class="achats">
+							</div>
+							<div class="labelAchat">
+									<label for="encheresEnCours">Enchères en cours</label>
+								<input type="checkbox" id="encheresEnCours" name="encheres" value="encheresEnCours" class="achats">
+							</div>
+							<div class="labelAchat">
+									<label for="encheresRemportees">Enchères remportées</label>
+								<input type="checkbox" id="encheresRemportees" name="encheres" value="encheresRemportees" class="achats">
+							</div>
 						</div>
 						<div class="vente">
+							
+							<div class="labelVente">
+									<label for="vente">Mes Ventes</label>
+								<input type="radio" id="vente" name="achatVente" class="btnMesVentes" value="vente">
+							</div>
+							<div class="labelVente">
+									<label for="ventesEnCours">Mes ventes en cours</label>
+								<input type="checkbox" id="ventesEnCours" name="ventes" value="ventesEnCours" class="ventes">
+							</div>
+							<div class="labelVente">
+									<label for="ventesNonDebutees">Ventes non débutées</label>
+								<input type="checkbox" id="ventesNonDebutees" name="ventes" value="ventesNonDebutees" class="ventes">
+							</div>
+							<div class="labelVente">
+									<label for="ventesTerminees">Ventes terminées</label>
+								<input type="checkbox" id="ventesTerminees" name="ventes" value="ventesTerminees" class="ventes">
+						</div>
 						
-							<input type="radio" id="vente" name="achatVente" class="btnMesVentes" value="vente">
-								<label for="vente">Mes Ventes</label>
-							<input type="checkbox" id="ventesEnCours" name="ventes" value="ventesEnCours" class="ventes">
-								<label for="ventesEnCours">Mes ventes en cours</label>
-							<input type="checkbox" id="ventesNonDebutees" name="ventes" value="ventesNonDebutees" class="ventes">
-								<label for="ventesNonDebutees">Ventes non débutées</label>
-							<input type="checkbox" id="ventesTerminees" name="ventes" value="ventesTerminees" class="ventes">
-								<label for="ventesTerminees">Ventes terminées</label>
 						</div>
 					</div>
 							

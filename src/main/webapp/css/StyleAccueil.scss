@@ -1,19 +1,22 @@
 @charset "UTF-8";
 /* ======================variable============================*/
-	$margPadSection: 0.3em;
-	$bleupastel:rgba(102, 179, 255, 0.5);
+	$margPadSection: 0.5em;
+	$bleupastel: rgba(25, 219, 245, 0.781);
 	$vertpastel:rgba(102, 255, 230, 0.801);
-	$testpx: 3px;
+	$couleurArticle: rgba(102, 179, 255, 0.616);
+	$linearRadListeEnch:  rgba(255, 255, 255, 0.829);
+	$testpx: 3px solid black;
+	$btnForm:1em;
+	$bordRad: 1em;
 /* ==========================================================*/
 /* 						body & html							 */
 /* ==========================================================*/
-html{
-
-}
+// html{
+// }
 body{
-	height: auto;
-	background-repeat: no-repeat;
-	background-size: 100% 17em;
+	display: flexbox;
+	flex-direction: column;
+	height: 100%;
 }
 
 /* ==========================================================*/
@@ -21,11 +24,14 @@ body{
 /* ==========================================================*/
 header{
 
-	background-color: $bleupastel;
-
-
+	background-color: rgb(25, 220, 245);
+	background: linear-gradient(to top ,$bleupastel,20%, $linearRadListeEnch) ;
+	background: linear-gradient(to bottom ,$bleupastel,20%, $linearRadListeEnch) ;
+	border-radius: $bordRad;
 	padding: $margPadSection;
 	margin-bottom: $margPadSection;
+
+	height: 20%;
 
 	display: flex;
 
@@ -42,7 +48,7 @@ header{
 	}
 	.logoEnchere{
 		background-color: $bleupastel;
-		border-radius: 1em;
+		border-radius: $bordRad;
 
 		a{
 			display: block;
@@ -63,11 +69,17 @@ header{
 /* 						Section Liste Enchere				 */
 /* ==========================================================*/
 .SectionListeEnchere{
-
+	border-radius: $bordRad;
 
 
 	h3{
-		border: $testpx solid black;
+		// background-color: $vertpastel;
+		background: linear-gradient(to bottom,$vertpastel, $linearRadListeEnch) ;
+		border-radius: $bordRad;
+
+		padding: 2%;
+		font-size: x-large;
+
 	}
 	h4{
 		// border: $testpx solid black;
@@ -111,27 +123,49 @@ header{
 		}
 	}
 	.achatVente{
-		// border: $testpx solid rgb(22, 45, 255);
 		display: flex;
 		justify-content: space-around;
 		flex-direction: row;
+		padding: 1em;
 		.achat{
-			// border: $testpx solid rgb(104, 22, 255);
 			display: flex;
 			flex-direction: column;
 			.achats{
-			display: block;
+			}
+			.labelAchat{
+				display: flex;
+				justify-content: space-between;
+				flex-direction:row ;
+				width: auto;
+				margin: $margPadSection;
+				label{
+					display: inline-block;
+					padding-right: 1em;
+				}
+				input{
+					display: inline-block;
+				}
 			}
 
 		}
 		.vente{
-			// border: $testpx solid rgb(220, 255, 22);
 			display: flex;
 			flex-direction: column;
-			// flex: 1;
-			// flex-direction: row;
 			.ventes{
 			display: block;
+			}
+			.labelVente{
+				display: flex;
+				justify-content: space-between;
+				width: auto;
+				margin: $margPadSection;
+				label{
+					display: inline-block;
+					padding-right: 1em;
+				}
+				input{
+					justify-content: center;
+				}
 			}
 
 		}
@@ -149,11 +183,8 @@ footer{
 	background-repeat: no-repeat;
 	background-size: 100% 4em;
 
-	position:absolute;
-	bottom:0;
+	border-radius: $bordRad;
 
-	margin-right: $margPadSection;
-	padding: $margPadSection;
 	margin-top: $margPadSection;
 
 	display: flex;
@@ -185,31 +216,43 @@ footer{
 /* ==========================================================*/
 /* 						Apercu Article						 */
 /* ==========================================================*/
-	article{
 
-		display: flex;
-		flex-direction: row;
-		border:  medium;
-		border-style: solid;
-		justify-content: space-around;
-		align-items: center;
+.annonces{
+	display: flex;
+	background-color: $couleurArticle;
+	border: $testpx;
+	border-radius: $bordRad;
+	article{
+		display: block;
+
+		background-color: $couleurArticle;
+
+		border-radius: $bordRad;
+
 		margin: $margPadSection;
 		padding: $margPadSection;
 
-		max-width: 400px;
+		max-width: 15em;
 
 		.divImg{
 			background-color: aqua;
-			max-width: 100px;
+			border-radius: $bordRad;
+			height: 10em;
+			padding: $margPadSection;
+			margin: $margPadSection;
 
 		}
 		.imgArticle{
-			border: 1px solid black;
 			height: 100px;
 			width: 100px;
 		}
+		.caseTxt{
+			padding: $margPadSection;
+			margin: $margPadSection;
+		}
 
 	}
+}
 
 
 // form {
