@@ -66,4 +66,6 @@ public abstract class CodesResultatBLL {
 	
 	public static final int POINT_RETRAIT_INCONNU = 20017;
 	
+	public static final int PSEUDO_ALPHANUM = 20018;
+	
 }

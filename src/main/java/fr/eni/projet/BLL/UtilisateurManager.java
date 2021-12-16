@@ -74,6 +74,8 @@ public class UtilisateurManager extends Manager {
 		verifUser(user, exception);	
 		if(this.utilisateurDao.pseudoExist(user.getPseudo()))
 			exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
+		if(!user.getPseudo().matches("^[a-zA-Z0-9]*$"))
+			exception.ajouterErreur(CodesResultatBLL.PSEUDO_ALPHANUM);
 		if(this.utilisateurDao.mailExist(user.getEmail()))
 			exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
 
@@ -95,10 +97,13 @@ public class UtilisateurManager extends Manager {
 		if(!mdp.equals(verifMdp))
 			exception.ajouterErreur(CodesResultatBLL.MDP_VERIF_DIFFERENTS);
 		
-		if(!user.getPseudo().equals(pseudo))
+		if(!user.getPseudo().equals(pseudo)) {
 			if(this.utilisateurDao.pseudoExist(user.getPseudo()))
 				exception.ajouterErreur(CodesResultatBLL.EXISTING_PSEUDO);
-			
+			if(!user.getPseudo().matches("^[a-zA-Z0-9]*$"))
+				exception.ajouterErreur(CodesResultatBLL.PSEUDO_ALPHANUM);
+		}
+		
 		if(!user.getEmail().equals(email))
 			if(this.utilisateurDao.mailExist(user.getEmail()))
 				exception.ajouterErreur(CodesResultatBLL.EXISTING_MAIL);
