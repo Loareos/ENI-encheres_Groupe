@@ -18,7 +18,8 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 	String sqlUpdate = "UPDATE CATEGORIES SET libelle = ? WHERE no_categorie = ?";
 	String sqlSelectById = "SELECT nom_article FROM CATEGORIES WHERE no_categorie = ?";
 	String sqlDelete = "DELETE FROM CATEGORIES WHERE no_categorie = ?";
-	String sqlSelectAll = "SELECT a.no_categorie+ \"INNER JOIN CATEGORIES c ON a.no_categorie = c.no_categorie \"";
+	
+	String sqlSelectAll = "SELECT no_categorie,libelle FROM CATEGORIES";
 	String sqlIdExiste = "SELECT COUNT(*) FROM CATEGORIES WHERE no_categorie = ?";
 
 	@Override
@@ -122,10 +123,8 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 				PreparedStatement stmt = cnx.prepareStatement(sqlSelectAll);
 				ResultSet rs = stmt.executeQuery();) {
 			while (rs.next()) {
-
-				// NO_CAT LIBELLE
-				Categorie categorie = categorieConstructor(rs.getInt(9), rs.getString(14));
-
+															// NO_CAT 		LIBELLE
+				Categorie categorie = new Categorie(rs.getInt(1), rs.getString(2));
 				lstCategorie.add(categorie);
 			}
 			return lstCategorie;
@@ -135,9 +134,5 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
 			throw businessException;
 		}
-	}
-
-	private Categorie categorieConstructor(Integer no, String libelle) {
-		return new Categorie(no, libelle);
 	}
 }

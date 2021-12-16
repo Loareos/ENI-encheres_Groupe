@@ -13,7 +13,7 @@
 			<p>Prix: ${art.getMiseAPrix()} points</p>
 			<p>Fin de l'enchère: ${art.getDateFinEncheres()}</p>
 			<p>
-				Vendeur: <a href="" name="" value="">${art.getVendeur().getPseudo()}</a>
+				Vendeur: <a href="ProfilServlet?id=${art.getVendeur().getPseudo()}">${art.getVendeur().getPseudo()}</a>
 			</p>
 		</div>
 	

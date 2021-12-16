@@ -28,7 +28,7 @@ Modif by LCB
 				article</a>
 			<form method="post" action="ProfilServlet">
 				<!-- Mettre un hidden après les tests -->
-				<input name="profilSelectionne" value="${utilisateur.getPseudo()}"></input>
+<!-- 				<input name="profilSelectionne" value="${utilisateur.getPseudo()}"></input>  -->
 				<input type="submit" value="Mon profil" class="lienConnection" />
 			</form>
 			<a href="DeconnexionServlet" class="lienConnection">Déconnexion</a>

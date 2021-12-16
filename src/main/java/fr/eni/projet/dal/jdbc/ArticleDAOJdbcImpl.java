@@ -175,7 +175,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 				Categorie categorie = categorieConstructor(rs.getInt(9),rs.getString(14));
 						
 				ArticleVendu art = new ArticleVendu(
-						rs.getInt(1), 						//noArticle
+						rs.getInt(1), 				//noArticle
 						rs.getString(2),			//nom
 						rs.getString(3),			//description
 						rs.getDate(4).toLocalDate(),//date start

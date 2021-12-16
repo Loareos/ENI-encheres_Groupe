@@ -21,79 +21,63 @@
 	
 </header>
 <body>
-
+ 
 	<!-- Comparer les id -->
-    <c:if test="${empty MonProfil}">   
-	   <h3>${profilSelectionneUser.getPseudo()}</h3> 
+    <c:if test="${!user}">   
+	   <h3>${profil.getPseudo()}</h3> 
     </c:if>
     
-    <c:if test="${!empty MonProfil}">   
+    <c:if test="${user}">   
 	   <h3>Mon profil</h3> 
     </c:if>
 
 	<div class="profilInfos">
 	   <!-- Mon profil personnel -->
-		<c:if test="${!empty MonProfil}">
+		<c:if test="${user}">
 		    <div class="profil">
 		    	<label>Pseudo : </label> 
-		    	<label>${utilisateur.getPseudo()}</label>
+		    	<label>${profil.getPseudo()}</label>
 		    </div>
 			<div class="profil">
+				<label>Crédit : </label> 
+				<label>${profil.getCredit()}</label>
+			</div>
+			<div class="profil">
 				<label>Nom : </label> 
-				<label>${utilisateur.getNom()}</label>
+				<label>${profil.getNom()}</label>
 			</div>
 			<div class="profil">
 				<label>Prénom : </label> 
-				<label>${utilisateur.getPrenom()}</label>
+				<label>${profil.getPrenom()}</label>
 			</div>
 			<div class="profil">
 				<label>Email : </label> 
-				<label>${utilisateur.getEmail()}</label>
+				<label>${profil.getEmail()}</label>
 			</div>
 			<div class="profil">
 				<label>Téléphone : </label> 
-				<label>${utilisateur.getTelephone()}</label>
+				<label>${profil.getTelephone()}</label>
 			</div>
 			<div class="profil">
 				<label>Rue : </label> 
-				<label>${utilisateur.getRue()}</label>
-			</div>
-			<div class="profil">
-				<label>Code postal : </label> 
-				<label>${utilisateur.getCodePostal()}</label>
-			</div>
-			<div class="profil">
-				<label>Ville : </label> 
-				<label>${utilisateur.getVille()}</label>
-			</div>
-			<div class="profil">
-				<label>Crédit : </label> 
-				<label>${utilisateur.getCredit()}</label>
+				<label>${profil.getRue()}</label>
 			</div>
 		</c:if>
-		
-		<!-- Profil public d'un user -->
-		<c:if test="${empty MonProfil}">
-		    <div class="profil">
-		    	<label>Pseudo : </label> 
-		    	<label>${profilSelectionneUser.getPseudo()}</label>
-		    </div>
-			<div class="profil">
-				<label>Code postal : </label> 
-				<label>${profilSelectionneUser.getCodePostal()}</label>
-			</div>
-			<div class="profil">
-				<label>Ville : </label> 
-				<label>${profilSelectionneUser.getVille()}</label>
-			</div>
-		</c:if>
-		
+
+		<div class="profil">
+			<label>Code postal : </label> 
+			<label>${profil.getCodePostal()}</label>
+		</div>
+		<div class="profil">
+			<label>Ville : </label> 
+			<label>${profil.getVille()}</label>
+		</div>		
 	</div>
 
 
 
 	<!-- Comparer les id -->
-	 <c:if test="${!empty MonProfil}">
+	 <c:if test="${user}">
         <form action="ModifProfilServlet" class="btn"><!-- SERVLET a rajouter -->
 		    <button type="submit">Modifier</button>
 	    </form>
