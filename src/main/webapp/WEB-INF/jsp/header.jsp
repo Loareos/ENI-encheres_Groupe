@@ -6,17 +6,19 @@ Modif by LCB
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 
 
 <header>
 	<div class="logoEnchere">
-		<div class="logoENI"></div>
+<!-- 		<img alt="Logo ENI" src=""> -->
+		<a class="logoENI" href="index.jsp" >
 		<h4>ENI-Enchères</h4>
+		</a>
 	</div>
 
 	<c:if test="${empty utilisateur}">
-		<a href="ConnexionServlet" class="lienConnection">S'inscrire - Se connecter</a>
+		<a href="ConnexionServlet" class="lienConnection">Connexion</a>
 	</c:if>
 
 	<c:if test="${!empty utilisateur}">

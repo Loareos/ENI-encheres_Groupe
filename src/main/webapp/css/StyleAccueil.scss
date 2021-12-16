@@ -1,7 +1,9 @@
 @charset "UTF-8";
 /* ======================variable============================*/
 	$margPadSection: 0.3em;
-
+	$bleupastel:rgba(102, 179, 255, 0.5);
+	$vertpastel:rgba(102, 255, 230, 0.801);
+	$testpx: 3px;
 /* ==========================================================*/
 /* 						body & html							 */
 /* ==========================================================*/
@@ -10,7 +12,6 @@ html{
 }
 body{
 	height: auto;
-	background-image: url("css/img/cielBleu.png");
 	background-repeat: no-repeat;
 	background-size: 100% 17em;
 }
@@ -20,46 +21,121 @@ body{
 /* ==========================================================*/
 header{
 
-	background-color: rgba(102, 179, 255, 0.5);
+	background-color: $bleupastel;
 
 
 	padding: $margPadSection;
 	margin-bottom: $margPadSection;
 
 	display: flex;
+
 	flex-direction: row;
+	flex-wrap: wrap;
+
 	align-items: center;
 	justify-content: space-between;
+
 	padding-right: 20px;
-	flex-wrap: wrap;
 
 	.lienConnection {
 		margin-right: 20px;
 	}
 	.logoEnchere{
+		background-color: $bleupastel;
+		border-radius: 1em;
 
-		.logoENI{
+		a{
+			display: block;
+			width: 100%;
+			height: 100%;
 
 		}
 		h4{
-
+			display: block;
 		}
+	}
+	.logoEnchere:hover{
+			background-color: #ffffff;
 	}
 }
 
 /* ==========================================================*/
 /* 						Section Liste Enchere				 */
 /* ==========================================================*/
-section{
-	.achat {
+.SectionListeEnchere{
 
 
-		.vente{
-			flex: 1;
-			flex-direction: row;
+
+	h3{
+		border: $testpx solid black;
+	}
+	h4{
+		// border: $testpx solid black;
+		padding: $margPadSection;
+		text-decoration: underline;
+
+	}
+	form{
+		// border: $testpx solid black;
+		height: 20;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		// justify-content: center;
+		// padding-left: 10px;
+		// padding-right: 10px;
+		padding: $margPadSection;
+
+
+		.selectionneur{
+			// border: $testpx solid red;
+
+			display: flex;
+			flex-direction : column;
+			padding: auto;
+		}
+		.divBtRechercher{
+			display: flex;
+			// border: $testpx solid red;
+			justify-content: center;
+			align-items : center;
+			padding: 1em;
+			.btnRechercher{
+				font-size: large;
+				padding: $btnForm;
+			}
+		}
+		.selectionneurSpe{
+			// border: $testpx solid rgb(0, 190, 79);
+
 		}
 	}
+	.achatVente{
+		// border: $testpx solid rgb(22, 45, 255);
+		display: flex;
+		justify-content: space-around;
+		flex-direction: row;
+		.achat{
+			// border: $testpx solid rgb(104, 22, 255);
+			display: flex;
+			flex-direction: column;
+			.achats{
+			display: block;
+			}
 
+		}
+		.vente{
+			// border: $testpx solid rgb(220, 255, 22);
+			display: flex;
+			flex-direction: column;
+			// flex: 1;
+			// flex-direction: row;
+			.ventes{
+			display: block;
+			}
+
+		}
+	}
 }
 
 
@@ -69,23 +145,27 @@ section{
 
 footer{
 
-	background-image: url("css/img/HerbeFooter.png");
+	background-color:$bleupastel;
 	background-repeat: no-repeat;
 	background-size: 100% 4em;
 
+	position:absolute;
+	bottom:0;
+
+	margin-right: $margPadSection;
 	padding: $margPadSection;
 	margin-top: $margPadSection;
 
 	display: flex;
 	justify-content: space-evenly;
 
+
+	width:100%;
+
 	.copyright{
 		display: block;
-		p{
-			border: 5px solid black;
-			font-size: large;
+		font-size: large;
 
-		}
 	}
 	.MentionsLegals{
 		display: block;
@@ -103,7 +183,7 @@ footer{
 }
 
 /* ==========================================================*/
-/* 						Apercu Article								 */
+/* 						Apercu Article						 */
 /* ==========================================================*/
 	article{
 
@@ -132,10 +212,10 @@ footer{
 	}
 
 
-form {
-	margin-top: 60px;
-	margin-bottom: 40px;
-}
+// form {
+// 	margin-top: 60px;
+// 	margin-bottom: 40px;
+// }
 
 h3 {
 	display: flex;
@@ -143,12 +223,12 @@ h3 {
 	margin-bottom: 30px;
 }
 
-h4 {
-	padding-right: 20px;
-	padding-left: 10px;
-	text-decoration: underline;
+// h4 {
+// 	padding-right: 20px;
+// 	padding-left: 10px;
+// 	text-decoration: underline;
 
-}
+// }
 
 .titreIndex {
 	display: flex;
@@ -235,10 +315,10 @@ h4 {
         width: 180px;
 }
 
-.selectionneurSpe{
-    display : flex;
-    padding-bottom : 10px;
-}
+// .selectionneurSpe{
+//     display : flex;
+//     padding-bottom : 10px;
+// }
 
 .labCategorie{
         padding-right : 30px;
@@ -262,25 +342,25 @@ h4 {
 		height: 20px;
 		width: 300px;
 	}
-	.btnRecherche {
-		height: 100px;
-		width: 310px
-	}
-	.RechercheServlet {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		padding-left: 10px;
-		padding-right: 10px;
-	}
+	// .btnRecherche {
+	// 	height: 100px;
+	// 	width: 310px
+	// }
+	// .RechercheServlet {
+	// 	display: flex;
+	// 	flex-wrap: wrap;
+	// 	justify-content: center;
+	// 	padding-left: 10px;
+	// 	padding-right: 10px;
+	// }
 
-	.selectionneur{
-		padding-bottom : 20px;
-		display: flex;
-		justify-content: center;
-		align-items : center;
-		flex-direction : column;
-	}
+	// .selectionneur{
+	// 	padding-bottom : 20px;
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	align-items : center;
+	// 	flex-direction : column;
+	// }
 
     .formConnexionC {
 		display: flex;
@@ -312,25 +392,25 @@ h4 {
 	.btnRecherche {
 		height: 60px;
 		width: 200px;
-		margin-left:60px;
+		// margin-left:60px;
 	}
-	.RechercheServlet {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-items: flex-start;
-		padding-left: 10px;
-		padding-right: 10px;
+	// .RechercheServlet {
+	// 	display: flex;
+	// 	flex-wrap: wrap;
+	// 	justify-content: flex-start;
+	// 	align-items: flex-start;
+	// 	padding-left: 10px;
+	// 	padding-right: 10px;
 
-		margin-left:30px;
-	}
-	.selectionneur{
-		padding-bottom : 20px;
-		display: flex;
-		justify-content: center;
-		align-items : center;
-		flex-direction : column;
-	}
+	// 	margin-left:30px;
+	// }
+	// .selectionneur{
+	// 	padding-bottom : 20px;
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	align-items : center;
+	// 	flex-direction : column;
+	// }
 
 	.liens {
 	display: flex;

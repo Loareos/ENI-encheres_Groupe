@@ -3,7 +3,7 @@
 
 <footer>
 		<div class="ContactezNous">		<p>Contactez-nous</p></div>
-		<div class="MentionsLegals">	<p>Mentions Legals</p></div>
+		<div class="MentionsLegals">	<p>Mentions Legales</p></div>
 		<div class="copyright">			<p>Copyright&copy;</p></div>
 		<div class="Cookies">			<p>Cookies</p></div>
 </footer>
