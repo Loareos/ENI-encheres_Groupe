@@ -114,7 +114,7 @@ header .logoEnchere:hover {
   margin: 0.5em;
 }
 .SectionListeEnchere .achatVente .achat .labelAchat .labelTitreAchat {
-  background-color: beige;
+  background-color: rgba(102, 255, 230, 0.801);
   padding: 1em;
   border-radius: 1em;
 }
@@ -141,7 +141,7 @@ header .logoEnchere:hover {
   margin: 0.5em;
 }
 .SectionListeEnchere .achatVente .vente .labelVente .labelTitreVente {
-  background-color: beige;
+  background-color: rgba(102, 255, 230, 0.801);
   padding: 1em;
   border-radius: 1em;
 }
@@ -158,8 +158,6 @@ header .logoEnchere:hover {
 /* ==========================================================*/
 footer {
   background-color: rgba(25, 219, 245, 0.781);
-  background-repeat: no-repeat;
-  background-size: 100% 4em;
   border-radius: 1em;
   margin-top: 0.5em;
   display: flex;
