@@ -47,8 +47,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 		try(Connection cnx = ConnectionProvider.getConnection();
 				PreparedStatement stmt = cnx.prepareStatement(sqlUpdate);){
 			int i = 1;
-			Date date = Date.valueOf(enchere.getDateEnchere().toLocalDate());
-			stmt.setDate(i++, date);
+			stmt.setDate(i++,Date.valueOf(enchere.getDateEnchere()));
 			stmt.setInt(i++, enchere.getMontant_enchere());
 			stmt.setInt(i++, enchere.getAcheteur().getNoUtilisateur());
 			stmt.setInt(i++, enchere.getArticle().getNoArticle());
@@ -82,27 +81,25 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	@Override
 	public Enchere selectById(int idUser, int idArticle) throws BusinessException {
-//		try(Connection cnx = ConnectionProvider.getConnection();
-//				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
-//			stmt.setInt(1, idUser);
-//			stmt.setInt(2, idArticle);
-//			try(ResultSet rs = stmt.executeQuery();){
-//				rs.next();
-//				LocalDateTime date = LocalDateTime.of(rs.getDate(1).toLocalDate(), LocalTime.of(0, 0));
-//				Enchere enchere = new Enchere(idUser,
-//												rs.getInt(3),
-//												idArticle,
-//												date,
-//												rs.getInt(2));
-//				 return enchere;
-//			}
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//			BusinessException businessException = new BusinessException();
-//			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
-//			throw businessException;
-//		}
-		return null;
+		try(Connection cnx = ConnectionProvider.getConnection();
+				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
+			stmt.setInt(1, idUser);
+			stmt.setInt(2, idArticle);
+			try(ResultSet rs = stmt.executeQuery();){
+				rs.next();
+				LocalDate date = rs.getDate(1).toLocalDate();
+				Enchere enchere = new Enchere(idUser,
+												idArticle,
+												date,
+												rs.getInt(2));
+				 return enchere;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
+			throw businessException;
+		}
 	}
 
 	@Override

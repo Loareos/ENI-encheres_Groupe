@@ -147,7 +147,8 @@ public class AfficherArticleServlet extends HttpServlet {
 					}
 					
 					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Vente/Article.jsp");
-					rd.forward(request, response);
+					request.setAttribute("id", idArticle);
+					doGet(request, response);
 				} catch (BusinessException e) {
 					StringBuffer sb = new StringBuffer();
 					sb.append("Une ou plusieurs erreurs se sont produites :");
@@ -161,9 +162,6 @@ public class AfficherArticleServlet extends HttpServlet {
 				}
 		
 
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Vente/Article.jsp");
-		request.setAttribute("id", idArticle);
-		doGet(request, response);
 	}
 	
 	

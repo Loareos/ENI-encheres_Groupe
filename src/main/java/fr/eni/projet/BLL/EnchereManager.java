@@ -76,10 +76,17 @@ public class EnchereManager {
 			exception.ajouterErreur(CodesResultatBLL.ARTICLE_INCONNU);
 
 		if (!exception.hasErreurs()) {
-			this.enchereDAO.insert(enchere);
+			if (this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
+				this.enchereDAO.update(enchere);
+			}
+			if (!this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
+				this.enchereDAO.insert(enchere);
+			}
 			return enchere;
 		}else
 			throw exception;
+		
+		
 	}
 
 

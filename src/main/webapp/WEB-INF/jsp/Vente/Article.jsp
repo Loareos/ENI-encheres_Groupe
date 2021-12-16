@@ -34,7 +34,7 @@
 			    <label class="label">Meilleure offre : </label>
 			    
 			    <c:if test="${!empty acheteur.getAcheteur()}"> 
-                    <label class="label">${acheteur.getMontant_enchere()} pts par ${acheteur.getAcheteur()} </label>
+                    <label class="label">${acheteur.getMontant_enchere()} pts par ${acheteur.getAcheteur().getPseudo()} </label>
 			    </c:if>
 			    
 			    <c:if test="${empty acheteur.getAcheteur()}"> 
