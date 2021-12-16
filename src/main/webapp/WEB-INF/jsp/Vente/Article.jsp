@@ -60,44 +60,18 @@
                     <label class="label">${article.getVendeur().getCodePostal()} ${article.getVendeur().getVille()}</label>
 			    </div>
 		    </div>
-		        
-			<div class="selectionneur">
-				<label class="labCategorie">Catégorie : </label> 
-				<select name="Categorie">
-					<option value="1">Informatique</option>
-					<option value="2">Ameublement</option>
-					<option value="3">Vetement</option>
-					<option value="4">Sport&Loisirs</option>
-				</select>
-			</div>
-			
-			<!-- 
-			<div>
-			    <label class="label">Photo de l'article : </label>
-			    <button>Uploader</button>
-		    </div> 
-			 -->
 		    
-		    <fieldset>
-		        <legend>Retrait</legend>
-		        <div>
-			        <label class="label">Rue : </label>
-       		        <input class="input" type="text" name="RueRetrait" value="${utilisateur.getRue()}" />
-		        </div> 
+            <div>
+			    <label class="label">Vendeur : </label>
+                <a class="label" href="ProfilServlet?id=${article.getVendeur().getPseudo()}">${article.getVendeur().getPseudo()}</a>
+		    </div>
+		    
+		    <div>
+			    <label class="label">Ma proposition : </label>
+                <input class="label" type="number"/>
+                <input type="submit" value="Enchérir" /> 
+            </div>
 		        
-		        <div>
-			        <label class="label">Code postal : </label>
-       		        <input class="input" type="text" name="CodePostalRetrait" value="${utilisateur.getCodePostal()}"/>
-       		    </div>
-       		    <div>
-       	        	<label class="label">Ville : </label>
-       		        <input class="input" type="text" name="VilleRetrait" value="${utilisateur.getVille()}"/>
-		        </div>
-		    </fieldset>
-		
-			<div class="btn">
-				<input type="submit" value="Enregistrer" /> 
-			</div>
 		</form>
         
         <button onclick="history.back()" style="margin-left : 20px">Annuler</button>
