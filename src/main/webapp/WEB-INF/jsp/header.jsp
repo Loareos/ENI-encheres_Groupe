@@ -12,7 +12,7 @@ Modif by LCB
 <header>
 	<div class="logoEnchere">
 <!-- 		<img alt="Logo ENI" src=""> -->
-		<a class="logoENI" href="index.jsp" >
+		<a class="logoENI" href="AccueilServlet" >
 		<h4>ENI-Enchères</h4>
 		</a>
 	</div>

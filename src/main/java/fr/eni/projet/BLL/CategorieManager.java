@@ -36,48 +36,6 @@ public class CategorieManager extends Manager {
 	private CategorieManager() throws BusinessException{
 		CategorieDao = DAOFactory.getCategorieDAO();
 	}
-//	
-//	/**
-//	 * @return un objet Utilisateur en cas de succcès
-//	 * @throws BLLException 
-//	 * @throws DALException 
-//	 */
-//	public Categorie ajouterUtilisateurStandard(Categorie Categorie)
-//												throws BLLException, DALException{
-//		String test;
-//		
-//		test = Categorie.getLibelle();
-//		this.verifStringNombreEtVide(test, 30,exception);
-//		
-//		if(!exception.hasErreurs())
-//		{
-//				this.CategorieDao.insert(Categorie);
-//		}
-//		
-//		if(exception.hasErreurs())
-//		{
-//			throw exception;
-//		}
-//		return Categorie;
-//	}
-//	
-//	/**
-//	 * Cette méthode permet de vérifier 
-//	 * les règles à respecter sur le nombre de caractère et qu'il ne soit pas vide.
-//	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet BLLException.
-//	 * @param Categorie
-//	 * @throws BLLException 
-//	 * @param BLLException 
-//	 */
-//	public void verifStringNombreEtVide(String test, int max,BLLException exception){
-//		
-//		if (test.trim().length()>max ? false: true ) {
-//			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_ECHEC_MAX);
-//		}
-//		if (test.trim().length() == 0? false: true ) {
-//			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_NULL);
-//		}
-//	}
 
 	// ====================== SELECT CATEGORIE =================================
 

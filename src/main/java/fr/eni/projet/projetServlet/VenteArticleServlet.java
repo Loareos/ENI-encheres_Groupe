@@ -40,8 +40,7 @@ public class VenteArticleServlet extends HttpServlet {
 
 		RequestDispatcher rd = null;
 		rd = request.getRequestDispatcher("WEB-INF/jsp/Vente/VenteArticle.jsp");
-		rd.forward(request, response);
-		
+		rd.forward(request, response);		
 	}
 
 	/**
@@ -85,7 +84,7 @@ public class VenteArticleServlet extends HttpServlet {
 			RetraitManager rm = RetraitManager.getInstance();
 			rm.ajouterRetrait(art.getNoArticle(), rueRetrait, codePostal, ville);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("AccueilServlet");
 			rd.forward(request, response);
 			
 		} catch (BusinessException e) {

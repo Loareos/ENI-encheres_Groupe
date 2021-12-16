@@ -35,19 +35,6 @@ public class AccueilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
-		
-		//Récupérer les infos de l'annonce : 
-//		if(request.getParameter("titreAfficher") != null) {
-//			String titre = request.getParameter("titreAfficher");
-//			String photo = request.getParameter("photoAfficher");
-//			Integer meilleurOffre = Integer.parseInt(request.getParameter("meilleurOffreAfficher"));
-//			LocalDateTime FinEnchere = LocalDateTime.parse(request.getParameter("FinEnchereAfficher"));
-//			String codePostal = request.getParameter("codePostalAfficher");
-//			String ville = request.getParameter("villeAfficher");
-//			String vendeur = request.getParameter("vendeurAfficher");
-//		}
-		
 		try {
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
 			List<ArticleVendu> lstArtEnCours = avm.getArticlesEnVente();
@@ -63,7 +50,7 @@ public class AccueilServlet extends HttpServlet {
 				sb.append("\n").append("CODE ").append(i).append(" - ").append(LecteurMessage.getMessageErreur(i));
 
 			PrintWriter out = response.getWriter();
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("AccueilServlet");
 			rd.forward(request, response);
 			out.print(sb.toString());
 		}
