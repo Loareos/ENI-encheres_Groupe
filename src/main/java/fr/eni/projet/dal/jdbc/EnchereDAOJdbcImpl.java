@@ -12,6 +12,7 @@ import fr.eni.projet.dal.CodesResultatDAL;
 import fr.eni.projet.dal.ConnectionProvider;
 import fr.eni.projet.dal.EnchereDAO;
 
+//Par Clément
 public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	String sqlInsert = "INSERT INTO ENCHERES (no_utilisateur,no_article,date_enchere, montant_enchere) VALUES (?,?,?,?)";

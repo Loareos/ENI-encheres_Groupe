@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author junisaru69
- *	Modif by
+ *	Modif by Clement
  */
 public class Enchere {
 

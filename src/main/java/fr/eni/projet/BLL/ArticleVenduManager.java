@@ -14,7 +14,7 @@ import fr.eni.projet.dal.DAOFactory;
 import fr.eni.projet.dal.UtilisateurDAO;
 
 /**
- * @author /!\ /!\ /!\ /!\ /!\ auteur à mettre /!\ /!\ /!\ /!\ /!\ Modif by Etienne
+ * @author /!\ /!\ /!\ /!\ /!\ auteur à mettre /!\ /!\ /!\ /!\ /!\ Modif by Etienne, Clement
  */
 public class ArticleVenduManager extends Manager {
 
