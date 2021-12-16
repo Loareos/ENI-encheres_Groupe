@@ -192,7 +192,7 @@ public class Utilisateur {
 		+ " / Email: " + getEmail()
 		+ " / Tel: " + getTelephone()
 		+ " / Rue: "+ getRue()
-		+ " / CodePostale: "+ getCodePostal()
+		+ " / CodePostal: "+ getCodePostal()
 		+ " / Ville: " + getVille()
 		+ " / MDP: " + getMotDePasse()
 		+ " / Credit: " + getCredit()
