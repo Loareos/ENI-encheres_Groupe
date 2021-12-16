@@ -44,7 +44,7 @@ public class ArticleVenduManager extends Manager {
 	}
 
 ////=======================  CREATION ARTICLE  ===========================================	
-	public void ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie, Byte imgArticle)
+	public void ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie)
 			throws BusinessException {
 		BusinessException exception = new BusinessException();
 
@@ -64,7 +64,7 @@ public class ArticleVenduManager extends Manager {
 
 ////==========================  MODIFICATION ARTICLE  ===========================================	
 	public void modifArticle(ArticleVendu art, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie, Byte imgArticle)
+			LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie)
 			throws BusinessException {
 
 		BusinessException exception = new BusinessException();

@@ -64,12 +64,11 @@ public class VenteArticleServlet extends HttpServlet {
 		LocalDate DebutEnchere = 	LocalDate.parse(request.getParameter("DateDebut"));
 		LocalDate FinEnchere = 		LocalDate.parse(request.getParameter("DateFin"));
 		Integer miseAPrix = 		Integer.parseInt(request.getParameter("MiseAPrix"));
-		Byte photo = 				null;//Byte.parseByte(request.getParameter("Photo"));
 		
 		// INFO RETRAIT
-//		String rueRetrait = 		request.getParameter("RueRetrait");
-//		String codePostal = 		request.getParameter("CodePostalRetrait");
-//		String ville = 				request.getParameter("VilleRetrait");
+		String rueRetrait = 		request.getParameter("RueRetrait");
+		String codePostal = 		request.getParameter("CodePostalRetrait");
+		String ville = 				request.getParameter("VilleRetrait");
 
 		
 		//On récupère les infos de l'user connecté
@@ -79,7 +78,7 @@ public class VenteArticleServlet extends HttpServlet {
 		try {
 			//Ajouter l'article à la BDD
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
-			avm.ajouterArticle(nom, description, DebutEnchere, FinEnchere, miseAPrix, user, categorie, photo);
+			avm.ajouterArticle(nom, description, DebutEnchere, FinEnchere, miseAPrix, user, categorie);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);

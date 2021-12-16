@@ -58,7 +58,6 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			stmt.setInt(i++, art.getMiseAPrix());						// MISE A PRIX
 			stmt.setInt(i++, art.getVendeur().getNoUtilisateur());		// VENDEUR
 			stmt.setInt(i++, art.getCategorie().getNoCategorie());		// CATEGORIE
-//			stmt.setByte(i++, Byte.valueOf(art.getimgArticle()));		// IMAGE
 			stmt.execute();
 			try(ResultSet rs = stmt.getGeneratedKeys()){
 				rs.next();
@@ -90,7 +89,6 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			stmt.setDate(i++, Date.valueOf(art.getDateFinEncheres()));	// DATE FIN
 			stmt.setInt(i++, art.getMiseAPrix());						// MISE A PRIX
 			stmt.setInt(i++, art.getCategorie().getNoCategorie());		// CATEGORIE
-//			stmt.setByte(i++, Byte.valueOf(art.getimgArticle()));		// IMAGE
 			stmt.setInt(i++, art.getNoArticle());						// NO ARTICLE (POUR LE WHERE)
 			stmt.execute();
 		}catch(Exception e) {
@@ -128,7 +126,6 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 						rs.getInt(6),				//prix de vente
 						vendeur,					//vendeur
 						categorie					//categorie
-//						rs.getByte(9)				//image
 						);
 				return art;
 			}
@@ -187,7 +184,6 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 						rs.getInt(7),				//prix de vente
 						vendeur,					//vendeur
 						categorie					//categorie
-//						rs.getByte(10)				//image
 						);
 				lstArticles.add(art);
 			}

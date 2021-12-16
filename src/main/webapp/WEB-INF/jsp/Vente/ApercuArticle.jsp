@@ -4,7 +4,8 @@
 
 	<article>
 		<div class="divImg">
-			<img class="imgArticle" alt="Image appareill photo" src="../../../../imageBase.png">
+<!-- 			<img class="imgArticle" alt="" src="/imageBase.png"> -->
+<%-- 			<%@include file="../../../../" %> --%>
 		</div>
 	
 		<div class="caseTxt">

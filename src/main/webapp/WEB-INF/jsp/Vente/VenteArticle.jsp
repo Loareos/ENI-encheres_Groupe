@@ -58,13 +58,6 @@ Modif by LCB
 					<option value="4">Sport&Loisirs</option>
 				</select>
 			</div>
-			
-			<!-- 
-			<div>
-			    <label class="label">Photo de l'article : </label>
-			    <button>Uploader</button>
-		    </div> 
-			 -->
 		    
 		    <fieldset>
 		        <legend>Retrait</legend>

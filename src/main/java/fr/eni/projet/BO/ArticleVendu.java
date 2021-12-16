@@ -19,7 +19,6 @@ public class ArticleVendu {
 	private Integer prixVente;
 	private Utilisateur vendeur;
 	private Categorie categorie;
-//	private Byte imgArticle;
 
 	// =========================================================//
 	// CONSTRUCTEURS
@@ -47,7 +46,6 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 		this.vendeur = vendeur;
 		this.categorie = categorie;
-//		this.imgArticle = imgArticle;
 	}
 
 	/**
@@ -177,18 +175,6 @@ public class ArticleVendu {
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
-
-	// =================== imgArticle ===================
-//
-//	// getter
-//	public Byte getimgArticle() {
-//		return imgArticle;
-//	}
-//
-//	// Setter
-//	public void setimgArticle(Byte imgArticle) {
-//		this.imgArticle = imgArticle;
-//	}
 
 	// ======================toString ArticleVendu.java ======================//
 	@Override
