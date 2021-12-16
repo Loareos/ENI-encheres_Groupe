@@ -32,7 +32,7 @@ Modif by LCB
 					<div class="achatVente">
 						<div class="achat">
 							<div class="labelAchat">
-									<label for="achat">Achats</label>
+									<label class="labelTitreAchat" for="achat">Achats</label>
 								<input type="radio" id="achat" name="achatVente" class="btnMesAchat" value="achat" checked>
 							</div>
 							<div class="labelAchat">
@@ -51,7 +51,7 @@ Modif by LCB
 						<div class="vente">
 							
 							<div class="labelVente">
-									<label for="vente">Mes Ventes</label>
+									<label class="labelTitreVente" for="vente">Mes Ventes</label>
 								<input type="radio" id="vente" name="achatVente" class="btnMesVentes" value="vente">
 							</div>
 							<div class="labelVente">

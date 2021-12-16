@@ -14,7 +14,6 @@ body {
 header {
   background-color: #19dcf5;
   background: linear-gradient(to top, rgba(25, 219, 245, 0.781), 20%, rgba(255, 255, 255, 0.829));
-  background: linear-gradient(to bottom, rgba(25, 219, 245, 0.781), 20%, rgba(255, 255, 255, 0.829));
   border-radius: 1em;
   padding: 0.5em;
   margin-bottom: 0.5em;
@@ -40,6 +39,7 @@ header .logoEnchere a {
 }
 header .logoEnchere h4 {
   display: block;
+  margin: 0.5em;
 }
 header .logoEnchere:hover {
   background-color: #ffffff;
@@ -83,15 +83,20 @@ header .logoEnchere:hover {
   font-size: large;
   padding: 1em;
 }
+.SectionListeEnchere form .selectionneurSpe .labCatgorie {
+  padding: 0.5em;
+}
 .SectionListeEnchere .achatVente {
   display: flex;
   justify-content: space-around;
-  flex-direction: row;
   padding: 1em;
+  border-radius: 1em;
+  background-color: aliceblue;
 }
 .SectionListeEnchere .achatVente .achat {
   display: flex;
   flex-direction: column;
+  padding: 0.5em;
 }
 .SectionListeEnchere .achatVente .achat .labelAchat {
   display: flex;
@@ -100,9 +105,14 @@ header .logoEnchere:hover {
   width: auto;
   margin: 0.5em;
 }
+.SectionListeEnchere .achatVente .achat .labelAchat .labelTitreAchat {
+  background-color: beige;
+  padding: 1em;
+  border-radius: 1em;
+}
 .SectionListeEnchere .achatVente .achat .labelAchat label {
   display: inline-block;
-  padding-right: 1em;
+  padding: 0.3em;
 }
 .SectionListeEnchere .achatVente .achat .labelAchat input {
   display: inline-block;
@@ -110,22 +120,28 @@ header .logoEnchere:hover {
 .SectionListeEnchere .achatVente .vente {
   display: flex;
   flex-direction: column;
-}
-.SectionListeEnchere .achatVente .vente .ventes {
-  display: block;
+  padding: 0.5em;
+  border-radius: 1em;
+  background-color: aliceblue;
 }
 .SectionListeEnchere .achatVente .vente .labelVente {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   width: auto;
   margin: 0.5em;
 }
+.SectionListeEnchere .achatVente .vente .labelVente .labelTitreVente {
+  background-color: beige;
+  padding: 1em;
+  border-radius: 1em;
+}
 .SectionListeEnchere .achatVente .vente .labelVente label {
   display: inline-block;
-  padding-right: 1em;
+  padding: 0.3em;
 }
 .SectionListeEnchere .achatVente .vente .labelVente input {
-  justify-content: center;
+  display: inline-block;
 }
 
 /* ==========================================================*/
@@ -147,12 +163,15 @@ footer .copyright {
 }
 footer .MentionsLegals {
   display: block;
+  font-size: large;
 }
 footer .ContactezNous {
   display: block;
+  font-size: large;
 }
 footer .Cookies {
   display: block;
+  font-size: large;
 }
 
 /* ==========================================================*/
@@ -160,8 +179,10 @@ footer .Cookies {
 /* ==========================================================*/
 .annonces {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  min-width: 20em;
   background-color: rgba(102, 179, 255, 0.616);
-  border: 3px solid black;
   border-radius: 1em;
 }
 .annonces article {
@@ -202,11 +223,6 @@ h3 {
 .formConnexionC {
   display: flex;
   flex-direction: column;
-}
-
-.label {
-  width: 150px;
-  margin-left: 40px;
 }
 
 .input {
@@ -281,10 +297,6 @@ h3 {
   width: 180px;
 }
 
-.labCategorie {
-  padding-right: 30px;
-}
-
 /* ===========================en dessous de 609px===============================*/
 @media (max-width: 609px) {
   .liens {
@@ -306,20 +318,20 @@ h3 {
     flex-direction: column;
   }
 
-  .label {
-    width: 150px;
-    margin-left: 40px;
-  }
-
-  .input {
-    margin-bottom: 15px;
-    margin-right: 40px;
-  }
-
   .formItemConnexionC {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+
+  .achatVente {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .selectionCategorie {
+    height: 2em;
+    width: 6em;
   }
 }
 /* ===========================au dessus de 700 px===============================*/
@@ -346,17 +358,6 @@ h3 {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-
-  .label {
-    width: 100px;
-    margin-left: 15px;
-    margin-right: 10px;
-  }
-
-  .input {
-    margin-bottom: 15px;
-    margin-right: 15px;
   }
 
   .formItemConnexionC {

@@ -26,7 +26,6 @@ header{
 
 	background-color: rgb(25, 220, 245);
 	background: linear-gradient(to top ,$bleupastel,20%, $linearRadListeEnch) ;
-	background: linear-gradient(to bottom ,$bleupastel,20%, $linearRadListeEnch) ;
 	border-radius: $bordRad;
 	padding: $margPadSection;
 	margin-bottom: $margPadSection;
@@ -58,6 +57,7 @@ header{
 		}
 		h4{
 			display: block;
+			margin: $margPadSection;
 		}
 	}
 	.logoEnchere:hover{
@@ -119,28 +119,36 @@ header{
 		}
 		.selectionneurSpe{
 			// border: $testpx solid rgb(0, 190, 79);
+			.labCatgorie{
+				padding: $margPadSection;
 
+			}
 		}
 	}
 	.achatVente{
 		display: flex;
 		justify-content: space-around;
-		flex-direction: row;
 		padding: 1em;
+		border-radius: $bordRad;
+		background-color: aliceblue;
 		.achat{
 			display: flex;
 			flex-direction: column;
-			.achats{
-			}
+			padding: $margPadSection;
 			.labelAchat{
 				display: flex;
 				justify-content: space-between;
 				flex-direction:row ;
 				width: auto;
 				margin: $margPadSection;
+				.labelTitreAchat{
+					background-color: beige;
+					padding: 1em;
+					border-radius: $bordRad;
+				}
 				label{
 					display: inline-block;
-					padding-right: 1em;
+					padding: 0.3em;
 				}
 				input{
 					display: inline-block;
@@ -151,20 +159,26 @@ header{
 		.vente{
 			display: flex;
 			flex-direction: column;
-			.ventes{
-			display: block;
-			}
+			padding: $margPadSection;
+			border-radius: $bordRad;
+			background-color: aliceblue;
 			.labelVente{
 				display: flex;
 				justify-content: space-between;
+				flex-direction: row;
 				width: auto;
 				margin: $margPadSection;
+				.labelTitreVente{
+					background-color: beige;
+					padding: 1em;
+					border-radius: $bordRad;
+				}
 				label{
 					display: inline-block;
-					padding-right: 1em;
+					padding: 0.3em;
 				}
 				input{
-					justify-content: center;
+					display: inline-block;
 				}
 			}
 
@@ -200,14 +214,17 @@ footer{
 	}
 	.MentionsLegals{
 		display: block;
+		font-size: large;
 
 	}
 	.ContactezNous{
 		display: block;
+		font-size: large;
 
 	}
 	.Cookies{
 		display: block;
+		font-size: large;
 
 	}
 
@@ -218,9 +235,15 @@ footer{
 /* ==========================================================*/
 
 .annonces{
+
 	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+
+	min-width: 20em;
+
+
 	background-color: $couleurArticle;
-	border: $testpx;
 	border-radius: $bordRad;
 	article{
 		display: block;
@@ -255,23 +278,12 @@ footer{
 }
 
 
-// form {
-// 	margin-top: 60px;
-// 	margin-bottom: 40px;
-// }
 
 h3 {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 30px;
 }
-
-// h4 {
-// 	padding-right: 20px;
-// 	padding-left: 10px;
-// 	text-decoration: underline;
-
-// }
 
 .titreIndex {
 	display: flex;
@@ -282,10 +294,10 @@ h3 {
 		display: flex;
 		flex-direction: column;
 	}
-.label {
-    width: 150px;
-    margin-left: 40px;
-}
+// .label {
+//     width: 150px;
+//     margin-left: 40px;
+// }
 .input {
     margin-bottom: 15px;
     margin-right: 40px;
@@ -358,15 +370,6 @@ h3 {
         width: 180px;
 }
 
-// .selectionneurSpe{
-//     display : flex;
-//     padding-bottom : 10px;
-// }
-
-.labCategorie{
-        padding-right : 30px;
-}
-
 /* ===========================en dessous de 609px===============================*/
 
 
@@ -385,43 +388,33 @@ h3 {
 		height: 20px;
 		width: 300px;
 	}
-	// .btnRecherche {
-	// 	height: 100px;
-	// 	width: 310px
-	// }
-	// .RechercheServlet {
-	// 	display: flex;
-	// 	flex-wrap: wrap;
-	// 	justify-content: center;
-	// 	padding-left: 10px;
-	// 	padding-right: 10px;
-	// }
-
-	// .selectionneur{
-	// 	padding-bottom : 20px;
-	// 	display: flex;
-	// 	justify-content: center;
-	// 	align-items : center;
-	// 	flex-direction : column;
-	// }
 
     .formConnexionC {
 		display: flex;
 		flex-direction: column;
 	}
-	.label {
-		width: 150px;
-		margin-left: 40px;
-	}
-	.input {
-		margin-bottom: 15px;
-		margin-right: 40px;
-	}
+	// .label {
+	// 	width: 150px;
+	// 	margin-left: 40px;
+	// }
+	// .input {
+	// 	margin-bottom: 15px;
+	// 	margin-right: 40px;
+	// }
 	.formItemConnexionC {
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
 	}
+	.achatVente{
+		display: flex;
+		flex-direction: column;
+	}
+	.selectionCategorie{
+			height: 2em;
+			width: 6em;
+	}
+
 
 }
 
@@ -437,23 +430,6 @@ h3 {
 		width: 200px;
 		// margin-left:60px;
 	}
-	// .RechercheServlet {
-	// 	display: flex;
-	// 	flex-wrap: wrap;
-	// 	justify-content: flex-start;
-	// 	align-items: flex-start;
-	// 	padding-left: 10px;
-	// 	padding-right: 10px;
-
-	// 	margin-left:30px;
-	// }
-	// .selectionneur{
-	// 	padding-bottom : 20px;
-	// 	display: flex;
-	// 	justify-content: center;
-	// 	align-items : center;
-	// 	flex-direction : column;
-	// }
 
 	.liens {
 	display: flex;
@@ -468,15 +444,15 @@ h3 {
 		flex-direction: column;
 		align-items: center;
 	}
-	.label {
-		width: 100px;
-		margin-left: 15px;
-		margin-right: 10px;
-	}
-	.input {
-		margin-bottom: 15px;
-		margin-right: 15px;
-	}
+	// .label {
+	// 	width: 100px;
+	// 	margin-left: 15px;
+	// 	margin-right: 10px;
+	// }
+	// .input {
+	// 	margin-bottom: 15px;
+	// 	margin-right: 15px;
+	// }
 	.formItemConnexionC {
 		display: flex;
 	}
