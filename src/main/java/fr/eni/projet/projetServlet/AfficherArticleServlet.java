@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.ArticleVenduManager;
+import fr.eni.projet.BLL.EnchereManager;
 import fr.eni.projet.BLL.UtilisateurManager;
 import fr.eni.projet.BO.ArticleVendu;
 import fr.eni.projet.BO.Categorie;
@@ -49,10 +50,18 @@ public class AfficherArticleServlet extends HttpServlet {
 		//Récupérer l'id de l'annonce : 
 		Integer idArticle = Integer.valueOf(request.getParameter("id"));
 
+		System.out.println("mon id" + idArticle);
         //On récupère les infos de l'user connecté
 		HttpSession sessionUser = request.getSession();
 		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
+		System.out.println("2" + user);
 
+		if (user == null) {
+			request.setAttribute("user", false);
+		} 
+		if (user != null) {
+			request.setAttribute("user", true);
+		}
 		
 		try {
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
@@ -69,19 +78,13 @@ public class AfficherArticleServlet extends HttpServlet {
 									listeArticle.get(compte).getMiseAPrix(), listeArticle.get(compte).getPrixVente(), listeArticle.get(compte).getVendeur(),
 									listeArticle.get(compte).getCategorie());
 					
-					
 					Enchere enchere = new Enchere();
-
 					request.setAttribute("article", article);
 					request.setAttribute("acheteur", enchere);
-					System.out.println("compte" + article);
 				}
 				compte += 1;
 			}
 			
-			
-
-
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Vente/Article.jsp");
 			rd.forward(request, response);
 		} catch (BusinessException e) {
@@ -105,6 +108,61 @@ public class AfficherArticleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		//On récupère les infos de l'user connecté
+		HttpSession sessionUser = request.getSession();
+		Utilisateur user = (Utilisateur) sessionUser.getAttribute("utilisateur");
+		System.out.println(user);
+
+		//Recupérer les infos de l'enchere
+		Integer montant_enchere = Integer.parseInt(request.getParameter("montant"));
+		Integer idArticle = Integer.parseInt(request.getParameter("id"));
+		
+		System.out.println(montant_enchere);
+		
+		
+				try {
+					ArticleVenduManager avm = ArticleVenduManager.getInstance();
+					List<ArticleVendu> listeArticle = avm.getArticlesEnVente();
+					
+					int compte = 0;
+					while(compte < listeArticle.size()) {
+						if (idArticle == listeArticle.get(compte).getNoArticle()) {
+							
+							
+							ArticleVendu article = new 
+									ArticleVendu(idArticle, listeArticle.get(compte).getNomArticle(), listeArticle.get(compte).getDescription(),
+											listeArticle.get(compte).getDateDebutEncheres(), listeArticle.get(compte).getDateFinEncheres(),
+											listeArticle.get(compte).getMiseAPrix(), listeArticle.get(compte).getPrixVente(), listeArticle.get(compte).getVendeur(),
+											listeArticle.get(compte).getCategorie());
+							
+
+							EnchereManager em = EnchereManager.getInstance();
+							Enchere enchere = em.ajouterEnchere(user, article, LocalDate.now(), montant_enchere);
+							
+							request.setAttribute("article", article);
+							request.setAttribute("acheteur", enchere);
+						}
+						compte += 1;
+					}
+					
+					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Vente/Article.jsp");
+					rd.forward(request, response);
+				} catch (BusinessException e) {
+					StringBuffer sb = new StringBuffer();
+					sb.append("Une ou plusieurs erreurs se sont produites :");
+					for(int i : e.getListeCodesErreur())
+						sb.append("\n").append("CODE ").append(i).append(" - ").append(LecteurMessage.getMessageErreur(i));
+
+					PrintWriter out = response.getWriter();
+					RequestDispatcher rd = request.getRequestDispatcher("AccueilServlet");
+					rd.forward(request, response);
+					out.print(sb.toString());
+				}
+		
+
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/Vente/Article.jsp");
+		request.setAttribute("id", idArticle);
 		doGet(request, response);
 	}
 	

@@ -3,6 +3,7 @@
  */
 package fr.eni.projet.BO;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -13,7 +14,7 @@ public class Enchere {
 
 	private Utilisateur 		acheteur;
 	private ArticleVendu 		article;
-	private LocalDateTime 		dateEnchere;
+	private LocalDate 		    dateEnchere;
 	private Integer 			montant_enchere;
 	
 	//======================================================================//
@@ -32,7 +33,7 @@ public class Enchere {
 	 *		Constructeur Complet
 	 */
 	public Enchere(Utilisateur acheteur, ArticleVendu article,
-					LocalDateTime dateEnchere, Integer montant_enchere) {
+					LocalDate dateEnchere, Integer montant_enchere) {
 		
 		this.acheteur 			= acheteur;
 		this.article 			= article;
@@ -67,11 +68,11 @@ public class Enchere {
 	
 	//=================== dateEnchere ===================
 	//getter
-	public LocalDateTime getDateEnchere() {
+	public LocalDate getDateEnchere() {
 		return dateEnchere;
 	}
 	//Setter
-	public void setDateEnchere(LocalDateTime dateEnchere) {
+	public void setDateEnchere(LocalDate dateEnchere) {
 		this.dateEnchere = dateEnchere;
 	}
 	

@@ -13,7 +13,7 @@
 	
 	<img class="imgArticle" alt="" src="/imageBase.png">
 
-		<form method="get" action="VenteArticleServlet" >
+		<form method="post" action="AfficherArticleServlet" >
 		
 		    <div>
 			    <label class="label">${article.getNomArticle()}</label>
@@ -66,15 +66,24 @@
                 <a class="label" href="ProfilServlet?id=${article.getVendeur().getPseudo()}">${article.getVendeur().getPseudo()}</a>
 		    </div>
 		    
-		    <div>
-			    <label class="label">Ma proposition : </label>
-                <input class="label" type="number"/>
-                <input type="submit" value="Enchérir" /> 
-            </div>
+		    <c:if test="${user}"> 
+                <div>
+			        <label class="label">Ma proposition : </label>
+                    <input class="label" type="number" name="montant" required/>
+                    <input class="label" name="id" value="${article.getNoArticle()}" hidden/>
+                    <input type="submit" value="Enchérir" /> 
+                </div>
+			</c:if>
+			<c:if test="${!user}"> 
+			    <label class="label">Merci de vous connecter </label>   
+			    <a href="ConnexionServlet" class="lienConnection">(en cliquant ici)</a>
+			    <label> pour pouvoir enchérir.</label> 
+			</c:if>
+		    
 		        
 		</form>
         
-        <button onclick="history.back()" style="margin-left : 20px">Annuler</button>
+        <button onclick="window.location.href='AccueilServlet';" style="margin-left : 20px">Annuler</button>
 	
 </body>
 </html>

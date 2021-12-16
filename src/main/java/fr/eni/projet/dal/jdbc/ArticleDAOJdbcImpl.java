@@ -37,6 +37,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			+ "FROM ARTICLES_VENDUS a "
 			+ "INNER JOIN UTILISATEURS u ON a.no_utilisateur = u.no_utilisateur "
 			+ "INNER JOIN CATEGORIES c ON a.no_categorie = c.no_categorie ";
+
+	String sqlIdExiste = "SELECT COUNT(*) FROM ARTICLES_VENDUS WHERE no_article = ?";
 	
 
 	//=======================================================================//
@@ -243,6 +245,26 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	
 	private Categorie categorieConstructor(Integer no, String libelle) {
 		return new Categorie(no, libelle);
+	}
+
+	@Override
+	public boolean idExist(Integer noArticle) throws BusinessException {
+		try(Connection cnx = ConnectionProvider.getConnection();
+				PreparedStatement stmt = cnx.prepareStatement(sqlIdExiste);){
+			stmt.setInt(1, noArticle);
+			try(ResultSet rs = stmt.executeQuery();){
+				rs.next();
+				if(rs.getInt(1) > 0)
+					return true;
+				else
+					return false;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.IS_EXISTING_OBJET_ECHEC);
+			throw businessException;
+		}
 	}
 	
 	

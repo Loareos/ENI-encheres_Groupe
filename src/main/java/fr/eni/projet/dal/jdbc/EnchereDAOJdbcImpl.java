@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.Enchere;
@@ -18,6 +19,8 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	String sqlSelectById = "SELECT date_enchere, montant_enchere FROM ENCHERES WHERE no_utilisateur = ? AND no_article = ?";
 	String sqlDelete = "DELETE FROM ENCHERES WHERE no_utilisateur = ? AND no_article = ?";
 	
+	String sqlEnchereExiste = "SELECT COUNT(*) FROM ENCHERES WHERE no_utilisateur = ? AND no_article = ?";
+	
 	@Override
 	public void insert(Enchere enchere) throws BusinessException {
 		checkNull(enchere);
@@ -26,8 +29,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			int i = 1;
 			stmt.setInt(i++, enchere.getAcheteur().getNoUtilisateur());
 			stmt.setInt(i++, enchere.getArticle().getNoArticle());
-			Date date = Date.valueOf(enchere.getDateEnchere().toLocalDate());
-			stmt.setDate(i++, date);
+			stmt.setDate(i++,Date.valueOf(enchere.getDateEnchere()));
 			stmt.setInt(i++, enchere.getMontant_enchere());
 			stmt.execute();
 		}catch(Exception e) {
@@ -115,6 +117,30 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			businessException.ajouterErreur(CodesResultatDAL.DELETE_OBJET_ECHEC);
 			throw businessException;
 		}		
+	}
+	
+	//===========================retraitExiste=============================//
+		// renvoie true si il existe
+		
+	@Override
+	public boolean enchereExist(int noUtilisateur, int noArticle) throws BusinessException {
+		try (Connection cnx = ConnectionProvider.getConnection();
+				PreparedStatement stmt = cnx.prepareStatement(sqlEnchereExiste);) {
+			stmt.setInt(1, noUtilisateur);
+			stmt.setInt(2, noArticle);
+			try (ResultSet rs = stmt.executeQuery();) {
+				rs.next();
+				if (rs.getInt(1) > 0)
+					return true;
+				else
+					return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.IS_EXISTING_OBJET_ECHEC);
+			throw businessException;
+		}
 	}
 
 }
