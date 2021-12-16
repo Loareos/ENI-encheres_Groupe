@@ -3,14 +3,19 @@
  */
 package fr.eni.projet.BLL;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import fr.eni.projet.BusinessException;
+import fr.eni.projet.BO.Categorie;
+
 //import fr.eni.projet.BO.Utilisateur;
 //import fr.eni.projet.dal.DALException;
 //import fr.eni.projet.dal.DAOFactory;
 //import fr.eni.projet.dal.CategorieDao;
 
 /**
- * @author /!\ /!\ /!\ /!\ /!\ /!\ auteur à mettre /!\ /!\ /!\ /!\ /!\ 
- *	Modif by
+ * @author /!\ /!\ /!\ /!\ /!\ /!\ auteur à mettre /!\ /!\ /!\ /!\ /!\ Modif by
  */
 public class CategorieManager {
 
@@ -87,8 +92,22 @@ public class CategorieManager {
 //		if (test.trim().length()>max ? false: true ) {
 //			exception.ajouterErreur(CodesResultatBLL.INSERT_OBJET_ECHEC_MAX);
 //		}
-//	}
-//	
+
+	// ====================== SELECT CATEGORIE =================================
+
+	public List<Categorie> getCategorie() throws BusinessException {
+		BusinessException exception = new BusinessException();
+
+		List<Categorie> lstCategorieEnCours = new ArrayList<Categorie>();
+
+		if (lstCategorieEnCours.size() != 0)
+			return lstCategorieEnCours;
+		else
+			exception.ajouterErreur(CodesResultatBLL.CATEGORIE_INCONNU);
+		throw exception;
+
+	}
+////	
 //	/**
 //	 * Cette méthode permet de vérifier 
 //	 * les règles à respecter sur le crédit inferr à 0.
