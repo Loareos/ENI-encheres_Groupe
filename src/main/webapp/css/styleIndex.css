@@ -97,6 +97,7 @@ header .logoEnchere:hover {
   display: flex;
   flex-direction: column;
   padding: 0.5em;
+  margin: 0.5em;
 }
 .SectionListeEnchere .achatVente .achat .labelAchat {
   display: flex;
@@ -123,6 +124,7 @@ header .logoEnchere:hover {
   padding: 0.5em;
   border-radius: 1em;
   background-color: aliceblue;
+  margin: 0.5em;
 }
 .SectionListeEnchere .achatVente .vente .labelVente {
   display: flex;

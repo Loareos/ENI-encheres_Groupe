@@ -135,6 +135,7 @@ header{
 			display: flex;
 			flex-direction: column;
 			padding: $margPadSection;
+			margin: $margPadSection;
 			.labelAchat{
 				display: flex;
 				justify-content: space-between;
@@ -162,6 +163,7 @@ header{
 			padding: $margPadSection;
 			border-radius: $bordRad;
 			background-color: aliceblue;
+			margin: $margPadSection;
 			.labelVente{
 				display: flex;
 				justify-content: space-between;
