@@ -9,7 +9,7 @@
 		</div>
 	
 		<div class="caseTxt">
-			<h4>${art.getNomArticle()}</h4>
+			<a href="AfficherArticleServlet?id=${art.getNoArticle()}">${art.getNomArticle()}</a>
 			<p>Prix: ${art.getMiseAPrix()} points</p>
 			<p>Fin de l'enchère: ${art.getDateFinEncheres()}</p>
 			<p>
