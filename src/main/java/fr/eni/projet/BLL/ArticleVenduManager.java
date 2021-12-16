@@ -44,7 +44,7 @@ public class ArticleVenduManager extends Manager {
 	}
 
 ////=======================  CREATION ARTICLE  ===========================================	
-	public void ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie)
+	public ArticleVendu ajouterArticle(String nomArticle, String description, LocalDate dateDebutEncheres,LocalDate dateFinEncheres, Integer miseAPrix, Utilisateur vendeur, Categorie Categorie)
 			throws BusinessException {
 		BusinessException exception = new BusinessException();
 
@@ -56,9 +56,10 @@ public class ArticleVenduManager extends Manager {
 		if (!this.categorieDao.idExist(Categorie.getNoCategorie()))
 			exception.ajouterErreur(CodesResultatBLL.CATEGORIE_INCONNU);
 
-		if (!exception.hasErreurs())
+		if (!exception.hasErreurs()) {
 			this.articleDao.insert(art);
-		else
+			return art;
+		}else
 			throw exception;
 	}
 

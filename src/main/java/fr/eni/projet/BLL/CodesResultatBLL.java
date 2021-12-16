@@ -64,4 +64,6 @@ public abstract class CodesResultatBLL {
 	
 	public static final int AUCUN_ARTICLE_EN_VENTE = 20016;
 	
+	public static final int POINT_RETRAIT_INCONNU = 20017;
+	
 }

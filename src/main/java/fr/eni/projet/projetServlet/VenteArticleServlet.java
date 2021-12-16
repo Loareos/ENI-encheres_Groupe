@@ -14,6 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BLL.ArticleVenduManager;
+import fr.eni.projet.BLL.RetraitManager;
+import fr.eni.projet.BO.ArticleVendu;
 import fr.eni.projet.BO.Categorie;
 import fr.eni.projet.BO.Utilisateur;
 import fr.eni.projet.messages.LecteurMessage;
@@ -78,7 +80,10 @@ public class VenteArticleServlet extends HttpServlet {
 		try {
 			//Ajouter l'article à la BDD
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
-			avm.ajouterArticle(nom, description, DebutEnchere, FinEnchere, miseAPrix, user, categorie);
+			ArticleVendu art = avm.ajouterArticle(nom, description, DebutEnchere, FinEnchere, miseAPrix, user, categorie);
+
+			RetraitManager rm = RetraitManager.getInstance();
+			rm.ajouterRetrait(art.getNoArticle(), rueRetrait, codePostal, ville);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);

@@ -9,10 +9,10 @@ package fr.eni.projet.BO;
  */
 public class Retrait {
 
-	private ArticleVendu 	article;
-	private String 		rue;
-	private String 		code_postal;
-	private String 		ville;
+	private Integer 		noArticle;
+	private String 			rue;
+	private String 			code_postal;
+	private String 			ville;
 	
 	//======================================================================//
 	//								Constructeurs
@@ -28,8 +28,8 @@ public class Retrait {
 	/**
 	 *		Constructeur Complet
 	 */
-	public Retrait(ArticleVendu article, String rue, String code_postal, String ville) {
-		this.article 		= article;
+	public Retrait(Integer noArticle, String rue, String code_postal, String ville) {
+		this.noArticle 		= noArticle;
 		this.rue 			= rue;
 		this.code_postal 	= code_postal;
 		this.ville 			= ville;
@@ -41,12 +41,12 @@ public class Retrait {
 
 	//=================== noArticle ===================
 	//getter
-	public ArticleVendu getArticle() {
-		return article;
+	public Integer getNoArticle() {
+		return noArticle;
 	}
 	//Setter
-	public void setArticle(ArticleVendu article) {
-		this.article = article;
+	public void setNoArticle(Integer noArticle) {
+		this.noArticle = noArticle;
 	}
 	
 	//=================== rue ===================
@@ -84,7 +84,7 @@ public class Retrait {
 	//======================toString Retrait.java ======================//
 	@Override
 	public String toString() {
-		return "Retrait No: " 	+getArticle()
+		return "Retrait No: " 	+getNoArticle()
 				+ " /Rue: " 	+ getRue()
 				+ " /CdP: " 	+ getCode_postal()
 				+ " /Ville: " 	+ getVille() 

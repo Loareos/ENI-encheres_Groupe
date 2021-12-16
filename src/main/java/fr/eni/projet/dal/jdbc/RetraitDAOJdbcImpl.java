@@ -38,7 +38,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 				PreparedStatement stmt = con.prepareStatement(sqlInsert);){
 
 			int i = 1;
-			stmt.setInt 	(i++, ret.getArticle().getNoArticle());
+			stmt.setInt 	(i++, ret.getNoArticle());
 			stmt.setString	(i++, ret.getRue());
 			stmt.setString	(i++, ret.getCode_postal());
 			stmt.setString	(i++, ret.getVille());
@@ -69,7 +69,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 			stmt.setString	(i++, ret.getRue());
 			stmt.setString	(i++, ret.getCode_postal());
 			stmt.setString	(i++, ret.getVille());
-			stmt.setInt		(i++, ret.getArticle().getNoArticle());
+			stmt.setInt		(i++, ret.getNoArticle());
 			stmt.execute();
 
 		}catch(Exception e) {
@@ -88,27 +88,26 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 
 	@Override
 	public Retrait selectById(int noArticle) throws BusinessException {
-//		try(Connection cnx = ConnectionProvider.getConnection();
-//				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
-//
-//			stmt.setInt(1, noArticle);
-//
-//			try (ResultSet rs = stmt.executeQuery()){
-//
-//				Retrait retrait = new Retrait(noArticle,
-//						rs.getString("rue"),
-//						rs.getString("code_postal"),
-//						rs.getString("ville")
-//						);
-//				return retrait;
-//			} 
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//			BusinessException businessException = new BusinessException();
-//			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
-//			throw businessException;
-//		}
-		return null;
+		try(Connection cnx = ConnectionProvider.getConnection();
+				PreparedStatement stmt = cnx.prepareStatement(sqlSelectById);){
+
+			stmt.setInt(1, noArticle);
+
+			try (ResultSet rs = stmt.executeQuery()){
+
+				Retrait retrait = new Retrait(noArticle,
+						rs.getString("rue"),
+						rs.getString("code_postal"),
+						rs.getString("ville")
+						);
+				return retrait;
+			} 
+		}catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.SELECT_OBJET_ECHEC);
+			throw businessException;
+		}
 	}
 
 	//=======================================================================//
