@@ -14,10 +14,9 @@
 </head>
 
 <body> 
-
-	<nav>
-		<h4>ENI-Enchères</h4>
-	</nav> 
+	<!--===========================Header==================================-->
+	<%@include file="../header.jsp" %>
+<!--===========================Connexion==================================-->
 	
 	<form method="post" action="ConnexionServlet" class="formConnexion">
 	
@@ -56,6 +55,8 @@
 	</form>
 
 
+	<!--===========================footer==================================-->
+		<%@include file="../footer.jsp" %>
 </body>
 
 </html>
