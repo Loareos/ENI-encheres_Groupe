@@ -11,12 +11,16 @@
 /* ==========================================================*/
 /* 						body & html							 */
 /* ==========================================================*/
-// html{
-// }
-body{
-	display: flexbox;
-	flex-direction: column;
+html{
 	height: 100%;
+}
+body{
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	margin: 0;
+	height: 0;
+	position: relative;
 }
 
 /* ==========================================================*/
@@ -30,7 +34,7 @@ header{
 	padding: $margPadSection;
 	margin-bottom: $margPadSection;
 
-	height: 20%;
+	height: 5em;
 
 	display: flex;
 
@@ -208,6 +212,7 @@ footer{
 
 
 	width:100%;
+	position: absolute;bottom:0;
 
 	.copyright{
 		display: block;

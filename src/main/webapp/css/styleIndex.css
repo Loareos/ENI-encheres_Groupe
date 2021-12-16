@@ -2,10 +2,17 @@
 /* ==========================================================*/
 /* 						body & html							 */
 /* ==========================================================*/
-body {
-  display: flexbox;
-  flex-direction: column;
+html {
   height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  height: 0;
+  position: relative;
 }
 
 /* ==========================================================*/
@@ -17,7 +24,7 @@ header {
   border-radius: 1em;
   padding: 0.5em;
   margin-bottom: 0.5em;
-  height: 20%;
+  height: 5em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -158,6 +165,8 @@ footer {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 footer .copyright {
   display: block;
