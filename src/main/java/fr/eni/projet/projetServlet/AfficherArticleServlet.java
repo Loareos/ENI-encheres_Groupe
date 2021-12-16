@@ -44,6 +44,7 @@ public class AfficherArticleServlet extends HttpServlet {
 		Integer proposition = Integer.parseInt(request.getParameter("propositionAfficher"));
 		String telephone = request.getParameter("telephoneAfficher");
 		
+		// FAUT RECUPERER TOUT L'OBJET ARTICLE ET ENSUITE ENVOYER SES INFOS
 		
 		
 	}
