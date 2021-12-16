@@ -6,7 +6,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta author="Clément" />
+<!-- <meta author="Clément" /> -->
 <style type="text/css"><%@include file="css/styleIndex.css"%></style>
 
 <title>Accueil</title>
@@ -16,7 +16,7 @@
 <!--===========================Header==================================-->
 	<%@include file="/WEB-INF/jsp/header.jsp" %>
 <!--===========================Section==================================-->
-	<%@include file="/WEB-INF/jsp/SectionListeEnchere.jsp" %>
+		<%@include file="/WEB-INF/jsp/SectionListeEnchere.jsp" %>
 	<!--===========================footer==================================-->
 		<%@include file="/WEB-INF/jsp/footer.jsp" %>
 </body>
