@@ -138,11 +138,9 @@ public class EnchereManager {
 					lstEnchere = this.enchereDAO.selectAll(idArticle);
 					
 					if(lstEnchere.isEmpty()) {
-						System.out.println("vide");
 	                    return null;
 					}
 					if(lstEnchere != null) {
-						System.out.println("pas vide");
 						int montantMax = 0;
 						int i = 0;
 						while (i < lstEnchere.size()) {
