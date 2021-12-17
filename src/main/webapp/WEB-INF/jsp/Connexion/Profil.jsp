@@ -1,3 +1,7 @@
+<!-- 
+@author Clément
+Modif by LCB 
+-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,16 +15,10 @@
 	<title>Profil</title> 
 	
 </head>
-
-<header>
-
-    <nav>
-		<h4>ENI-Enchères</h4> 
-		
-	</nav>
-	
-</header>
 <body>
+<!--===========================Header==================================-->
+		<%@include file="/WEB-INF/jsp/header.jsp" %>
+<!--===================================================================-->
  
 	<!-- Comparer les id -->
     <c:if test="${!user}">   
@@ -86,6 +84,10 @@
      <form action="ModificationProfil" class="btnRetour">
 		    <button type="submit" onclick="history.back()">Retour</button>
 	 </form>
-	
+	 
+<!--===========================footer==================================-->
+		<%@include file="/WEB-INF/jsp/footer.jsp" %>
+<!--===================================================================-->
+
 </body>
 </html>
