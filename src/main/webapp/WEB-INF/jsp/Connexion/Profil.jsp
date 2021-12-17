@@ -31,7 +31,7 @@ Modif by LCB
 
 	<div class="profilInfos">
 	   <!-- Mon profil personnel -->
-		<c:if test="${user}">
+		<c:if test="${!empty utilisateur}">
 		    <div class="profil">
 		    	<label>Pseudo : </label> 
 		    	<label>${profil.getPseudo()}</label>
@@ -75,7 +75,7 @@ Modif by LCB
 
 
 	<!-- Comparer les id -->
-	 <c:if test="${user}">
+	 <c:if test="${!empty utilisateur}">
         <form action="ModifProfilServlet" class="btn"><!-- SERVLET a rajouter -->
 		    <button type="submit">Modifier</button>
 	    </form>

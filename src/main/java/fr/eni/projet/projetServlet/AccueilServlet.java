@@ -2,6 +2,7 @@ package fr.eni.projet.projetServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -39,6 +40,20 @@ public class AccueilServlet extends HttpServlet {
 			ArticleVenduManager avm = ArticleVenduManager.getInstance();
 			List<ArticleVendu> lstArtEnCours = avm.getArticlesEnVente();
 			request.setAttribute("listeArticles", lstArtEnCours);
+
+			int i = 0;
+			List<ArticleVendu> articles = new ArrayList<ArticleVendu>();
+			List<Integer> miseAPrix = new ArrayList<Integer>();
+			List<Integer> MeilleureOffre = new ArrayList<Integer>();
+			
+			while (i < lstArtEnCours.size()) {
+				articles.add(lstArtEnCours.get(i));
+				
+				ArticleVendu article = articles.get(i);
+				
+				i += 1;
+			}
+
 			
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			request.setAttribute("article", null);
