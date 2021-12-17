@@ -52,7 +52,7 @@ public class AccueilServlet extends HttpServlet {
 				sb.append("\n").append("CODE ").append(i).append(" - ").append(LecteurMessage.getMessageErreur(i));
 
 			PrintWriter out = response.getWriter();
-			RequestDispatcher rd = request.getRequestDispatcher("AccueilServlet");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 			out.print(sb.toString());
 		}
