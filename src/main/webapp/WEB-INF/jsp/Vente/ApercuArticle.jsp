@@ -10,7 +10,7 @@
 	
 		<div class="caseTxt">
 			<a href="AfficherArticleServlet?id=${art.getNoArticle()}">${art.getNomArticle()}</a>
-			<p>Prix: ${art.getMiseAPrix()} points</p>
+			<p>Prix de départ: ${Newarticles.get(1).getMiseAPrix()} points</p>
 			<p>Fin de l'enchère: ${art.getDateFinEncheres()}</p>
 			<p>
 				Vendeur: <a href="ProfilServlet?id=${art.getVendeur().getPseudo()}">${art.getVendeur().getPseudo()}</a>
