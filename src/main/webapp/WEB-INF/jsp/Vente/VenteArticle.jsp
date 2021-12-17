@@ -5,21 +5,27 @@ Modif by LCB
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
-
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<!-- <meta author="Clément" /> -->
+<style type="text/css"><%@include file="../../../../css/styleIndex.css"%></style>
 
- 
-    <title>Nouvelle vente : </title>
+<title>Accueil</title>
 
 </head>
+<body>
 
-	<body>
-
+<!--===========================Header==================================-->
+		<%@include file="/WEB-INF/jsp/header.jsp" %>
+<!--===========================section==================================-->
+		
+	<section>
 		<h3>Nouvelle vente :</h3>
+		
 		
 		<img class="imgArticle" alt="" src="/imageBase.png">
 
@@ -27,26 +33,26 @@ Modif by LCB
 		
 		    <div>
 			    <label class="label">Article : </label>
-       		    <input class="input" type="text" name="Nom" required/>
+       		    <input class="input" type="text" name="Nom" />
 		    </div> 
 		    
 		    <div>
 			    <label class="label">Description : </label>
-       		    <input class="input" type="text" name="Description" required/>
+       		    <input class="input" type="text" name="Description" />
 		    </div>
 		     
             <div>
 		        <label class="label">Début de l'enchère : </label>
-       		    <input class="input" type="date" name="DateDebut" required/>
+       		    <input class="input" type="date" name="DateDebut" />
 		    </div>
 		   <div>
 		        <label class="label">Fin de l'enchère : </label>
-       		    <input class="input" type="date" name="DateFin" required/>
+       		    <input class="input" type="date" name="DateFin" />
 		    </div>		
 
 		    <div>
 		        <label class="label">Mise à prix : </label>
-       		    <input class="input" type="number" name="MiseAPrix" required/>
+       		    <input class="input" type="number" name="MiseAPrix" />
 		    </div>
 		        
 			<div class="selectionneur">
@@ -60,28 +66,31 @@ Modif by LCB
 			</div>
 		    
 		    <fieldset>
+		    
 		        <legend>Retrait</legend>
 		        <div>
 			        <label class="label">Rue : </label>
-       		        <input class="input" type="text" name="RueRetrait" value="${utilisateur.getRue()}" required/>
+       		        <input class="input" type="text" name="RueRetrait" value="${utilisateur.getRue()}" />
 		        </div> 
 		        
 		        <div>
 			        <label class="label">Code postal : </label>
-       		        <input class="input" type="text" name="CodePostalRetrait" value="${utilisateur.getCodePostal()}" required/>
+       		        <input class="input" type="text" name="CodePostalRetrait" value="${utilisateur.getCodePostal()}"/>
        		    </div>
        		    <div>
        	        	<label class="label">Ville : </label>
-       		        <input class="input" type="text" name="VilleRetrait" value="${utilisateur.getVille()}" required/>
+       		        <input class="input" type="text" name="VilleRetrait" value="${utilisateur.getVille()}"/>
 		        </div>
+		        
 		    </fieldset>
-		
-			<div class="btn">
-				<input type="submit" value="Enregistrer" /> 
-			</div>
+				<div class="divBtRechercher">
+					<input type="submit" value="Enregistrer" /> 
+				</div>
 		</form>
-        
-        <button onclick="history.back()" style="margin-left : 20px">Annuler</button>
+		        <button onclick="history.back()" style="margin-left : 20px">Annuler</button>
+	</section>
+<!--===========================footer==================================-->
+		<%@include file="/WEB-INF/jsp/footer.jsp" %>
 
-	</body>
+</body>
 </html>
