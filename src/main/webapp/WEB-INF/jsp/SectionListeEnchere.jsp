@@ -6,7 +6,7 @@ Modif by LCB
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<section class="SectionListeEnchere">
+<section>
 
 	<h3>Liste des enchères</h3>
 

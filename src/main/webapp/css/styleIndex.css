@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ======================variable============================*/
 /* ==========================================================*/
 /* 						body & html							 */
@@ -7,20 +8,20 @@ html {
 }
 
 body {
+  margin-bottom: 4em;
   display: flex;
   flex-direction: column;
   min-height: 100%;
   margin: 0;
   height: 0;
-  position: relative;
 }
 
 /* ==========================================================*/
 /* 						header								 */
 /* ==========================================================*/
 header {
-  background-color: #19dcf5;
-  background: linear-gradient(to top, rgba(25, 219, 245, 0.781), 20%, rgba(255, 255, 255, 0.829));
+  background-color: rgba(77, 175, 255, 0.92);
+  background: linear-gradient(to top, rgba(77, 175, 255, 0.92), 20%, rgba(255, 255, 255, 0.829));
   border-radius: 1em;
   padding: 0.5em;
   margin-bottom: 0.5em;
@@ -55,101 +56,106 @@ header .logoEnchere:hover {
 /* ==========================================================*/
 /* 						Section Liste Enchere				 */
 /* ==========================================================*/
-.SectionListeEnchere {
+section {
   border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.SectionListeEnchere h3 {
+section h3 {
   background: linear-gradient(to bottom, rgba(102, 255, 230, 0.801), rgba(255, 255, 255, 0.829));
   border-radius: 1em;
   padding: 2%;
   font-size: x-large;
 }
-.SectionListeEnchere h4 {
+section h4 {
   padding: 0.5em;
   text-decoration: underline;
 }
-.SectionListeEnchere form {
+section form {
   height: 20;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   padding: 0.5em;
 }
-.SectionListeEnchere form .selectionneur {
+section form .selectionneur {
   display: flex;
   flex-direction: column;
   padding: auto;
 }
-.SectionListeEnchere form .divBtRechercher {
+section form .divBtRechercher {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1em;
+  width: 20%;
 }
-.SectionListeEnchere form .divBtRechercher .btnRechercher {
+section form .divBtRechercher .btnRechercher {
   font-size: large;
   padding: 1em;
 }
-.SectionListeEnchere form .selectionneurSpe .labCatgorie {
+section form .selectionneurSpe .labCatgorie {
   padding: 0.5em;
 }
-.SectionListeEnchere .achatVente {
+section .achatVente {
   display: flex;
   justify-content: space-around;
   padding: 1em;
   border-radius: 1em;
   background-color: aliceblue;
+  margin: 0.5em;
 }
-.SectionListeEnchere .achatVente .achat {
+section .achatVente .achat {
   display: flex;
   flex-direction: column;
   padding: 0.5em;
   margin: 0.5em;
 }
-.SectionListeEnchere .achatVente .achat .labelAchat {
+section .achatVente .achat .labelAchat {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   width: auto;
   margin: 0.5em;
 }
-.SectionListeEnchere .achatVente .achat .labelAchat .labelTitreAchat {
+section .achatVente .achat .labelAchat .labelTitreAchat {
   background-color: rgba(102, 255, 230, 0.801);
   padding: 1em;
   border-radius: 1em;
 }
-.SectionListeEnchere .achatVente .achat .labelAchat label {
+section .achatVente .achat .labelAchat label {
   display: inline-block;
   padding: 0.3em;
 }
-.SectionListeEnchere .achatVente .achat .labelAchat input {
+section .achatVente .achat .labelAchat input {
   display: inline-block;
 }
-.SectionListeEnchere .achatVente .vente {
+section .achatVente .vente {
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
   border-radius: 1em;
   background-color: aliceblue;
+  padding: 0.5em;
   margin: 0.5em;
 }
-.SectionListeEnchere .achatVente .vente .labelVente {
+section .achatVente .vente .labelVente {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   width: auto;
   margin: 0.5em;
 }
-.SectionListeEnchere .achatVente .vente .labelVente .labelTitreVente {
+section .achatVente .vente .labelVente .labelTitreVente {
   background-color: rgba(102, 255, 230, 0.801);
   padding: 1em;
   border-radius: 1em;
 }
-.SectionListeEnchere .achatVente .vente .labelVente label {
+section .achatVente .vente .labelVente label {
   display: inline-block;
   padding: 0.3em;
 }
-.SectionListeEnchere .achatVente .vente .labelVente input {
+section .achatVente .vente .labelVente input {
   display: inline-block;
 }
 
@@ -157,14 +163,13 @@ header .logoEnchere:hover {
 /* 						footer								 */
 /* ==========================================================*/
 footer {
-  background-color: rgba(25, 219, 245, 0.781);
+  background-color: rgba(77, 175, 255, 0.92);
   border-radius: 1em;
   margin-top: 0.5em;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  height: 4em;
 }
 footer .copyright {
   display: block;
@@ -218,10 +223,17 @@ footer .Cookies {
   margin: 0.5em;
 }
 
+/* ==========================================================*/
+/* 					Appliquer à toute la page				 */
+/* ==========================================================*/
 h3 {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+}
+
+fieldset {
+  width: 50%;
 }
 
 .titreIndex {
@@ -232,11 +244,6 @@ h3 {
 .formConnexionC {
   display: flex;
   flex-direction: column;
-}
-
-.input {
-  margin-bottom: 15px;
-  margin-right: 40px;
 }
 
 .formItemConnexionC {
@@ -287,12 +294,6 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-
-.btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
 }
 
 .btnRetour {

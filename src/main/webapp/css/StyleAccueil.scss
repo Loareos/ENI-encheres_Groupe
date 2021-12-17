@@ -1,13 +1,15 @@
 @charset "UTF-8";
 /* ======================variable============================*/
 	$margPadSection: 0.5em;
-	$bleupastel: rgba(25, 219, 245, 0.781);
+	$headercolor: rgba(77, 175, 255, 0.92);
+	$logoEnchere: rgba(25, 219, 245, 0.781);
 	$vertpastel:rgba(102, 255, 230, 0.801);
 	$couleurArticle: rgba(102, 179, 255, 0.616);
 	$linearRadListeEnch:  rgba(255, 255, 255, 0.829);
 	$testpx: 3px solid black;
 	$btnForm:1em;
 	$bordRad: 1em;
+	$footerBodyMargin: 4em;
 /* ==========================================================*/
 /* 						body & html							 */
 /* ==========================================================*/
@@ -15,12 +17,14 @@ html{
 	height: 100%;
 }
 body{
+	margin-bottom: $footerBodyMargin;
+
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
 	margin: 0;
 	height: 0;
-	position: relative;
+	// position: relative;
 }
 
 /* ==========================================================*/
@@ -28,8 +32,8 @@ body{
 /* ==========================================================*/
 header{
 
-	background-color: rgb(25, 220, 245);
-	background: linear-gradient(to top ,$bleupastel,20%, $linearRadListeEnch) ;
+	background-color: $headercolor;
+	background: linear-gradient(to top ,$headercolor,20%, $linearRadListeEnch) ;
 	border-radius: $bordRad;
 	padding: $margPadSection;
 	margin-bottom: $margPadSection;
@@ -50,7 +54,7 @@ header{
 		margin-right: 20px;
 	}
 	.logoEnchere{
-		background-color: $bleupastel;
+		background-color: $logoEnchere;
 		border-radius: $bordRad;
 
 		a{
@@ -72,8 +76,11 @@ header{
 /* ==========================================================*/
 /* 						Section Liste Enchere				 */
 /* ==========================================================*/
-.SectionListeEnchere{
+section{
 	border-radius: $bordRad;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
 
 	h3{
@@ -114,6 +121,7 @@ header{
 			justify-content: center;
 			align-items : center;
 			padding: 1em;
+			width: 20%;
 			.btnRechercher{
 				font-size: large;
 				padding: $btnForm;
@@ -199,7 +207,7 @@ header{
 
 footer{
 
-	background-color:$bleupastel;
+	background-color:$headercolor;
 	border-radius: $bordRad;
 
 	margin-top: $margPadSection;
@@ -209,7 +217,10 @@ footer{
 
 
 	width:100%;
-	position: absolute;bottom:0;
+	height: 4em;
+	// position: absolute;bottom:0;
+	// position: -webkit-sticky;
+	// position: sticky;
 
 	.copyright{
 		display: block;
@@ -281,14 +292,18 @@ footer{
 	}
 }
 
-
+/* ==========================================================*/
+/* 					Appliquer à toute la page				 */
+/* ==========================================================*/
 
 h3 {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 30px;
 }
-
+fieldset{
+	width: 50%;
+}
 .titreIndex {
 	display: flex;
 	justify-content: center;
@@ -302,10 +317,10 @@ h3 {
 //     width: 150px;
 //     margin-left: 40px;
 // }
-.input {
-    margin-bottom: 15px;
-    margin-right: 40px;
-}
+// .input {
+//     margin-bottom: 15px;
+//     margin-right: 40px;
+// }
 .formItemConnexionC {
     display: flex;
     justify-content: space-between;
@@ -357,11 +372,11 @@ h3 {
 	align-items: flex-end;
 }
 
-.btn {
-	display: flex;
-	justify-content: center;
-	margin-top: 40px;
-}
+// .btn {
+// 	display: flex;
+// 	justify-content: center;
+// 	margin-top: 40px;
+// }
 
 .btnRetour {
 	display: flex;
