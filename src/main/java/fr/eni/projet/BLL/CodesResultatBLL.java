@@ -37,5 +37,8 @@ public abstract class CodesResultatBLL {
 	public static final int POINT_RETRAIT_INCONNU = 20017;
 	public static final int PSEUDO_ALPHANUM = 20018;
 	public static final int ARTICLE_INCONNU = 20019;
+	public static final int ENCHERE_INEXISTANTE = 20020;
+	public static final int MISE_INSUFISANTE = 20021;
+	
 	
 }

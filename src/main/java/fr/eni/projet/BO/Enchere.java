@@ -14,6 +14,8 @@ public class Enchere {
 
 	private Utilisateur 		acheteur;
 	private ArticleVendu 		article;
+	private int 		        idAcheteur;
+	private int 		        idArticle;
 	private LocalDate 		    dateEnchere;
 	private Integer 			montant_enchere;
 	
@@ -28,7 +30,19 @@ public class Enchere {
 	public Enchere() {
 		super();
 	}
-
+	
+	/**
+	 *		Constructeur Intermédiaire
+	 */
+	public Enchere(int idAcheteur, int idArticle,
+					LocalDate dateEnchere, Integer montant_enchere) {
+		
+		this.idAcheteur 		= idAcheteur;
+		this.idArticle 			= idArticle;
+		this.dateEnchere 		= dateEnchere;
+		this.montant_enchere 	= montant_enchere;
+	}	
+	
 	/**
 	 *		Constructeur Complet
 	 */
@@ -56,6 +70,16 @@ public class Enchere {
 		this.acheteur = acheteur;
 	}
 	
+	//=================== noidAcheteur ===================
+		//getter
+		public int getidAcheteur() {
+			return idAcheteur;
+		}
+		//Setter
+		public void setidAcheteur(int idAcheteur) {
+			this.idAcheteur = idAcheteur;
+		}
+	
 	//=================== noArticle ===================
 	//getter
 	public ArticleVendu getArticle() {
@@ -65,6 +89,16 @@ public class Enchere {
 	public void setArticle(ArticleVendu article) {
 		this.article = article;
 	}
+	
+	//=================== noidArticle ===================
+		//getter
+		public int getidArticle() {
+			return idArticle;
+		}
+		//Setter
+		public void setidArticle(int idArticle) {
+			this.idArticle = idArticle;
+		}
 	
 	//=================== dateEnchere ===================
 	//getter
@@ -96,6 +130,13 @@ public class Enchere {
 				+ "-"; 
 	}
 	
+	public String toStringId() {
+		return "-Enchere Acheteur: "+ getidAcheteur()
+				+ " /NoArt: " 		+ getidArticle()
+				+ " /DateEnch: " 	+ getDateEnchere()
+				+ " /$: " 			+ getMontant_enchere()
+				+ "-"; 
+	}
 	
 	
 	

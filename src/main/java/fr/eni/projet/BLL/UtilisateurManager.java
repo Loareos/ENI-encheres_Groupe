@@ -132,6 +132,18 @@ public class UtilisateurManager extends Manager {
 		throw exception;
 	}
 	
+	//========  SELECT BY SEARCH  ===========================================	
+	
+	public Utilisateur rechercheUserId(int id) throws BusinessException {
+		BusinessException exception = new BusinessException();
+
+		if(this.utilisateurDao.idExist(id))
+			return this.utilisateurDao.selectById(id);
+		else
+			exception.ajouterErreur(CodesResultatBLL.UTILISATEUR_INCONNU);
+		throw exception;
+	}
+	
 	
 //========  SUPPRESSION  ===========================================	
 

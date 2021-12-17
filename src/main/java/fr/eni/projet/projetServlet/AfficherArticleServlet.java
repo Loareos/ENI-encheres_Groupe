@@ -71,14 +71,21 @@ public class AfficherArticleServlet extends HttpServlet {
 			while(compte < listeArticle.size()) {
 				if (idArticle == listeArticle.get(compte).getNoArticle()) {
 					
-					
 					ArticleVendu article = new 
 							ArticleVendu(idArticle, listeArticle.get(compte).getNomArticle(), listeArticle.get(compte).getDescription(),
 									listeArticle.get(compte).getDateDebutEncheres(), listeArticle.get(compte).getDateFinEncheres(),
 									listeArticle.get(compte).getMiseAPrix(), listeArticle.get(compte).getPrixVente(), listeArticle.get(compte).getVendeur(),
 									listeArticle.get(compte).getCategorie());
 					
-					Enchere enchere = new Enchere();
+					//Enchere avec la valeur max pour recuperer id de l'acheteur et le montant
+					EnchereManager em = EnchereManager.getInstance();
+					System.out.println("sel"+ em.SelectAll(3).getidAcheteur());
+					
+					//On recupere les infos de l'utilisateur
+					UtilisateurManager uma = UtilisateurManager.getInstance();
+					Utilisateur utilisateur = uma.rechercheUserId(em.SelectAll(3).getidAcheteur());
+					
+					Enchere enchere = new Enchere(utilisateur, article, LocalDate.now(), em.SelectAll(3).getMontant_enchere());
 					request.setAttribute("article", article);
 					request.setAttribute("acheteur", enchere);
 				}

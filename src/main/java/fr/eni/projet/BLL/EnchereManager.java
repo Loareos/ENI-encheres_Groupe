@@ -4,6 +4,10 @@
 package fr.eni.projet.BLL;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.BO.ArticleVendu;
@@ -75,50 +79,84 @@ public class EnchereManager {
 		if (!this.articleDAO.idExist(article.getNoArticle()))
 			exception.ajouterErreur(CodesResultatBLL.ARTICLE_INCONNU);
 
+		//Ajouts
 		if (!exception.hasErreurs()) {
-			if (this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
-				this.enchereDAO.update(enchere);
+			if (montant <= SelectAll(article.getNoArticle()).getMontant_enchere()) {
+				exception.ajouterErreur(CodesResultatBLL.MISE_INSUFISANTE);
 			}
-			if (!this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
-				this.enchereDAO.insert(enchere);
+			if (montant > SelectAll(article.getNoArticle()).getMontant_enchere()) {
+				if (this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
+					this.enchereDAO.update(enchere);
+				}
+				if (!this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
+					this.enchereDAO.insert(enchere);
+				}
 			}
+			
+
 			return enchere;
 		}else
 			throw exception;
 		
 		
 	}
-
-
-	//========  MODIFICATION  ===========================================	
-	
-		public void modifEnchere(Integer noUtilisateur, Integer noArticle, LocalDate dateEnchere, Integer montant) throws BusinessException{
-			BusinessException exception = new BusinessException();
-			Retrait retrait = new Retrait(noArticle, rue, code_postal, ville);
-			verif(retrait, exception);
-			if(!exception.hasErreurs()) {
-				this.retraitDAO.update(retrait);
-			}else
-				throw exception;
-		}
 		
 	//========  SELECT BY SEARCH  ===========================================	
 		
-		public Retrait RetraitById(Integer id) throws BusinessException {
+		public Enchere EnchereById(Integer idUtilisateur, Integer idArticle) throws BusinessException {
 			BusinessException exception = new BusinessException();
 	
-			if(this.retraitDAO.retraitExiste(id))
-				return this.retraitDAO.selectById(id);
-			else
-				exception.ajouterErreur(CodesResultatBLL.POINT_RETRAIT_INCONNU);
+			System.out.println(this.enchereDAO.enchereExist(idUtilisateur, idArticle));
+			if(this.enchereDAO.enchereExist(idUtilisateur, idArticle))
+				return this.enchereDAO.selectById(idUtilisateur, idArticle);
+			if(!this.enchereDAO.enchereExist(idUtilisateur, idArticle)) {
+				exception.ajouterErreur(CodesResultatBLL.ENCHERE_INEXISTANTE);
+				return null;
+				}
 			throw exception;
 		}
 		
+		//========  SELECT ALL  ===========================================	
+		
+				public Enchere SelectAll(Integer idArticle) throws BusinessException {
+					BusinessException exception = new BusinessException();
+					List<Enchere> lstEnchere = new ArrayList<Enchere>();
+					lstEnchere = this.enchereDAO.selectAll(idArticle);
+					
+					if(lstEnchere.isEmpty()) {
+						System.out.println("vide");
+	                    return null;
+					}
+					if(lstEnchere != null) {
+						System.out.println("pas vide");
+						int montantMax = 0;
+						int i = 0;
+						while (i < lstEnchere.size()) {
+							List<Integer> montants = new ArrayList<Integer>();
+							montants.add(lstEnchere.get(i).getMontant_enchere());
+
+							System.out.println(montants);
+							Collections.sort(montants);
+							System.out.println(montants);
+							
+							montantMax = montants.get(montants.size() - 1);
+							System.out.println(montantMax);
+							i += 1;
+						}
+						
+						Enchere enchere = this.enchereDAO.selectByIdMontant(idArticle, montantMax);
+						System.out.println("test" + enchere);
+	                    return enchere;
+					}
+				
+					throw exception;
+				}
+				
 		
 	//========  SUPPRESSION  ===========================================	
 	
-		public void suppressionUser(Retrait retrait) throws BusinessException {
-			this.retraitDAO.delete(retrait.getNoArticle());
+		public void suppressionUser(Enchere enchere) throws BusinessException {
+			this.enchereDAO.delete(enchere.getidAcheteur(),enchere.getidArticle());
 		}
 	
 		
