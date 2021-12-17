@@ -14,8 +14,8 @@ public class Enchere {
 
 	private Utilisateur 		acheteur;
 	private ArticleVendu 		article;
-	private int 		        idAcheteur;
-	private int 		        idArticle;
+	private Integer 	        idAcheteur;
+	private Integer 	        idArticle;
 	private LocalDate 		    dateEnchere;
 	private Integer 			montant_enchere;
 	
@@ -34,7 +34,7 @@ public class Enchere {
 	/**
 	 *		Constructeur Intermédiaire
 	 */
-	public Enchere(int idAcheteur, int idArticle,
+	public Enchere(Integer idAcheteur, Integer idArticle,
 					LocalDate dateEnchere, Integer montant_enchere) {
 		
 		this.idAcheteur 		= idAcheteur;
@@ -76,7 +76,7 @@ public class Enchere {
 			return idAcheteur;
 		}
 		//Setter
-		public void setidAcheteur(int idAcheteur) {
+		public void setidAcheteur(Integer idAcheteur) {
 			this.idAcheteur = idAcheteur;
 		}
 	
@@ -96,7 +96,7 @@ public class Enchere {
 			return idArticle;
 		}
 		//Setter
-		public void setidArticle(int idArticle) {
+		public void setidArticle(Integer idArticle) {
 			this.idArticle = idArticle;
 		}
 	

@@ -95,12 +95,16 @@ public class EnchereManager {
 				}
 			}
 			if (SelectAll(article.getNoArticle()) == null) {
+				if (SelectAll(acheteur.getNoUtilisateur()) == null) {
+					return null;
+				}
 				if (this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
 					this.enchereDAO.update(enchere);
 				}
 				if (!this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
 					this.enchereDAO.insert(enchere);
 				}
+				
 			}
 			
 
