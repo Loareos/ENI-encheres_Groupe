@@ -26,11 +26,7 @@ Modif by LCB
 			<a href="AccueilServlet" class="lienConnection">Enchères</a> <a
 				href="VenteArticleServlet" class="lienConnection">Vendre un
 				article</a>
-			<form method="post" action="ProfilServlet">
-				<!-- Mettre un hidden après les tests -->
-<!-- 				<input name="profilSelectionne" value="${utilisateur.getPseudo()}"></input>  -->
-				<input type="submit" value="Mon profil" class="lienConnection" />
-			</form>
+            <a class="lienConnection" href="ProfilServlet?id=${utilisateur.getPseudo()}">Mon profil</a>
 			<a href="DeconnexionServlet" class="lienConnection">Déconnexion</a>
 
 		</div>
