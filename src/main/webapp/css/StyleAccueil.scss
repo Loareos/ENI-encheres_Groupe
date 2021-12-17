@@ -132,6 +132,7 @@ header{
 		padding: 1em;
 		border-radius: $bordRad;
 		background-color: aliceblue;
+		margin: $margPadSection;
 		.achat{
 			display: flex;
 			flex-direction: column;
@@ -161,9 +162,11 @@ header{
 		.vente{
 			display: flex;
 			flex-direction: column;
-			padding: $margPadSection;
+
 			border-radius: $bordRad;
 			background-color: aliceblue;
+
+			padding: $margPadSection;
 			margin: $margPadSection;
 			.labelVente{
 				display: flex;
