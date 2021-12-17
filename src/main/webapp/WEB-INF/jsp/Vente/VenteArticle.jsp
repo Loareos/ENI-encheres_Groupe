@@ -27,26 +27,26 @@ Modif by LCB
 		
 		    <div>
 			    <label class="label">Article : </label>
-       		    <input class="input" type="text" name="Nom" />
+       		    <input class="input" type="text" name="Nom" required/>
 		    </div> 
 		    
 		    <div>
 			    <label class="label">Description : </label>
-       		    <input class="input" type="text" name="Description" />
+       		    <input class="input" type="text" name="Description" required/>
 		    </div>
 		     
             <div>
 		        <label class="label">Début de l'enchère : </label>
-       		    <input class="input" type="date" name="DateDebut" />
+       		    <input class="input" type="date" name="DateDebut" required/>
 		    </div>
 		   <div>
 		        <label class="label">Fin de l'enchère : </label>
-       		    <input class="input" type="date" name="DateFin" />
+       		    <input class="input" type="date" name="DateFin" required/>
 		    </div>		
 
 		    <div>
 		        <label class="label">Mise à prix : </label>
-       		    <input class="input" type="number" name="MiseAPrix" />
+       		    <input class="input" type="number" name="MiseAPrix" required/>
 		    </div>
 		        
 			<div class="selectionneur">
@@ -63,16 +63,16 @@ Modif by LCB
 		        <legend>Retrait</legend>
 		        <div>
 			        <label class="label">Rue : </label>
-       		        <input class="input" type="text" name="RueRetrait" value="${utilisateur.getRue()}" />
+       		        <input class="input" type="text" name="RueRetrait" value="${utilisateur.getRue()}" required/>
 		        </div> 
 		        
 		        <div>
 			        <label class="label">Code postal : </label>
-       		        <input class="input" type="text" name="CodePostalRetrait" value="${utilisateur.getCodePostal()}"/>
+       		        <input class="input" type="text" name="CodePostalRetrait" value="${utilisateur.getCodePostal()}" required/>
        		    </div>
        		    <div>
        	        	<label class="label">Ville : </label>
-       		        <input class="input" type="text" name="VilleRetrait" value="${utilisateur.getVille()}"/>
+       		        <input class="input" type="text" name="VilleRetrait" value="${utilisateur.getVille()}" required/>
 		        </div>
 		    </fieldset>
 		

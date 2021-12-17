@@ -41,6 +41,8 @@ public class AccueilServlet extends HttpServlet {
 			request.setAttribute("listeArticles", lstArtEnCours);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			request.setAttribute("article", null);
+			request.setAttribute("acheteur", null);
 			rd.forward(request, response);			
 
 		} catch (BusinessException e) {

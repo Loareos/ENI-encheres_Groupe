@@ -72,7 +72,7 @@ public class Enchere {
 	
 	//=================== noidAcheteur ===================
 		//getter
-		public int getidAcheteur() {
+		public Integer getidAcheteur() {
 			return idAcheteur;
 		}
 		//Setter

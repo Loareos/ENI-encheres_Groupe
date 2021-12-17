@@ -79,15 +79,26 @@ public class AfficherArticleServlet extends HttpServlet {
 					
 					//Enchere avec la valeur max pour recuperer id de l'acheteur et le montant
 					EnchereManager em = EnchereManager.getInstance();
-					System.out.println("sel"+ em.SelectAll(3).getidAcheteur());
 					
 					//On recupere les infos de l'utilisateur
 					UtilisateurManager uma = UtilisateurManager.getInstance();
-					Utilisateur utilisateur = uma.rechercheUserId(em.SelectAll(3).getidAcheteur());
+					if (em.SelectAll(idArticle) == null) {
+						request.setAttribute("RAS", "ras");
+					    Enchere enchere = new Enchere(null, article, LocalDate.now(), 0); 
+					    request.setAttribute("article", article);
+					    request.setAttribute("acheteur", enchere);
+					}
 					
-					Enchere enchere = new Enchere(utilisateur, article, LocalDate.now(), em.SelectAll(3).getMontant_enchere());
-					request.setAttribute("article", article);
-					request.setAttribute("acheteur", enchere);
+					if (em.SelectAll(idArticle) != null) {
+						String idAcheteur = String.valueOf(em.SelectAll(idArticle).getidAcheteur());
+						Utilisateur utilisateur = uma.rechercheUserId(em.SelectAll(idArticle).getidAcheteur());
+					
+					    Enchere enchere = new Enchere(utilisateur, article, LocalDate.now(), em.SelectAll(idArticle).getMontant_enchere());
+					    request.setAttribute("article", article);
+					    request.setAttribute("acheteur", enchere);
+						request.setAttribute("RAS", null);
+					}
+					
 				}
 				compte += 1;
 			}
@@ -143,12 +154,17 @@ public class AfficherArticleServlet extends HttpServlet {
 											listeArticle.get(compte).getMiseAPrix(), listeArticle.get(compte).getPrixVente(), listeArticle.get(compte).getVendeur(),
 											listeArticle.get(compte).getCategorie());
 							
-
+							//Enchere avec la valeur max pour recuperer id de l'acheteur et le montant
 							EnchereManager em = EnchereManager.getInstance();
-							Enchere enchere = em.ajouterEnchere(user, article, LocalDate.now(), montant_enchere);
+							 
+							//On recupere les infos de l'utilisateur
+							UtilisateurManager uma = UtilisateurManager.getInstance();
 							
-							request.setAttribute("article", article);
-							request.setAttribute("acheteur", enchere);
+							em.ajouterEnchere(user, article, LocalDate.now(), montant_enchere);
+							
+							
+
+							
 						}
 						compte += 1;
 					}

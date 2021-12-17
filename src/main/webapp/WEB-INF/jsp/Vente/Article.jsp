@@ -33,11 +33,11 @@
 		    
 			    <label class="label">Meilleure offre : </label>
 			    
-			    <c:if test="${!empty acheteur.getAcheteur().getPseudo()}"> 
+			    <c:if test="${empty RAS}"> 
                     <label class="label">${acheteur.getMontant_enchere()} pts par ${acheteur.getAcheteur().getPseudo()} </label>
 			    </c:if>
 			    
-			    <c:if test="${empty acheteur.getAcheteur()}"> 
+			    <c:if test="${!empty RAS}"> 
                     <label class="label">Personne n'a encore fait de proposition </label>
 			    </c:if>
 			    
@@ -69,7 +69,7 @@
 		    <c:if test="${user}"> 
                 <div>
 			        <label class="label">Ma proposition : </label>
-                    <input class="label" type="number" name="montant" required/>
+                    <input class="label" type="number" name="montant" min="${article.getMiseAPrix() + 1}" required/>
                     <input class="label" name="id" value="${article.getNoArticle()}" hidden/>
                     <input type="submit" value="Enchérir" /> 
                 </div>

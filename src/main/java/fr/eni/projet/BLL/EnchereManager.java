@@ -81,10 +81,20 @@ public class EnchereManager {
 
 		//Ajouts
 		if (!exception.hasErreurs()) {
-			if (montant <= SelectAll(article.getNoArticle()).getMontant_enchere()) {
-				exception.ajouterErreur(CodesResultatBLL.MISE_INSUFISANTE);
+			if (SelectAll(article.getNoArticle()) != null) {
+				if (montant <= SelectAll(article.getNoArticle()).getMontant_enchere()) {
+					exception.ajouterErreur(CodesResultatBLL.MISE_INSUFISANTE);
+				}
+				if (montant > SelectAll(article.getNoArticle()).getMontant_enchere()) {
+					if (this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
+						this.enchereDAO.update(enchere);
+					}
+					if (!this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
+						this.enchereDAO.insert(enchere);
+					}
+				}
 			}
-			if (montant > SelectAll(article.getNoArticle()).getMontant_enchere()) {
+			if (SelectAll(article.getNoArticle()) == null) {
 				if (this.enchereDAO.enchereExist(acheteur.getNoUtilisateur(), article.getNoArticle())) {
 					this.enchereDAO.update(enchere);
 				}
@@ -135,17 +145,13 @@ public class EnchereManager {
 							List<Integer> montants = new ArrayList<Integer>();
 							montants.add(lstEnchere.get(i).getMontant_enchere());
 
-							System.out.println(montants);
 							Collections.sort(montants);
-							System.out.println(montants);
 							
 							montantMax = montants.get(montants.size() - 1);
-							System.out.println(montantMax);
 							i += 1;
 						}
 						
 						Enchere enchere = this.enchereDAO.selectByIdMontant(idArticle, montantMax);
-						System.out.println("test" + enchere);
 	                    return enchere;
 					}
 				
